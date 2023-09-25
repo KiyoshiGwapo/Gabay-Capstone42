@@ -55,6 +55,9 @@
     <Reference Include="MimeKit, Version=4.2.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeKit.4.2.0\lib\net47\MimeKit.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -114,6 +117,7 @@
     <Content Include="Bootstrap\Content\bootstrap.rtl.css" />
     <Content Include="Bootstrap\Content\bootstrap.rtl.min.css" />
     <Content Include="Prototype\WebForm1.aspx" />
+    <Content Include="Resources\CustomJS\CampusInfo\CampusInfo.js" />
     <Content Include="Resources\CustomJS\Chatbot\AppointmentJS.js" />
     <Content Include="Resources\CustomJS\Chatbot\ChatbotJS.js" />
     <Content Include="Resources\CustomJS\Chatbot\ManageChatbot.js" />
@@ -2188,6 +2192,7 @@
     <Content Include="Bootstrap\Scripts\bootstrap.min.js" />
     <Content Include="Resources\CustomStyleSheet\Acad_Calendar\AcadCalenStyle.css" />
     <Content Include="Resources\CustomStyleSheet\Appointment\AppointmentStyle.css" />
+    <Content Include="Resources\CustomStyleSheet\CampusInfo\CampusInfo.css" />
     <Content Include="Resources\CustomStyleSheet\Chatbot\ChatbotStyle.css" />
     <Content Include="Resources\CustomStyleSheet\Chatbot\ManageChatbotStyle.css" />
     <Content Include="Resources\CustomStyleSheet\PendingPageStyle.css" />
@@ -2260,6 +2265,7 @@
     <Content Include="Views\Modules\Admin_Modules\Manage_AcadCalen.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx" />
     <Content Include="Views\Modules\Appointment\Student_Appointment.aspx" />
+    <Content Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx" />
     <Content Include="Views\Modules\Chatbot\Department_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Student_Chatbot.aspx" />
     <Content Include="Views\Modules\Wayfinding\Department_Wayfinding.aspx" />
@@ -2271,6 +2277,7 @@
   <ItemGroup>
     <Compile Include="Models\AcadCalen_model.cs" />
     <Compile Include="Models\Appointment_model.cs" />
+    <Compile Include="Models\CampusInfo_model.cs" />
     <Compile Include="Models\Chatbot_model.cs" />
     <Compile Include="Models\DbUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2385,6 +2392,13 @@
     </Compile>
     <Compile Include="Views\Modules\Appointment\Student_Appointment.aspx.designer.cs">
       <DependentUpon>Student_Appointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx.cs">
+      <DependentUpon>Student_CampusInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx.designer.cs">
+      <DependentUpon>Student_CampusInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Chatbot\Department_Chatbot.aspx.cs">
       <DependentUpon>Department_Chatbot.aspx</DependentUpon>

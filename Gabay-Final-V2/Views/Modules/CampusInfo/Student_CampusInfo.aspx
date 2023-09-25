@@ -4,20 +4,18 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- <script src="../../../Resources/CustomJS/CampusInfo/CampusInfo.js"></script> -->
+    <!-- <script src="../../../Resources/CustomJS/CampusInfo/CampusInfo.js"></script> -->    <!-- Add this link for Font Awesome CSS -->
+    <link href="../../../Resources/CustomStyleSheet/CampusInfo/CampusInfo.css" rel="stylesheet" /> 
+    <!-- Add this link for Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add this link for Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link href="../../../Resources/CustomStyleSheet/CampusInfo/CampusInfo.css" rel="stylesheet" />
     <!--Para gawas sa pop up-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<%--    <div class="container">--%>
+<%--<div class="container">--%>
             <div class="accordion">
                         <div class="accordion-image-container">
                           <img src="../../../Resources/Images/uclm.png" alt="Accordion Image" class="accordion-image" />
@@ -78,14 +76,18 @@
 
             accordionContent.forEach((item, index) => {
                 let header = item.querySelector("header");
+                let title = item.querySelector(".title"); // Select the title element
                 header.addEventListener("click", () => {
                     item.classList.toggle("open");
 
-                    let description = item.querySelector(".description");
                     if (item.classList.contains("open")) {
+                        title.style.position = "static"; // Make the title static position
+                        let description = item.querySelector(".description");
                         description.style.height = "auto";
                         item.querySelector("i").classList.replace("fa-plus", "fa-minus");
                     } else {
+                        title.style.position = "relative"; // Reset the title position
+                        let description = item.querySelector(".description");
                         description.style.height = "0";
                         item.querySelector("i").classList.replace("fa-minus", "fa-plus");
                     }
@@ -97,6 +99,9 @@
                 accordionContent.forEach((item2, index2) => {
                     if (index1 != index2) {
                         item2.classList.remove("open");
+
+                        let title2 = item2.querySelector(".title");
+                        title2.style.position = "relative"; // Reset the title position
 
                         let des = item2.querySelector(".description");
                         des.style.height = "0";
@@ -117,7 +122,7 @@
                     accordionData.push({ title: title, description: description, id: index });
                 });
 
-                document.getElementById('<%= hdnAccordionContent.ClientID %>').value = JSON.stringify(accordionData);
+                document.getElementByid('<%= hdnAccordionContent.ClientID %>').value = JSON.stringify(accordionData);
             }
 
             // Call the function to store the accordion content when the page loads
@@ -125,39 +130,19 @@
 
             function editAccordionItem(itemId) {
                 // Assuming you have a hidden field with ID 'hdnAccordionIndex' to store the item ID for the update
-                document.getElementById('hdnAccordionIndex').value = itemId;
+                document.getElementByid('hdnAccordionIndex').value = itemid;
 
                 // Fetch the content from the accordion item and set it in the modal inputs
-                var accordionItem = document.querySelector(`[data-item-id='${itemId}']`);
+                var accordionItem = document.querySelector(`[data-item-id='${itemid}']`);
                 var title = accordionItem.querySelector('.title').innerText.trim();
                 var description = accordionItem.querySelector('.description').innerText.trim();
 
-                document.getElementById('<%= txtNewTitle.ClientID %>').value = title;
-                document.getElementById('<%= txtNewContent.ClientID %>').value = description;
+                document.getElementByid('<%= txtNewTitle.ClientID %>').value = title;
+                document.getElementByid('<%= txtNewContent.ClientID %>').value = description;
             }
         });
     </script>
  <script>
-     // Your JavaScript code for the accordion and modal goes here
-     // ...
-     // Use JSON.parse to convert the JSON data from the accordionContainer to a JavaScript array of objects
-     var accordionData = JSON.parse('<%= accordionContainer.Text %>');
-
-     // Function to create an accordion item based on the data
-     function createAccordionItem(data) {
-         return `
-        <div class='accordion-content'>
-            <header>
-                <span class='title'>${data.Title}</span>
-                <i class='fa-solid fa-plus'></i>
-            </header>
-            <p class='description'>
-                <br /><br />${data.Description}<br /><br />
-                <button type='button' class='edit-button' data-toggle='modal' data-target='#editModal' onclick='editAccordionItem(${data.id})'>Edit</button>
-            </p>
-        </div>`;
-     }
-
      // Function to add all accordion items to the accordion container
      function populateAccordion() {
          var accordionContainer = document.querySelector('.accordion');

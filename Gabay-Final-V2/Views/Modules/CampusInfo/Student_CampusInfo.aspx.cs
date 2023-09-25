@@ -39,6 +39,26 @@ namespace Gabay_Final_V2.Views.Modules.CampusInfo
             rptAccordion.DataBind();
         }
 
+        protected void Page_LoadComplete(object sender, EventArgs e)
+        {
+            string script = @"
+            function editAccordionItem(itemid, title) {
+                // Assuming you have a hidden field with ID 'hdnAccordionIndex' to store the item ID for the update
+                document.getElementById('hdnAccordionIndex').value = itemid;
+                // Set the title in the title input field
+                document.getElementById('<%= txtNewTitle.ClientID %>').value = title;
+
+                // Fetch the content from the accordion item and set it in the modal textarea
+                var accordionItem = document.querySelector(`[data-item-id='${itemid}']`);
+                var content = accordionItem.querySelector('.description').innerText.trim();
+                document.getElementById('<%= txtNewContent.ClientID %>').value = content;
+            }
+        ";
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "EditAccordionItemScript", script, true);
+
+        }
+
         protected void btnSaveChanges_Click(object sender, EventArgs e)
         {
             if (int.TryParse(hdnAccordionIndex.Value, out int campusInfoId))
@@ -64,10 +84,10 @@ namespace Gabay_Final_V2.Views.Modules.CampusInfo
 
         protected void btnDeleteContent_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(hdnAccordionIndex.Value, out int campusInfoId))
+            if (int.TryParse(hdnAccordionIndex.Value, out int campusInfoid))
             {
                 CampusInfo_model campusInfoModel = new CampusInfo_model();
-                bool deleteResult = campusInfoModel.DeleteCampusInformation(campusInfoId);
+                bool deleteResult = campusInfoModel.DeleteCampusInformation(campusInfoid);
 
                 if (deleteResult)
                 {

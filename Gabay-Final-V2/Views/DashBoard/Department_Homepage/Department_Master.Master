@@ -67,6 +67,12 @@
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
+                                <asp:HyperLink ID="announcement" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Announcement/DepartmentAnnouncement.aspx">
+                                  <i class="bi bi-question-square-fill me-2"></i>
+                                  <span class="mt-2">Announcement</span>
+                                </asp:HyperLink>
+                            </li>
+                            <li class="nav-item p-1">
                                 <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-center custom-text-color">
                                   <i class="bi bi-question-square-fill me-2"></i>
                                   <span class="mt-2">FAQ</span>
@@ -136,9 +142,15 @@
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center" >
+                        <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-calendar-check-fill fs-4 me-3"></i>
                             <p class="mt-4">Academic Calendar</p>
+                        </asp:HyperLink>
+                    </li>
+                    <li class="nav-item ">
+                        <asp:HyperLink ID="sideNavAnn" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Announcement/DepartmentAnnouncement.aspx" >
+                            <i class="bi bi-megaphone fs-4 me-3"></i>
+                            <p class="mt-4">Announcement</p>
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">

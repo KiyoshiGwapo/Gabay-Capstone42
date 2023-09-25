@@ -96,6 +96,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         protected global::System.Web.UI.WebControls.HyperLink campCalendar;
 
         /// <summary>
+        /// announcement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink announcement;
+
+        /// <summary>
         /// faq control.
         /// </summary>
         /// <remarks>
@@ -211,6 +220,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink sideNavCC;
+
+        /// <summary>
+        /// sideNavAnn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink sideNavAnn;
 
         /// <summary>
         /// sideNavFAQ control.

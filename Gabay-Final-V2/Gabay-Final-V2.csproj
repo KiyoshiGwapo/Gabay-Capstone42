@@ -2264,6 +2264,8 @@
     <Content Include="Views\Modules\Academic_Calendar\Student_AcadCalen.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_AcadCalen.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx" />
+    <Content Include="Views\Modules\Announcement\DepartmentAnnouncement.aspx" />
+    <Content Include="Views\Modules\Announcement\Student_Announcement.aspx" />
     <Content Include="Views\Modules\Appointment\Student_Appointment.aspx" />
     <Content Include="Views\Modules\CampusInfo\Department_CampusInfo.aspx" />
     <Content Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx" />
@@ -2277,6 +2279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AcadCalen_model.cs" />
+    <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\Appointment_model.cs" />
     <Compile Include="Models\CampusInfo_model.cs" />
     <Compile Include="Models\Chatbot_model.cs" />
@@ -2386,6 +2389,20 @@
     </Compile>
     <Compile Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx.designer.cs">
       <DependentUpon>Manage_Chatbot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\Announcement\DepartmentAnnouncement.aspx.cs">
+      <DependentUpon>DepartmentAnnouncement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Announcement\DepartmentAnnouncement.aspx.designer.cs">
+      <DependentUpon>DepartmentAnnouncement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\Announcement\Student_Announcement.aspx.cs">
+      <DependentUpon>Student_Announcement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Announcement\Student_Announcement.aspx.designer.cs">
+      <DependentUpon>Student_Announcement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Appointment\Student_Appointment.aspx.cs">
       <DependentUpon>Student_Appointment.aspx</DependentUpon>

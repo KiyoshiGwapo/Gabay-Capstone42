@@ -2265,6 +2265,7 @@
     <Content Include="Views\Modules\Admin_Modules\Manage_AcadCalen.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx" />
     <Content Include="Views\Modules\Appointment\Student_Appointment.aspx" />
+    <Content Include="Views\Modules\CampusInfo\Department_CampusInfo.aspx" />
     <Content Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx" />
     <Content Include="Views\Modules\Chatbot\Department_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Student_Chatbot.aspx" />
@@ -2392,6 +2393,13 @@
     </Compile>
     <Compile Include="Views\Modules\Appointment\Student_Appointment.aspx.designer.cs">
       <DependentUpon>Student_Appointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\CampusInfo\Department_CampusInfo.aspx.cs">
+      <DependentUpon>Department_CampusInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\CampusInfo\Department_CampusInfo.aspx.designer.cs">
+      <DependentUpon>Department_CampusInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx.cs">
       <DependentUpon>Student_CampusInfo.aspx</DependentUpon>

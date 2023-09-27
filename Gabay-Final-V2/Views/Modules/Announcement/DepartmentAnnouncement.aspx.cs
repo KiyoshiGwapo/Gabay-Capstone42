@@ -7,18 +7,21 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
+using Gabay_Final_V2.Models;
 
 namespace Gabay_Final_V2.Views.Modules.Announcement
 {
     public partial class DepartmentAnnouncement : System.Web.UI.Page
     {
-        // Define the database connection string
-        string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+
+        private Announcement_model announcementModel = new Announcement_model();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+
                 // Load announcements when the page is first loaded
                 LoadAnnouncements();
             }
@@ -27,18 +30,11 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
         // Function to load announcements into the Bootstrap table
         protected void LoadAnnouncements()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT AnnouncementID, Title, ImagePath, CONVERT(VARCHAR(10), Date, 120) AS Date, ShortDescription, DetailedDescription FROM Announcement", conn);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+            DataTable dtAnnouncements = announcementModel.GetAnnouncements(); // Use the AnnouncementModel to fetch announcements
 
-                // Bind the DataTable to the Bootstrap table
-                rptAnnouncements.DataSource = dt;
-                rptAnnouncements.DataBind();
-            }
+            // Bind the DataTable to the Bootstrap table
+            rptAnnouncements.DataSource = dtAnnouncements;
+            rptAnnouncements.DataBind();
         }
 
 
@@ -74,6 +70,8 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                     string filePath = Path.Combine(uploadFolderPath, fileName);
                     ImageFileUploadModal.SaveAs(filePath);
 
+                    // Define the database connection string
+                    string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
                     // Insert announcement into the database along with the file path
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
@@ -102,25 +100,23 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                 else
                 {
                     // Handle the case where the file extension is not allowed (e.g., show an error message)
+                    // You can display an error message here
                 }
             }
             else
             {
                 // Handle the case where no file is uploaded (e.g., show an error message)
+                // You can display an error message here
             }
         }
 
 
-        // Function to handle the Edit button click event
         protected void EditAnnouncement_Click(object sender, EventArgs e)
         {
-            // Get the button that triggered the event
             Button editButton = (Button)sender;
-
-            // Extract the AnnouncementID from the command argument
             int announcementID = Convert.ToInt32(editButton.CommandArgument);
-
-            // Query the database to fetch the announcement details
+            // Define the database connection string
+            string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -130,7 +126,6 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                 if (reader.Read())
                 {
-                    // Populate the edit modal controls with fetched data
                     txtEditTitle.Text = reader["Title"].ToString();
                     txtEditDate.Text = reader["Date"].ToString();
                     txtEditShortDescription.Text = reader["ShortDescription"].ToString();
@@ -138,7 +133,6 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                     hdnEditAnnouncementID.Value = announcementID.ToString();
                     hdnEditImagePath.Value = reader["ImagePath"].ToString();
 
-                    // Show the edit modal
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "editAnnouncementModal", "$('#editAnnouncementModal').modal('show');", true);
                 }
 
@@ -146,7 +140,6 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             }
         }
 
-        // Function to handle the Save button click event in the edit modal
         protected void SaveEditedAnnouncement(object sender, EventArgs e)
         {
             int announcementID;
@@ -160,7 +153,6 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                 if (ImageFileEdit.HasFile)
                 {
-                    // A new image is uploaded, update the image
                     string uploadFolderPath = Server.MapPath("~/Uploads/");
                     string fileExtension = Path.GetExtension(ImageFileEdit.FileName).ToLower();
 
@@ -173,53 +165,50 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                     }
                     else
                     {
-                        // Handle the case where the file extension is not allowed
                         string errorMessage = "Invalid file extension. Please upload a PNG, JPEG, or JPG file.";
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "editAnnouncementModal", $"showErrorToast('{errorMessage}');", true);
-                        return; // Exit the function, don't proceed with the update
+                        return;
                     }
                 }
 
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                bool updated = announcementModel.UpdateAnnouncement(announcementID, title, date, imagePath, shortDescription, detailedDescription);
+
+                if (updated)
                 {
-                    conn.Open();
-                    string query = "UPDATE Announcement SET Title = @Title, Date = @Date, ShortDescription = @ShortDescription, DetailedDescription = @DetailedDescription, ImagePath = @ImagePath WHERE AnnouncementID = @AnnouncementID";
-                    using (SqlCommand command = new SqlCommand(query, conn))
-                    {
-                        command.Parameters.AddWithValue("@AnnouncementID", announcementID);
-                        command.Parameters.AddWithValue("@Title", title);
-                        command.Parameters.AddWithValue("@Date", date);
-                        command.Parameters.AddWithValue("@ShortDescription", shortDescription);
-                        command.Parameters.AddWithValue("@DetailedDescription", detailedDescription);
-                        command.Parameters.AddWithValue("@ImagePath", imagePath);
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            // Successful update, hide the edit modal using client-side JavaScript
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "editAnnouncementModal", "$('#editAnnouncementModal').modal('hide');", true);
-
-                            // Reload announcements
-                            LoadAnnouncements();
-                        }
-                        else
-                        {
-                            // Handle the case where the update was not successful
-                            string errorMessage = "Update failed. Please try again.";
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "editAnnouncementModal", $"showErrorToast('{errorMessage}');", true);
-                        }
-                    }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "editAnnouncementModal", "$('#editAnnouncementModal').modal('hide');", true);
+                    LoadAnnouncements();
+                }
+                else
+                {
+                    string errorMessage = "Update failed. Please try again.";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "editAnnouncementModal", $"showErrorToast('{errorMessage}');", true);
                 }
             }
             else
             {
-                // Parsing failed, handle the error (e.g., show an error message)
                 string errorMessage = "Invalid Announcement ID. Please try again.";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "editAnnouncementModal", $"showErrorToast('{errorMessage}');", true);
             }
         }
+        protected void DeleteButton_Click(object sender, EventArgs e)
+        {
+            Button deleteButton = (Button)sender;
+            int announcementID = Convert.ToInt32(deleteButton.CommandArgument);
 
+            // Call the DeleteAnnouncement method from AnnouncementModel
+            bool deleted = announcementModel.DeleteAnnouncement(announcementID);
 
+            if (deleted)
+            {
+                // Announcement deleted successfully, perform necessary actions
+                LoadAnnouncements();
+            }
+            else
+            {
+                // Handle the case where deleting the announcement failed
+                // You can display an error message here
+            }
+        }
 
         // Function to save an uploaded image and return the image path
         private string SaveImage(FileUpload fileUpload, string uploadFolderPath)
@@ -267,11 +256,9 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             return imagePath;
         }
 
-
         // Method to get the full image path
         protected string GetImagePath(string imagePath)
         {
-
             return imagePath;
         }
 
@@ -283,35 +270,6 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             txtShortDescription.Text = string.Empty;
             txtDetailedDescription.Text = string.Empty;
         }
-
-
-        protected void DeleteButton_Click(object sender, EventArgs e)
-        {
-            // Retrieve the button that triggered the event
-            Button deleteButton = (Button)sender;
-
-            // Retrieve the AnnouncementID from the CommandArgument
-            int announcementID = Convert.ToInt32(deleteButton.CommandArgument);
-
-            // Delete the announcement from the database using the AnnouncementID
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "DELETE FROM Announcement WHERE AnnouncementID = @AnnouncementID";
-                using (SqlCommand command = new SqlCommand(query, conn))
-                {
-                    command.Parameters.AddWithValue("@AnnouncementID", announcementID);
-                    command.ExecuteNonQuery();
-                }
-            }
-
-            // Show a success pop-up (toast) notification using ScriptManager
-            ScriptManager.RegisterStartupScript(this, GetType(), "deleteSuccess", "showSuccessToast('Announcement deleted successfully!');", true);
-
-            // Bind the announcements again to refresh the table
-            LoadAnnouncements();
-        }
-
 
     }
 }

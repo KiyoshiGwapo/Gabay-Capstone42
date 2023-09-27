@@ -2279,7 +2279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AcadCalen_model.cs" />
-    <Compile Include="Models\Announcement.cs" />
+    <Compile Include="Models\Announcement_model.cs" />
     <Compile Include="Models\Appointment_model.cs" />
     <Compile Include="Models\CampusInfo_model.cs" />
     <Compile Include="Models\Chatbot_model.cs" />

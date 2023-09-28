@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         <div class="container mt-5">
             <!-- Add Announcement Button (Modal Trigger) -->
             <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addAnnouncementModal">Add Announcement</button>
@@ -130,12 +136,6 @@
     </div>
 </div>
 
-<!-- Bootstrap JS and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" />
- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <style>
     /* Style to make the date input look like readonly */
     .datepicker[readonly] {
@@ -162,10 +162,9 @@
          });
 
          // Set the image source in the edit modal
-         $('#editAnnouncementModal').on('show.bs.modal', function (event) {
-             var button = $(event.relatedTarget);
-             var modal = $(this);
-             modal.find('#hdnEditAnnouncementID').val(button.data('id'));
+         $('.edit-announcement').click(function () {
+             var button = $(this);
+             var modal = $('#editAnnouncementModal');
 
              // Store initial field values
              initialEditValues.title = button.data('title');
@@ -181,6 +180,10 @@
              var imagePath = button.data('imagepath');
              modal.find('#hdnEditImagePath').val(imagePath);
              modal.find('#imgEditAnnouncement').attr('src', imagePath);
+
+             modal.find('#hdnEditAnnouncementID').val(button.data('id'));
+
+             modal.modal('show');
          });
 
          // Handle the cancel button click event in the edit modal
@@ -194,6 +197,7 @@
              modal.find('#txtEditDetailedDescription').val(initialEditValues.detaileddesc);
          });
      });
+
 
  </script>
 </asp:Content>

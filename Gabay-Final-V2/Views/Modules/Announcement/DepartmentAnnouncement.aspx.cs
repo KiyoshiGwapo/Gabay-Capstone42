@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Configuration;
 using Gabay_Final_V2.Models;
+using System.Web.Services;
 
 namespace Gabay_Final_V2.Views.Modules.Announcement
 {
@@ -190,6 +191,26 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "editAnnouncementModal", $"showErrorToast('{errorMessage}');", true);
             }
         }
+
+        public static string GetAnnouncementDetailsByID(int announcementID)
+        {
+            // Call the GetAnnouncementDetails method from Announcement_model
+            Announcement_model announcementModel = new Announcement_model();
+            DataTable dt = announcementModel.GetAnnouncementDetails(announcementID);
+
+            // Convert DataTable to a comma-separated string
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                string result = $"{row["AnnouncementID"]},{row["Title"]},{row["Date"]},{row["ShortDescription"]},{row["DetailedDescription"]},{row["ImagePath"]}";
+                return result;
+            }
+            else
+            {
+                return ""; // Return an empty string if no data found
+            }
+        }
+
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
             Button deleteButton = (Button)sender;

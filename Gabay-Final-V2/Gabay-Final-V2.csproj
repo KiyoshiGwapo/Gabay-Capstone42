@@ -58,6 +58,11 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -98,6 +103,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bootstrap\Content\bootstrap-grid.css" />
@@ -2192,6 +2198,7 @@
     <Content Include="Bootstrap\Scripts\bootstrap.min.js" />
     <Content Include="Resources\CustomStyleSheet\Acad_Calendar\AcadCalenStyle.css" />
     <Content Include="Resources\CustomStyleSheet\Appointment\AppointmentStyle.css" />
+    <Content Include="Resources\CustomStyleSheet\Appointment\ManageAppointment.css" />
     <Content Include="Resources\CustomStyleSheet\CampusInfo\CampusInfo.css" />
     <Content Include="Resources\CustomStyleSheet\Chatbot\ChatbotStyle.css" />
     <Content Include="Resources\CustomStyleSheet\Chatbot\ManageChatbotStyle.css" />
@@ -2253,9 +2260,13 @@
     <Content Include="Resources\Images\ucbg.png" />
     <Content Include="Resources\Images\uclm-565.png" />
     <Content Include="Resources\Images\walk.gif" />
+    <Content Include="Scripts\sweetalert-dev.js" />
+    <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Styles\sweetalert.css" />
     <Content Include="Views\DashBoard\Admin_Homepage\Admin_DashBoard.aspx" />
     <Content Include="Views\DashBoard\Department_Homepage\Department_Dashboard.aspx" />
     <Content Include="Views\DashBoard\Department_Homepage\Pending_students.aspx" />
+    <Content Include="Views\Modules\Appointment\HtmlPage1.html" />
     <Content Include="Views\DashBoard\Student_Homepage\Student_Dashboard.aspx" />
     <Content Include="Views\LoginPages\Admin_login.aspx" />
     <Content Include="Views\LoginPages\Department_login.aspx" />
@@ -2266,6 +2277,7 @@
     <Content Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx" />
     <Content Include="Views\Modules\Announcement\DepartmentAnnouncement.aspx" />
     <Content Include="Views\Modules\Announcement\Student_Announcement.aspx" />
+    <Content Include="Views\Modules\Appointment\Manage_Appointment.aspx" />
     <Content Include="Views\Modules\Appointment\Student_Appointment.aspx" />
     <Content Include="Views\Modules\CampusInfo\Department_CampusInfo.aspx" />
     <Content Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx" />
@@ -2403,6 +2415,13 @@
     </Compile>
     <Compile Include="Views\Modules\Announcement\Student_Announcement.aspx.designer.cs">
       <DependentUpon>Student_Announcement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\Appointment\Manage_Appointment.aspx.cs">
+      <DependentUpon>Manage_Appointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Appointment\Manage_Appointment.aspx.designer.cs">
+      <DependentUpon>Manage_Appointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Appointment\Student_Appointment.aspx.cs">
       <DependentUpon>Student_Appointment.aspx</DependentUpon>

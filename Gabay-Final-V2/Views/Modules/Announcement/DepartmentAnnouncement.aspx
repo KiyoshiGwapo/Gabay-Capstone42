@@ -3,8 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="container mt-5">
-            <h1 class="mb-4">Announcement Page</h1>
-            
             <!-- Add Announcement Button (Modal Trigger) -->
             <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addAnnouncementModal">Add Announcement</button>
             
@@ -30,8 +28,7 @@
                                 <td>
                                    <img src='<%# ResolveUrl(Eval("ImagePath").ToString()) %>' alt="Announcement Image" width="100" height="100" />
                                 </td>
-                                <td><%# Eval("Date") %></td>
-
+                                 <td><%# Eval("Date", "{0:yyyy-MM-dd}") %></td>
                                <td class="limited-width">
                                     <div class="scrollable-description"><%# Eval("ShortDescription") %></div>
                                 </td>

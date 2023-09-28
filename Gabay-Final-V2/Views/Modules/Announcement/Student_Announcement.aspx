@@ -1,14 +1,17 @@
-﻿*<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Student_Homepage/Student_Master.Master" AutoEventWireup="true" CodeBehind="Student_Announcement.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Announcement.Student_Announcement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Student_Homepage/Student_Master.Master" AutoEventWireup="true" CodeBehind="Student_Announcement.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Announcement.Student_Announcement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       <div class="container">
         <h1 class="text-center mt-4">Announcements</h1>
-         <!-- Manual controls for sliding -->
-            <div class="text-right mt-2">
-                <button class="btn btn-primary" id="prevButton">&lt;</button>
-                <button class="btn btn-primary" id="nextButton">&gt;</button>
-            </div>
+        <!-- Manual controls for sliding (moved to the right) -->
+        <div class="d-flex justify-content-end mt-3">
+                <button class="btn btn-light mr-2" id="prevButton">&lt;</button>
+                <button class="btn btn-light" id="nextButton">&gt;</button>
+         </div>
         <!-- Announcement Container -->
         <div class="announcement-container">
            <asp:Repeater ID="rptAnnouncements" runat="server">
@@ -51,45 +54,54 @@
         })
     </script>
     <!-- Para Slide2x -->
-     <script>
-         var currentSlide = 0;
-         var totalSlides = 0;
+    <script>
+        var currentSlide = 0;
+        var totalSlides = 0;
+        var slidingInterval;
 
-         $(document).ready(function () {
-             // Initialize the total number of slides
-             totalSlides = $(".announcement-card").length;
+        $(document).ready(function () {
+            // Initialize the total number of slides
+            totalSlides = $(".announcement-card").length;
 
-             // Show only the first three slides initially
-             showSlides(currentSlide, currentSlide + 2);
+            // Show only the first three slides initially
+            showSlides(currentSlide, currentSlide + 2);
 
-             // Add event handlers for "Previous" and "Next" buttons
-             $("#prevButton").click(prevSlide);
-             $("#nextButton").click(nextSlide);
+            // Add event handlers for "Previous" and "Next" buttons
+            $("#prevButton").click(prevSlide);
+            $("#nextButton").click(nextSlide);
 
-             // Start automatic sliding
-             setInterval(nextSlide, 5000); // Change slide every 5 seconds
-         });
+            // Start automatic sliding
+            slidingInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        });
 
-         // Function to display slides within a range
-         function showSlides(startIndex, endIndex) {
-             $(".announcement-card").hide();
-             $(".announcement-card").slice(startIndex, endIndex + 1).show();
-         }
+        // Function to display slides within a range
+        function showSlides(startIndex, endIndex) {
+            $(".announcement-card").hide();
+            $(".announcement-card").slice(startIndex, endIndex + 1).show();
+        }
 
-         // Function to show the next set of slides
-         function nextSlide() {
-             currentSlide = (currentSlide + 3) % totalSlides;
-             var endIndex = currentSlide + 2;
-             showSlides(currentSlide, endIndex);
-         }
+        // Function to show the next set of slides
+        function nextSlide() {
+            currentSlide = (currentSlide + 3) % totalSlides;
+            var endIndex = currentSlide + 2;
+            showSlides(currentSlide, endIndex);
+        }
 
-         // Function to show the previous set of slides
-         function prevSlide() {
-             currentSlide = (currentSlide - 3 + totalSlides) % totalSlides;
-             var endIndex = currentSlide + 2;
-             showSlides(currentSlide, endIndex);
-         }
-     </script>
+        // Function to show the previous set of slides
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide = (currentSlide - 3 + totalSlides) % totalSlides;
+                var endIndex = currentSlide + 2;
+                showSlides(currentSlide, endIndex);
+            }
+            // Stop automatic sliding when clicking "Previous"
+            clearInterval(slidingInterval);
+        }
+    </script>
+
+
+
+
 
     <style>
         /* Container for Announcements */

@@ -6,40 +6,27 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using Gabay_Final_V2.Models;
 
 namespace Gabay_Final_V2.Views.Modules.Announcement
 {
     public partial class Student_Announcement : System.Web.UI.Page
     {
-        // Define the database connection string
-        string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Load announcements when the page is first loaded
-            LoadAnnouncements();
+            if (!IsPostBack)
+            {
+                LoadAnnouncements();
+            }
         }
 
         protected void LoadAnnouncements()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT AnnouncementID, Title, ImagePath, CONVERT(VARCHAR(10), Date, 120) AS Date, ShortDescription, DetailedDescription FROM Announcement", conn);
+            Announcement_model announcementModel = new Announcement_model();
+            DataTable dt = announcementModel.GetAnnouncements();
 
-                // Create a SqlDataAdapter to fetch the data
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-                // Create a DataTable to store the data
-                DataTable dt = new DataTable();
-
-                // Fill the DataTable with data from the database
-                da.Fill(dt);
-
-                // Bind the DataTable to the Repeater control
-                rptAnnouncements.DataSource = dt;
-                rptAnnouncements.DataBind();
-            }
+            rptAnnouncements.DataSource = dt;
+            rptAnnouncements.DataBind();
         }
 
         // Event handler for the "Learn More" button click
@@ -48,35 +35,27 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             Button btnLearnMore = (Button)sender;
             int announcementID = Convert.ToInt32(btnLearnMore.CommandArgument);
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            Announcement_model announcementModel = new Announcement_model();
+            DataTable dt = announcementModel.GetAnnouncementDetails(announcementID);
+
+            if (dt != null && dt.Rows.Count > 0)
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT Title, ImagePath, CONVERT(VARCHAR(10), Date, 120) AS Date, ShortDescription, DetailedDescription FROM Announcement WHERE AnnouncementID = @AnnouncementID", conn);
-                cmd.Parameters.AddWithValue("@AnnouncementID", announcementID);
+                // Find modal controls
+                Label modalTitle = (Label)FindControl("modalTitle" + announcementID);
+                Image modalImage = (Image)FindControl("modalImage" + announcementID);
+                Label modalDate = (Label)FindControl("modalDate" + announcementID);
+                Label modalShortDescription = (Label)FindControl("modalShortDescription" + announcementID);
+                Label modalDetailedDescription = (Label)FindControl("modalDetailedDescription" + announcementID);
 
-                SqlDataReader reader = cmd.ExecuteReader();
+                // Populate the modal with announcement details
+                modalTitle.Text = dt.Rows[0]["Title"].ToString();
+                modalImage.ImageUrl = dt.Rows[0]["ImagePath"].ToString();
+                modalDate.Text = "Date: " + dt.Rows[0]["Date"].ToString();
+                modalShortDescription.Text = "Short Description: " + dt.Rows[0]["ShortDescription"].ToString();
+                modalDetailedDescription.Text = "Detailed Description: " + dt.Rows[0]["DetailedDescription"].ToString();
 
-                if (reader.Read())
-                {
-                    // Find modal controls
-                    Label modalTitle = (Label)FindControl("modalTitle" + announcementID);
-                    Image modalImage = (Image)FindControl("modalImage" + announcementID);
-                    Label modalDate = (Label)FindControl("modalDate" + announcementID);
-                    Label modalShortDescription = (Label)FindControl("modalShortDescription" + announcementID);
-                    Label modalDetailedDescription = (Label)FindControl("modalDetailedDescription" + announcementID);
-
-                    // Populate the modal with announcement details
-                    modalTitle.Text = reader["Title"].ToString();
-                    modalImage.ImageUrl = reader["ImagePath"].ToString();
-                    modalDate.Text = "Date: " + reader["Date"].ToString();
-                    modalShortDescription.Text = "Short Description: " + reader["ShortDescription"].ToString();
-                    modalDetailedDescription.Text = "Detailed Description: " + reader["DetailedDescription"].ToString();
-
-                    // Show the modal using JavaScript
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal(" + announcementID + ");", true);
-                }
-
-                reader.Close();
+                // Show the modal using JavaScript
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal(" + announcementID + ");", true);
             }
         }
 

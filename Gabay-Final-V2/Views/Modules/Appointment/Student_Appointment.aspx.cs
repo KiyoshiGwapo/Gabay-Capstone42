@@ -9,28 +9,13 @@ using System.Web.UI.WebControls;
 using System.Web.Services;
 //For Email
 using System.IO;
-//For Qr Code
-using QRCoder;
-using System.Drawing;
-using System.Collections.Generic;
-using System.Drawing.Imaging;
-//for json
-using Newtonsoft.Json;
+
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
     public partial class Student_Appointment : System.Web.UI.Page
     {
-        // Define SweetAlertMessageType enum
-        public enum SweetAlertMessageType
-        {
-            Success,
-            Error,
-            Warning,
-            Info
-        }
 
-        // Function to convert the image to base64 data
         private string ConvertImageToBase64(string imagePath)
         {
             using (System.Drawing.Image image = System.Drawing.Image.FromFile(imagePath))
@@ -71,24 +56,26 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             if (Page.IsValid)
             {
-                string firstName = FirstName.Text.Trim();
-                string lastName = LastName.Text.Trim();
+                string fullName = FullName.Text.Trim();
                 string idNumber = IdNumber.Text.Trim();
                 string year = Year.SelectedValue;
                 string department = DepartmentDropDown.SelectedValue;
                 string email = Email.Text.Trim();
-                string userMessage = Message.Text.Trim();
+                string contactNumber = ContactN.Text.Trim(); // Add this line to get the contact number
+                string userConcern = Message.Text.Trim();
                 string selectedDate = selectedDateHidden.Value;
                 string selectedTime = time.Text.Trim();
 
-                if (!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName) && !string.IsNullOrEmpty(idNumber)
+                if (!string.IsNullOrEmpty(fullName) && !string.IsNullOrEmpty(idNumber)
                     && !string.IsNullOrEmpty(year) && !string.IsNullOrEmpty(department) && !string.IsNullOrEmpty(email)
-                    && !string.IsNullOrEmpty(userMessage) && !string.IsNullOrEmpty(selectedDate) && !string.IsNullOrEmpty(selectedTime))
+                    && !string.IsNullOrEmpty(contactNumber) && !string.IsNullOrEmpty(userConcern)
+                    && !string.IsNullOrEmpty(selectedDate) && !string.IsNullOrEmpty(selectedTime))
                 {
-                    string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+                    string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True"; // Replace with your connection string
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        SaveAppointment(connection, firstName, lastName, idNumber, year, department, email, userMessage, selectedDate, selectedTime);
+                        // Save appointment details to the "appointment" table
+                        SaveAppointment(connection, fullName, idNumber, year, department, email, contactNumber, userConcern, selectedDate, selectedTime);
                     }
 
                     string emailBody = "<!DOCTYPE html>" +
@@ -159,12 +146,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     }
 
                     // Clear the form fields
-                    FirstName.Text = string.Empty;
-                    LastName.Text = string.Empty;
+                    FullName.Text = string.Empty;
                     IdNumber.Text = string.Empty;
                     Year.SelectedValue = string.Empty; // Clear the selected year
                     DepartmentDropDown.SelectedValue = string.Empty;
                     Email.Text = string.Empty;
+                    ContactN.Text = string.Empty; // Clear the contact number
                     Message.Text = string.Empty;
                     time.Text = string.Empty;
                     selectedDateHidden.Value = string.Empty;
@@ -175,101 +162,34 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     // Redirect the user or show a success message based on your requirements
                     if ((bool)Session["EmailSent"])
                     {
-                        ShowSweetAlert("Appointment sent, wait for the approval of your Appointment, it will be sent to your email", SweetAlertMessageType.Success);
+                      
                     }
                     else
                     {
-                        ShowSweetAlert("Appointment Successfully Submitted. However, there was an issue sending the confirmation email. Please check your email.", SweetAlertMessageType.Warning);
+                        
                     }
                 }
             }
         }
 
-        private void ShowSweetAlert(string message, SweetAlertMessageType messageType)
+        private void SaveAppointment(SqlConnection connection, string fullName, string idNumber, string year, string department, string email, string contactNumber, string message, string selectedDate, string selectedTime)
         {
-            string script = GetSweetAlertScript(message, messageType);
-            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script, true);
-        }
-
-        private string GetSweetAlertScript(string message, SweetAlertMessageType messageType)
-        {
-            string type = GetSweetAlertMessageTypeString(messageType);
-            return $@"swal({{
-                title: '',
-                text: '{message}',
-                icon: '{type}',
-                buttons: false,
-                timer: 3000, // 3 seconds
-            }});";
-        }
-
-        private string GetSweetAlertMessageTypeString(SweetAlertMessageType messageType)
-        {
-            switch (messageType)
-            {
-                case SweetAlertMessageType.Success:
-                    return "success";
-                case SweetAlertMessageType.Error:
-                    return "error";
-                case SweetAlertMessageType.Warning:
-                    return "warning";
-                case SweetAlertMessageType.Info:
-                    return "info";
-                default:
-                    return "info";
-            }
-        }
-
-        private void SaveAppointment(SqlConnection connection, string firstName, string lastName, string idNumber, string year, string department, string email, string message, string selectedDate, string selectedTime)
-        {
-            string insertQuery = "INSERT INTO Appointments (FirstName, LastName, IdNumber, Year, Department, Email, Message, SelectedDate, SelectedTime, Status) " +
-                "VALUES (@FirstName, @LastName, @IdNumber, @Year, @Department, @Email, @Message, @SelectedDate, @SelectedTime, @Status)";
+            string insertQuery = "INSERT INTO appointment (full_name, student_ID, course_year, department_ID, appointment_email, contactNumber, concern, appointment_date, appointment_time, appointment_status) " +
+                "VALUES (@FullName, @IdNumber, @Year, @Department, @Email, @ContactNumber, @Message, @SelectedDate, @SelectedTime, 'PENDING')";
             SqlCommand command = new SqlCommand(insertQuery, connection);
 
-            command.Parameters.AddWithValue("@FirstName", firstName);
-            command.Parameters.AddWithValue("@LastName", lastName);
+            command.Parameters.AddWithValue("@FullName", fullName);
             command.Parameters.AddWithValue("@IdNumber", idNumber);
             command.Parameters.AddWithValue("@Year", year);
             command.Parameters.AddWithValue("@Department", department);
             command.Parameters.AddWithValue("@Email", email);
+            command.Parameters.AddWithValue("@ContactNumber", contactNumber);
             command.Parameters.AddWithValue("@Message", message);
             command.Parameters.AddWithValue("@SelectedDate", selectedDate);
             command.Parameters.AddWithValue("@SelectedTime", selectedTime);
-            command.Parameters.AddWithValue("@Status", "PENDING");
-
             connection.Open();
             command.ExecuteNonQuery();
         }
-
-
-
-        private bool SendEmail(string toEmail, string subject, string body)
-        {
-            try
-            {
-                MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("your@email.com"); // Replace with your email address
-                mailMessage.To.Add(toEmail);
-                mailMessage.Subject = subject;
-                mailMessage.Body = body;
-                mailMessage.IsBodyHtml = true;
-
-                SmtpClient smtpClient = new SmtpClient("smtp.yourprovider.com"); // Replace with your SMTP server details
-                smtpClient.Port = 587; // Replace with your SMTP port
-                smtpClient.Credentials = new NetworkCredential("yourusername", "yourpassword"); // Replace with your SMTP credentials
-                smtpClient.EnableSsl = true; // Enable SSL if required
-
-                smtpClient.Send(mailMessage);
-
-                return true; // Email sent successfully
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, e.g., log it or return false
-                return false;
-            }
-        }
-
 
     }
 }

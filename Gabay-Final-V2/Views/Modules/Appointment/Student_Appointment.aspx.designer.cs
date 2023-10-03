@@ -15,31 +15,13 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
     {
 
         /// <summary>
-        /// FirstName control.
+        /// FullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FirstName;
-
-        /// <summary>
-        /// LastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LastName;
-
-        /// <summary>
-        /// LastNameValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator LastNameValidator;
+        protected global::System.Web.UI.WebControls.TextBox FullName;
 
         /// <summary>
         /// Email control.
@@ -49,6 +31,15 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Email;
+
+        /// <summary>
+        /// ContactN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContactN;
 
         /// <summary>
         /// IdNumber control.

@@ -73,7 +73,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                             UpdateAppointmentStatus(appointmentId, "SERVE");
 
                             // Redirect to the same page without the "status" parameter
-                            Response.Redirect("AppointmentsList.aspx");
+                            Response.Redirect("Manage_Appointment.aspx");
                             return; // Ensure that the response is terminated to prevent further processing
                         }
 
@@ -140,7 +140,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Appointments WHERE FirstName LIKE '%' + @SearchQuery + '%' OR LastName LIKE '%' + @SearchQuery + '%' ORDER BY id DESC";
+                string query = "SELECT * FROM Appointments ORDER BY ID_appointment DESC";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                 adapter.SelectCommand.Parameters.AddWithValue("@SearchQuery", searchQuery);
                 DataTable appointmentData = new DataTable();
@@ -149,16 +149,16 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 StringBuilder sb = new StringBuilder();
                 foreach (DataRow row in appointmentData.Rows)
                 {
-                    string firstName = row["FirstName"].ToString();
-                    string lastName = row["LastName"].ToString();
+                    string fullName = row["full_name"].ToString();
                     string idNumber = row["IdNumber"].ToString();
                     string year = row["Year"].ToString();
-                    string department = row["Department"].ToString();
+                    string department = row["department_ID"].ToString();
                     string email = row["Email"].ToString();
+                    string contactNumber = row["ContactNumber"].ToString();
                     string message = row["Message"].ToString();
                     string selectedDate = row["SelectedDate"].ToString();
                     string selectedTime = row["SelectedTime"].ToString();
-                    int appointmentId = Convert.ToInt32(row["id"]);
+                    int appointmentId = Convert.ToInt32(row["ID_appointment"]);
                     string status = row["Status"].ToString();
                     // Parse the selectedTime to a DateTime object
                     DateTime militaryTime = DateTime.ParseExact(selectedTime, "HH:mm", System.Globalization.CultureInfo.InvariantCulture);
@@ -172,11 +172,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     }
 
                     sb.Append("<tr>");
-                    sb.Append("<td style='font-family:Poppins; text-align:center; border-top: none; border-right: none; border-left: none; border-bottom: 1px solid black;'>" + firstName + " " + lastName + "</td>");
+                    sb.Append("<td style='font-family:Poppins; text-align:center; border-top: none; border-right: none; border-left: none; border-bottom: 1px solid black;'>" + fullName + "</td>");
                     sb.Append("<td style='font-family:Poppins; text-align:center; border-top: none; border-right: none; border-left: none; border-bottom: 1px solid black;'>" + idNumber + "</td>");
                     sb.Append("<td style='font-family:Poppins; text-align:center; border-top: none; border-right: none; border-left: none; border-bottom: 1px solid black;'>" + year + "</td>");
                     sb.Append("<td style='font-family:Poppins; text-align:center; border-top: none; border-right: none; border-left: none; border-bottom: 1px solid black;'>" + department + " </td>");
                     sb.Append("<td style='font-family:Poppins; text-align:center; border-top: none; border-right: none; border-left: none; border-bottom: 1px solid black;'>" + email + "</td>");
+                    sb.Append("<td style='font-family:Poppins; text-align:center; border-top: none; border-right: none; border-left: none; border-bottom: 1px solid black;'>" + contactNumber + "</td>");
                     // Add "View" button to view the appointment message
                     sb.Append("<td style='text-align:center; border-top: none; border-right: none; border-left: none; border-bottom: 1px solid black;'>");
                     sb.Append("<button type='button' class='btn btn-primary' style='background-color: blue; color: #fff;' onclick='viewAppointmentMessage(\"" + message + "\");'>");
@@ -193,11 +194,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     sb.Append("<ul class='dropdown-menu' aria-labelledby='statusDropdown'>");
 
                     // Always include the "RESCHEDULE" option in the dropdown
-                    sb.Append("<li><a class='dropdown-item' href='AppointmentsList.aspx?status=rescheduled&id=" + appointmentId + "' style='color: blue;' " + (status.ToLower() == "rescheduled" ? "" : "disabled") + ">RESCHEDULE</a></li>");
+                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=rescheduled&id=" + appointmentId + "' style='color: blue;' " + (status.ToLower() == "rescheduled" ? "" : "disabled") + ">RESCHEDULE</a></li>");
 
                     // Include "APPROVED" and "DENIED" options for all statuses
-                    sb.Append("<li><a class='dropdown-item' href='AppointmentsList.aspx?status=denied&id=" + appointmentId + "' style='color: red;'>DENIED</a></li>");
-                    sb.Append("<li><a class='dropdown-item' href='AppointmentsList.aspx?status=approved&id=" + appointmentId + "' style='color: green;'>APPROVED</a></li>");
+                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=denied&id=" + appointmentId + "' style='color: red;'>DENIED</a></li>");
+                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=approved&id=" + appointmentId + "' style='color: green;'>APPROVED</a></li>");
 
                     sb.Append("</ul>");
                     sb.Append("</div>");
@@ -232,8 +233,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         public class AppointmentData
         {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
+            public string full_name { get; set; }
             public string SelectedDate { get; set; }
             public string SelectedTime { get; set; }
             // Add other properties as needed
@@ -244,7 +244,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Appointments WHERE id = @AppointmentId";
+                string query = "SELECT * FROM Appointments WHERE ID_appointment = @AppointmentId";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                 adapter.SelectCommand.Parameters.AddWithValue("@AppointmentId", appointmentId);
                 DataTable appointmentData = new DataTable();
@@ -279,7 +279,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 UpdateAppointmentData(appointmentIdToUpdate, newDate, newTime);
 
                 // After updating the data, you can refresh the page or redirect to the same page to reflect the changes
-                Response.Redirect("AppointmentsList.aspx");
+                Response.Redirect("Manage_Appointment.aspx");
             }
             else
             {
@@ -295,7 +295,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Appointments SET SelectedDate = @NewDate, SelectedTime = @NewTime WHERE id = @AppointmentId";
+                string query = "UPDATE Appointments SET SelectedDate = @NewDate, SelectedTime = @NewTime WHERE ID_appointment = @AppointmentId";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -354,7 +354,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         private void DeleteAppointment(int appointmentId)
         {
             string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
-            string deleteQuery = "DELETE FROM Appointments WHERE id = @id";
+            string deleteQuery = "DELETE FROM Appointments WHERE ID_appointment = @id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -417,9 +417,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
 
                 // Get the absolute path to the image file
-                string imageFilePath = Server.MapPath("../resources/UC-LOGO.png");
+                string imageFilePath = Server.MapPath("../../../Resources/Images/UC-LOGO.png");
 
-                // Convert the image to base64 data
+                // Convert the image to base64 datas
                 string base64Image = ConvertImageToBase64(imageFilePath);
 
                 // Create a new MailMessage
@@ -483,7 +483,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     connection.Open();
 
                     // Create a SQL command to query the database
-                    string query = "SELECT id FROM Appointments WHERE email = @Email";
+                    string query = "SELECT ID_appointment FROM Appointments WHERE Email = @Email";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         // Add the email parameter to the query
@@ -537,7 +537,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT FirstName, LastName FROM Appointments WHERE Email = @Email";
+                string query = "SELECT full_name FROM Appointments WHERE Email = @Email";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -551,9 +551,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         if (reader.Read())
                         {
                             // If the email is found in the database, construct the full name using first name and last name
-                            string firstName = reader["FirstName"].ToString();
-                            string lastName = reader["LastName"].ToString();
-                            fullName = $"{firstName} {lastName}";
+                            string firstName = reader["full_name"].ToString();
+                            fullName = $"{firstName}";
                         }
 
                         reader.Close();
@@ -570,7 +569,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         private void UpdateAppointmentStatus(int id, string status)
         {
             string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
-            string updateQuery = "UPDATE Appointments SET Status = @Status WHERE id = @id";
+            string updateQuery = "UPDATE Appointments SET Status = @Status WHERE ID_appointment = @id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -607,7 +606,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
 
             // After updating the status, redirect the user back to the appointment list page
-            Response.Redirect("AppointmentsList.aspx");
+            Response.Redirect("Manage_Appointment.aspx");
         }
 
         private string GetAppointmentEmail(int id)
@@ -618,7 +617,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT Email FROM Appointments WHERE id = @id";
+                string query = "SELECT Email FROM Appointments WHERE ID_appointment = @id";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -712,7 +711,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
 
                 // Get the absolute path to the image file
-                string imageFilePath = Server.MapPath("../resources/UC-LOGO.png");
+                string imageFilePath = Server.MapPath("../../../Resources/Images/UC-LOGO.png");
 
                 // Convert the image to base64 data
                 string base64Image = ConvertImageToBase64(imageFilePath);
@@ -766,7 +765,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 {
                     connection.Open();
 
-                    string query = "SELECT SelectedDate FROM Appointments WHERE id = @AppointmentId";
+                    string query = "SELECT SelectedDate FROM Appointments WHERE ID_appointment = @AppointmentId";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -803,7 +802,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 {
                     connection.Open();
 
-                    string query = "SELECT SelectedTime FROM Appointments WHERE id = @AppointmentId";
+                    string query = "SELECT SelectedTime FROM Appointments WHERE ID_appointment = @AppointmentId";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -896,7 +895,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Appointments WHERE Status = @Status ORDER BY id DESC";
+                string query = "SELECT * FROM Appointments WHERE Status = @Status ORDER BY ID_appointment DESC";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                 adapter.SelectCommand.Parameters.AddWithValue("@Status", status);
                 DataTable appointmentData = new DataTable();
@@ -906,24 +905,25 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 foreach (DataRow row in appointmentData.Rows)
                 {
                     // Extract appointment data and format it as needed
-                    string firstName = row["FirstName"].ToString();
-                    string lastName = row["LastName"].ToString();
+                    string fullName = row["full_name"].ToString();
                     string idNumber = row["IdNumber"].ToString();
                     string year = row["Year"].ToString();
-                    string department = row["Department"].ToString();
+                    string department = row["department_ID"].ToString();
                     string email = row["Email"].ToString();
+                    string contactNumber = row["ContactNumber"].ToString();
                     string message = row["Message"].ToString();
                     string selectedDate = row["SelectedDate"].ToString();
                     string selectedTime = row["SelectedTime"].ToString();
-                    int appointmentId = Convert.ToInt32(row["id"]);
+                    int appointmentId = Convert.ToInt32(row["ID_appointment"]);
 
                     sb.Append("<tr>");
                     // Append appointment data to the string builder
-                    sb.Append("<td>" + firstName + " " + lastName + "</td>");
+                    sb.Append("<td>" + fullName + "</td>");
                     sb.Append("<td>" + idNumber + "</td>");
                     sb.Append("<td>" + year + "</td>");
                     sb.Append("<td>" + department + "</td>");
                     sb.Append("<td>" + email + "</td>");
+                    sb.Append("<td>" + contactNumber + "</td>");
                     sb.Append("<td>"); // Add "View" button
                     sb.Append("<button type='button' class='btn btn-primary' onclick='viewAppointmentMessage(\"" + message + "\");'>");
                     sb.Append("<i class='fa fa-eye'></i> View");
@@ -942,16 +942,16 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     if (status.ToLower() == "pending")
                     {
                         // Add the "Serve" option only when the status is "Pending"
-                        sb.Append("<li><a class='dropdown-item' href='AppointmentsList.aspx?status=serve&id=" + appointmentId + "' style='color: orange;'>SERVE</a></li>");
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=serve&id=" + appointmentId + "' style='color: orange;'>SERVE</a></li>");
 
                     }
 
                     // Always include the "RESCHEDULE" option in the dropdown
-                    sb.Append("<li><a class='dropdown-item' href='AppointmentsList.aspx?status=rescheduled&id=" + appointmentId + "' style='color: blue;' " + (status.ToLower() == "rescheduled" ? "" : "disabled") + ">RESCHEDULE</a></li>");
+                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=rescheduled&id=" + appointmentId + "' style='color: blue;' " + (status.ToLower() == "rescheduled" ? "" : "disabled") + ">RESCHEDULE</a></li>");
 
                     // Include "APPROVED" and "DENIED" options for all statuses
-                    sb.Append("<li><a class='dropdown-item' href='AppointmentsList.aspx?status=denied&id=" + appointmentId + "' style='color: red;'>DENIED</a></li>");
-                    sb.Append("<li><a class='dropdown-item' href='AppointmentsList.aspx?status=approved&id=" + appointmentId + "' style='color: green;'>APPROVED</a></li>");
+                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=denied&id=" + appointmentId + "' style='color: red;'>DENIED</a></li>");
+                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=approved&id=" + appointmentId + "' style='color: green;'>APPROVED</a></li>");
 
                     sb.Append("</ul>");
                     sb.Append("</div>");

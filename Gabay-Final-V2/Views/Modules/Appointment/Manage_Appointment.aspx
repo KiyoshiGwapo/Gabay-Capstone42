@@ -2,9 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <style>
     /* Add custom CSS styles for the table */
     .unique-table {
@@ -41,15 +38,15 @@
          <table class="table unique-table">
               <thead class="c-table__header">
                         <tr style="background-color:#E3FDFD;">
-                        <th class="c-table__col-label"><i class="fa fa-user"></i> Students Name</th>
                         <th class="c-table__col-label"><i class="fa fa-id-card"></i> ID Number</th>
+                        <th class="c-table__col-label"><i class="fa fa-user"></i> Students Name</th>
+                        <th class="c-table__col-label"><i class="fa fa-id-card"></i> Contact Number</th>
                         <th class="c-table__col-label"><i class="fa fa-calendar-alt"></i> Year</th>
                         <th class="c-table__col-label"><i class="fa fa-building"></i> Department</th>
                         <th class="c-table__col-label"><i class="fa fa-envelope"></i> Email</th>
                         <th class="c-table__col-label"><i class="fa fa-envelope-open"></i> Message</th>
                         <th class="c-table__col-label"><i class="fa fa-calendar-check"></i> Appointment Date</th>
                         <th class="c-table__col-label"><i class="fa fa-clock"></i> Time</th>
-
                         <th class="c-table__col-label">
                             <i class="fa fa-info-circle"></i> Status
                             <br />
@@ -62,7 +59,6 @@
                             <asp:ListItem Text="SERVE" Value="SERVE" />
                         </asp:DropDownList>
                         </th>
-
                         <th class="c-table__col-label"><i class="fa fa-cog"></i></th>
                     </tr>
                 </thead>

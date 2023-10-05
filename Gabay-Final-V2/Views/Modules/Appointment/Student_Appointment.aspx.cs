@@ -174,7 +174,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         private void SaveAppointment(SqlConnection connection, string fullName, string idNumber, string year, string department, string email, string contactNumber, string message, string selectedDate, string selectedTime)
         {
-            string insertQuery = "INSERT INTO appointment (full_name, student_ID, course_year, department_ID, appointment_email, contactNumber, concern, appointment_date, appointment_time, appointment_status) " +
+            string insertQuery = "INSERT INTO Appointments (full_name, IdNumber, Year, department_ID, Email, ContactNumber, Message, SelectedDate, SelectedTime, Status) " +
                 "VALUES (@FullName, @IdNumber, @Year, @Department, @Email, @ContactNumber, @Message, @SelectedDate, @SelectedTime, 'PENDING')";
             SqlCommand command = new SqlCommand(insertQuery, connection);
 

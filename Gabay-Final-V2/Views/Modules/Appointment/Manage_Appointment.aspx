@@ -12,7 +12,7 @@
         padding: 8px;
         text-align: center;
         background-color: white;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .unique-table th {
@@ -33,32 +33,44 @@
             font-size: 14px; /* Adjust font size for smaller screens */
         }
     }
+    /* katung status nga dropdown button*/
+     .custom-dropdown {
+        width: 150px; /* Adjust the width as needed */
+        padding: 5px; /* Add padding for better appearance */
+        border: 1px solid #ccc; /* Add a border for styling */
+        border-radius: 5px; /* Add rounded corners */
+        background-color: #fff; /* Set the background color */
+        color: #333; /* Set the text color */
+        font-size: 14px; /* Set the font size */
+        text-align: center;
+    }
 </style>
          <div class="table-responsive-sm">
          <table class="table unique-table">
               <thead class="c-table__header">
                         <tr style="background-color:#E3FDFD;">
                         <th class="c-table__col-label"><i class="fa fa-id-card"></i> ID Number</th>
-                        <th class="c-table__col-label"><i class="fa fa-user"></i> Students Name</th>
-                        <th class="c-table__col-label"><i class="fa fa-id-card"></i> Contact Number</th>
+                        <th class="c-table__col-label"><i class="fa fa-user"></i> Students Name</th>     
                         <th class="c-table__col-label"><i class="fa fa-calendar-alt"></i> Year</th>
                         <th class="c-table__col-label"><i class="fa fa-building"></i> Department</th>
                         <th class="c-table__col-label"><i class="fa fa-envelope"></i> Email</th>
+                        <th class="c-table__col-label"><i class="fa fa-id-card"></i> Contact Number</th>
                         <th class="c-table__col-label"><i class="fa fa-envelope-open"></i> Message</th>
                         <th class="c-table__col-label"><i class="fa fa-calendar-check"></i> Appointment Date</th>
                         <th class="c-table__col-label"><i class="fa fa-clock"></i> Time</th>
                         <th class="c-table__col-label">
                             <i class="fa fa-info-circle"></i> Status
                             <br />
-                         <asp:DropDownList ID="ddlStatusFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatusFilter_SelectedIndexChanged">
-                            <asp:ListItem Text="Select Down Below :" Value="" />
-                            <asp:ListItem Text="Pending" Value="Pending" />
-                            <asp:ListItem Text="APPROVED" Value="APPROVED" />
-                            <asp:ListItem Text="DENIED" Value="DENIED" />
-                            <asp:ListItem Text="RESCHEDULED" Value="RESCHEDULED" />
-                            <asp:ListItem Text="SERVE" Value="SERVE" />
-                        </asp:DropDownList>
+                            <asp:DropDownList ID="ddlStatusFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatusFilter_SelectedIndexChanged" CssClass="custom-dropdown">
+                                <asp:ListItem Text="Select Down Below :" Value="" />
+                                <asp:ListItem Text="PENDING" Value="Pending" style="color: black;" />
+                                <asp:ListItem Text="APPROVED" Value="APPROVED" style="color: green;" />
+                                <asp:ListItem Text="DENIED" Value="DENIED" style="color: red;" />
+                                <asp:ListItem Text="RESCHEDULED" Value="RESCHEDULED" style="color: blue;" />
+                                <asp:ListItem Text="SERVE" Value="SERVE" style="color: orange;" />
+                            </asp:DropDownList>
                         </th>
+
                         <th class="c-table__col-label"><i class="fa fa-cog"></i></th>
                     </tr>
                 </thead>

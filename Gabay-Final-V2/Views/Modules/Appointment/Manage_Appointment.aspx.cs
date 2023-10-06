@@ -888,8 +888,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             yourTableBody.InnerHtml = data;
         }
 
-
-        // Add a method to fetch appointment data by status
+        //Ari tung fetch taga status
         private string FetchAppointmentDataByStatus(string status)
         {
             string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
@@ -905,8 +904,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 foreach (DataRow row in appointmentData.Rows)
                 {
                     // Extract appointment data and format it as needed
-                    string fullName = row["full_name"].ToString();
                     string idNumber = row["IdNumber"].ToString();
+                    string fullName = row["full_name"].ToString();
                     string year = row["Year"].ToString();
                     string department = row["department_ID"].ToString();
                     string email = row["Email"].ToString();
@@ -918,8 +917,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
                     sb.Append("<tr>");
                     // Append appointment data to the string builder
-                    sb.Append("<td>" + fullName + "</td>");
                     sb.Append("<td>" + idNumber + "</td>");
+                    sb.Append("<td>" + fullName + "</td>");
                     sb.Append("<td>" + year + "</td>");
                     sb.Append("<td>" + department + "</td>");
                     sb.Append("<td>" + email + "</td>");
@@ -941,26 +940,49 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
                     if (status.ToLower() == "pending")
                     {
-                        // Add the "Serve" option only when the status is "Pending"
+                        // Add "Serve" option when the status is "Pending"
                         sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=serve&id=" + appointmentId + "' style='color: orange;'>SERVE</a></li>");
-
                     }
-
-                    // Always include the "RESCHEDULE" option in the dropdown
-                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=rescheduled&id=" + appointmentId + "' style='color: blue;' " + (status.ToLower() == "rescheduled" ? "" : "disabled") + ">RESCHEDULE</a></li>");
-
-                    // Include "APPROVED" and "DENIED" options for all statuses
-                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=denied&id=" + appointmentId + "' style='color: red;'>DENIED</a></li>");
-                    sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=approved&id=" + appointmentId + "' style='color: green;'>APPROVED</a></li>");
+                    else if (status.ToLower() == "approved")
+                    {
+                        // Add "Denied" and "Rescheduled" options when the status is "Approved"
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=denied&id=" + appointmentId + "' style='color: red;'>DENIED</a></li>");
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=rescheduled&id=" + appointmentId + "' style='color: blue;'>RESCHEDULE</a></li>");
+                    }
+                    else if (status.ToLower() == "rescheduled")
+                    {
+                        // Add "Approved" and "Denied" options when the status is "Rescheduled"
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=approved&id=" + appointmentId + "' style='color: green;'>APPROVED</a></li>");
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=denied&id=" + appointmentId + "' style='color: red;'>DENIED</a></li>");
+                    }
+                    else if (status.ToLower() == "denied")
+                    {
+                        // Add "Approved" and "Rescheduled" options when the status is "Denied"
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=rescheduled&id=" + appointmentId + "' style='color: blue;'>RESCHEDULE</a></li>");
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=approved&id=" + appointmentId + "' style='color: green;'>APPROVED</a></li>");
+                    }
+                    else if (status.ToLower() == "serve")
+                    {
+                        // Add "Approved," "Denied," and "Rescheduled" options when the status is "Serve"
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=approved&id=" + appointmentId + "' style='color: green;'>APPROVED</a></li>");
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=denied&id=" + appointmentId + "' style='color: red;'>DENIED</a></li>");
+                        sb.Append("<li><a class='dropdown-item' href='Manage_Appointment.aspx?status=rescheduled&id=" + appointmentId + "' style='color: blue;'>RESCHEDULE</a></li>");
+                    }
 
                     sb.Append("</ul>");
                     sb.Append("</div>");
                     sb.Append("</td>");
-                    // Add email and delete buttons
+                    // Conditionally add email and delete buttons
                     sb.Append("<td>");
-                    sb.Append("<a href='#' class='btn btn-primary btn-warning' data-bs-toggle='modal' data-bs-target='#emailModal' data-to='" + email + "'>");
-                    sb.Append("<i class='fa fa-envelope'></i>");
-                    sb.Append("</a>");
+
+                    if (status.ToLower() == "rescheduled")
+                    {
+                        // Add the email button only when the status is "Rescheduled"
+                        sb.Append("<a href='#' class='btn btn-primary btn-warning' data-bs-toggle='modal' data-bs-target='#emailModal' data-to='" + email + "'>");
+                        sb.Append("<i class='fa fa-envelope'></i>");
+                        sb.Append("</a>");
+                    }
+
                     sb.Append("<button type='button' class='btn btn-primary' style='background-color: blue; color: #fff;' data-bs-toggle='modal' data-bs-target='#updateModal' data-id='" + appointmentId + "' data-date='" + selectedDate + "' data-time='" + selectedTime + "' onclick='EditButton_Click(" + appointmentId + ", \"" + selectedDate + "\", \"" + selectedTime + "\");'>");
                     sb.Append("<i class='fa fa-edit'></i>");
                     sb.Append("</button>");
@@ -974,7 +996,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 return sb.ToString();
             }
         }
-
 
 
 

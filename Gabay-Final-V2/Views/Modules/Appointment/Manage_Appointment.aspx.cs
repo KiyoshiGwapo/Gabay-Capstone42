@@ -268,25 +268,26 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         // Method to handle the "Update" button click event on the server-side
         protected void UpdateModalButton_Click(object sender, EventArgs e)
         {
-            // Get the new date and time values from the modal
-            string newDate = updateDate.Value; // Use the 'Value' property to get the input value
-            string newTime = updateTime.Value; // Use the 'Value' property to get the input value
+            // Assuming "updateDate" and "updateTime" are the IDs of the date and time input fields in the "Update" modal
+            string newDate = updateDate.Value;
+            string newTime = updateTime.Value;
 
-            // Get the appointmentId from the hidden field
-            if (int.TryParse(appointmentIdHiddenField.Value, out int appointmentIdToUpdate))
+            // Retrieve the appointmentId from the session variable
+            if (Session["AppointmentId"] != null && int.TryParse(Session["AppointmentId"].ToString(), out int appointmentIdToUpdate))
             {
-                // Now you can call the UpdateAppointmentData method to update the appointment data
+                // Call a method to update the appointment data
                 UpdateAppointmentData(appointmentIdToUpdate, newDate, newTime);
 
-                // After updating the data, you can refresh the page or redirect to the same page to reflect the changes
+                // Redirect to the same page to reflect the changes
                 Response.Redirect("Manage_Appointment.aspx");
             }
             else
             {
-                // Handle the case where the appointmentId is not a valid integer
+                // Handle the case where the appointmentId is not available or not a valid integer
                 // Display an error message or handle it as per your requirement
             }
         }
+
 
         private void UpdateAppointmentData(int appointmentId, string newDate, string newTime)
         {

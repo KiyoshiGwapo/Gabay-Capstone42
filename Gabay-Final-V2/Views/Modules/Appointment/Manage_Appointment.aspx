@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
     /* Add custom CSS styles for the table */
     .unique-table {
@@ -71,7 +72,7 @@
                             </asp:DropDownList>
                         </th>
 
-                        <th class="c-table__col-label"><i class="fa fa-cog"></i></th>
+                        <th class="c-table__col-label"><i class="fa fa-cog"></i>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -169,6 +170,19 @@
             </div>
 </div>
     <script>
+        function EditButton_Click(appointmentId, selectedDate, selectedTime) {
+            // Assuming you have elements with IDs for date and time inputs and a hidden field
+            document.getElementById('updateDate').value = selectedDate;
+            document.getElementById('updateTime').value = selectedTime;
+            document.getElementById('appointmentIdHiddenField').value = appointmentId;
+
+            // Assuming you have a modal for editing, e.g., 'updateModal'
+            var updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
+            updateModal.show();
+        }
+
+    </script>
+  <script>
         var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
 
         // Event listener for opening the "Email" modal and populating the "To" email input
@@ -181,31 +195,31 @@
             });
         });
 
-        // Event listener for opening the "Update" modal and populating the date and time fields
-        document.querySelectorAll('[data-bs-target="#updateModal"]').forEach(function (button) {
-            button.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopPropagation(); // Prevent the event from propagating to parent elements
+          // Use event delegation to handle the click event for all buttons with data-bs-target="#updateModal"
+          document.addEventListener('click', function (event) {
+              var target = event.target;
+              if (target.dataset.bsTarget === "#updateModal") {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  var appointmentId = target.getAttribute('data-id');
+                  var selectedDate = target.getAttribute('data-date');
+                  var selectedTime = target.getAttribute('data-time');
+                  populateUpdateModal(appointmentId, selectedDate, selectedTime);
+              }
+          });s
 
-                var appointmentId = button.getAttribute('data-id'); // Use 'data-id' instead of 'data-to'
-                var selectedDate = button.getAttribute('data-date');
-                var selectedTime = button.getAttribute('data-time');
+          function populateUpdateModal(appointmentId, selectedDate, selectedTime) {
+              document.getElementById('updateDate').value = selectedDate;
+              document.getElementById('updateTime').value = selectedTime;
+              document.getElementById('<%= appointmentIdHiddenField.ClientID %>').value = appointmentId;
 
-                // Populate the date and time fields in the modal with the appointment details
-                document.getElementById('updateDate').value = selectedDate;
-                document.getElementById('updateTime').value = selectedTime;
+              var updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
+              updateModal.show();
+          }
 
-                // Set the appointmentId in the hidden field
-                document.getElementById('<%= appointmentIdHiddenField.ClientID %>').value = appointmentId;
-
-                // Open the "Update" modal
-                var updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
-                updateModal.show();
-            });
-        });
         function deleteAppointment(appointmentId) {
             if (confirm('Are you sure you want to delete this appointment?')) {
-                window.location.href = 'AppointmentsList.aspx?deleteId=' + appointmentId;
+                window.location.href = 'Manage_Appointment.aspx?deleteId=' + appointmentId;
             }
         }
 
@@ -227,5 +241,6 @@
         function reloadPage() {
             location.reload();
         }
-    </script>
+
+  </script>
 </asp:Content>

@@ -2283,6 +2283,8 @@
     <Content Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx" />
     <Content Include="Views\Modules\Chatbot\Department_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Student_Chatbot.aspx" />
+    <Content Include="Views\Modules\FAQ\FAQ_View.aspx" />
+    <Content Include="Views\Modules\FAQ\Manage_FAQ.aspx" />
     <Content Include="Views\Modules\Wayfinding\Department_Wayfinding.aspx" />
     <Content Include="Views\Modules\Wayfinding\Student_Wayfinding.aspx" />
     <Content Include="Views\RegistrationPages\Pending_page.aspx" />
@@ -2296,6 +2298,7 @@
     <Compile Include="Models\CampusInfo_model.cs" />
     <Compile Include="Models\Chatbot_model.cs" />
     <Compile Include="Models\DbUtility.cs" />
+    <Compile Include="Models\FAQ.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prototype\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -2457,6 +2460,20 @@
     </Compile>
     <Compile Include="Views\Modules\Chatbot\Student_Chatbot.aspx.designer.cs">
       <DependentUpon>Student_Chatbot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\FAQ\FAQ_View.aspx.cs">
+      <DependentUpon>FAQ_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\FAQ\FAQ_View.aspx.designer.cs">
+      <DependentUpon>FAQ_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\FAQ\Manage_FAQ.aspx.cs">
+      <DependentUpon>Manage_FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\FAQ\Manage_FAQ.aspx.designer.cs">
+      <DependentUpon>Manage_FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Wayfinding\Department_Wayfinding.aspx.cs">
       <DependentUpon>Department_Wayfinding.aspx</DependentUpon>

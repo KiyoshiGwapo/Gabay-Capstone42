@@ -35,12 +35,13 @@
             </div>
         </div>
     </div>
-<script type="text/javascript">
-    function openInNewTab() {
-        var url = window.location.href; // Get the current page URL
-        window.open(url, '_blank');
-        return false; // To prevent the default postback action
-    }
-</script>
+    <script type="text/javascript">
+        function openInNewTab() {
+            // Get the URL of the clicked button's page
+            var url = '<%= ResolveUrl("Student_AcadCalen.aspx") %>';
+            window.open(url, '_blank');
+            return false; // To prevent the default postback action
+        }
+    </script>
 
 </asp:Content>

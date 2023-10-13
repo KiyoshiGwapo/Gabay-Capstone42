@@ -1,4 +1,4 @@
-﻿//using Gabay_Final_V2.Models;
+﻿using Gabay_Final_V2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +7,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Data.SqlClient;
-
 using static Gabay_Final_V2.Models.AcadCalen_model;
 
 namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
 {
     public partial class Student_AcadCalen : System.Web.UI.Page
     {
-      
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,23 +33,16 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
 
                 if (fileData != null)
                 {
-                    // Set the response content type to PDF
                     Response.ContentType = "application/pdf";
-
-                    // Set the content disposition to "inline" to open in the browser
                     Response.AddHeader("Content-Disposition", $"inline; filename={fileName}");
-
-                    // Write the file data to the response output stream
                     Response.BinaryWrite(fileData);
                     Response.End();
                 }
                 else
                 {
-                    // Handle the case where file data is not available
                     DownloadErrorLabel.Text = "File not found.";
                 }
 
-                // Open the link in a new tab using JavaScript
                 string script = "window.open('" + Request.Url.AbsoluteUri + "', '_blank');";
                 ClientScript.RegisterStartupScript(this.GetType(), "openNewTab", script, true);
             }
@@ -60,29 +52,6 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
             }
         }
 
-
-
-
-
-        // Helper method to determine content type based on file extension
-        private string GetContentType(string fileName)
-        {
-            string ext = Path.GetExtension(fileName);
-
-            switch (ext.ToLower())
-            {
-                case ".pdf":
-                    return "application/pdf";
-                case ".jpg":
-                case ".jpeg":
-                    return "image/jpeg";
-                case ".png":
-                    return "image/png";
-                // Add more cases for other file types as needed
-                default:
-                    return "application/octet-stream"; // Default to binary data
-            }
-        }
         private byte[] FetchFileDataFromDatabase(int fileId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -129,56 +98,19 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
             return null;
         }
 
-        // Define a custom class to store file data
-        public class FileData
-        {
-            public int FileId { get; set; }
-            public string FileName { get; set; }
-            public byte[] FileBytes { get; set; }
-        }
-
-        private List<FileData> FetchFilesDataFromDatabase()
-        {
-            List<FileData> filesList = new List<FileData>();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT FileId, FileName, FileData FROM UploadedFiles";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            FileData file = new FileData
-                            {
-                                FileId = reader.GetInt32(0),
-                                FileName = reader.GetString(1),
-                                FileBytes = (byte[])reader["FileData"]
-                            };
-                            filesList.Add(file);
-                        }
-                    }
-                }
-            }
-
-            return filesList;
-        }
-
         private void BindFilesToDropDownList()
         {
-            List<FileData> filesList = FetchFilesDataFromDatabase();
-            ddlFiles.Items.Clear(); // Clear existing items
+            AcadCalen_model acadCalenModel = new AcadCalen_model(); // Create an instance of AcadCalen_model
+            List<AcadCalen_model.FileData> filesList = acadCalenModel.FetchFilesDataFromDatabase();
 
-            foreach (FileData file in filesList)
+            ddlFiles.Items.Clear();
+
+            foreach (AcadCalen_model.FileData file in filesList)
             {
                 ListItem item = new ListItem(file.FileName, file.FileId.ToString());
                 ddlFiles.Items.Add(item);
             }
 
-            // Set the selected item based on ViewState
             if (ViewState["SelectedFileId"] != null)
             {
                 int selectedFileId = (int)ViewState["SelectedFileId"];
@@ -187,19 +119,17 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
         }
 
 
+
         protected void ddlFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedFileId = int.Parse(ddlFiles.SelectedValue);
             ViewState["SelectedFileId"] = selectedFileId;
 
-            // Debugging statement to display selectedFileId
             DownloadErrorLabel.Text = "Selected File ID: " + selectedFileId;
 
-            // Fetch the selected file's data and update labels or perform other actions
             byte[] selectedFileData = FetchFileDataFromDatabase(selectedFileId);
             if (selectedFileData != null)
             {
-                // Update labels or perform other actions
                 DownloadErrorLabel.Text = "";
             }
             else

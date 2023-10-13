@@ -1,6 +1,7 @@
 ﻿.selected {
     background-color: #f0f0f0; /* Add your desired style */
 }
+
 .banner-Container {
     background-repeat: no-repeat;
     background-size: cover;
@@ -8,12 +9,14 @@
     height: 250px;
     background-image: url('../../images/calendar4.jpg');
 }
+
 .ddl-Container {
     width: 550px;
     height: 60px;
     display: flex;
     justify-content: center;
 }
+
 .ddlFiles {
     width: 500px;
     color: white;
@@ -21,18 +24,31 @@
     border-radius: 5px 0 0 5px;
     background-color: #003366;
 }
+
 .dwnldLnk {
     width: 50px !important;
     border: 1px solid #003366;
     border-radius: 0 5px 5px 0;
     display: flex;
-    align-items:center;
+    align-items: center;
     color: #003366;
 }
-.dwnldLnk:hover {
-    background-color:#003366;
-    color: white;
+
+    .dwnldLnk:hover {
+        background-color: #003366;
+        color: white;
+    }
+
+    .dwnldLnk i {
+        font-size: 25px;
+    }
+
+.uploaded_container {
+    max-height: 400px;
+    overflow: auto;
 }
-.dwnldLnk i {
-    font-size: 25px;
+
+.fileTable {
+    text-align: center;
+    vertical-align: middle;
 }

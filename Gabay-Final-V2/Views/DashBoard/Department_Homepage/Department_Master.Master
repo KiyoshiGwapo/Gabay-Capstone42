@@ -67,7 +67,7 @@
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-center custom-text-color">
+                                <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Academic_Calendar/Manage_AcadCalen.aspx">
                                   <i class="bi bi-calendar-check-fill me-2"></i>
                                   <span class="mt-2">Academic Calendar</span>
                                 </asp:HyperLink>
@@ -154,7 +154,7 @@
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center">
+                        <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Academic_Calendar/Manage_AcadCalen.aspx">
                             <i class="bi bi-calendar-check-fill fs-4 me-3"></i>
                             <p class="mt-4">Academic Calendar</p>
                         </asp:HyperLink>

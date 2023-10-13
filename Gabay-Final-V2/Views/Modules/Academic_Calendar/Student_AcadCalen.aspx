@@ -2,126 +2,45 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .spaceni {
-            width: 100%;
-            padding-bottom: 20px;
-            border-bottom: 2px solid black;
-        }
-
-        .download-container {
-            padding-top: 10px;
-            width: 1050px;
-            max-width: 100%;
-            margin: 0 auto 91px;
-            text-align: center;
-        }
-
-            .download-container h2 {
-                font-family: Baskerville;
-                line-height: 100%;
-                color: #000;
-                font-size: 60px;
-                margin: 0;
-                padding: 0;
-                list-style: none;
-            }
-
-            .download-container p {
-                color: #1a1a1a;
-                font-size: 18px;
-                margin: 27px 0 40px;
-            }
-
-            .download-container a.btn {
-                margin: 0 auto;
-                display: block;
-                position: relative;
-                width: 449px;
-                line-height: 54px;
-                background: #fbbf16;
-                text-align: left;
-                color: #1a1a1a;
-                font-size: 18px;
-                font-weight: 500;
-                padding: 0 65px 0 34px;
-            }
-
-        .p {
-            display: block;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-        }
-
-        .non_ban_img {
-            width: 1920px;
-            margin-left: 50%;
-            transform: translateX(-50%);
-        }
-
-        @media only screen and (max-width: 1010px) {
-            .non_ban_img {
-                width: 150%;
-                height: auto;
-                margin-left: -25%;
-                transform: none;
-                position: static;
-            }
-        }
-        /* Style the dropdown button */
-        .custom-dropdown {
-            display: inline-block;
-            text-decoration: none;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #003366;
-            color: white; /* Set text color to white */
-            font-size: 18px;
-            font-weight: 500;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-align: center;
-        }
-
-            /* Style the dropdown list */
-            .custom-dropdown:hover .dropdown-content,
-            .custom-dropdown:active .dropdown-content {
-                background-color: white; /* Set the background color to white */
-                color: white; /* Set text color to your desired color */
-            }
-
-        /* Hover effect for the custom dropdown */
-    </style>
-      <!-- Banner -->
-    <div id="banner">
-		<div class="wrapper">
-			<div class="bnr_con animatedParent animateOnce">
-				<div class="non_ban animatedParent animateOnce">
-				<div class="non_ban_img">
-			   <img width="1920" height="531" src="../../../Resources/Images/model.png" class="attachment-full size-full wp-post-image" alt="" loading="lazy"/>							</div>
-				<div class="page_title animated fadeInUp go">
-			</div>
-			</div>
-			</div>
-		</div>
-	</div>
-    	<div class="spaceni">
-            
-    	</div>
-        <div class="download-container">
-            <h2>Academic Calendar & Events</h2>
-            <p>The University’s academic calendar lists all the key dates throughout AY 2023-24, including dates for major examinations and holidays.</p>
-           <div class="dropdown-container">
-             <asp:DropDownList ID="ddlFiles" runat="server" CssClass="custom-dropdown" AutoPostBack="true" OnSelectedIndexChanged="ddlFiles_SelectedIndexChanged" style="width: 100%;">
-                <asp:ListItem Text="Select School Year" Value="" />
-            </asp:DropDownList>
-           </div>
-
-            <br />
-            <asp:LinkButton ID="LinkButton1" runat="server" Text="View/Download" OnClick="lnkDownload_Click" />
-          <asp:Label ID="DownloadErrorLabel" runat="server" ForeColor="Red" />
+    <link href="../../../Resources/CustomStyleSheet/Acad_Calendar/AcadCalenStyle.css" rel="stylesheet" />
+    <div class="acadCalen_container">
+        <div class="container">
+            <div class="row">
+                <div class="col banner-Container">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mt-3">
+                    <div class=" text-center">
+                        <span class="fs-1 fw-bold">Academic Calendar & Events</span>
+                        <p class="fs-4 mt-4">
+                            The University’s academic calendar lists
+                        all the key dates throughout AY 2023-2024,
+                        including dates for major examinations
+                        and holidays.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex text-center">
+                <div class="col mt-4 ddl-Container">
+                    <asp:DropDownList ID="ddlFiles" runat="server" CssClass="ddlFiles text-center" AutoPostBack="true" OnSelectedIndexChanged="ddlFiles_SelectedIndexChanged">
+                        <asp:ListItem Text="Select School Year" Value="" />
+                    </asp:DropDownList>
+                    <asp:LinkButton ID="LinkButton1" CssClass="dwnldLnk btn" runat="server" Text="View/Download" OnClick="lnkDownload_Click" OnClientClick="openInNewTab();">
+                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                    </asp:LinkButton>
+                </div>
+                <asp:Label ID="DownloadErrorLabel" runat="server" ForeColor="Red" />
+            </div>
         </div>
+    </div>
+<script type="text/javascript">
+    function openInNewTab() {
+        var url = window.location.href; // Get the current page URL
+        window.open(url, '_blank');
+        return false; // To prevent the default postback action
+    }
+</script>
+
 </asp:Content>

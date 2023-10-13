@@ -14,7 +14,7 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
 {
     public partial class Student_AcadCalen : System.Web.UI.Page
     {
-        private static string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -49,12 +49,19 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
                     // Handle the case where file data is not available
                     DownloadErrorLabel.Text = "File not found.";
                 }
+
+                // Open the link in a new tab using JavaScript
+                string script = "window.open('" + Request.Url.AbsoluteUri + "', '_blank');";
+                ClientScript.RegisterStartupScript(this.GetType(), "openNewTab", script, true);
             }
             else
             {
                 DownloadErrorLabel.Text = "Please select a file to preview.";
             }
         }
+
+
+
 
 
         // Helper method to determine content type based on file extension

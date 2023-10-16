@@ -467,6 +467,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 ScriptManager.RegisterStartupScript(this, GetType(), "EmailError", $"alert('An error occurred while sending the email: {ex.Message}');", true);
             }
         }
+
         private int GetIdFromDatabase(string email)
         {
             // Replace the connection string with your actual database connection string
@@ -982,11 +983,10 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         sb.Append("<a href='#' class='btn btn-primary btn-warning' data-bs-toggle='modal' data-bs-target='#emailModal' data-to='" + email + "'>");
                         sb.Append("<i class='fa fa-envelope'></i>");
                         sb.Append("</a>");
+                        sb.Append("<button type='button' class='btn btn-primary' style='background-color: blue; color: #fff;' data-bs-toggle='modal' data-bs-target='#updateModal' data-id='" + appointmentId + "' data-date='" + selectedDate + "' data-time='" + selectedTime + "' onclick='EditButton_Click(" + appointmentId + ", \"" + selectedDate + "\", \"" + selectedTime + "\");'>");
+                        sb.Append("<i class='fa fa-edit'></i>");
+                        sb.Append("</button>");
                     }
-
-                    sb.Append("<button type='button' class='btn btn-primary' style='background-color: blue; color: #fff;' data-bs-toggle='modal' data-bs-target='#updateModal' data-id='" + appointmentId + "' data-date='" + selectedDate + "' data-time='" + selectedTime + "' onclick='EditButton_Click(" + appointmentId + ", \"" + selectedDate + "\", \"" + selectedTime + "\");'>");
-                    sb.Append("<i class='fa fa-edit'></i>");
-                    sb.Append("</button>");
                     sb.Append("<a href='#' class='btn btn-primary btn-danger' onclick='deleteAppointment(" + appointmentId + ")'>");
                     sb.Append("<i class='fa fa-trash'></i>");
                     sb.Append("</a>");

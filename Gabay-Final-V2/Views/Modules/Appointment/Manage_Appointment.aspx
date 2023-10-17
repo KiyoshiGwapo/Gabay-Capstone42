@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" AutoEventWireup="true" CodeBehind="Manage_Appointment.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Appointment.Manage_Appointment" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         /* Add custom CSS styles for the table */
         .unique-table {
@@ -65,10 +66,10 @@
                         <asp:DropDownList ID="ddlStatusFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatusFilter_SelectedIndexChanged" CssClass="custom-dropdown">
                             <asp:ListItem Text="Select Down Below :" Value="" />
                             <asp:ListItem Text="PENDING" Value="Pending" style="color: black;" />
+                            <asp:ListItem Text="SERVE" Value="SERVE" style="color: orange;" />
                             <asp:ListItem Text="APPROVED" Value="APPROVED" style="color: green;" />
                             <asp:ListItem Text="DENIED" Value="DENIED" style="color: red;" />
-                            <asp:ListItem Text="RESCHEDULED" Value="RESCHEDULED" style="color: blue;" />
-                            <asp:ListItem Text="SERVE" Value="SERVE" style="color: orange;" />
+                            <asp:ListItem Text="RESCHEDULED" Value="RESCHEDULED" style="color: blue;" />                      
                         </asp:DropDownList>
                     </th>
 
@@ -242,3 +243,4 @@
 
     </script>
 </asp:Content>
+

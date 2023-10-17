@@ -20,6 +20,7 @@ using Newtonsoft.Json;
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
+
     public partial class Manage_Appointment : System.Web.UI.Page
     {
         // Declare the variable at the class level
@@ -27,13 +28,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected string appointmentData;
         private int appointmentId;
 
-        public enum SweetAlertMessageType
-        {
-            Success,
-            Error,
-            Warning,
-            Info
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -130,6 +124,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 ";
 
                 ScriptManager.RegisterStartupScript(this, GetType(), "ViewAppointmentScript", viewScript, true);
+
+
             }
         }
 
@@ -828,41 +824,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             return appointmentTime;
         }
-        //PARA SA ALERT OR POP UP 
-        private void ShowSweetAlert(string message, SweetAlertMessageType messageType)
-        {
-            string script = GetSweetAlertScript(message, messageType);
-            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script, true);
-        }
 
-        private string GetSweetAlertScript(string message, SweetAlertMessageType messageType)
-        {
-            string type = GetSweetAlertMessageTypeString(messageType);
-            return $@"swal({{
-                title: '',
-                text: '{message}',
-                icon: '{type}',
-                buttons: false,
-                timer: 3000, // 3 seconds
-            }});";
-        }
 
-        private string GetSweetAlertMessageTypeString(SweetAlertMessageType messageType)
-        {
-            switch (messageType)
-            {
-                case SweetAlertMessageType.Success:
-                    return "success";
-                case SweetAlertMessageType.Error:
-                    return "error";
-                case SweetAlertMessageType.Warning:
-                    return "warning";
-                case SweetAlertMessageType.Info:
-                    return "info";
-                default:
-                    return "info";
-            }
-        }
 
         //Kani tung sa Filtering
 

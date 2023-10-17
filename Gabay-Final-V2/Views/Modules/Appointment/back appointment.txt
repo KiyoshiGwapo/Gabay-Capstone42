@@ -1,0 +1,144 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.Services;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+//For Email
+using System.IO;
+//For Qr Code
+using QRCoder;
+using System.Drawing;
+using System.Collections.Generic;
+using System.Drawing.Imaging;
+//for json
+using Newtonsoft.Json;
+using Gabay_Final_V2.Models;
+
+namespace Gabay_Final_V2.Views.Modules.Appointment
+{
+
+    public partial class Manage_Appointment : System.Web.UI.Page
+    {
+        private Appointment_model appointmentModel = new Appointment_model();
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                
+                UniqueNameGridViewAppointments.RowCommand += UniqueNameGridViewAppointments_RowCommand;
+                LoadAppointments();
+            }
+        }
+
+        // Add the GetStatusColor function to your code-behind class
+        protected string GetStatusColor(string status)
+        {
+            switch (status)
+            {
+                case "Pending":
+                    return "black";
+                case "Serve":
+                    return "orange";
+                case "APPROVED":
+                    return "green";
+                case "DENIED":
+                    return "red";
+                case "RESCHEDULED":
+                    return "blue";
+                default:
+                    return "black"; // Default color
+            }
+        }
+
+        private void LoadAppointments()
+        {
+            DataTable dtAppointments = appointmentModel.GetAppointments();
+
+            if (dtAppointments.Rows.Count > 0)
+            {
+                UniqueNameGridViewAppointments.DataSource = dtAppointments;
+                UniqueNameGridViewAppointments.DataBind();
+            }
+        }
+
+        protected void ddlStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = (sender as DropDownList).NamingContainer as GridViewRow;
+            DropDownList ddlStatusFilter = row.FindControl("ddlStatusFilter") as DropDownList;
+
+            if (ddlStatusFilter != null)
+            {
+                string selectedStatus = ddlStatusFilter.SelectedValue;
+
+                if (selectedStatus == "All")
+                {
+                    LoadAppointments();
+                }
+                else
+                {
+                    DataTable dtFilteredAppointments = appointmentModel.GetAppointmentsByStatus(selectedStatus);
+
+                    if (dtFilteredAppointments.Rows.Count > 0)
+                    {
+                        UniqueNameGridViewAppointments.DataSource = dtFilteredAppointments;
+                        UniqueNameGridViewAppointments.DataBind();
+                    }
+                    else
+                    {
+                        // Handle the case where there are no matching appointments
+                    }
+                }
+            }
+        }
+
+        protected void btnViewMessage_Click(object sender, EventArgs e)
+        {
+            int appointmentID = Convert.ToInt32(HiddenField1.Value);
+
+            // Use the GetMessageForAppointment method to fetch the message
+            string message = appointmentModel.GetMessageForAppointment(appointmentID);
+
+            // Set the message text 
+            dtldMessage.Text = message;
+
+            // Show the message modal
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showMessageModal", "$('#dtldModal').modal('show');", true);
+        }
+
+
+        protected void UniqueNameGridViewAppointments_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteAppointment")
+            {
+                int appointmentId = Convert.ToInt32(e.CommandArgument);
+
+                // Create an instance of the Appointment_model class
+                Appointment_model appointmentModel = new Appointment_model();
+
+                // Call the DeleteAppointment method
+                if (appointmentModel.DeleteAppointment(appointmentId))
+                {
+                    // Reload the appointments grid after a successful delete
+                    LoadAppointments();
+                }
+                else
+                {
+                    // Handle any error that occurs during the delete operation
+                }
+            }
+        }
+
+
+
+
+    }
+}

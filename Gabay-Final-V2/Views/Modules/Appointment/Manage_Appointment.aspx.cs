@@ -20,7 +20,6 @@ using Newtonsoft.Json;
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
-
     public partial class Manage_Appointment : System.Web.UI.Page
     {
         // Declare the variable at the class level
@@ -28,6 +27,13 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected string appointmentData;
         private int appointmentId;
 
+        public enum SweetAlertMessageType
+        {
+            Success,
+            Error,
+            Warning,
+            Info
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -124,15 +130,13 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 ";
 
                 ScriptManager.RegisterStartupScript(this, GetType(), "ViewAppointmentScript", viewScript, true);
-
-
             }
         }
 
 
         private string FetchAppointmentData(string searchQuery = "")
         {
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -237,7 +241,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         private AppointmentData FetchAppointmentDataById(int appointmentId)
         {
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM Appointments WHERE ID_appointment = @AppointmentId";
@@ -288,7 +292,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         private void UpdateAppointmentData(int appointmentId, string newDate, string newTime)
         {
             // Assuming you have a connection string to your SQL Server database
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -350,7 +354,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         private void DeleteAppointment(int appointmentId)
         {
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
             string deleteQuery = "DELETE FROM Appointments WHERE ID_appointment = @id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -463,11 +467,10 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 ScriptManager.RegisterStartupScript(this, GetType(), "EmailError", $"alert('An error occurred while sending the email: {ex.Message}');", true);
             }
         }
-
         private int GetIdFromDatabase(string email)
         {
             // Replace the connection string with your actual database connection string
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
 
             // Initialize the id variable to store the result
             int id = 0;
@@ -530,7 +533,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         }
         private string GetFullNameForEmail(string email)
         {
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True"; // Replace with your actual database connection string
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True"; // Replace with your actual database connection string
             string fullName = "Unknown";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -566,7 +569,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         }
         private void UpdateAppointmentStatus(int id, string status)
         {
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
             string updateQuery = "UPDATE Appointments SET Status = @Status WHERE ID_appointment = @id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -610,7 +613,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         private string GetAppointmentEmail(int id)
         {
             // Retrieve the email address of the appointment using the appointment ID
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
             string email = "";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -757,7 +760,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             try
             {
-                string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+                string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -794,7 +797,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             try
             {
-                string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+                string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -824,8 +827,41 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             return appointmentTime;
         }
+        //PARA SA ALERT OR POP UP 
+        private void ShowSweetAlert(string message, SweetAlertMessageType messageType)
+        {
+            string script = GetSweetAlertScript(message, messageType);
+            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script, true);
+        }
 
+        private string GetSweetAlertScript(string message, SweetAlertMessageType messageType)
+        {
+            string type = GetSweetAlertMessageTypeString(messageType);
+            return $@"swal({{
+                title: '',
+                text: '{message}',
+                icon: '{type}',
+                buttons: false,
+                timer: 3000, // 3 seconds
+            }});";
+        }
 
+        private string GetSweetAlertMessageTypeString(SweetAlertMessageType messageType)
+        {
+            switch (messageType)
+            {
+                case SweetAlertMessageType.Success:
+                    return "success";
+                case SweetAlertMessageType.Error:
+                    return "error";
+                case SweetAlertMessageType.Warning:
+                    return "warning";
+                case SweetAlertMessageType.Info:
+                    return "info";
+                default:
+                    return "info";
+            }
+        }
 
         //Kani tung sa Filtering
 
@@ -856,7 +892,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         //Ari tung fetch taga status
         private string FetchAppointmentDataByStatus(string status)
         {
-            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM Appointments WHERE Status = @Status ORDER BY ID_appointment DESC";
@@ -946,10 +982,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         sb.Append("<a href='#' class='btn btn-primary btn-warning' data-bs-toggle='modal' data-bs-target='#emailModal' data-to='" + email + "'>");
                         sb.Append("<i class='fa fa-envelope'></i>");
                         sb.Append("</a>");
-                        sb.Append("<button type='button' class='btn btn-primary' style='background-color: blue; color: #fff;' data-bs-toggle='modal' data-bs-target='#updateModal' data-id='" + appointmentId + "' data-date='" + selectedDate + "' data-time='" + selectedTime + "' onclick='EditButton_Click(" + appointmentId + ", \"" + selectedDate + "\", \"" + selectedTime + "\");'>");
-                        sb.Append("<i class='fa fa-edit'></i>");
-                        sb.Append("</button>");
                     }
+
+                    sb.Append("<button type='button' class='btn btn-primary' style='background-color: blue; color: #fff;' data-bs-toggle='modal' data-bs-target='#updateModal' data-id='" + appointmentId + "' data-date='" + selectedDate + "' data-time='" + selectedTime + "' onclick='EditButton_Click(" + appointmentId + ", \"" + selectedDate + "\", \"" + selectedTime + "\");'>");
+                    sb.Append("<i class='fa fa-edit'></i>");
+                    sb.Append("</button>");
                     sb.Append("<a href='#' class='btn btn-primary btn-danger' onclick='deleteAppointment(" + appointmentId + ")'>");
                     sb.Append("<i class='fa fa-trash'></i>");
                     sb.Append("</a>");

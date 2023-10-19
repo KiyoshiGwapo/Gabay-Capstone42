@@ -83,12 +83,12 @@ header {
     z-index: 2;
 }
 .sideBar:hover {
-    width: 280px !important;
+    width: 300px !important;
     overflow: visible;
 }
 /*This is for side nav links*/
 .navLinks {
-    width: 280px;
+    width: 300px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -133,6 +133,9 @@ header {
     font-weight:bolder;
     text-align: left;
     letter-spacing: 0.5px;
+}
+a {
+    text-decoration:none !important;
 }
 
 

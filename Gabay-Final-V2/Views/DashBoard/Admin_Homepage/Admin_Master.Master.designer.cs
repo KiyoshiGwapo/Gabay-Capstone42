@@ -87,15 +87,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
         protected global::System.Web.UI.WebControls.HyperLink chatbot;
 
         /// <summary>
-        /// campusInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink campusInfo;
-
-        /// <summary>
         /// campCalendar control.
         /// </summary>
         /// <remarks>
@@ -211,15 +202,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink sideNavCB;
-
-        /// <summary>
-        /// sideNavCI control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink sideNavCI;
 
         /// <summary>
         /// sideNavCC control.

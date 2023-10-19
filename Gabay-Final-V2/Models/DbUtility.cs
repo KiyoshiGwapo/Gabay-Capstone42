@@ -42,7 +42,34 @@ namespace Gabay_Final_V2.Models
                 conn.Close();
             }
         }
+        public void ddlCourse(DropDownList courseDDL, string selectedDeptID)
+        {
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                string query = "SELECT courses FROM department WHERE ID_dept = @selectedDept";
 
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query,conn))
+                {
+                    cmd.Parameters.AddWithValue("@selectedDept", selectedDeptID);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        string data = reader["courses"].ToString();
+                        string[] dataArray = data.Split(',');
+
+                        foreach (string item in dataArray)
+                        {
+                            courseDDL.Items.Add(new ListItem(item));
+                        }
+
+                        reader.Close();
+                    }
+                }
+                conn.Close();
+            }
+        }
         //-------------------------------Login Logic for all users with login credentials-------------------------------//
         public bool loginLogic(string loginID, string loginPass, out int userID, out int roleID, out string loginStatus)
         {
@@ -79,7 +106,6 @@ namespace Gabay_Final_V2.Models
                 }
             }
         }
-
         //--------------------------------Fetch Session String for Department-------------------------------//
         public string FetchSessionStringDept(int userID)
         {
@@ -95,7 +121,6 @@ namespace Gabay_Final_V2.Models
                 }
             }
         }
-
         //-------------------------------Fetch Session String for Student-------------------------------//
         public string FetchSessionStringStud(int userID)
         {
@@ -111,7 +136,6 @@ namespace Gabay_Final_V2.Models
                 }
             }
         }
-
         //-------------------------------Fetch Session String for Admin-------------------------------//
         public string FetchSessionStringAdmin(int userID)
         {
@@ -127,9 +151,8 @@ namespace Gabay_Final_V2.Models
                 }
             }
         }
-
         //-------------------------------Insert Student in Database-------------------------------//
-        public void addStudent(int deptID, string studName, string studAddress, string studCN, string studBOD, string studCY, string studID, string studPass, string studEmail)
+        public void addStudent(int deptID, string studName, string studAddress, string studCN, string studBOD,string course, string studCY, string studID, string studPass, string studEmail)
         {
             using (SqlConnection conn = new SqlConnection(connection))
             {
@@ -138,8 +161,8 @@ namespace Gabay_Final_V2.Models
                 string roleType = "student";
                 int roleID;
 
-                string query = @"INSERT INTO student (department_ID, name, address, contactNumber, DOB, course_year, studentID, stud_pass, email) " +
-                               "VALUES (@deptID, @studName, @studAddress, @studCN, @studBOD, @studCY, @studID, @studPass, @studEmail)";
+                string query = @"INSERT INTO student (department_ID, name, address, contactNumber, DOB, course, course_year, studentID, stud_pass, email) " +
+                               "VALUES (@deptID, @studName, @studAddress, @studCN, @studBOD, @course, @studCY, @studID, @studPass, @studEmail)";
 
                 string roleQuery = @"SELECT role_id FROM user_role WHERE role = @roleType";
 
@@ -198,6 +221,7 @@ namespace Gabay_Final_V2.Models
                     studCmd.Parameters.AddWithValue("@studAddress", studAddress);
                     studCmd.Parameters.AddWithValue("@studCN", studCN);
                     studCmd.Parameters.AddWithValue("@studBOD", studBOD);
+                    studCmd.Parameters.AddWithValue("@course", course);
                     studCmd.Parameters.AddWithValue("@studCY", studCY);
                     studCmd.Parameters.AddWithValue("@studID", studID);
                     studCmd.Parameters.AddWithValue("@studPass", studPass);
@@ -305,7 +329,6 @@ namespace Gabay_Final_V2.Models
                 conn.Close();
             }
         }
-
         //-------------------------------Display/Fetch Students with Pending Status in Department homepage-------------------------------//
         public DataTable displayPendingStudents(int userID)
         {
@@ -315,7 +338,7 @@ namespace Gabay_Final_V2.Models
             {
                 conn.Open();
 
-                string queryFetchStudent = @"SELECT s.name, s.address, s.contactNumber, s.course_year, s.studentID, s.email
+                string queryFetchStudent = @"SELECT s.name, s.address, s.contactNumber, s.course_year, s.studentID, s.email, u.status
                                             FROM student s
                                             INNER JOIN department d ON s.department_ID = d.ID_dept
                                             INNER JOIN users_table u ON s.user_ID = u.user_ID
@@ -383,7 +406,7 @@ namespace Gabay_Final_V2.Models
 
             var builder = new BodyBuilder();
             builder.HtmlBody = @"<p>Dear "+studentName+"," +
-                "Your account has been verified and activated.</p> <p>Follo the link here <a href='https://localhost:44341/Views/LoginPages/Student_login.aspx'>Gabay Login</a> to login your account";
+                "Your account has been verified and activated.</p> <p>Follow the link here <a href='https://localhost:44341/Views/LoginPages/Student_login.aspx'>Gabay Login</a> to login your account";
 
             message.Body = builder.ToMessageBody();
 
@@ -402,6 +425,35 @@ namespace Gabay_Final_V2.Models
                 Console.WriteLine("Email sending error: " + ex.Message);
             }
 
+        }
+        public DataTable searchStudents(int userID, string searchCriteria)
+        {
+            DataTable studentTable = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+
+                string querySearchStudents = @"SELECT s.name, s.address, s.contactNumber, s.course_year, s.studentID, s.email
+                                       FROM student s
+                                       INNER JOIN department d ON s.department_ID = d.ID_dept
+                                       INNER JOIN users_table u ON s.user_ID = u.user_ID
+                                       WHERE d.user_ID = @userID 
+                                       AND u.status = 'pending'
+                                       AND (s.name LIKE @searchCriteria OR s.studentID LIKE @searchCriteria)";
+
+                using (SqlCommand cmd = new SqlCommand(querySearchStudents, conn))
+                {
+                    cmd.Parameters.AddWithValue("@userID", userID);
+                    cmd.Parameters.AddWithValue("@searchCriteria", "%" + searchCriteria + "%");
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        studentTable.Load(reader);
+                    }
+                }
+            }
+            return studentTable;
         }
 
     }

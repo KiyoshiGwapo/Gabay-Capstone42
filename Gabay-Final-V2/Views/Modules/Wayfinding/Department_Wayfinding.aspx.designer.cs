@@ -31,5 +31,14 @@ namespace Gabay_Final_V2.Views.Modules.Wayfinding
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl xregistrar;
+
+        /// <summary>
+        /// text1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl text1;
     }
 }

@@ -62,3 +62,18 @@
     color:white;
     border: 1px solid #003366;
 }
+.button-container {
+    margin-top: 3px;
+}
+
+    .button-container button {
+        margin-right: 3px;
+        margin-bottom: 5px;
+    }
+
+.predefined-button {
+    height: 35px;
+    background-color: #003366;
+    color: white;
+    border-radius: 50px;
+}

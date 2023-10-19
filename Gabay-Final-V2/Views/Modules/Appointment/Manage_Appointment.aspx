@@ -1,51 +1,50 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" AutoEventWireup="true" CodeBehind="Manage_Appointment.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Appointment.Manage_Appointment" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">.
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        /* Add custom CSS styles for the table */
-        .unique-table {
-            width: 100%;
+    /* Add custom CSS styles for the table */
+    .unique-table {
+        width: 100%;
+    }
+
+    .unique-table th, .unique-table td {
+        padding: 8px;
+        text-align: center;
+        background-color: white;
+        font-size: 14px;
+    }
+
+    .unique-table th {
+        font-weight: bold;
+        background-color: #428bca; /* Blue header background color */
+        color: white; /* White text color */
+    }
+
+    /* Add some hover effect on rows to make it more interactive */
+    .unique-table tbody tr:hover {
+        background-color: #e0e0e0; /* Lighter gray on hover */
+    }
+
+    /* Media query for responsive design */
+    @media (max-width: 768px) {
+        .unique-table th, .unique-table td {
+            padding: 6px; /* Adjust padding for smaller screens */
+            font-size: 14px; /* Adjust font size for smaller screens */
         }
-
-            .unique-table th, .unique-table td {
-                padding: 8px;
-                text-align: center;
-                background-color: white;
-                font-size: 14px;
-            }
-
-            .unique-table th {
-                font-weight: bold;
-                background-color: #428bca; /* Blue header background color */
-                color: white; /* White text color */
-            }
-
-            /* Add some hover effect on rows to make it more interactive */
-            .unique-table tbody tr:hover {
-                background-color: #e0e0e0; /* Lighter gray on hover */
-            }
-
-        /* Media query for responsive design */
-        @media (max-width: 768px) {
-            .unique-table th, .unique-table td {
-                padding: 6px; /* Adjust padding for smaller screens */
-                font-size: 14px; /* Adjust font size for smaller screens */
-            }
-        }
-        /* katung status nga dropdown button*/
-        .custom-dropdown {
-            width: 150px; /* Adjust the width as needed */
-            padding: 5px; /* Add padding for better appearance */
-            border: 1px solid #ccc; /* Add a border for styling */
-            border-radius: 5px; /* Add rounded corners */
-            background-color: #fff; /* Set the background color */
-            color: #333; /* Set the text color */
-            font-size: 14px; /* Set the font size */
-            text-align: center;
-        }
+    }
+    /* katung status nga dropdown button*/
+     .custom-dropdown {
+        width: 150px; /* Adjust the width as needed */
+        padding: 5px; /* Add padding for better appearance */
+        border: 1px solid #ccc; /* Add a border for styling */
+        border-radius: 5px; /* Add rounded corners */
+        background-color: #fff; /* Set the background color */
+        color: #333; /* Set the text color */
+        font-size: 14px; /* Set the font size */
+        text-align: center;
+    }
     </style>
     <div class="table-responsive-sm">
         <table class="table unique-table">
@@ -66,10 +65,10 @@
                         <asp:DropDownList ID="ddlStatusFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatusFilter_SelectedIndexChanged" CssClass="custom-dropdown">
                             <asp:ListItem Text="Select Down Below :" Value="" />
                             <asp:ListItem Text="PENDING" Value="Pending" style="color: black;" />
-                            <asp:ListItem Text="SERVE" Value="SERVE" style="color: orange;" />
                             <asp:ListItem Text="APPROVED" Value="APPROVED" style="color: green;" />
                             <asp:ListItem Text="DENIED" Value="DENIED" style="color: red;" />
-                            <asp:ListItem Text="RESCHEDULED" Value="RESCHEDULED" style="color: blue;" />                      
+                            <asp:ListItem Text="RESCHEDULED" Value="RESCHEDULED" style="color: blue;" />
+                            <asp:ListItem Text="SERVE" Value="SERVE" style="color: orange;" />
                         </asp:DropDownList>
                     </th>
 
@@ -129,17 +128,19 @@
                         <label for="message" class="form-label">Message</label>
                         <textarea id="messageTextArea" runat="server" class="form-control" rows="5"></textarea>
                     </div>
+                    <!-- Add date and time input fields -->
+
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <asp:Button ID="ReplyButton" runat="server" Text="Reply" OnClick="SendEmailButton_Click" CssClass="btn btn-primary" />
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
                 </div>
             </div>
         </div>
     </div>
 
 
-    <input type="hidden" id="appointmentIdHiddenField" runat="server" />
+      <input type="hidden" id="appointmentIdHiddenField" runat="server" />
     <!-- "Update" Modal -->
     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -179,7 +180,6 @@
             var updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
             updateModal.show();
         }
-
     </script>
     <script>
         var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
@@ -212,9 +212,9 @@
             document.getElementById('updateTime').value = selectedTime;
             document.getElementById('<%= appointmentIdHiddenField.ClientID %>').value = appointmentId;
 
-            var updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
-            updateModal.show();
-        }
+              var updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
+              updateModal.show();
+          }
 
         function deleteAppointment(appointmentId) {
             if (confirm('Are you sure you want to delete this appointment?')) {
@@ -243,4 +243,3 @@
 
     </script>
 </asp:Content>
-

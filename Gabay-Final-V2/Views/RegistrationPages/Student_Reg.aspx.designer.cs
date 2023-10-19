@@ -114,6 +114,15 @@ namespace Gabay_Final_V2.Views.RegistrationPages
         protected global::System.Web.UI.WebControls.DropDownList departmentChoices;
 
         /// <summary>
+        /// courseList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList courseList;
+
+        /// <summary>
         /// courseYearChoices control.
         /// </summary>
         /// <remarks>

@@ -6,7 +6,7 @@
     <div class="manageChatbot-container">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4">
+                <div class="col-lg-4 col-md-12">
                     <div class="scriptInputs">
                         <asp:TextBox ID="ScriptTextArea" CssClass="form-control ScriptTextArea" runat="server" TextMode="MultiLine" placeholder="Write script here..."></asp:TextBox>
                         <asp:TextBox ID="KeywordTextArea" CssClass="form-control KeywordTextArea" runat="server" placeholder="Write keywords here..."></asp:TextBox>
@@ -23,14 +23,14 @@
                         <asp:Button ID="cnclBtn" CssClass="btn updtBtn" runat="server" Text="Cancel" UseSubmitBehavior="false" OnClick="cnclBtn_Click"/>
                     </div>
                 </div>
-                <div class="col-8 tableArea">
+                <div class="col-lg-8 col-md-12 tableArea">
                     <div class="ScriptTable-container">
                         <asp:GridView ID="ScriptTable" CssClass="table table-striped scriptTable" HeaderStyle-CssClass="text-center sticky-top" AlternatingRowStyle-BackColor="#c1d6fe" runat="server" AutoGenerateColumns="False" OnRowEditing="ScriptTable_RowEditing" DataKeyNames="res_ID" OnRowDeleting="ScriptTable_RowDeleting">
                             <Columns>
                                 <asp:TemplateField HeaderText="Script ID" ItemStyle-CssClass="cntrlItm">
                                     <ItemTemplate>
                                         <asp:Label ID="res_ID" runat="server" Text='<%# Bind("res_ID") %>'></asp:Label>
-                                    </ItemTemplate>
+                                    </ItemTemplate> 
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Script Content">
                                     <ItemTemplate>

@@ -1,0 +1,32 @@
+﻿.picCont {
+    width: 180px;
+    height: auto;
+    border-radius: 200px;
+}
+
+.departmentInfo li {
+    list-style: none;
+}
+
+.headerLi {
+    display: flex;
+    justify-content: center;
+}
+
+.departmentInfoContainer {
+    display: flex;
+}
+
+    .departmentInfoContainer li {
+        list-style: none;
+        padding: 5px;
+    }
+
+.contactInformation {
+    display: flex;
+}
+
+    .contactInformation li {
+        list-style: none;
+        padding: 5px;
+    }

@@ -17,12 +17,12 @@
     <div class="container">
         <div class="row p-3">
             <div class="col-md-5 d-none d-md-block custom-bg2 shadow-lg">
-                <asp:HyperLink ID="goBack" runat="server" CssClass="fs-3 text-decoration-none backButton">
+                <asp:HyperLink ID="goBack" runat="server" CssClass="fs-3 text-decoration-none backButton" NavigateUrl="~/Landing_Page/LandingPage.aspx">
                     <i class="bi bi-arrow-left-square"></i>
                 </asp:HyperLink>
             </div>
             <div class="col-md-7 col-sm-12 p-5 justify-content-center bg-light shadow-lg">
-                <asp:HyperLink ID="goBack1" runat="server" CssClass="fs-3 d-block d-md-none text-decoration-none backButton">
+                <asp:HyperLink ID="goBack1" runat="server" CssClass="fs-3 d-block d-md-none text-decoration-none backButton" NavigateUrl="~/Landing_Page/LandingPage.aspx">
                     <i class="bi bi-arrow-left-square"></i>
                 </asp:HyperLink>
                 <div class="text-center">

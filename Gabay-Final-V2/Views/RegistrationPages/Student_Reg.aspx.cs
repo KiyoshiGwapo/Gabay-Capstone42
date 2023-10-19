@@ -29,13 +29,27 @@ namespace Gabay_Final_V2.Views.RegistrationPages
             string studentNumber = idNumber.Text;
             string Studpassword = password.Text;
             int departmentID = Convert.ToInt32(departmentChoices.SelectedValue);
+            string course = courseList.SelectedValue;
             string courseYear = courseYearChoices.SelectedItem.Text;
 
             DbUtility conn = new DbUtility();
 
-            conn.addStudent(departmentID, fullName, studAddress, contactNumber, studBOD, courseYear, studentNumber, Studpassword, studEmail);
+            conn.addStudent(departmentID, fullName, studAddress, contactNumber, studBOD, course, courseYear, studentNumber, Studpassword, studEmail);
 
             Response.Redirect("Pending_page.aspx");
+        }
+
+        protected void departmentChoices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DbUtility conn = new DbUtility();
+            string selectedDeptID = departmentChoices.SelectedValue;
+
+            courseList.ClearSelection();
+
+            if(!string.IsNullOrEmpty(selectedDeptID) )
+            {
+                conn.ddlCourse(courseList, selectedDeptID);
+            }
         }
     }
 }

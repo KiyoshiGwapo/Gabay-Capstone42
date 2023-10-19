@@ -28,6 +28,9 @@
     const deptInput = form.querySelector('.department');
     const errorDept = form.querySelector('.departmentError');
 
+    const courseInput = form.querySelector('.course');
+    const errorCourse = form.querySelector('.courseError');
+
     const yearInput = form.querySelector('.courseYear');
     const errorYear = form.querySelector('.courseYearError');
 
@@ -82,12 +85,12 @@
         if (DOBInput.value === "" || DOBInput.value == null) {
             DOBInput.classList.add('is-invalid');
             DOBInput.classList.remove('is-valid');
-            DOBError.classList.remove('d-none');
+            errorDOB.classList.remove('d-none');
             return false;
         } else {
             DOBInput.classList.remove('is-invalid');
             DOBInput.classList.add('is-valid');
-            DOBError.classList.add('d-none');
+            errorDOB.classList.add('d-none');
             return true;
         }
     }
@@ -163,6 +166,19 @@
             return true;
         }
     }
+    function checkCourse() {
+        if (courseInput.value === '' || courseInput == null) {
+            courseInput.classList.add('is-invalid');
+            courseInput.classList.remove('is-valid');
+            errorCourse.classList.remove('d-none');
+            return false;
+        } else {
+            courseInput.classList.remove('is-invalid');
+            courseInput.classList.add('is-valid');
+            errorCourse.classList.add('d-none');
+            return true;
+        }
+    }
     function checkCourseYear() {
 
         if (yearInput.value === '' || yearInput.value == null) {
@@ -218,6 +234,9 @@
         if (!checkCourseYear()) {
             e.preventDefault();
         }
+        if (!checkCourse()) {
+            e.preventDefault();
+        }
 
     });
     nameInput.addEventListener('keyup', checkName);
@@ -229,6 +248,7 @@
     emailInput.addEventListener('keyup', checkEmail);
     idNumberInput.addEventListener('keyup', checkIdnumber);
     deptInput.addEventListener('change', checkDepartment);
+    courseInput.addEventListener('change', checkCourse);
     yearInput.addEventListener('change', checkCourseYear);
 
 });

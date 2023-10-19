@@ -10,7 +10,6 @@ namespace Gabay_Final_V2.Models
 {
     public class Chatbot_model
     {
-        //Mo gana na ang add, retrieve, update ug delete
         private static string conn = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
 
         public DataTable dt()
@@ -19,7 +18,7 @@ namespace Gabay_Final_V2.Models
 
             using (SqlConnection connection = new SqlConnection(conn))
             {
-                string query = "SELECT * FROM response";
+                string query = "SELECT * FROM Chat_Response";
 
                 SqlCommand cmd = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -29,12 +28,14 @@ namespace Gabay_Final_V2.Models
             }
             return datable;
         }
-
         public void AddResponse(string scripts, string keywords)
         {
             using (SqlConnection connection = new SqlConnection(conn))
             {
-                string query = "INSERT INTO response (response, keywords) VALUES (@response, @keywords)";
+                string query = "INSERT INTO Chat_Response (response, keywords) VALUES (@response, @keywords)";
+
+                // Replace "<br>" tags with newline characters "\n" before storing in the database
+                scripts = scripts.Replace("<br>", "\n");
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@response", scripts);
@@ -48,7 +49,7 @@ namespace Gabay_Final_V2.Models
         {
             using (SqlConnection connection = new SqlConnection(conn))
             {
-                string query = "UPDATE response SET response = @Script, keywords = @Keywords WHERE res_ID = @ScriptId";
+                string query = "UPDATE Chat_Response SET response = @Script, keywords = @Keywords WHERE res_ID = @ScriptId";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Script", updatedScript);
@@ -63,7 +64,7 @@ namespace Gabay_Final_V2.Models
         {
             using (SqlConnection connection = new SqlConnection(conn))
             {
-                string query = "DELETE FROM response WHERE res_ID = @ScriptId";
+                string query = "DELETE FROM Chat_Response WHERE res_ID = @ScriptId";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@ScriptId", scriptID);
@@ -84,38 +85,32 @@ namespace Gabay_Final_V2.Models
             {
                 connection.Open();
 
-                string selectQuery = "SELECT response FROM response WHERE keywords LIKE @token";
+                string selectQuery = "SELECT response, keywords FROM Chat_Response";
                 using (SqlCommand command = new SqlCommand(selectQuery, connection))
                 {
-                    command.Parameters.Add("@token", SqlDbType.VarChar);
-
-                    foreach (string token in userTokens)
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        command.Parameters["@token"].Value = "%" + token + "%";
-
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
+                            string script = reader.GetString(0);
+                            string keywords = reader.GetString(1);
+                            int count = 0;
+
+                            foreach (string keyword in keywords.Split(','))
                             {
-                                string script = reader.GetString(0);
-                                int count = 0;
+                                if (userTokens.Contains(keyword.Trim(), StringComparer.OrdinalIgnoreCase))
+                                {
+                                    count++;
+                                }
+                            }
 
-                                foreach (string userToken in userTokens)
-                                {
-                                    if (script.IndexOf(userToken, StringComparison.OrdinalIgnoreCase) >= 0)
-                                    {
-                                        count++;
-                                    }
-                                }
-
-                                if (!keywordCount.ContainsKey(script))
-                                {
-                                    keywordCount.Add(script, count);
-                                }
-                                else
-                                {
-                                    keywordCount[script] += count;
-                                }
+                            if (!keywordCount.ContainsKey(script))
+                            {
+                                keywordCount.Add(script, count);
+                            }
+                            else
+                            {
+                                keywordCount[script] += count;
                             }
                         }
                     }
@@ -135,12 +130,13 @@ namespace Gabay_Final_V2.Models
                 }
             }
 
-            if (string.IsNullOrEmpty(bestScript))
+            if (maxCount == 0)
             {
                 bestScript = "I'm sorry, I didn't understand your question. Could you please rephrase it?";
             }
-
+            bestScript = bestScript.Replace("\n", "<br>");
             return bestScript;
         }
+
     }
 }

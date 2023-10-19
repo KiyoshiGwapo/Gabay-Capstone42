@@ -1,0 +1,106 @@
+﻿.picCont {
+    width: 180px;
+    height: auto;
+    border-radius: 200px;
+}
+
+.departmentInfo li {
+    list-style: none;
+}
+
+.headerLi {
+    display: flex;
+    justify-content: center;
+}
+
+.departmentInfoContainer {
+    display: flex;
+}
+
+    .departmentInfoContainer li {
+        list-style: none;
+        padding: 5px;
+    }
+
+.contactInformation {
+    display: flex;
+}
+
+    .contactInformation li {
+        list-style: none;
+        padding: 5px;
+    }
+
+.editButton {
+    opacity: 75%;
+}
+
+    .editButton:hover {
+        opacity: 100%;
+    }
+
+    .editButton i {
+        color: #003366;
+    }
+
+.edit-container li {
+    padding: 10px;
+    font-size: 20px;
+    list-style: none;
+}
+
+.lgn {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+    .lgn:hover {
+        background-color: #003366;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px 10px 0 0;
+    }
+
+.dpt {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+    .dpt:hover {
+        background-color: #003366;
+        color: white;
+        cursor: pointer;
+    }
+
+.cn:hover {
+    background-color: #003366;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 0 10px 10px;
+}
+
+.border-modal {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal-items {
+    font-size: 18px;
+}
+
+.modalRouting:hover {
+    cursor: pointer;
+    color: #0c0c0c;
+}
+
+.updtBtn {
+    background-color: #003366;
+    color: white;
+}
+
+    .updtBtn:hover {
+        background-color: #05498d;
+        color: white;
+    }
+
+.addBtn {
+    width: 100%;
+}

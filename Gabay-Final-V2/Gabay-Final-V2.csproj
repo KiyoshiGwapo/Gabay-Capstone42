@@ -122,11 +122,30 @@
     <Content Include="Bootstrap\Content\bootstrap.min.css" />
     <Content Include="Bootstrap\Content\bootstrap.rtl.css" />
     <Content Include="Bootstrap\Content\bootstrap.rtl.min.css" />
+    <Content Include="Landing_Page\LandingPage.aspx" />
+    <Content Include="Prototype\JavaScript.js" />
+    <Content Include="Prototype\UC-LOGO.png" />
     <Content Include="Prototype\WebForm1.aspx" />
-    <Content Include="Resources\CustomJS\CampusInfo\CampusInfo.js" />
+    <Content Include="Prototype\WebForm10.aspx" />
+    <Content Include="Prototype\WebForm11.aspx" />
+    <Content Include="Prototype\WebForm12.aspx" />
+    <Content Include="Prototype\WebForm13.aspx" />
+    <Content Include="Prototype\WebForm14.aspx" />
+    <Content Include="Prototype\WebForm2.aspx" />
+    <Content Include="Prototype\ManageStudent.aspx" />
+    <Content Include="Prototype\WebForm4.aspx" />
+    <Content Include="Prototype\WebForm5.aspx" />
+    <Content Include="Prototype\WebForm6.aspx" />
+    <Content Include="Prototype\WebForm7.aspx" />
+    <Content Include="Prototype\WebForm8.aspx" />
+    <Content Include="Prototype\WebForm9.aspx" />
+    <Content Include="Resources\CustomJS\AcadCalendar\AcadCalendarJS.js" />
     <Content Include="Resources\CustomJS\Chatbot\AppointmentJS.js" />
     <Content Include="Resources\CustomJS\Chatbot\ChatbotJS.js" />
     <Content Include="Resources\CustomJS\Chatbot\ManageChatbot.js" />
+    <Content Include="Resources\CustomJS\DeptProfile\DeptprofileJS.js" />
+    <Content Include="Resources\CustomJS\OpenModal.js" />
+    <Content Include="Resources\CustomJS\Registration\DeptRegistrationJS.js" />
     <Content Include="Resources\CustomJS\Registration\RegistrationJS.js" />
     <Content Include="Resources\CustomJS\Wayfinding\map.js" />
     <Content Include="FontAwesome\css\all.css" />
@@ -2197,14 +2216,19 @@
     <Content Include="Bootstrap\Scripts\bootstrap.js" />
     <Content Include="Bootstrap\Scripts\bootstrap.min.js" />
     <Content Include="Resources\CustomStyleSheet\Acad_Calendar\AcadCalenStyle.css" />
+    <Content Include="Resources\CustomStyleSheet\Add_Dept\Add_DeptStyle.css" />
     <Content Include="Resources\CustomStyleSheet\Appointment\AppointmentStyle.css" />
-    <Content Include="Resources\CustomStyleSheet\Appointment\ManageAppointment.css" />
-    <Content Include="Resources\CustomStyleSheet\CampusInfo\CampusInfo.css" />
+    <Content Include="Resources\CustomStyleSheet\CampusInfo\CampusInfoStyle.css" />
     <Content Include="Resources\CustomStyleSheet\Chatbot\ChatbotStyle.css" />
     <Content Include="Resources\CustomStyleSheet\Chatbot\ManageChatbotStyle.css" />
+    <Content Include="Resources\CustomStyleSheet\DeptInfo\DeptInfo.css" />
+    <Content Include="Resources\CustomStyleSheet\Dept_profile\DeptProfStyle.css" />
+    <Content Include="Resources\CustomStyleSheet\Landing_Page\LandingPageStyle.css" />
     <Content Include="Resources\CustomStyleSheet\PendingPageStyle.css" />
     <Content Include="Resources\CustomStyleSheet\RegistrationStyle.css" />
     <Content Include="Resources\CustomStyleSheet\Test.css" />
+    <Content Include="Resources\Images\tempIcons\ccs logo.png" />
+    <Content Include="Resources\Images\uclm.png" />
     <Content Include="Resources\Images\buildings\1099451.jpg" />
     <Content Include="Resources\Images\buildings\2018447.jpg" />
     <Content Include="Resources\Images\buildings\327550941_422743486703864_129892411986358173_n-removebg-preview.png" />
@@ -2245,10 +2269,17 @@
     <Content Include="Resources\Images\identification-card.png" />
     <Content Include="Resources\Images\main figure.png" />
     <Content Include="Resources\Images\man1.jpg" />
+    <Content Include="Resources\Images\model-flip.png" />
+    <Content Include="Resources\Images\model-flip1.png" />
     <Content Include="Resources\Images\model.png" />
     <Content Include="Resources\Images\networking.png" />
     <Content Include="Resources\Images\pexels-startup-stock-photos-7096.jpg" />
     <Content Include="Resources\Images\school.gif" />
+    <Content Include="Resources\Images\tempIcons\chat.png" />
+    <Content Include="Resources\Images\tempIcons\cutomModel.jpg" />
+    <Content Include="Resources\Images\tempIcons\info.png" />
+    <Content Include="Resources\Images\tempIcons\route.png" />
+    <Content Include="Resources\Images\tempIcons\schedule.png" />
     <Content Include="Resources\Images\uc-building.jpg" />
     <Content Include="Resources\Images\UC-LOGO.png" />
     <Content Include="Resources\Images\uc-student-model-1.jpg" />
@@ -2260,13 +2291,17 @@
     <Content Include="Resources\Images\ucbg.png" />
     <Content Include="Resources\Images\uclm-565.png" />
     <Content Include="Resources\Images\walk.gif" />
-    <Content Include="Scripts\sweetalert-dev.js" />
-    <Content Include="Scripts\sweetalert.min.js" />
-    <Content Include="Styles\sweetalert.css" />
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Views\DashBoard\Admin_Homepage\Admin_DashBoard.aspx" />
+    <Content Include="Views\DashBoard\Admin_Homepage\TextFile1.txt" />
     <Content Include="Views\DashBoard\Department_Homepage\Department_Dashboard.aspx" />
+    <Content Include="Views\DashBoard\Department_Homepage\Department_profile.aspx" />
     <Content Include="Views\DashBoard\Department_Homepage\Pending_students.aspx" />
-    <Content Include="Views\Modules\Academic_Calendar\Manage_AcadCalen.aspx" />
+    <Content Include="Views\DashBoard\Guest_Homepage\Guest_Dashboard.aspx" />
     <Content Include="Views\DashBoard\Student_Homepage\Student_Dashboard.aspx" />
     <Content Include="Views\LoginPages\Admin_login.aspx" />
     <Content Include="Views\LoginPages\Department_login.aspx" />
@@ -2274,19 +2309,19 @@
     <Content Include="Views\LoginPages\Student_login.aspx" />
     <Content Include="Views\Modules\Academic_Calendar\Student_AcadCalen.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_AcadCalen.aspx" />
+    <Content Include="Views\Modules\Admin_Modules\Manage_CampusInfo.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx" />
-    <Content Include="Views\Modules\Announcement\DepartmentAnnouncement.aspx" />
-    <Content Include="Views\Modules\Announcement\Student_Announcement.aspx" />
-    <Content Include="Views\Modules\Appointment\front appointmetn.txt" />
+    <Content Include="Views\Modules\Admin_Modules\Manage_Department.aspx" />
+    <Content Include="Views\Modules\Admin_Modules\Manage_FAQ.aspx" />
+    <Content Include="Views\Modules\Admin_Modules\Manage_Users.aspx" />
+    <Content Include="Views\Modules\Announcement\Department_Announcement.aspx" />
     <Content Include="Views\Modules\Appointment\Manage_Appointment.aspx" />
     <Content Include="Views\Modules\Appointment\Student_Appointment.aspx" />
-    <Content Include="Views\Modules\Appointment\back appointment.txt" />
-    <Content Include="Views\Modules\CampusInfo\Department_CampusInfo.aspx" />
-    <Content Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx" />
+    <Content Include="Views\Modules\Campus_Info\Department_CampusInfo.aspx" />
     <Content Include="Views\Modules\Chatbot\Department_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Student_Chatbot.aspx" />
-    <Content Include="Views\Modules\FAQ\FAQ_View.aspx" />
-    <Content Include="Views\Modules\FAQ\Manage_FAQ.aspx" />
+    <Content Include="Views\Modules\Department_Info\Student_deptInfo.aspx" />
+    <Content Include="Views\Modules\FAQ\Student_FAQ.aspx" />
     <Content Include="Views\Modules\Wayfinding\Department_Wayfinding.aspx" />
     <Content Include="Views\Modules\Wayfinding\Student_Wayfinding.aspx" />
     <Content Include="Views\RegistrationPages\Pending_page.aspx" />
@@ -2294,13 +2329,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Landing_Page\LandingPage.aspx.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landing_Page\LandingPage.aspx.designer.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AcadCalen_model.cs" />
+    <Compile Include="Models\Admin_model.cs" />
     <Compile Include="Models\Announcement_model.cs" />
     <Compile Include="Models\Appointment_model.cs" />
     <Compile Include="Models\CampusInfo_model.cs" />
     <Compile Include="Models\Chatbot_model.cs" />
+    <Compile Include="Models\DashboardDepartment.cs" />
     <Compile Include="Models\DbUtility.cs" />
-    <Compile Include="Models\FAQ.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prototype\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -2308,6 +2351,97 @@
     </Compile>
     <Compile Include="Prototype\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm10.aspx.cs">
+      <DependentUpon>WebForm10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm10.aspx.designer.cs">
+      <DependentUpon>WebForm10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm11.aspx.cs">
+      <DependentUpon>WebForm11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm11.aspx.designer.cs">
+      <DependentUpon>WebForm11.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm12.aspx.cs">
+      <DependentUpon>WebForm12.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm12.aspx.designer.cs">
+      <DependentUpon>WebForm12.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm13.aspx.cs">
+      <DependentUpon>WebForm13.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm13.aspx.designer.cs">
+      <DependentUpon>WebForm13.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm14.aspx.cs">
+      <DependentUpon>WebForm14.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm14.aspx.designer.cs">
+      <DependentUpon>WebForm14.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\ManageStudent.aspx.cs">
+      <DependentUpon>ManageStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\ManageStudent.aspx.designer.cs">
+      <DependentUpon>ManageStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm4.aspx.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm4.aspx.designer.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm6.aspx.cs">
+      <DependentUpon>WebForm6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm6.aspx.designer.cs">
+      <DependentUpon>WebForm6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm7.aspx.cs">
+      <DependentUpon>WebForm7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm7.aspx.designer.cs">
+      <DependentUpon>WebForm7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm8.aspx.cs">
+      <DependentUpon>WebForm8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm8.aspx.designer.cs">
+      <DependentUpon>WebForm8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm9.aspx.cs">
+      <DependentUpon>WebForm9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm9.aspx.designer.cs">
+      <DependentUpon>WebForm9.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\DashBoard\Admin_Homepage\Admin_Master.Master.cs">
       <DependentUpon>Admin_Master.Master</DependentUpon>
@@ -2323,13 +2457,6 @@
     <Compile Include="Views\DashBoard\Admin_Homepage\Admin_DashBoard.aspx.designer.cs">
       <DependentUpon>Admin_DashBoard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\DashBoard\Department_Homepage\Department_Master.Master.cs">
-      <DependentUpon>Department_Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\DashBoard\Department_Homepage\Department_Master.Master.designer.cs">
-      <DependentUpon>Department_Master.Master</DependentUpon>
-    </Compile>
     <Compile Include="Views\DashBoard\Department_Homepage\Department_Dashboard.aspx.cs">
       <DependentUpon>Department_Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2337,12 +2464,40 @@
     <Compile Include="Views\DashBoard\Department_Homepage\Department_Dashboard.aspx.designer.cs">
       <DependentUpon>Department_Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashBoard\Department_Homepage\Department_Master.Master.cs">
+      <DependentUpon>Department_Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DashBoard\Department_Homepage\Department_Master.Master.designer.cs">
+      <DependentUpon>Department_Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashBoard\Department_Homepage\Department_profile.aspx.cs">
+      <DependentUpon>Department_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DashBoard\Department_Homepage\Department_profile.aspx.designer.cs">
+      <DependentUpon>Department_profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashBoard\Department_Homepage\Pending_students.aspx.cs">
       <DependentUpon>Pending_students.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\DashBoard\Department_Homepage\Pending_students.aspx.designer.cs">
       <DependentUpon>Pending_students.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashBoard\Guest_Homepage\Guest_Dashboard.aspx.cs">
+      <DependentUpon>Guest_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DashBoard\Guest_Homepage\Guest_Dashboard.aspx.designer.cs">
+      <DependentUpon>Guest_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashBoard\Guest_Homepage\Guest_Master.Master.cs">
+      <DependentUpon>Guest_Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DashBoard\Guest_Homepage\Guest_Master.Master.designer.cs">
+      <DependentUpon>Guest_Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Views\DashBoard\Student_Homepage\Student_Master.Master.cs">
       <DependentUpon>Student_Master.Master</DependentUpon>
@@ -2386,13 +2541,6 @@
     <Compile Include="Views\LoginPages\Student_login.aspx.designer.cs">
       <DependentUpon>Student_login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Modules\Academic_Calendar\Manage_AcadCalen.aspx.cs">
-      <DependentUpon>Manage_AcadCalen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Modules\Academic_Calendar\Manage_AcadCalen.aspx.designer.cs">
-      <DependentUpon>Manage_AcadCalen.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Modules\Academic_Calendar\Student_AcadCalen.aspx.cs">
       <DependentUpon>Student_AcadCalen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2407,6 +2555,13 @@
     <Compile Include="Views\Modules\Admin_Modules\Manage_AcadCalen.aspx.designer.cs">
       <DependentUpon>Manage_AcadCalen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_CampusInfo.aspx.cs">
+      <DependentUpon>Manage_CampusInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_CampusInfo.aspx.designer.cs">
+      <DependentUpon>Manage_CampusInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx.cs">
       <DependentUpon>Manage_Chatbot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2414,19 +2569,33 @@
     <Compile Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx.designer.cs">
       <DependentUpon>Manage_Chatbot.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Modules\Announcement\DepartmentAnnouncement.aspx.cs">
-      <DependentUpon>DepartmentAnnouncement.aspx</DependentUpon>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_Department.aspx.cs">
+      <DependentUpon>Manage_Department.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Modules\Announcement\DepartmentAnnouncement.aspx.designer.cs">
-      <DependentUpon>DepartmentAnnouncement.aspx</DependentUpon>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_Department.aspx.designer.cs">
+      <DependentUpon>Manage_Department.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Modules\Announcement\Student_Announcement.aspx.cs">
-      <DependentUpon>Student_Announcement.aspx</DependentUpon>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_FAQ.aspx.cs">
+      <DependentUpon>Manage_FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Modules\Announcement\Student_Announcement.aspx.designer.cs">
-      <DependentUpon>Student_Announcement.aspx</DependentUpon>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_FAQ.aspx.designer.cs">
+      <DependentUpon>Manage_FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_Users.aspx.cs">
+      <DependentUpon>Manage_Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_Users.aspx.designer.cs">
+      <DependentUpon>Manage_Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\Announcement\Department_Announcement.aspx.cs">
+      <DependentUpon>Department_Announcement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Announcement\Department_Announcement.aspx.designer.cs">
+      <DependentUpon>Department_Announcement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Appointment\Manage_Appointment.aspx.cs">
       <DependentUpon>Manage_Appointment.aspx</DependentUpon>
@@ -2442,19 +2611,12 @@
     <Compile Include="Views\Modules\Appointment\Student_Appointment.aspx.designer.cs">
       <DependentUpon>Student_Appointment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Modules\CampusInfo\Department_CampusInfo.aspx.cs">
+    <Compile Include="Views\Modules\Campus_Info\Department_CampusInfo.aspx.cs">
       <DependentUpon>Department_CampusInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Modules\CampusInfo\Department_CampusInfo.aspx.designer.cs">
+    <Compile Include="Views\Modules\Campus_Info\Department_CampusInfo.aspx.designer.cs">
       <DependentUpon>Department_CampusInfo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx.cs">
-      <DependentUpon>Student_CampusInfo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Modules\CampusInfo\Student_CampusInfo.aspx.designer.cs">
-      <DependentUpon>Student_CampusInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Chatbot\Department_Chatbot.aspx.cs">
       <DependentUpon>Department_Chatbot.aspx</DependentUpon>
@@ -2470,19 +2632,19 @@
     <Compile Include="Views\Modules\Chatbot\Student_Chatbot.aspx.designer.cs">
       <DependentUpon>Student_Chatbot.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Modules\FAQ\FAQ_View.aspx.cs">
-      <DependentUpon>FAQ_View.aspx</DependentUpon>
+    <Compile Include="Views\Modules\Department_Info\Student_deptInfo.aspx.cs">
+      <DependentUpon>Student_deptInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Modules\FAQ\FAQ_View.aspx.designer.cs">
-      <DependentUpon>FAQ_View.aspx</DependentUpon>
+    <Compile Include="Views\Modules\Department_Info\Student_deptInfo.aspx.designer.cs">
+      <DependentUpon>Student_deptInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Modules\FAQ\Manage_FAQ.aspx.cs">
-      <DependentUpon>Manage_FAQ.aspx</DependentUpon>
+    <Compile Include="Views\Modules\FAQ\Student_FAQ.aspx.cs">
+      <DependentUpon>Student_FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Modules\FAQ\Manage_FAQ.aspx.designer.cs">
-      <DependentUpon>Manage_FAQ.aspx</DependentUpon>
+    <Compile Include="Views\Modules\FAQ\Student_FAQ.aspx.designer.cs">
+      <DependentUpon>Student_FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Wayfinding\Department_Wayfinding.aspx.cs">
       <DependentUpon>Department_Wayfinding.aspx</DependentUpon>
@@ -2593,6 +2755,9 @@
     <Content Include="Views\DashBoard\Admin_Homepage\Admin_Master.Master" />
     <Content Include="Views\DashBoard\Department_Homepage\Department_Master.Master" />
     <Content Include="Views\DashBoard\Student_Homepage\Student_Master.Master" />
+    <Content Include="Views\DashBoard\Guest_Homepage\Guest_Master.Master" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2600,9 +2765,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\DashBoard\Guest_Homepage\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

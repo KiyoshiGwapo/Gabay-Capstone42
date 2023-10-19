@@ -96,15 +96,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         protected global::System.Web.UI.WebControls.HyperLink campusInfo;
 
         /// <summary>
-        /// announcement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink announcement;
-
-        /// <summary>
         /// faq control.
         /// </summary>
         /// <remarks>
@@ -220,15 +211,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink sideNavCI;
-
-        /// <summary>
-        /// annoncement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink annoncement;
 
         /// <summary>
         /// sideNavFAQ control.

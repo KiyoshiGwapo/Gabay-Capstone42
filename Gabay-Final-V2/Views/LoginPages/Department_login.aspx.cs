@@ -41,7 +41,7 @@ namespace Gabay_Final_V2.Views.LoginPages
                     }
                     else
                     {
-                        Response.Redirect("..\\DashBoard\\Department_Homepage\\Department_Dashboard.aspx");
+                        Response.Redirect("..\\DashBoard\\Department_Homepage\\Department_Dashboard.aspx?Id="+userID);
                     }
 
                 }

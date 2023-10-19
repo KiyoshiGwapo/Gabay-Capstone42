@@ -144,7 +144,7 @@
                     <div class="col-12">
                         <div class="department-fields mt-2" id="department-field">
                             <div class="department-input form-floating">
-                                <asp:DropDownList ID="departmentChoices" CssClass="department form-select" runat="server" aria-label="Departments">
+                                <asp:DropDownList ID="departmentChoices" CssClass="department form-select" runat="server" aria-label="Departments" AutoPostBack="True" OnSelectedIndexChanged="departmentChoices_SelectedIndexChanged">
                                    <asp:ListItem Selected="True" Value="">
                                        Choose a Department...
                                    </asp:ListItem>
@@ -157,8 +157,25 @@
                             <span>Please select a department</span>
                         </div>
                     </div>
+                    <%--Course Selection Inputs--%>
+                     <div class="col-md-6 col-sm-12">
+                        <div class="course-fields mt-2" id="course-field">
+                            <div class="course-input form-floating">
+                                <asp:DropDownList ID="courseList" CssClass="course form-select" runat="server" aria-label="Course">
+                                   <asp:ListItem Selected="True" Value="">
+                                       Choose a Course...
+                                   </asp:ListItem>
+                                </asp:DropDownList>
+                                <label for="courseList">Courses...</label>
+                            </div>
+                        </div>
+                        <div class="courseError text-danger d-none" id="courseError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Please select a course</span>
+                        </div>
+                    </div>
                     <%--Course Year Selection Inputs--%>
-                    <div class="col-12">
+                    <div class="col-md-6 col-sm-12">
                         <div class="courseYear-fields mt-2" id="courseYear-field">
                             <div class="courseYear-input form-floating">
                                 <asp:DropDownList ID="courseYearChoices" CssClass="courseYear form-select" runat="server" aria-label="Course Year">

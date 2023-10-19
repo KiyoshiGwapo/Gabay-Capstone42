@@ -13,7 +13,6 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
 {
     public partial class Student_AcadCalen : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

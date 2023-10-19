@@ -1,0 +1,75 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Admin_Homepage/Admin_Master.Master" AutoEventWireup="true" CodeBehind="Admin_DashBoard.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Admin_Homepage.WebForm1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .container .content {
+            margin-top: 10vh;
+            min-height: 90vh;
+        }
+
+            .container .content .cards {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+                .container .content .cards .card {
+                    width: 250px;
+                    height: 150px;
+                    background: white;
+                    margin: 20px 10px;
+                    justify-content: space-around;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+    </style>
+    <div class="container">
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1>
+                            <asp:Label ID="StudentuserCountLabel" runat="server" Text=""></asp:Label></h1>
+                        <h3>Students</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="../../../Resources/Images/students.png" alt="" />
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>
+                            <asp:Label ID="DepatmentuserCountLabel" runat="server" Text=""></asp:Label></h1>
+                        <h3>Deparments</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="../../../Resources/Images/teachers.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%--  <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">All Students</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        <asp:Label ID="StudentuserCountLabel" runat="server" Text=""></asp:Label>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>--%>
+</asp:Content>

@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Net;
+using System.IO;
+using System.Linq;
 using System.Net.Mail;
-using System.Text;
+using System.Net;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Services;
-//For Email
-using System.IO;
-
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
     public partial class Student_Appointment : System.Web.UI.Page
     {
-
         private string ConvertImageToBase64(string imagePath)
         {
             using (System.Drawing.Image image = System.Drawing.Image.FromFile(imagePath))
@@ -71,7 +68,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     && !string.IsNullOrEmpty(contactNumber) && !string.IsNullOrEmpty(userConcern)
                     && !string.IsNullOrEmpty(selectedDate) && !string.IsNullOrEmpty(selectedTime))
                 {
-                    string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True"; // Replace with your connection string
+                    string connectionString = "Data Source=DESKTOP-6DAE04O\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True"; // Replace with your connection string
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         // Save appointment details to the "appointment" table
@@ -162,11 +159,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     // Redirect the user or show a success message based on your requirements
                     if ((bool)Session["EmailSent"])
                     {
-                      
+
                     }
                     else
                     {
-                        
+
                     }
                 }
             }

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace Gabay_Final_V2.Models
 {
@@ -25,13 +25,6 @@ namespace Gabay_Final_V2.Models
 
                 return dt;
             }
-        }
-
-        public class AccordionItem
-        {
-            public string Title { get; set; }
-            public string Description { get; set; }
-            public int id { get; set; }
         }
 
         public bool SaveCampusInformation(string title, string content)
@@ -85,12 +78,12 @@ namespace Gabay_Final_V2.Models
 
         public bool DeleteCampusInformation(int id)
         {
-            string query = "DELETE FROM Campus_Information WHERE id = @id";
+            string query = "DELETE FROM Campus_Information WHERE id = @Id";
 
             using (SqlConnection connection = new SqlConnection(connStr))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@Id", id);
 
                 try
                 {

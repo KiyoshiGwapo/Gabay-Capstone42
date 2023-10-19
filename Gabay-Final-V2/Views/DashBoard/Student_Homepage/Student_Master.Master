@@ -12,6 +12,9 @@
     <link href="../../../Bootstrap/Content/bootstrap.css" rel="stylesheet" />
     <script src="../../../FontAwesome/js/all.js"></script>
     <link href="../../../FontAwesome/css/all.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="../../../Resources/CustomJS/OpenModal.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -61,19 +64,13 @@
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/CampusInfo/Student_CampusInfo.aspx">
+                                <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Department_Info/Student_deptInfo.aspx">
                                   <i class="bi bi-info-square-fill me-2"></i>
-                                  <span class="mt-2">Campus Information</span>
+                                  <span class="mt-2">Department Information</span>
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="announcement" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Announcement/Student_Announcement.aspx">
-                                <i class="bi bi-megaphone fs-4 me-3"></i>
-                                  <span class="mt-2">Announcement</span>
-                                </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/FAQ/FAQ_View.aspx">
+                                <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/FAQ/Student_FAQ.aspx">
                                   <i class="bi bi-question-square-fill me-2"></i>
                                   <span class="mt-2">FAQ</span>
                                 </asp:HyperLink>
@@ -141,19 +138,13 @@
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavCI" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/CampusInfo/Student_CampusInfo.aspx">
+                        <asp:HyperLink ID="sideNavCI" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Department_Info/Student_deptInfo.aspx">
                             <i class="bi bi-info-square-fill fs-4 me-3"></i>
-                            <p class="mt-4">Campus Information</p>
-                        </asp:HyperLink>
-                    </li>
-                     <li class="nav-item ">
-                        <asp:HyperLink ID="annoncement" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Announcement/Student_Announcement.aspx">
-                             <i class="bi bi-megaphone fs-4 me-3"></i>
-                            <p class="mt-4">Announcement</p>
+                            <p class="mt-4">Department Information</p>
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavFAQ" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/FAQ/FAQ_View.aspx">
+                        <asp:HyperLink ID="sideNavFAQ" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/FAQ/Student_FAQ.aspx">
                             <i class="bi bi-question-square-fill fs-4 me-3"></i>
                             <p class="mt-4">FAQ</p>
                         </asp:HyperLink>

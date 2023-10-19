@@ -44,11 +44,5 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             Session.Abandon();
             Response.Redirect("..\\..\\..\\Views\\Loginpages\\Student_login.aspx");
         }
-
-        //protected void logoutBtn_Click(object sender, EventArgs e)
-        //{
-        //    Session.Abandon();
-        //    Response.Redirect("..\\..\\..\\Views\\Loginpages\\Student_login.aspx");
-        //}
     }
 }

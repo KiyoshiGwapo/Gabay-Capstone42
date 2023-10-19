@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.IO;
 
 namespace Gabay_Final_V2.Models
 {
@@ -15,20 +15,20 @@ namespace Gabay_Final_V2.Models
         // Define the database connection string from your configuration
         private string connStr = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
 
-            public DataTable GetAnnouncements()
+        public DataTable GetAnnouncements()
+        {
+            string query = "SELECT AnnouncementID, Title, Date, ImagePath, ShortDescription, DetailedDescription FROM Announcement";
+
+            using (SqlConnection connection = new SqlConnection(connStr))
             {
-                string query = "SELECT AnnouncementID, Title, Date, ImagePath, ShortDescription, DetailedDescription FROM Announcement";
+                SqlCommand command = new SqlCommand(query, connection);
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
 
-                using (SqlConnection connection = new SqlConnection(connStr))
-                {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    adapter.Fill(dt);
-
-                    return dt;
-                }
+                return dt;
             }
+        }
 
         public bool AddAnnouncement(string title, string date, string imagePath, string shortDescription, string detailedDescription)
         {
@@ -55,6 +55,7 @@ namespace Gabay_Final_V2.Models
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 // Handle exceptions here, log them, or throw further
                 return false;
             }
@@ -91,6 +92,7 @@ namespace Gabay_Final_V2.Models
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 // Handle any exceptions that may occur during file upload
                 // You can log the error or throw further
             }
@@ -98,7 +100,7 @@ namespace Gabay_Final_V2.Models
             return imagePath;
         }
 
-           protected string GetImagePath(string imagePath)
+        protected string GetImagePath(string imagePath)
         {
             return imagePath;
         }
@@ -129,35 +131,37 @@ namespace Gabay_Final_V2.Models
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 // Handle exceptions here, log them, or throw further
                 return false;
             }
         }
 
         public bool DeleteAnnouncement(int announcementID)
+        {
+            try
             {
-                try
+                using (SqlConnection connection = new SqlConnection(connStr))
                 {
-                    using (SqlConnection connection = new SqlConnection(connStr))
+                    connection.Open();
+                    string query = "DELETE FROM Announcement WHERE AnnouncementID = @AnnouncementID";
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        connection.Open();
-                        string query = "DELETE FROM Announcement WHERE AnnouncementID = @AnnouncementID";
-                        using (SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@AnnouncementID", announcementID);
+                        command.Parameters.AddWithValue("@AnnouncementID", announcementID);
 
-                            int rowsAffected = command.ExecuteNonQuery();
+                        int rowsAffected = command.ExecuteNonQuery();
 
-                            return rowsAffected > 0;
-                        }
+                        return rowsAffected > 0;
                     }
                 }
-                catch (Exception ex)
-                {
-                    // Handle exceptions here, log them, or throw further
-                    return false;
-                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Handle exceptions here, log them, or throw further
+                return false;
+            }
+        }
 
         //Katung error samok kaayu 
         // Add a new method to your Announcement_model class for fetching announcement details by ID
@@ -183,6 +187,7 @@ namespace Gabay_Final_V2.Models
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 // Handle exceptions here, log them, or throw further
                 return null; // Return null if there's an error
             }

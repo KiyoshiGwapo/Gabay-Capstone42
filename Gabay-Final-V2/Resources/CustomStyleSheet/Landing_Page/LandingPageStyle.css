@@ -1,0 +1,119 @@
+﻿.navbar {
+    background-color: #003366 !important;
+}
+.navbar-brand {
+    color: white !important;
+    font-size: 25px;
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+.navbar-nav a {
+    color: white;
+}
+.navbar-nav a:hover {
+    color: #0067ce;
+}
+.navbar-nav button{
+    color:white;
+    font-weight:500;
+}
+.homeSection {
+    height: 750px !important;
+    background-image: url('../../images/model-flip1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hLeft-cont {
+    margin-left: 30px;
+    height: 100%;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+}
+.hLeft h1 {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.exploreBtn {
+    font-size: 18px; /* Adjust button font size as needed */
+    background-color: #003366; /* Change button background color as needed */
+    color: #fff; /* Change button text color as needed */
+    padding: 10px 20px; /* Add padding to the button */
+    border: none; /* Remove button border if necessary */
+    cursor: pointer;
+}
+.exploreBtn:hover{
+    color: white;
+    background-color: #0067ce;
+}
+.divider {
+    width: 80%;
+    height: 3px;
+    background-color: #808080; /* You can adjust the color as needed */
+    margin: 10px 0; /* Adjust the margin to control the space between elements */
+}
+@media screen and (max-width: 995px) {
+    .divider {
+        width: 100%;
+        height: 3px;
+        background-color: #808080; /* You can adjust the color as needed */
+        margin: 10px 0;
+    }
+    .hLeft{
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+        justify-content:center;
+    }
+    .button-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .homeSection{
+
+    }
+    .homeSection::before {
+        /*background-image: url('../../images/model-flip.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;*/
+        content: "";
+        background-image: url('../../images/model-flip.png');
+        background-size: cover;
+        opacity: 0.5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+}
+.featureSection {
+    height: auto;
+    padding-bottom: 20px;
+    background-color: #003366 !important;
+}
+.featHeader{
+    text-align:center;
+    font-size: 35px;
+    letter-spacing: 3px;
+    color: white;
+}
+.customImg {
+    width:auto;
+    height: 200px;
+}
+.tempIcons{
+    height: auto;
+    width: 150px;
+    display:flex;
+}
+.card-body{
+    min-height: 100px;
+}

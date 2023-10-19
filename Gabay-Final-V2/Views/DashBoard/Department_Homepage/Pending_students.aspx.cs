@@ -1,6 +1,7 @@
 ﻿using Gabay_Final_V2.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -9,24 +10,13 @@ using System.Web.UI.WebControls;
 
 namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 {
+    
     public partial class WebForm2 : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
-                int userID = Convert.ToInt32(Session["user_ID"]);
-
-                DbUtility conn = new DbUtility();
-                DataTable dt = conn.displayPendingStudents(userID);
-
-                pending_table.DataSource = dt;
-                pending_table.DataBind();
-
-            if (Session["UpdateSuccess"] != null && (bool)Session["UpdateSuccess"])
-            {
-                // Display the success modal
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "successModalScript", "$('#successModal').modal('show');", true);
-            }
+            reBindPendingTable();
         }
 
         private void reBindPendingTable()
@@ -40,39 +30,37 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             pending_table.DataBind();
         }
 
-        protected void apprvBtn_Click(object sender, EventArgs e)
+        
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                DbUtility conn = new DbUtility();
+            DbUtility conn = new DbUtility();
 
-                Button btn = (Button)sender; // Get the button that was clicked
-                int rowIndex = Convert.ToInt32(btn.Attributes["data-rowindex"]);
+            string searchCriteria = txtSearch.Text;
+            int userID = Convert.ToInt32(Session["user_ID"]);
 
-                string studentID = pending_table.DataKeys[rowIndex].Value.ToString();
+            DataTable dt = conn.searchStudents(userID, searchCriteria);
 
-                var studEmailInfo = conn.getStudEmailInfo(studentID);
+            pending_table.DataSource = dt;
+            pending_table.DataBind();
+        }
 
-                string studentEmail = studEmailInfo.Item1;
-                string studentName = studEmailInfo.Item2;
+        protected void btnApprove_Click(object sender, EventArgs e)
+        {
+            DbUtility conn = new DbUtility();
 
-                conn.updateStudentStatus(studentID);
-                reBindPendingTable();
-               
-                Session["UpdateSuccess"] = true;
+            string studID = hidPersonID.Value;
 
+            conn.updateStudentStatus(studID);
+            var StudInfo = conn.getStudEmailInfo(studID);
 
-                if (!string.IsNullOrEmpty(studentEmail))
-                {
-                    conn.emailApprovedAccount(studentEmail, studentName);
-                }
-            }
-            catch (Exception ex)
-            { 
-                Console.WriteLine(ex);
-                Session["UpdateSuccess"] = false;
+            string StudEmail = StudInfo.Item1;
+            string StudName = StudInfo.Item2;
 
-            }
+            conn.emailApprovedAccount(StudEmail, StudName);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
+            reBindPendingTable();
+            
         }
     }
 }

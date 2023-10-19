@@ -13,5 +13,20 @@ namespace Gabay_Final_V2.Views.LoginPages
         {
 
         }
+
+        protected void gst_lgnBtn_Click(object sender, EventArgs e)
+        {
+            string guestName = guestNameBx.Text;
+
+            if(string.IsNullOrEmpty(guestName) )
+            {
+                errorDiv.Attributes["class"] = "alert alert-danger";
+            }
+            else
+            {
+                errorDiv.Attributes["class"] = "alert alert-danger d-none";
+                Response.Redirect("..\\DashBoard\\Guest_Homepage\\Guest_Dashboard.aspx");
+            }
+        }
     }
 }

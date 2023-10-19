@@ -12,6 +12,9 @@
     <link href="../../../Bootstrap/Content/bootstrap.css" rel="stylesheet" />
     <script src="../../../FontAwesome/js/all.js"></script>
     <link href="../../../FontAwesome/css/all.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="../../../Resources/CustomJS/OpenModal.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -37,13 +40,13 @@
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="manageDep" runat="server" CssClass="topnav-item text-center custom-text-color">
+                                <asp:HyperLink ID="manageDep" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Department.aspx">
                               <i class="bi bi-building-fill-add"></i>
                               <span class="mt-2">Manage Department</span>
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="manageUser" runat="server" CssClass="topnav-item text-center custom-text-color">
+                                <asp:HyperLink ID="manageUser" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Users.aspx">
                               <i class="bi bi-building-fill-add"></i>
                               <span class="mt-2">Manage Users</span>
                                 </asp:HyperLink>
@@ -61,21 +64,15 @@
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-cente custom-text-color">
-                              <i class="bi bi-info-square-fill me-2"></i>
-                              <span class="mt-2">Campus Information</span>
-                                </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
                                 <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_AcadCalen.aspx">
                               <i class="bi bi-calendar-check-fill me-2"></i>
                               <span class="mt-2">Manage Academic Calendar</span>
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/FAQ/Manage_FAQ.aspx">
+                                <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_FAQ.aspx">
                               <i class="bi bi-question-square-fill me-2"></i>
-                              <span class="mt-2">FAQ</span>
+                              <span class="mt-2">Manage FAQ</span>
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
@@ -118,13 +115,13 @@
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavDept" runat="server" CssClass="navLinks text-center">
+                        <asp:HyperLink ID="sideNavDept" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Department.aspx">
                             <i class="bi bi-building-fill-add"></i>
                             <p class="mt-4">Manage Department</p>
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavPend" runat="server" CssClass="navLinks text-center">
+                        <asp:HyperLink ID="sideNavPend" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Users.aspx">
                             <i class="bi bi-people-fill fs-4 me-3"></i>
                             <p class="mt-4">Manage Users</p>
                         </asp:HyperLink>
@@ -142,21 +139,15 @@
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavCI" runat="server" CssClass="navLinks text-center">
-                            <i class="bi bi-info-square-fill fs-4 me-3"></i>
-                            <p class="mt-4">Campus Information</p>
-                        </asp:HyperLink>
-                    </li>
-                    <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_AcadCalen.aspx">
                             <i class="bi bi-calendar-check-fill fs-4 me-3"></i>
                             <p class="mt-4">Manage Academic Calendar</p>
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavFAQ" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/FAQ/Manage_FAQ.aspx">
+                        <asp:HyperLink ID="sideNavFAQ" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_FAQ.aspx">
                             <i class="bi bi-question-square-fill fs-4 me-3"></i>
-                            <p class="mt-4">FAQ</p>
+                            <p class="mt-4">Manage FAQ</p>
                         </asp:HyperLink>
                     </li>
                 </ul>

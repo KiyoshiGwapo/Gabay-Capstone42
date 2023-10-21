@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Guest_Master.master.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Guest_Homepage.Guest_Master" %>
+﻿<%@ master language="C#" autoeventwireup="true" codebehind="Guest_Master.master.cs" inherits="Gabay_Final_V2.Views.DashBoard.Guest_Homepage.Guest_Master" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
 </head>
 <body>
     <form id="guestMaster" class="guestMaster" runat="server">
-         <%--TOP NAV--%>
+        <%--TOP NAV--%>
         <header class="shadow sticky-top">
             <nav class="navbar navbar-expand-lg bg-body-tertiary z-1">
                 <div class="container-fluid  bg-white">
@@ -36,48 +36,48 @@
                                   <span class="mt-2">Dashboard</span>
                                 </asp:HyperLink>
                             </li>
-                            <li class="nav-item p-1">
+                            <%--   <li class="nav-item p-1">
                                 <asp:HyperLink ID="pndngStds" runat="server" CssClass="topnav-item text-center custom-text-color">
                                    <i class="bi bi-people-fil me-2"></i>
                                   <span class="mt-2">Pending Students</span>
                                 </asp:HyperLink>
-                            </li>
+                            </li>--%>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="wayFinding" runat="server" CssClass="topnav-item text-center custom-text-color">
+                                <asp:HyperLink ID="wayFinding" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Wayfinding/Guest_Wayfinding.aspx">
                                   <i class="bi bi-map-fill me-2"></i>
                                   <span class="mt-2">Way Finding</span>
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="chatbot" runat="server" CssClass="topnav-item text-center custom-text-color">
+                                <asp:HyperLink ID="chatbot" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Chatbot/Guest_Chatbot.aspx">
                                   <i class="bi bi-chat-left-dots-fill me-2"></i>
                                   <span class="mt-2">Chatbot</span>
                                 </asp:HyperLink>
                             </li>
-                            <li class="nav-item p-1">
+                            <%--  <li class="nav-item p-1">
                                 <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-center custom-text-color">
                                   <i class="bi bi-info-square-fill me-2"></i>
                                   <span class="mt-2">Manage Department Information</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
+                            </li>--%>
+                            <%--                            <li class="nav-item p-1">
                                 <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-center custom-text-color">
                                   <i class="bi bi-calendar-check-fill me-2"></i>
                                   <span class="mt-2">Academic Calendar</span>
                                 </asp:HyperLink>
-                            </li>
+                            </li>--%>
                             <li class="nav-item p-1">
-                                <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-center custom-text-color">
+                                <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/FAQ/Guest_FAQ.aspx">
                                   <i class="bi bi-question-square-fill me-2"></i>
-                                  <span class="mt-2">Manage Announcement</span>
+                                  <span class="mt-2">FAQ</span>
                                 </asp:HyperLink>
                             </li>
-                            <li class="nav-item p-1">
+                            <%--                            <li class="nav-item p-1">
                                 <asp:LinkButton ID="prflBtn" runat="server" CssClass="topnav-item text-cente custom-text-color">
                                    <i class="bi bi-person-circle"></i>
                                    <span class="mt-2">Profile</span>
                                 </asp:LinkButton>
-                            </li>
+                            </li>--%>
                             <li class="nav-item p-1">
                                 <asp:LinkButton ID="LinkButton1" runat="server" CssClass="topnav-item text-cente custom-text-color">
                                     <i class="bi bi-box-arrow-right"></i>
@@ -101,7 +101,7 @@
                         <asp:HyperLink ID="sideNavProf" runat="server" CssClass="profile">
                             <i class="bi bi-person-circle profile-Icon"></i>
                             <p>
-                                <asp:Label ID="lblDept_name" runat="server" Text="Label" CssClas="profileLabel text-center"></asp:Label>
+                                <asp:Label ID="guestNameBx" runat="server" Text="Label" CssClas="profileLabel text-center"></asp:Label>
                             </p>
                         </asp:HyperLink>
                     </li>
@@ -111,25 +111,25 @@
                             <p class="mt-4">Dashboard</p>
                         </asp:HyperLink>
                     </li>
-                    <li class="nav-item ">
+                    <%--                    <li class="nav-item ">
                         <asp:HyperLink ID="sideNavPend" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-people-fill fs-4 me-3"></i>
                             <p class="mt-4">Pending Students</p>
                         </asp:HyperLink>
-                    </li>
+                    </li>--%>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavWF" runat="server" CssClass="navLinks text-center">
+                        <asp:HyperLink ID="sideNavWF" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Wayfinding/Guest_Wayfinding.aspx">
                             <i class="bi bi-map-fill fs-4 me-3"></i>
                             <p class="mt-4">Way Finding</p>
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavCB" runat="server" CssClass="navLinks text-center">
+                        <asp:HyperLink ID="sideNavCB" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Chatbot/Guest_Chatbot.aspx">
                             <i class="bi bi-chat-left-dots-fill fs-4 me-3"></i>
                             <p class="mt-4">Chatbot</p>
                         </asp:HyperLink>
                     </li>
-                    <li class="nav-item ">
+                    <%--                    <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCI" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-info-square-fill fs-4 me-3"></i>
                             <p class="mt-4">Campus Information</p>
@@ -145,6 +145,12 @@
                         <asp:HyperLink ID="sideNavFAQ" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-question-square-fill fs-4 me-3"></i>
                             <p class="mt-4">Manage Announcement</p>
+                        </asp:HyperLink>
+                    </li>--%>
+                    <li class="nav-item ">
+                        <asp:HyperLink ID="sideNavFAQ" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/FAQ/Guest_FAQ.aspx">
+                            <i class="bi bi-question-square-fill fs-4 me-3"></i>
+                            <p class="mt-4">FAQ</p>
                         </asp:HyperLink>
                     </li>
                 </ul>

@@ -152,6 +152,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
             BarStudentsCustomUserCountLabel.Value = GetAllStudentUserCount("1016").ToString();
             BarStudentsNauticalUserCountLabel.Value = GetAllStudentUserCount("1017").ToString();
             BarStudentsMarineEUserCountLabel.Value = GetAllStudentUserCount("1018").ToString();
+            BarStudentsCrimUserCountLabel.Value = GetAllStudentUserCount("1019").ToString();
             // Add more department ari
         }
 

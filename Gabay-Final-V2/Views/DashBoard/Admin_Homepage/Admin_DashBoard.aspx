@@ -165,17 +165,18 @@
     <asp:HiddenField ID="BarStudentsCustomUserCountLabel" runat="server" />
     <asp:HiddenField ID="BarStudentsNauticalUserCountLabel" runat="server" />
     <asp:HiddenField ID="BarStudentsMarineEUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsCrimUserCountLabel" runat="server" />
     <script>
         // Function to create and update the bar chart
-        function createBarChart(bsAllStudent, bnITCS, bsEng, bsNurs, bsCustom, bsNauti, bsMarineE) {
+        function createBarChart(bsAllStudent, bnITCS, bsEng, bsNurs, bsCustom, bsNauti, bsMarineE, bsCrim) {
             var ctx = document.getElementById('myBarChart').getContext('2d');
             var data = {
-                labels: ['All Students', 'College of Computer Studies', 'College of Engineering', 'College of Nursing', 'College of Customs', 'College of Nautical', 'College of Marine Engineering'],
+                labels: ['All Students', 'College of Computer Studies', 'College of Engineering', 'College of Nursing', 'College of Customs', 'College of Nautical', 'College of Marine Engineering', 'College of Criminology'],
                 datasets: [
                     {
                         label: ['All Students'],
-                        backgroundColor: ['green', 'purple', 'red', 'black', 'blue', 'brown', 'yellow'],
-                        data: [bsAllStudent, bnITCS, bsEng, bsNurs, bsCustom, bsNauti, bsMarineE],
+                        backgroundColor: ['green', 'purple', 'red', 'black', 'blue', 'brown', 'yellow', 'orange'],
+                        data: [bsAllStudent, bnITCS, bsEng, bsNurs, bsCustom, bsNauti, bsMarineE, bsCrim],
                         barThickness: 40,
                     }
                 ]
@@ -203,6 +204,7 @@
             <%= BarStudentsNursingUserCountLabel.Value %>,
             <%= BarStudentsCustomUserCountLabel.Value %>,
             <%= BarStudentsNauticalUserCountLabel.Value %>,
-            <%= BarStudentsMarineEUserCountLabel.Value %>);
+            <%= BarStudentsMarineEUserCountLabel.Value %>,
+            <%= BarStudentsCrimUserCountLabel.Value %>);
     </script>
 </asp:Content>

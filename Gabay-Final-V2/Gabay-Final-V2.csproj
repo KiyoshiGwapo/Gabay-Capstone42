@@ -2319,10 +2319,13 @@
     <Content Include="Views\Modules\Appointment\Student_Appointment.aspx" />
     <Content Include="Views\Modules\Campus_Info\Department_CampusInfo.aspx" />
     <Content Include="Views\Modules\Chatbot\Department_Chatbot.aspx" />
+    <Content Include="Views\Modules\Chatbot\Guest_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Student_Chatbot.aspx" />
     <Content Include="Views\Modules\Department_Info\Student_deptInfo.aspx" />
+    <Content Include="Views\Modules\FAQ\Guest_FAQ.aspx" />
     <Content Include="Views\Modules\FAQ\Student_FAQ.aspx" />
     <Content Include="Views\Modules\Wayfinding\Department_Wayfinding.aspx" />
+    <Content Include="Views\Modules\Wayfinding\Guest_Wayfinding.aspx" />
     <Content Include="Views\Modules\Wayfinding\Student_Wayfinding.aspx" />
     <Content Include="Views\RegistrationPages\Pending_page.aspx" />
     <Content Include="Views\RegistrationPages\Student_Reg.aspx" />
@@ -2625,6 +2628,13 @@
     <Compile Include="Views\Modules\Chatbot\Department_Chatbot.aspx.designer.cs">
       <DependentUpon>Department_Chatbot.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Modules\Chatbot\Guest_Chatbot.aspx.cs">
+      <DependentUpon>Guest_Chatbot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Chatbot\Guest_Chatbot.aspx.designer.cs">
+      <DependentUpon>Guest_Chatbot.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Modules\Chatbot\Student_Chatbot.aspx.cs">
       <DependentUpon>Student_Chatbot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2639,6 +2649,13 @@
     <Compile Include="Views\Modules\Department_Info\Student_deptInfo.aspx.designer.cs">
       <DependentUpon>Student_deptInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Modules\FAQ\Guest_FAQ.aspx.cs">
+      <DependentUpon>Guest_FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\FAQ\Guest_FAQ.aspx.designer.cs">
+      <DependentUpon>Guest_FAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Modules\FAQ\Student_FAQ.aspx.cs">
       <DependentUpon>Student_FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2652,6 +2669,13 @@
     </Compile>
     <Compile Include="Views\Modules\Wayfinding\Department_Wayfinding.aspx.designer.cs">
       <DependentUpon>Department_Wayfinding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\Wayfinding\Guest_Wayfinding.aspx.cs">
+      <DependentUpon>Guest_Wayfinding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Wayfinding\Guest_Wayfinding.aspx.designer.cs">
+      <DependentUpon>Guest_Wayfinding.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Wayfinding\Student_Wayfinding.aspx.cs">
       <DependentUpon>Student_Wayfinding.aspx</DependentUpon>

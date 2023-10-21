@@ -30,7 +30,7 @@
                     <a class="nav-link" href="#">About us</a>
                     <button class="btn bg-primary" data-toggle="modal" data-target="#loginSelection">Get Started</button>
                 </div>
-            </div>
+            </div>s
             
         </div>
     </nav>

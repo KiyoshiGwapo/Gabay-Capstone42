@@ -18,15 +18,20 @@ namespace Gabay_Final_V2.Views.LoginPages
         {
             string guestName = guestNameBx.Text;
 
-            if(string.IsNullOrEmpty(guestName) )
+            if (string.IsNullOrEmpty(guestName))
             {
                 errorDiv.Attributes["class"] = "alert alert-danger";
             }
             else
             {
                 errorDiv.Attributes["class"] = "alert alert-danger d-none";
+
+                // Set the guest name in a session variable
+                Session["GuestName"] = guestName;
+
                 Response.Redirect("..\\DashBoard\\Guest_Homepage\\Guest_Dashboard.aspx");
             }
         }
+
     }
 }

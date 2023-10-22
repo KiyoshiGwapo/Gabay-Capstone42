@@ -18,31 +18,16 @@ namespace Gabay_Final_V2.Views.DashBoard.Guest_Homepage
             // Database connection
             DbUtility conn = new DbUtility();
 
-            // Set the guestName from the text boxs
-            string guestName = guestNameBx.Text;
-
-            if (!string.IsNullOrEmpty(guestName))
+            if (Session["GuestName"] != null)
             {
-                // Fetch the guest's name and display it
-                guestNameBx.Text = guestName;
-            }
-            else
-            {
-                //Redirects user if login credentials is not valid
-                //Response.Redirect("..\\..\\..\\Views\\Loginpages\\Guest_login.aspx");
+                guestNameBx.Text = Session["GuestName"].ToString();
             }
         }
 
         protected void logoutBtn_Click(object sender, EventArgs e)
         {
-            Session.Abandon();
-            Response.Redirect("..\\..\\..\\Views\\Loginpages\\Guest_login.aspx");
+            Response.Redirect("~/Views/Loginpages/Guest_login.aspx");
         }
 
-        protected void logoutLink_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect("..\\..\\..\\Views\\Loginpages\\Guest_login.aspx");
-        }
     }
 }

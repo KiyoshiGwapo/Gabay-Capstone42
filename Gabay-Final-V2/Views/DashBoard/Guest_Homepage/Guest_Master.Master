@@ -78,17 +78,17 @@
                                    <span class="mt-2">Profile</span>
                                 </asp:LinkButton>
                             </li>--%>
-                            <li class="nav-item p-1">
+<%--                            <li class="nav-item p-1">
                                 <asp:LinkButton ID="LinkButton1" runat="server" CssClass="topnav-item text-cente custom-text-color">
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span class="mt-2">Log out</span>
                                 </asp:LinkButton>
-                            </li>
+                            </li>--%>
                         </ul>
                     </div>
                     <div class="d-none d-lg-block" id="lgout-prfl_btn">
-                        <asp:HyperLink ID="profileBtn" runat="server" CssClass="btn logout-profileBtn">Profile</asp:HyperLink>
-                        <asp:Button ID="logoutBtn" runat="server" Text="Logout" CssClass="btn logout-profileBtn" UseSubmitBehavior="false" />
+                       <%-- <asp:HyperLink ID="profileBtn" runat="server" CssClass="btn logout-profileBtn">Profile</asp:HyperLink>--%>
+                        <asp:Button ID="logoutBtn" runat="server" Text="Logout" CssClass="btn logout-profileBtn" UseSubmitBehavior="false" OnClick="logoutBtn_Click" />
                     </div>
                 </div>
             </nav>
@@ -155,6 +155,7 @@
                     </li>
                 </ul>
             </div>
+
             <div class="content-container p-3">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>

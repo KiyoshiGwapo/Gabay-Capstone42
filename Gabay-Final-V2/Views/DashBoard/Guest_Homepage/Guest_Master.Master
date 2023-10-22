@@ -54,12 +54,12 @@
                                   <span class="mt-2">Chatbot</span>
                                 </asp:HyperLink>
                             </li>
-                            <%--  <li class="nav-item p-1">
-                                <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-center custom-text-color">
+                           <li class="nav-item p-1">
+                                <asp:HyperLink ID="alldepartInfo" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Department_Info/Guest_DepartmentInfo.aspx">
                                   <i class="bi bi-info-square-fill me-2"></i>
-                                  <span class="mt-2">Manage Department Information</span>
+                                  <span class="mt-2">Department Information</span>
                                 </asp:HyperLink>
-                            </li>--%>
+                            </li>
                             <%--                            <li class="nav-item p-1">
                                 <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-center custom-text-color">
                                   <i class="bi bi-calendar-check-fill me-2"></i>
@@ -129,12 +129,12 @@
                             <p class="mt-4">Chatbot</p>
                         </asp:HyperLink>
                     </li>
-                    <%--                    <li class="nav-item ">
-                        <asp:HyperLink ID="sideNavCI" runat="server" CssClass="navLinks text-center">
+                    <li class="nav-item ">
+                        <asp:HyperLink ID="sideNavCI" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Department_Info/Guest_DepartmentInfo.aspx">
                             <i class="bi bi-info-square-fill fs-4 me-3"></i>
-                            <p class="mt-4">Campus Information</p>
+                            <p class="mt-4">Department Information</p>
                         </asp:HyperLink>
-                    </li>
+                    <%-- </li>
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-calendar-check-fill fs-4 me-3"></i>

@@ -8,6 +8,7 @@
         .custom-accordion .accordion-button {
             background-color: white !important;
             color: #000000 !important;
+            z-index: 1; /* Add z-index property */
         }
 
             .custom-accordion .accordion-button:hover {
@@ -19,6 +20,7 @@
         .custom-accordion .accordion-body {
             background-color: #f5f5f5;
             border: 1px solid #ddd;
+            z-index: 1; /* Add z-index property */
         }
 
         /* Custom styles for accordion active headers */
@@ -29,11 +31,16 @@
         .accordion-body li {
             list-style: none;
         }
+
+        .accordion-item {
+            z-index: 1; /* Add z-index property to ensure it's in front */
+        }
     </style>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
-  <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Department Information</h1>
+                <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Department Information</h1>
                 <div class="accordion custom-accordion" id="departmentAccordion">
                     <asp:Repeater ID="departmentRepeater" runat="server">
                         <ItemTemplate>

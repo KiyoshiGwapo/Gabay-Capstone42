@@ -124,6 +124,7 @@
     <Content Include="Bootstrap\Content\bootstrap.rtl.min.css" />
     <Content Include="Landing_Page\LandingPage.aspx" />
     <Content Include="Prototype\JavaScript.js" />
+    <Content Include="Prototype\PASWORD.aspx" />
     <Content Include="Prototype\UC-LOGO.png" />
     <Content Include="Prototype\WebForm1.aspx" />
     <Content Include="Prototype\WebForm10.aspx" />
@@ -2348,6 +2349,13 @@
     <Compile Include="Models\DashboardDepartment.cs" />
     <Compile Include="Models\DbUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype\PASWORD.aspx.cs">
+      <DependentUpon>PASWORD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\PASWORD.aspx.designer.cs">
+      <DependentUpon>PASWORD.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Prototype\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

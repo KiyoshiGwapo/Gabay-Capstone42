@@ -15,6 +15,24 @@ namespace Gabay_Final_V2.Prototype
     {
 
         /// <summary>
+        /// goBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink goBack;
+
+        /// <summary>
+        /// goBack1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink goBack1;
+
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>

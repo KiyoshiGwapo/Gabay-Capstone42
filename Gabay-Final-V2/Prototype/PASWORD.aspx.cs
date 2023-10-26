@@ -47,7 +47,7 @@ namespace Gabay_Final_V2.Prototype
                 {
                     connection.Open();
 
-                    string query = "SELECT stud_pass FROM student WHERE ID_student = @UserID AND email = @Email";
+                    string query = "SELECT stud_pass FROM student WHERE studentID = @UserID AND email = @Email";
                         
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {

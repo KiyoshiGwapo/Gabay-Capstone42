@@ -1,4 +1,4 @@
-﻿<%@ master language="C#" autoeventwireup="true" codebehind="Guest_Master.master.cs" inherits="Gabay_Final_V2.Views.DashBoard.Guest_Homepage.Guest_Master" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Guest_Master.master.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Guest_Homepage.Guest_Master" %>
 
 <!DOCTYPE html>
 
@@ -54,7 +54,13 @@
                                   <span class="mt-2">Chatbot</span>
                                 </asp:HyperLink>
                             </li>
-                           <li class="nav-item p-1">
+                            <li class="nav-item p-1">
+                                <asp:HyperLink ID="campAppntmnt" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Appointment/Guest_Appointment.aspx">
+                                  <i class="bi bi-calendar2-plus-fill me-2"></i>
+                                  <span class="mt-2">Set Appointment</span>
+                                </asp:HyperLink>
+                            </li>
+                            <li class="nav-item p-1">
                                 <asp:HyperLink ID="alldepartInfo" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Department_Info/Guest_DepartmentInfo.aspx">
                                   <i class="bi bi-info-square-fill me-2"></i>
                                   <span class="mt-2">Department Information</span>
@@ -78,7 +84,7 @@
                                    <span class="mt-2">Profile</span>
                                 </asp:LinkButton>
                             </li>--%>
-<%--                            <li class="nav-item p-1">
+                            <%--                            <li class="nav-item p-1">
                                 <asp:LinkButton ID="LinkButton1" runat="server" CssClass="topnav-item text-cente custom-text-color">
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span class="mt-2">Log out</span>
@@ -87,7 +93,7 @@
                         </ul>
                     </div>
                     <div class="d-none d-lg-block" id="lgout-prfl_btn">
-                       <%-- <asp:HyperLink ID="profileBtn" runat="server" CssClass="btn logout-profileBtn">Profile</asp:HyperLink>--%>
+                        <%-- <asp:HyperLink ID="profileBtn" runat="server" CssClass="btn logout-profileBtn">Profile</asp:HyperLink>--%>
                         <asp:Button ID="logoutBtn" runat="server" Text="Logout" CssClass="btn logout-profileBtn" UseSubmitBehavior="false" OnClick="logoutBtn_Click" />
                     </div>
                 </div>
@@ -130,11 +136,17 @@
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
+                        <asp:HyperLink ID="sideAppnt" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Appointment/Guest_Appointment.aspx">
+                            <i class="bi bi-calendar2-plus-fill fs-4 me-3"></i>
+                            <p class="mt-4">Set Appointment</p>
+                        </asp:HyperLink>
+                    </li>
+                    <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCI" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Department_Info/Guest_DepartmentInfo.aspx">
                             <i class="bi bi-info-square-fill fs-4 me-3"></i>
                             <p class="mt-4">Department Information</p>
                         </asp:HyperLink>
-                    <%-- </li>
+                        <%-- </li>
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-calendar-check-fill fs-4 me-3"></i>

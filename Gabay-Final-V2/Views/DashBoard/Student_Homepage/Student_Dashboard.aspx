@@ -22,6 +22,12 @@
             overflow: hidden;
             border-radius: 18px 18px 0 0;
         }
+        .image-Detailed-Container{
+            max-width: 100%;
+            height: 250px;
+            overflow: hidden;
+            
+        }
         .imagePlaceholder{
             width: 100%;
             height: 100%;
@@ -80,29 +86,24 @@
         </div>
     </div>
     <asp:HiddenField ID="HiddenField1" runat="server" />
+     
     <%-- Detailed Modal --%>
     <div class="modal fade" id="dtldModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="modal-title fs-5" id="detailedHeader">
-                        <asp:Label ID="dtldTitle" runat="server" Text="Title"></asp:Label>
-                    </span>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <asp:Label ID="dtldTitle" CssClass="modal-title fs-5" runat="server" Text="Title"></asp:Label>
+                    <asp:Button ID="dtldModalClose" runat="server" CssClass="btn-close" OnClick="dtldModalClose_Click" />
                 </div>
                 <div class="modal-body">
-                    <div class="image-container">
+                    <div class="image-Detailed-Container card-img-top">
                         <asp:Image ID="dtldimgPlaceholder" runat="server" class="img-fluid imagePlaceholder" alt="..." 
                             ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("ImagePath")) %>'/>
                     </div>
                     <div class="d-flex justify-content-center flex-column">
-                        <asp:Label ID="dtldDate" runat="server" Text="Date"></asp:Label>
+                        <asp:Label ID="dtldDate" runat="server" Text="Date" CssClass="text-center text-secondary"></asp:Label>
                         <asp:Label ID="dtldDescrp" runat="server" Text="Detailed Description"></asp:Label>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>

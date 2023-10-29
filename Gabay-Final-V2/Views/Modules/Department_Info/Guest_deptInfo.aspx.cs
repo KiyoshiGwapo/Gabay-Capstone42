@@ -6,10 +6,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace Gabay_Final_V2.Views.Modules.Department_Info
 {
-    public partial class Guest_DepartmentInfo : System.Web.UI.Page
+    public partial class Guest_deptInfo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,7 +17,7 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
                 List<Department> departments = new List<Department>();
 
                 // Replace with your database connection code
-                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-6DAE04O\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True"))
                 {
                     string query = @"SELECT ID_dept, dept_name, dept_head, dept_description,
                                      contactNumber, email, courses, office_hour FROM department";

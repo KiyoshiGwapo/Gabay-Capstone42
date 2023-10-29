@@ -7,74 +7,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gabay_Final_V2.Prototype
+namespace Gabay_Final_V2.Views.Modules.Department_Info
 {
 
 
-    public partial class PASWORD
+    public partial class Student_deptInfo
     {
 
         /// <summary>
-        /// goBack control.
+        /// deptName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink goBack;
+        protected global::System.Web.UI.WebControls.Label deptName;
 
         /// <summary>
-        /// goBack1 control.
+        /// deptDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink goBack1;
+        protected global::System.Web.UI.WebControls.Label deptDesc;
 
         /// <summary>
-        /// form1 control.
+        /// deptHead control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label deptHead;
 
         /// <summary>
-        /// lblMessage control.
+        /// courses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Label courses;
 
         /// <summary>
-        /// txtUserID control.
+        /// offHrs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserID;
+        protected global::System.Web.UI.WebControls.Label offHrs;
 
         /// <summary>
-        /// txtEmail control.
+        /// conNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Label conNum;
 
         /// <summary>
-        /// btnRetrievePassword control.
+        /// emailbx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRetrievePassword;
+        protected global::System.Web.UI.WebControls.Label emailbx;
     }
 }

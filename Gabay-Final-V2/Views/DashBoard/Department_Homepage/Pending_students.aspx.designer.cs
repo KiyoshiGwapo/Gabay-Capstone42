@@ -15,15 +15,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
     {
 
         /// <summary>
-        /// displayEmailLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label displayEmailLabel;
-
-        /// <summary>
         /// txtSearch control.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,33 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
+
+        /// <summary>
+        /// displayPending control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton displayPending;
+
+        /// <summary>
+        /// displayActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton displayActive;
+
+        /// <summary>
+        /// displayDeactivated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton displayDeactivated;
 
         /// <summary>
         /// pending_table control.
@@ -42,6 +60,24 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         protected global::System.Web.UI.WebControls.GridView pending_table;
 
         /// <summary>
+        /// active_table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView active_table;
+
+        /// <summary>
+        /// deactivated_table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView deactivated_table;
+
+        /// <summary>
         /// hidPersonID control.
         /// </summary>
         /// <remarks>
@@ -51,6 +87,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         protected global::System.Web.UI.WebControls.HiddenField hidPersonID;
 
         /// <summary>
+        /// hidStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidStatus;
+
+        /// <summary>
         /// btnApprove control.
         /// </summary>
         /// <remarks>
@@ -58,5 +103,14 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnApprove;
+
+        /// <summary>
+        /// deactiveBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button deactiveBtn;
     }
 }

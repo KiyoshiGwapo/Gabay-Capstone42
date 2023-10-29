@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 /*
 .container {
     float: right;
@@ -26,7 +26,6 @@
 }
 
 */
-
 /*
 .layout {
     width: 1366px;
@@ -35,7 +34,6 @@
     grid: "header header header" 0% "leftSide body rightSide" 64% "footer footer footer" 20% / 10% 1fr 2%;
     gap: 8px;
 }*/
-
 /*.layout {
     width: 1366px;
     height: 900px;
@@ -48,7 +46,6 @@
     grid-template-columns: 10% 1fr 2%;
     gap: 8px;
 }*/
-
 .layout {
     width: 100%;
     max-width: 1366px; /* Set a maximum width to prevent layout from becoming too wide */
@@ -99,6 +96,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
     position: relative;
+    z-index: 1;
 }
 
 .rightSide {
@@ -586,6 +584,18 @@ ul {
     position: relative;
 }
 
+#meroom {
+    transform: scale(0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    /* bottom: 535px;*/
+    position: relative;
+}
+
+
+
 
 
 
@@ -608,7 +618,7 @@ ul {
     stroke-dasharray: 650;
     stroke-dashoffset: 650;
     display: none;
-    animation: animate 16s forwards;
+    animation: animate 30s forwards;
 }
 
 @keyframes animate {
@@ -1225,11 +1235,12 @@ label {
 
 .container {
     width: 500px;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     height: 10vh;
     display: block;
     position: relative;
+    z-index: 2;
 }
 
 .search-bar {
@@ -1317,6 +1328,7 @@ label {
     position: relative; /* Add this to make absolute positioning work for child elements */
     max-height: 150px; /* Set a maximum height for the content container */
     overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    z-index: 2;
 }
 
     /* Remove the display: none; property from .content */
@@ -1513,5 +1525,3 @@ label {
     vertical-align: middle;
     margin-right: 3px;
 }*/
-
-

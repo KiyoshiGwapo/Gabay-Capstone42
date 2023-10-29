@@ -57,7 +57,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Year;
+        protected global::System.Web.UI.WebControls.TextBox Year;
 
         /// <summary>
         /// time control.
@@ -66,7 +66,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox time;
+        protected global::System.Web.UI.WebControls.DropDownList time;
 
         /// <summary>
         /// selectedDateHidden control.
@@ -75,7 +75,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl selectedDateHidden;
+        protected global::System.Web.UI.WebControls.TextBox selectedDateHidden;
 
         /// <summary>
         /// DepartmentDropDown control.
@@ -84,7 +84,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DepartmentDropDown;
+        protected global::System.Web.UI.WebControls.TextBox DepartmentDropDown;
 
         /// <summary>
         /// Message control.
@@ -103,14 +103,5 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SubmitButton;
-
-        /// <summary>
-        /// FormSubmittedHiddenField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField FormSubmittedHiddenField;
     }
 }

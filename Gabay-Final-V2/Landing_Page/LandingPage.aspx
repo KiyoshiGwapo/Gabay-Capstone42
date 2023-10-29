@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LandingPage.aspx.cs" Inherits="Gabay_Final_V2.Landing_Page.LandingPage" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -26,11 +25,11 @@
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
                 <div class="navbar-nav text-center">
                     <a class="nav-link" href="#homeSection">Home</a>
-                    <a class="nav-link" href="#featureSection">Features</a>
-                    <a class="nav-link" href="#">About us</a>
+                    <a class="nav-link" href="#services">Features</a>
+                    <a class="nav-link" href="#aboutUS">About us</a>
                     <button class="btn bg-primary" data-toggle="modal" data-target="#loginSelection">Get Started</button>
                 </div>
-            </div>s
+            </div>
             
         </div>
     </nav>
@@ -88,7 +87,7 @@
         </div>
     </div>
     <%-- Home Section --%>
-    <section id="homeSection"> 
+    <section id="homeSection" class="mb-5"> 
         <div class="container-fluid homeSection">
             <div class="row h-100" >
                 <div class="col-lg-5 col-md-12">
@@ -99,7 +98,7 @@
                             <h3 class="text-secondary">Modern Approach to University Information Sharing</h3>
                         </div>
                         <div class="button-area mt-3">
-                            <a class="btn exploreBtn" href="#featureSection">Start Exploring</a>
+                            <a class="btn exploreBtn" href="#services">Start Exploring</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +108,7 @@
         </div>
     </section>
     <%-- Feature Section --%>
-    <section  id="featureSection" class="featureSection">
+   <%-- <section  id="featureSection" class="featureSection">
         <div class="container-fluid featSection"">
             <div class="row">
                 <div class="col-12 mt-3 featHeader">
@@ -117,12 +116,12 @@
                 </div>
             </div>
             <div class="row align-items-center g-2">
-                <div class="col-md-8 col-sm-12">
+                <div class="col-12">
                     <div class="card d-md-flex">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-around">
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <%--<img src="../Resources/Images/model.png" class="customImg rounded float-start d-none d-lg-block m-0" />--%>
+                                   
                                     <img src="../Resources/Images/tempIcons/cutomModel.jpg" class="customImg rounded float-start d-none d-lg-block m-0"/>
                                 </div>
                                 <div class="mainFeat text-md-center">
@@ -155,6 +154,273 @@
 
                 </div>
             </div>
+            <div class="row align-items-center p-3 g-4">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title fs-3 fw-semibold text-center">Appointment Booking</h5>
+                            <div class="d-flex justify-content-center">
+                                <img src="../Resources/Images/tempIcons/schedule.png" class="tempIcons"/>
+                            </div>
+                            <p class="card-text mt-4">Allowing appointment scheduling for concerned departments and colleges.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title fs-3 fw-semibold text-center">Chatbot</h5>
+                            <div class="d-flex justify-content-center">
+                                <img src="../Resources/Images/tempIcons/chat.png" class="tempIcons"/>
+                            </div>
+                            <p class="card-text mt-4">A simple chatbot for 24/7 university related queries.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title fs-3 fw-semibold text-center">Wayfinding</h5>
+                            <div class="d-flex justify-content-center">
+                                <img src="../Resources/Images/tempIcons/route.png" class="tempIcons"/>
+                            </div>
+                            <p class="card-text mt-4">An easy-to-read maps and clear directions using a wayfinding system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>--%>
+    
+    <%-- Features Section --%>
+    <section id="services" class="services section-bg mb-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Features</h2>
+          <p>"Discover the Gabay app, your one-stop solution for school navigation and information. Easily find your way around campus, access essential school information, and schedule appointments with ease. Streamline your school experience today with Gabay!".</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-robot"></i></div>
+              <h4><a href="#">Chatbot</a></h4>
+              <p>"Chatbots: Your 24/7 virtual assistant, always ready to provide quick answers and assistance, making your life easier and more efficien"</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-journal-arrow-up"></i></div>
+              <h4><a href="#">Appointment Bookings</a></h4>
+              <p>"Your time is your most valuable asset. Booking appointments wisely makes every moment count."</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-geo-alt"></i></div>
+              <h4><a href="#">Wayfinding</a></h4>
+              <p>"Wayfinding for schools helps users efficiently navigate the campus, locating classrooms, offices, and facilities. It includes signs, maps, and digital tools to simplify the journey, ensuring students, staff, and visitors can find their way with ease."</p>
+            </div>
+          </div>
+
+          
+
+
+
+        </div>
+
+      </div>
+
+        <br/>
+        <br/>
+</section>
+    <!-- ======= About Us Section ======= -->
+    <section id="aboutUS" class="about mb-5">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+             Gabay for Schools:
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> Navigate with ease using interactive maps. </li>
+              <li><i class="bi bi-check2-all"></i> Get instant answers from our chatbot.</li>
+              <li><i class="bi bi-check2-all"></i> Efficiently book appointments online.</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+
+GABAY is more than just a word; it's a beacon of support and wisdom that lights the path for all of us. In times of uncertainty, when we seek direction or a helping hand, GABAY reminds us that we are never alone. Together, we can navigate the complexities of life and emerge stronger.
+
+So let GABAY be your compass, your guiding star, and your source of inspiration. Let it be a reminder that, even in the darkest of moments, there's a way forward. Let us embrace GABAY as a symbol of unity, strength, and the unwavering power of human connection.
+
+Let us always remember that in this journey called life, we are each other's greatest GABAY. 🤝💫"
+            </p>
+            <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg mb-5">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Team</h2>
+          <p>"The strength of the team is each individual member. The strength of each member is the team."</p>
+        </div>
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="../Resources/Images/Faces/kj.jpg" class="img-fluid" alt=""/></div>
+              <div class="member-info">
+                <h4>Kjgwapo</h4>
+                <span>Tester</span>
+                <p>once gwapo always gwapo</p>
+               
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""/></div>
+              <div class="member-info">
+                <h4>Jermiaaha</h4>
+                <span>Hackerist</span>
+                <p>asdasdasdasdasdasda</p>
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""/></div>
+              <div class="member-info">
+                <h4>Rowel</h4>
+                <span>Project manager</span>
+                <p>asdasd</p>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""/></div>
+              <div class="member-info">
+                <h4>Kent</h4>
+                <span>hackerist</span>
+                <p>Dasdd</p>
+               
+              </div>
+            </div>
+          </div>
+
+            <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="500">
+              <div class="member d-flex align-items-start">
+                <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""/></div>
+                <div class="member-info">
+                  <h4>jandelpogi</h4>
+                  <span>Project manager</span>
+                  <p>asdasd</p>
+                  
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+    </section>
+        
+        <!-- End Team Section -->
+
+        <!-- ======= Footer ======= -->
+            <br />
+               <br />
+                  <br/>
+  <footer id="footer" class="mb-5">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Gabay</h3>
+            <p>
+             UCLM <br/>
+              Lapu-lapu mandaue<br/>
+              PH <br/><br/>
+              <strong>Phone:</strong> +63 961204300<br/>
+              <strong>Email:</strong> Gabayapp@gmail.com<br/>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Features</a></li>
+              
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Features</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Chatbot</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Appointment Booking</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Wayfinding</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram""></i></a>
+              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Gabay</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        Designed by <a href="https://bootstrapmade.com/">US</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+
+
+
+
+<!-- End Services Section -->
            <%-- <div class="row align-items-center p-3 g-4">
                 <div class="col-4">
                     <div class="card">
@@ -191,7 +457,8 @@
                 </div>
             </div>--%>
 
-        </div>
-    </section>
+
+
 </body>
 </html>
+

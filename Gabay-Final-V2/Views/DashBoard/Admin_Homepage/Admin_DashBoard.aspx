@@ -1,9 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Admin_Homepage/Admin_Master.Master" AutoEventWireup="true" CodeBehind="Admin_DashBoard.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Admin_Homepage.WebForm1" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
+     <style>
         .sulod .container {
             margin-top: 10vh;
             min-height: 90vh;
@@ -132,7 +131,7 @@
             </div>
         </div>
     </div>
-    <%--    <asp:HiddenField ID="StudentApprovedUserCountLabel" runat="server" />
+<%--    <asp:HiddenField ID="StudentApprovedUserCountLabel" runat="server" />
     <asp:HiddenField ID="StudentPendingUserCountLabel" runat="server" />--%>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <%--    <script>

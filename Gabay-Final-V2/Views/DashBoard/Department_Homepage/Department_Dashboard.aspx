@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" AutoEventWireup="true" CodeBehind="Department_Dashboard.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Department_Homepage.Department_Dashboard" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" AutoEventWireup="true" CodeBehind="Department_Dashboard.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Department_Homepage.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -11,7 +10,7 @@
 
         /* CSS for the chart container */
         .sulod .chart-container {
-            width: 500px; 
+            width: 500px;
             height: 500px;
             display: flex;
             justify-content: center;
@@ -30,25 +29,26 @@
         .sulod h1 {
             text-align: center;
             margin: 0;
-            margin-bottom: 20px; 
-            position: relative; 
+            margin-bottom: 20px;
+            position: relative;
         }
 
             .sulod h1 span.blue {
                 color: #007bff;
-                border-bottom: 2px solid #007bff; 
+                border-bottom: 2px solid #007bff;
             }
 
             .sulod h1 span.black {
                 color: #000000;
-                border-bottom: 2px solid #000000; 
+                border-bottom: 2px solid #000000;
             }
     </style>
     <div class="sulod">
         <div class="container">
             <h1>
                 <span class="blue">Welcome!</span> <span class="black">
-                    <asp:Label ID="lblDept_name" runat="server" Text="Label"></asp:Label></span>
+                    <asp:Label ID="lblDept_name" runat="server" Text="Label"></asp:Label>
+                </span>
             </h1>
             <div class="row">
                 <div class="col-xl-3 col-md-6 mb-4">
@@ -78,8 +78,8 @@
                                         <asp:Label ID="ActiveuserCountLabel" runat="server" Text=""></asp:Label>
                                     </div>
                                 </div>
-                                <div class="col-auto">                             
-                                    <img src="../../../Resources/Images/add-friend.png"alt="" width="50" height="50" />
+                                <div class="col-auto">
+                                    <img src="../../../Resources/Images/add-friend.png" alt="" width="50" height="50" />
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                  <img src="../../../Resources/Images/file.png" alt="" width="50" height="50" />
+                                    <img src="../../../Resources/Images/file.png" alt="" width="50" height="50" />
                                 </div>
                             </div>
                         </div>
@@ -111,14 +111,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Function to create and update the smaller donut chart
-        function createDonutChart(AllStudentCount, ActiveStudentCount, PendingStudentCount) {
+        function createDonutChart(studentCount, departmentCount) {
             var ctx = document.getElementById('myDonutChart').getContext('2d');
             var data = {
                 datasets: [{
-                    data: [AllStudentCount, ActiveStudentCount, PendingStudentCount],
-                    backgroundColor: ['blue', 'green', 'red'],
+                    data: [studentCount, departmentCount],
+                    backgroundColor: ['green', 'red'],
                 }],
-                labels: ['All Students', 'Active Students', 'Pending Students'],
+                labels: ['Active Students', 'Pending Students'],
             };
             var options = {
                 cutoutPercentage: 60, // Adjust this value to control the thickness of the donut
@@ -131,6 +131,6 @@
         }
 
         // Call the function to create the smaller donut chart
-        createDonutChart(<%= userCountLabel.Text %>,<%= ActiveuserCountLabel.Text %>, <%= PendinguserCountLabel.Text %>);
+        createDonutChart(<%= ActiveuserCountLabel.Text %>, <%= PendinguserCountLabel.Text %>);
     </script>
 </asp:Content>

@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Data;
-
 
 namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 {
-    public partial class Department_Dashboard : System.Web.UI.Page
+    public partial class WebForm1 : System.Web.UI.Page
     {
-       
         private string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -74,29 +71,29 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         }
         private void ActiveUserCount()
         {
-                if (Session["user_ID"] != null)
+            if (Session["user_ID"] != null)
+            {
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    int userID = Convert.ToInt32(Session["user_ID"]);
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
+                    connection.Open();
 
-                        // Create a SQL command to count users with role value 3
-                        string query = @"SELECT COUNT(*) FROM student s
+                    // Create a SQL command to count users with role value 3
+                    string query = @"SELECT COUNT(*) FROM student s
                         INNER JOIN department d ON s.department_ID = d.ID_dept 
                         INNER JOIN users_table u ON s.user_ID = u.user_ID
                         WHERE d.user_ID = @userID AND u.status = 'activated'";
-                        using (SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@userID", userID);
-                            int userActiveCount = Convert.ToInt32(command.ExecuteScalar());
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@userID", userID);
+                        int userActiveCount = Convert.ToInt32(command.ExecuteScalar());
 
-                            // Set the Text property of the userCountLabel to display the user count
-                            ActiveuserCountLabel.Text = userActiveCount.ToString();
-                        }
+                        // Set the Text property of the userCountLabel to display the user count
+                        ActiveuserCountLabel.Text = userActiveCount.ToString();
                     }
-
                 }
+
+            }
 
         }
         private void PendingUserCount()
@@ -126,7 +123,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             }
 
         }
-
 
     }
 }

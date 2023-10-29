@@ -2,244 +2,318 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">.
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-    /* Add custom CSS styles for the table */
-    .unique-table {
-        width: 100%;
-    }
-
-    .unique-table th, .unique-table td {
-        padding: 8px;
-        text-align: center;
-        background-color: white;
-        font-size: 14px;
-    }
-
-    .unique-table th {
-        font-weight: bold;
-        background-color: #428bca; /* Blue header background color */
-        color: white; /* White text color */
-    }
-
-    /* Add some hover effect on rows to make it more interactive */
-    .unique-table tbody tr:hover {
-        background-color: #e0e0e0; /* Lighter gray on hover */
-    }
-
-    /* Media query for responsive design */
-    @media (max-width: 768px) {
-        .unique-table th, .unique-table td {
-            padding: 6px; /* Adjust padding for smaller screens */
-            font-size: 14px; /* Adjust font size for smaller screens */
+    <script src="../Resources/CustomJS/jquery-3.5.1.slim.min.js"></script>
+    <script src="../Resources/CustomJS/bootstrap.min.js"></script>
+    <link href="../Resources/CustomStyleSheet/DefaultStyle.css" rel="stylesheet" />
+     <style>
+        .appointeeName{
+            color:#003366;
+            font-weight:600;
         }
-    }
-    /* katung status nga dropdown button*/
-     .custom-dropdown {
-        width: 150px; /* Adjust the width as needed */
-        padding: 5px; /* Add padding for better appearance */
-        border: 1px solid #ccc; /* Add a border for styling */
-        border-radius: 5px; /* Add rounded corners */
-        background-color: #fff; /* Set the background color */
-        color: #333; /* Set the text color */
-        font-size: 14px; /* Set the font size */
-        text-align: center;
-    }
+        .appointmentSchedule{
+            color: white;
+            border: 1px solid #dcdcdc;
+            padding:10px;
+            border-radius: 10px;
+            background-color: #003366;
+        }
+        .appointmentStatus{
+            border-radius: 15px;
+            background-color: white;
+            height:25px;
+            color:#003366;
+            padding: 0 8px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .appointmentActions a{
+            text-decoration:none;
+        }
+        .appointmentConcern{
+            border: 1px solid #003366 !important;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .appointmentID{
+            font-size:13px;
+        }
     </style>
-    <div class="table-responsive-sm">
-        <table class="table unique-table">
-            <thead class="c-table__header">
-                <tr style="background-color: #E3FDFD;">
-                    <th class="c-table__col-label"><i class="fa fa-id-card"></i>ID Number</th>
-                    <th class="c-table__col-label"><i class="fa fa-user"></i>Students Name</th>
-                    <th class="c-table__col-label"><i class="fa fa-calendar-alt"></i>Year</th>
-                    <th class="c-table__col-label"><i class="fa fa-building"></i>Department</th>
-                    <th class="c-table__col-label"><i class="fa fa-envelope"></i>Email</th>
-                    <th class="c-table__col-label"><i class="fa fa-id-card"></i>Contact Number</th>
-                    <th class="c-table__col-label"><i class="fa fa-envelope-open"></i>Message</th>
-                    <th class="c-table__col-label"><i class="fa fa-calendar-check"></i>Appointment Date</th>
-                    <th class="c-table__col-label"><i class="fa fa-clock"></i>Time</th>
-                    <th class="c-table__col-label">
-                        <i class="fa fa-info-circle"></i>Status
-                            <br />
-                        <asp:DropDownList ID="ddlStatusFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatusFilter_SelectedIndexChanged" CssClass="custom-dropdown">
-                            <asp:ListItem Text="Select Down Below :" Value="" />
-                            <asp:ListItem Text="PENDING" Value="Pending" style="color: black;" />
-                            <asp:ListItem Text="APPROVED" Value="APPROVED" style="color: green;" />
-                            <asp:ListItem Text="DENIED" Value="DENIED" style="color: red;" />
-                            <asp:ListItem Text="RESCHEDULED" Value="RESCHEDULED" style="color: blue;" />
-                            <asp:ListItem Text="SERVE" Value="SERVE" style="color: orange;" />
-                        </asp:DropDownList>
-                    </th>
+   <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-12">
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control float-end mb-3" placeholder="Search student..."></asp:TextBox>
+                </div>
+                <div class="col-lg-2 col-md-12">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appointment Status
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li>
+                                <asp:LinkButton ID="displayPending" CssClass="dropdown-item" runat="server">Pending</asp:LinkButton>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="displayActive" CssClass="dropdown-item" runat="server">Reschedule</asp:LinkButton>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="displayDeactivated" CssClass="dropdown-item" runat="server">Approved</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <div class="col-12">
+                    <asp:GridView ID="GridView1" runat="server" CssClass="table" DataKeyNames="ID_appointment" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" />
+                            <asp:BoundField DataField="full_name" HeaderText="Recipient" />
+                            <asp:BoundField DataField="role" HeaderText="User Type" />
+                            <asp:BoundField DataField="appointment_date" HeaderText="Date"  DataFormatString="{0:dd MMM, yyyy}"/>
+                            <asp:BoundField DataField="appointment_time" HeaderText="Time" />
+                            <asp:BoundField DataField="appointment_status" HeaderText="Status" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button ID="ViewConcernModal" runat="server" Text="View Content" CssClass="btn bg-primary text-light" OnClick="ViewConcernModal_Click" OnClientClick='<%# "return getAppointmentID(" + Eval("ID_appointment") + ");" %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+                <asp:HiddenField ID="HiddenFieldAppointment" runat="server" />
+            </div>
+        </div>
+        <%-- View Content Modal --%>
+        <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Appointment Content</h1>
+                        <asp:Button ID="CloseViewModal" runat="server" CssClass="btn-close" OnClick="CloseViewModal_Click"/>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row g-2">
+                                <div class="col-12 mb-2">
+                                    <div class="appointeeName">
+                                        <asp:Label ID="appointmentName" runat="server" CssClass="fs-4"></asp:Label>
+                                    </div>
+                                    <div class="appointmentID">
+                                        <label for="Label1" class="text-secondary">Appointment ID: </label>
+                                        <asp:Label ID="Label1" runat="server" CssClass="text-secondary"></asp:Label>
+                                    </div>
+                                </div>
 
-                    <th class="c-table__col-label"><i class="fa fa-cog"></i>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <asp:PlaceHolder ID="yourTablePlaceholder" runat="server"></asp:PlaceHolder>
-            </tbody>
-        </table>
-    </div>
-    <!-- Add the following code inside the <body> tag, below the existing table -->
-    <!-- "View" Modal -->
-    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="viewModalLabel">View Appointment Message</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p><strong>Message:</strong></p>
-                    <p id="appointmentMessage"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <div class="col-12 mb-2">
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="appointmentConcern" CssClass="form-control appointmentConcern" runat="server"  placeholder="Concern"  style="height: 120px" TextMode="MultiLine" ReadOnly="true"></asp:TextBox>
+                                        <label for="appointmentConcern">Concern</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                   <div class="appointmentSchedule d-flex flex-column">
+                                       <div class="d-flex justify-content-between">
+                                           <span class="fs-5 fw-medium">Schedule</span>
+                                           <div class="appointmentStatus">
+                                               <asp:Label ID="AppointmentStatus" runat="server" Text="Status"></asp:Label>
+                                           </div>
+                                       </div>
+                                       <asp:Label ID="AppointmentDate" runat="server" Text="Date"></asp:Label>
+                                       <asp:Label ID="AppointmentTime" runat="server" Text="Time"></asp:Label>
+                                   </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="appointmentActions">
+                                        <asp:LinkButton ID="appointmentReschedule" runat="server" OnClick="appointmentReschedule_Click">
+                                            <i class="bi bi-calendar-minus-fill"></i>
+                                            <span>Reschedule Appointment</span>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+                                <div class="col-8 mb-2 d-grid">
+                                    <asp:LinkButton ID="ApproveLink" runat="server" CssClass="btn btn-primary" OnClick="ApproveLink_Click">Approve Appointment</asp:LinkButton>
+                                </div>
+                                 <div class="col-4 mb-2 d-grid">
+                                     <asp:LinkButton ID="RejectLink" runat="server" CssClass="btn btn-danger" OnClick="RejectLink_Click">Reject</asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Email Modal -->
-    <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="toEmail" class="form-label">To</label>
-                        <input type="text" id="toEmailTextBox" runat="server" class="form-control" />
+        <%-- Reschedule Modal --%>
+        <div class="modal fade" id="reschedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <asp:LinkButton ID="gobackToViewAppointment" runat="server" CssClass="fs-5 text-secondary" OnClick="gobackToViewAppointment_Click">
+                             <i class="bi bi-chevron-compact-left"></i>
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="closeReschedModal" runat="server" CssClass="btn-close" OnClick="closeReschedModal_Click">
+                        </asp:LinkButton>
                     </div>
-                    <div class="mb-3">
-                        <label for="date">Date</label>
-                        <input type="date" id="messagedate" runat="server" class="form-control" />
+                    <div class="modal-body">
+                        <div class="contianer-fluid">
+                            <div class="row g-2">
+                                <div class="col-12 mb-2">
+                                    <span class="fs-4">Reschedule Appointment</span>
+                                    <div class="appointmentSchedule d-flex flex-column">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="fs-5 fw-medium">Current Schedule</span>
+                                            <div class="appointmentStatus">
+                                                <asp:Label ID="CurrentAppointmentStatus" runat="server" Text="Status"></asp:Label>
+                                            </div>
+                                        </div>
+                                        <asp:Label ID="CurrentAppointmentDate" runat="server" Text="Date"></asp:Label>
+                                        <asp:Label ID="CurrentAppointmentTime" runat="server" Text="Time"></asp:Label>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="form-floating">
+                                        <asp:DropDownList ID="newtime" runat="server" CssClass="form-select">
+                                            <asp:ListItem Value="" Selected="True">Selec Available Time</asp:ListItem>
+                                            <asp:ListItem Value="8:00 AM">8:00 AM</asp:ListItem>
+                                            <asp:ListItem Value="9:00 AM">9:00 AM</asp:ListItem>
+                                            <asp:ListItem Value="10:00 AM">10:00 AM</asp:ListItem>
+                                            <asp:ListItem Value="11:00 AM">11:00 AM</asp:ListItem>
+                                            <asp:ListItem Value="1:00 PM">1:00 PM</asp:ListItem>
+                                            <asp:ListItem Value="2:00 PM">2:00 PM</asp:ListItem>
+                                            <asp:ListItem Value="3:00 PM">3:00 PM</asp:ListItem>
+                                            <asp:ListItem Value="4:00 PM">4:00 PM</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <label for="newtime">Available Time</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="newdate" CssClass="form-control" runat="server" TextMode="Date"></asp:TextBox>
+                                        <label for="newdate">Available Date</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-grid">
+                                    <asp:LinkButton ID="updtSchedule" runat="server" CssClass="btn bg-primary text-light" OnClick="LinkButton1_Click">Update Schedule</asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="time">Time</label>
-                        <input type="time" id="messagetime" runat="server" class="form-control" />
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="messageTextArea" runat="server" class="form-control" rows="5"></textarea>
-                    </div>
-                    <!-- Add date and time input fields -->
-
-                </div>
-                <div class="modal-footer d-flex justify-content-center">
-                    <asp:Button ID="ReplyButton" runat="server" Text="Reply" OnClick="SendEmailButton_Click" CssClass="btn btn-primary" />
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-      <input type="hidden" id="appointmentIdHiddenField" runat="server" />
-    <!-- "Update" Modal -->
-    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="updateModalLabel">Update Appointment</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" onclick="reloadPage()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="updateDate">Date:</label>
-                        <input type="date" class="form-control" id="updateDate" name="updateDate" runat="server" />
-                    </div>
-                    <div class="form-group">
-                        <label for="updateTime">Time:</label>
-                        <input type="time" class="form-control" id="updateTime" name="updateTime" runat="server" />
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="reloadPage()">Close</button>
-                    <asp:Button ID="updateModalButton" runat="server" Text="Update" CssClass="btn btn-primary" OnClientClick="return UpdateAppointment();" OnClick="UpdateModalButton_Click" />
                 </div>
             </div>
         </div>
-    </div>
+        <%-- Reject Modal --%>
+        <div class="modal fade" id="rejectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <asp:LinkButton ID="goBackToViewFromReject" runat="server" CssClass="fs-5 text-secondary" OnClick="gobackToViewAppointment_Click">
+                            <i class="bi bi-chevron-compact-left"></i>
+                        </asp:LinkButton>
+                         <asp:LinkButton ID="closeReject" runat="server" CssClass="btn-close" OnClick="closeReschedModal_Click">
+                        </asp:LinkButton>
+                    </div>
+                    <div class="modal-body">
+                        <div class="contianer-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <span class="fs-5">Reason for rejecting</span>
+                                    <asp:TextBox ID="rejectReason" CssClass="form-control" runat="server" style="height: 100px" TextMode="MultiLine"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:LinkButton ID="LinkButton5" runat="server" CssClass="btn bg-secondary text-light" OnClick="gobackToViewAppointment_Click">Cancel</asp:LinkButton>
+                        <asp:Button ID="rejectBtn" runat="server" Text="Reject Appointment" CssClass="btn bg-primary text-light" OnClick="rejectBtn_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%-- Approved Confirmation Modal --%>
+        <div class="modal fade" id="ApproveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <asp:LinkButton ID="goBackToViewFromApprove" runat="server" CssClass="fs-5 text-secondary" OnClick="gobackToViewAppointment_Click">
+                            <i class="bi bi-chevron-compact-left"></i>
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="closeApproved" runat="server" CssClass="btn-close" OnClick="closeReschedModal_Click">
+                        </asp:LinkButton>
+                    </div>
+                    <div class="modal-body">
+                       <p id="approveMessage"></p>
+                    </div>
+                    <div class="modal-footer d-grid">
+                        <asp:Button ID="ApproveButton" runat="server" Text="Proceed" CssClass="btn bg-primary text-light" OnClick="ApproveButton_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%--Reschedule Confirmation Modal --%>
+        <div class="modal fade" id="ConfirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <asp:LinkButton ID="LinkButton2" runat="server" CssClass="fs-5 text-secondary" OnClick="gobackToViewAppointment_Click">
+                            <i class="bi bi-chevron-compact-left"></i>
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn-close" OnClick="closeReschedModal_Click"></asp:LinkButton>
+                    </div>
+                    <div class="modal-body">
+                        <p id="confirmationMessage"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:LinkButton ID="goBacktoReschedModal" runat="server" CssClass="btn bg-secondary" OnClick="goBacktoReschedModal_Click">Cancel</asp:LinkButton>
+                        <asp:Button ID="updtSchedBtn" runat="server" Text="Update Schedule" CssClass="btn bg-primary text-light" OnClick="updtSchedBtn_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- Reject Confirmation Modal --%>
+        <div class="modal fade" id="RejectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="fs-5 text-secondary" OnClick="gobackToViewAppointment_Click">
+                            <i class="bi bi-chevron-compact-left"></i>
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn-close" OnClick="closeReschedModal_Click"></asp:LinkButton>
+                    </div>
+                    <div class="modal-body">
+                        <p id="confirmRejectMessage"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:LinkButton ID="goBackViewFromReject" runat="server" CssClass="btn bg-secondary" OnClick="gobackToViewAppointment_Click">Cancel</asp:LinkButton>
+                        <asp:LinkButton ID="rejectAppointmentBtnLink" runat="server" CssClass="btn bg-primary text-light" OnClick="rejectAppointmentBtnLink_Click">Proceed</asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <%-- Success modal --%>
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body bg-success text-center text-light">
+                        <i class="bi bi-info-circle-fill"></i>
+                        <p id="successMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- Error modal --%>
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body bg-danger text-center text-light">
+                        <i class="bi bi-exclamation-circle-fill"></i>
+                        <p id="errorMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     <script>
-        function EditButton_Click(appointmentId, selectedDate, selectedTime) {
-            // Assuming you have elements with IDs for date and time inputs and a hidden field
-            document.getElementById('updateDate').value = selectedDate;
-            document.getElementById('updateTime').value = selectedTime;
-            document.getElementById('appointmentIdHiddenField').value = appointmentId;
-
-            // Assuming you have a modal for editing, e.g., 'updateModal'
-            var updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
-            updateModal.show();
+        function getAppointmentID(id) {
+            document.getElementById('<%= HiddenFieldAppointment.ClientID %>').value = id;
         }
-    </script>
-    <script>
-        var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
-
-        // Event listener for opening the "Email" modal and populating the "To" email input
-        document.querySelectorAll('[data-bs-toggle="modal"][data-bs-target="#emailModal"]').forEach(function (button) {
-            button.addEventListener('click', function () {
-                var toEmail = button.getAttribute('data-to');
-                document.getElementById('toEmailTextBox').value = toEmail;
-
-                emailModal.show();
-            });
-        });
-
-        // Use event delegation to handle the click event for all buttons with data-bs-target="#updateModal"
-        document.addEventListener('click', function (event) {
-            var target = event.target;
-            if (target.dataset.bsTarget === "#updateModal") {
-                event.preventDefault();
-                event.stopPropagation();
-                var appointmentId = target.getAttribute('data-id');
-                var selectedDate = target.getAttribute('data-date');
-                var selectedTime = target.getAttribute('data-time');
-                populateUpdateModal(appointmentId, selectedDate, selectedTime);
-            }
-        }); s
-
-        function populateUpdateModal(appointmentId, selectedDate, selectedTime) {
-            document.getElementById('updateDate').value = selectedDate;
-            document.getElementById('updateTime').value = selectedTime;
-            document.getElementById('<%= appointmentIdHiddenField.ClientID %>').value = appointmentId;
-
-              var updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
-              updateModal.show();
-          }
-
-        function deleteAppointment(appointmentId) {
-            if (confirm('Are you sure you want to delete this appointment?')) {
-                window.location.href = 'Manage_Appointment.aspx?deleteId=' + appointmentId;
-            }
-        }
-
-        function changeColor(event, color) {
-            event.preventDefault();
-            event.target.style.color = color;
-        }
-        function SendEmailButton_Click() {
-            document.getElementById('<%= ReplyButton.ClientID %>').click();
-        }
-        function goBack() {
-            history.back();
-        }
-        function viewAppointmentMessage(message) {
-            var viewModal = new bootstrap.Modal(document.getElementById('viewModal'));
-            document.getElementById('appointmentMessage').innerText = message;
-            viewModal.show();
-        }
-        function reloadPage() {
-            location.reload();
-        }
-
     </script>
 </asp:Content>

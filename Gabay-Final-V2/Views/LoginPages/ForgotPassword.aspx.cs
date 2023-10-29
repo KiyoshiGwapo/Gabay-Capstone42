@@ -5,9 +5,10 @@ using System.Net;
 using System.Net.Mail;
 using System.Configuration;
 
-namespace Gabay_Final_V2.Prototype
+
+namespace Gabay_Final_V2.Views.LoginPages
 {
-    public partial class PASWORD : System.Web.UI.Page
+    public partial class ForgotPassword : System.Web.UI.Page
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace Gabay_Final_V2.Prototype
                     connection.Open();
 
                     string query = "SELECT stud_pass FROM student WHERE studentID = @UserID AND email = @Email";
-                        
+
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@UserID", userID);

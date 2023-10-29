@@ -51,13 +51,13 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected global::System.Web.UI.WebControls.TextBox time;
 
         /// <summary>
-        /// selectedDateHidden control.
+        /// selectedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl selectedDateHidden;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl selectedDate;
 
         /// <summary>
         /// DepartmentDropDown control.

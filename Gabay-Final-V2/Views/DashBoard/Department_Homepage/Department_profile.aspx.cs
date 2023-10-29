@@ -43,7 +43,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                             deptDesc.Text = reader["dept_description"].ToString();
                             string formatCourse = reader["courses"].ToString();
                             string[] items = formatCourse.Split(',');
-                            string formattedCourse = string.Join(Environment.NewLine, items);
+                            string formattedCourse = string.Join("<br>", items);
                             courses.Text = formattedCourse;
                             offHrs.Text = reader["office_hour"].ToString();
 
@@ -269,7 +269,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             int deptSessionID = Convert.ToInt32(Session["user_ID"]);
             string collectedCourses = CoursesAppended.Text;
 
-            string coursesFormatted = string.Join(",", collectedCourses.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries));
+            string coursesFormatted = string.Join(",", collectedCourses.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries));
             try
             {
                 updtDeptCourse(deptSessionID, coursesFormatted);

@@ -11,7 +11,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Set the minimum date for the date input field
+            selectedDate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
         }
     }
 }

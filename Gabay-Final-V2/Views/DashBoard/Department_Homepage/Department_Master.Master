@@ -42,7 +42,7 @@
                             <li class="nav-item p-1">
                                 <asp:HyperLink ID="pndngStds" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/DashBoard/Department_Homepage/Pending_students.aspx?=">
                                    <i class="bi bi-people-fill me-2"></i>
-                                  <span class="mt-2">Pending Students</span>
+                                  <span class="mt-2">Manage Student Account</span>
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
@@ -123,7 +123,7 @@
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideNavPend" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/DashBoard/Department_Homepage/Pending_students.aspx?=">
                             <i class="bi bi-people-fill fs-4 me-3"></i>
-                            <p class="mt-4">Pending Students</p>
+                            <p class="mt-4">Manage Students Account</p>
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">

@@ -46,9 +46,10 @@ namespace Gabay_Final_V2.Views.RegistrationPages
 
             courseList.ClearSelection();
 
-            if(!string.IsNullOrEmpty(selectedDeptID) )
+            if (!string.IsNullOrEmpty(selectedDeptID) )
             {
                 conn.ddlCourse(courseList, selectedDeptID);
+                
             }
         }
     }

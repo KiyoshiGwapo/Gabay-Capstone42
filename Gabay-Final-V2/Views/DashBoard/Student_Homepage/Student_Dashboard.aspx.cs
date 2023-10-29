@@ -96,5 +96,10 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 }
             }
         }
+
+        protected void dtldModalClose_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showDetailedModal", "$('#dtldModal').modal('hide');", true);
+        }
     }
 }

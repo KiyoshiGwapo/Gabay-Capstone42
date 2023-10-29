@@ -5,12 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 {
     public partial class Manage_FAQ : System.Web.UI.Page
     {
-        private string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabay_v.1.8;Integrated Security=True";
+        private static readonly string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -130,10 +131,33 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
             // Hide the modal dialog after updating
             ScriptManager.RegisterStartupScript(this, this.GetType(), "editModalScript", "$('#editModal').modal('hide');", true);
+            string successMessage = "Question updated!";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                   $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
 
             // Reload FAQs after updating
             LoadFAQs();
         }
 
+        protected void dltAnnouceBtn_Click(object sender, EventArgs e)
+        {
+            int FAQID = Convert.ToInt32(hdEditFAQID.Value);
+            DeleteFAQ(FAQID);
+            try
+            {
+                DeleteFAQ(FAQID);
+                string successMessage = "Question deleted successfully.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+
+                LoadFAQs();
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred while deleting the announcement: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+        }
     }
 }

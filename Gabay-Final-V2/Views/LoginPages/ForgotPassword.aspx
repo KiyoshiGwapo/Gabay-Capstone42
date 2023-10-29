@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PASWORD.aspx.cs" Inherits="Gabay_Final_V2.Prototype.PASWORD" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="Gabay_Final_V2.Views.LoginPages.ForgotPassword" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row p-3">
             <div class="col-md-5 d-none d-md-block custom-bg shadow-lg">
-                <asp:HyperLink ID="goBack" runat="server" CssClass="fs-3 text-decoration-none backButton " NavigateUrl="~/Landing_Page/LandingPage.aspx">
+                <asp:HyperLink ID="goBack" runat="server" CssClass="fs-3 text-decoration-none backButton" NavigateUrl="~/Views/LoginPages/Student_login.aspx">
                     <i class="bi bi-arrow-left-square"></i>
                 </asp:HyperLink>
             </div>

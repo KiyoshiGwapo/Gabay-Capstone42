@@ -11,7 +11,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 {
 
 
-    public partial class Department_Dashboard
+    public partial class WebForm1
     {
 
         /// <summary>

@@ -34,7 +34,6 @@ namespace Gabay_Final_V2.Models
             {
                 string query = "INSERT INTO Chat_Response (response, keywords) VALUES (@response, @keywords)";
 
-                // Replace "<br>" tags with newline characters "\n" before storing in the database
                 scripts = scripts.Replace("<br>", "\n");
 
                 SqlCommand command = new SqlCommand(query, connection);

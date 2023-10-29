@@ -11,11 +11,8 @@ namespace Gabay_Final_V2.Models
 {
     public class AcadCalen_model
     {
-        //Database handling sa Academic Calendar need pa ni i fix kay dli mo fetch 
-        //pero mo gana ang sa drop down
-        //I add pa ang sa admin na side
-        public static string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
-
+        // Make connectionString private
+        private string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
 
         public class FileData
         {

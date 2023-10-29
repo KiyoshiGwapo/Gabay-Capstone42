@@ -42,6 +42,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         protected global::System.Web.UI.WebControls.Label dtldTitle;
 
         /// <summary>
+        /// dtldModalClose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button dtldModalClose;
+
+        /// <summary>
         /// dtldimgPlaceholder control.
         /// </summary>
         /// <remarks>

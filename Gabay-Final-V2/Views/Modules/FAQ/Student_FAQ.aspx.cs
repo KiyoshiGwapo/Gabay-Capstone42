@@ -10,7 +10,7 @@ namespace Gabay_Final_V2.Views.Modules.FAQ
 {
     public partial class Student_FAQ : System.Web.UI.Page
     {
-        private string connectionString = "Data Source=LAPTOP-35UJ0LOL\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
+        private string connectionString = "Data Source=DESKTOP-6DAE04O\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {

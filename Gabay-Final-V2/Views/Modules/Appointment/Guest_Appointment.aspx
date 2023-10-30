@@ -59,12 +59,23 @@
             .btn-submit:hover {
                 background-color: #333;
             }
+
+        /* Custom styles for status labels */
+    .status-not-submitted {
+        color: red;
+    }
+
+    .status-submitted {
+        color: green;
+    }
     </style>
 
     <div class="form-wrapper">
         <div class="row">
             <div class="col-md-6">
                 <h2 class="form-heading">Appointment Form</h2>
+                <asp:Label ID="SubmissionStatusSubmitted" runat="server" Text="" CssClass="submission-status-Submitted" />
+                <asp:Label ID="SubmitStatusNotSubmitted" runat="server" Text="" CssClass="submit-status-NotSubmitted" />
                 <div class="form-group">
                     <label for="DepartmentDropDown" class="form-label">Department</label>
                     <asp:DropDownList ID="departmentChoices" CssClass="form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True">

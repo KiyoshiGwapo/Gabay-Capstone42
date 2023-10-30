@@ -30,9 +30,9 @@
                     <button class="btn bg-primary" data-toggle="modal" data-target="#loginSelection">Get Started</button>
                 </div>
             </div>
-            
         </div>
     </nav>
+
     <%-- Modal for login options --%>
     <div class="modal fade" id="loginSelection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

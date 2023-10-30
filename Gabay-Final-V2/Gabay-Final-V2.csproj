@@ -2337,6 +2337,7 @@
     <Content Include="Views\Modules\Admin_Modules\Manage_FAQ.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_Users.aspx" />
     <Content Include="Views\Modules\Announcement\Department_Announcement.aspx" />
+    <Content Include="Views\Modules\Appointment\HistoryLogs.aspx" />
     <Content Include="Views\Modules\Appointment\Appointment_Status.aspx" />
     <Content Include="Views\Modules\Appointment\Guest_Appointment.aspx" />
     <Content Include="Views\Modules\Appointment\Manage_Appointment.aspx" />
@@ -2658,6 +2659,13 @@
     </Compile>
     <Compile Include="Views\Modules\Announcement\Department_Announcement.aspx.designer.cs">
       <DependentUpon>Department_Announcement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\Appointment\HistoryLogs.aspx.cs">
+      <DependentUpon>HistoryLogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Appointment\HistoryLogs.aspx.designer.cs">
+      <DependentUpon>HistoryLogs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Appointment\Appointment_Status.aspx.cs">
       <DependentUpon>Appointment_Status.aspx</DependentUpon>

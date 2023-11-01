@@ -43,6 +43,21 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                 if (appointmentData != null && appointmentData.Rows.Count > 0)
                 {
+                    // Clone the original DataTable
+                    DataTable latestAppointmentData = appointmentData.Clone();
+
+                    // Find and add the latest appointment to the cloned DataTable
+                    DataRow latestAppointment = appointmentData.Rows[0];
+                    latestAppointmentData.ImportRow(latestAppointment);
+
+                    // Bind the cloned DataTable to GridViewLatest
+                    GridViewLatest.DataSource = latestAppointmentData;
+                    GridViewLatest.DataBind();
+
+                    // Remove the latest appointment from the original DataTable
+                    appointmentData.Rows.Remove(latestAppointment);
+
+                    // Bind the rest of the history
                     GridView1.DataSource = appointmentData;
                     GridView1.DataBind();
                 }
@@ -59,6 +74,8 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             }
         }
 
+
+
         private DataTable GetAppointmentHistoryFromDatabase(int userID)
         {
             DataTable appointmentData = new DataTable();
@@ -70,12 +87,15 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                     conn.Open();
 
                     string query = @"
-                SELECT a.ID_appointment, a.deptName, a.full_name, a.email, a.student_ID,
+                    SELECT a.ID_appointment, a.deptName, a.full_name, a.email, a.student_ID,
                     a.course_year, a.contactNumber, a.appointment_date, a.appointment_time,
-                    a.concern, a.appointment_status
-                FROM appointment AS a
-                INNER JOIN users_table AS u ON a.student_ID = u.login_ID
-                WHERE u.user_ID = @userID";
+                    a.concern, a.appointment_status,
+                    h.StatusChangeDate, h.PreviousStatus, h.NewStatus
+                    FROM appointment AS a
+                    LEFT JOIN AppointmentStatusHistory AS h ON a.ID_appointment = h.AppointmentID
+                    INNER JOIN users_table AS u ON a.student_ID = u.login_ID
+                    WHERE u.user_ID = @userID
+                    ORDER BY a.appointment_date DESC, h.StatusChangeDate DESC";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -96,6 +116,5 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
             return appointmentData;
         }
-
     }
 }

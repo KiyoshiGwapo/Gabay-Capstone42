@@ -12,7 +12,7 @@ using MailKit.Net.Smtp;
 //for json
 using System.Configuration;
 using System.Web;
-
+using Gabay_Final_V2.Models;
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
@@ -25,7 +25,27 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             {
                 BindingAppointment();
             }
+
+            //// para sa notification
+            //Manage_Appointment appointmentPage = Page as Manage_Appointment;
+            //if (appointmentPage != null)
+            //{
+            //    appointmentPage.AppointmentStatusChanged += HandleAppointmentStatusChanged;          
+            //}
+         }
+
+        public class DepartmentUser
+        {
+            public static event EventHandler AppointmentStatusChanged;
+
+            public static void OnAppointmentStatusChanged(EventArgs e)
+            {
+                // Raise the event when the appointment status changes.
+                AppointmentStatusChanged?.Invoke(null, e);
+            }
         }
+
+
         private void BindingAppointment()
         {
             if (Session["user_ID"] != null)
@@ -216,8 +236,15 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                     cmdDateTime.ExecuteNonQuery();
                                 }
 
+                                // Notify that the status has changed.
+                                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
+
+
                                 // Log the status change in the AppointmentStatusHistory table
                                 InsertStatusChangeToHistory(conn, AppointmentID, updateStatus, currentDate, currentTime);
+
+                                // Notify that the status has changed.
+                                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
                             }
                         }
                     }
@@ -411,6 +438,10 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "approved"); 
                     cmdInsertHistory.ExecuteNonQuery();
                 }
+
+                // Notify that the status has changed.
+                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
+
                 conn.Close();
             }
         }
@@ -537,7 +568,10 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     cmdInsertHistory.ExecuteNonQuery();
                 }
 
-              
+                // Notify that the status has changed.
+                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
+
+
                 conn.Close();
             }
         }

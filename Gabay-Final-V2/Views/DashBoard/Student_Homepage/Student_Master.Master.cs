@@ -31,8 +31,26 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 //Redirects user if login credentials is not valid
                 Response.Redirect("..\\..\\..\\Views\\Loginpages\\Student_login.aspx");
             }
+
+            // Subscribe to the event for appointment status changes
+            DepartmentUser.AppointmentStatusChanged += DepartmentUser_AppointmentStatusChanged;
+
+            //if (notificationArea != null)
+            //{
+            //    // Set your notification count here, e.g., retrieve the count from a database.
+            //    int notificationCount = 5; // Change this to your actual count.
+            //    notificationArea.InnerText = notificationCount.ToString();
+            //}
         }
 
+
+        protected void DepartmentUser_AppointmentStatusChanged(object sender, EventArgs e)
+        {
+            // Handle appointment status change event here
+            // You can display a notification using JavaScript
+            string notificationMessage = "Appointment status has changed. Check Set Appointment for updates.";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "NotificationScript", "showNotification('" + notificationMessage + "');", true);
+        }
         protected void logoutBtn_Click(object sender, EventArgs e)
         {
             Session.Abandon();

@@ -20,81 +20,113 @@
 
 </head>
 <body>
+    <style>
+    .badge-danger {
+        background-color: red;
+        color: white;
+        font-size: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    </style>
+
+    <script type="text/javascript">
+        function showNotification(message) {
+            // Update the notification badge count here
+            var notificationBadge = document.getElementById('<%= notificationBadge.ClientID %>');
+             var currentCount = parseInt(notificationBadge.innerText, 10) || 0;
+             notificationBadge.innerText = (currentCount + 1).toString();
+
+             var notificationArea = document.getElementById('<%= notificationArea.ClientID %>');
+            var notificationDiv = document.createElement("div");
+            notificationDiv.className = "alert alert-danger";
+            notificationDiv.innerHTML = message;
+            notificationArea.appendChild(notificationDiv);
+        }
+        //pawala
+        function hideNotificationBadge() {
+            var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
+            notificationBadgeContainer.style.display = 'none';
+        }
+    </script>
+
     <form id="studentMaster" class="studentMaster" runat="server" autocomplete="off">
         <%--TOP NAV--%>
-            <header class="navbar navbar-expand-lg bg-body-tertiary z-1">
-                <nav class="container-fluid bg-white">
-                    <asp:HyperLink ID="GabayLogo" runat="server" CssClass="navbar-brand gBrand d-flex">
+        <header class="navbar navbar-expand-lg bg-body-tertiary z-1">
+            <nav class="container-fluid bg-white">
+                <asp:HyperLink ID="GabayLogo" runat="server" CssClass="navbar-brand gBrand d-flex">
                     <img src="../../../../Resources/Images/UC-LOGO.png" class="logoUC"/>
                     <p class="mt-2">GABAY</p>
                     </asp:HyperLink>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse mt-4" id="navbarNav">
-                        <ul class="navbar-nav d-lg-none">
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="dashboard" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/DashBoard/Student_Homepage/Student_Dashboard.aspx">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mt-4" id="navbarNav">
+                    <ul class="navbar-nav d-lg-none">
+                        <li class="nav-item p-1">
+                            <asp:HyperLink ID="dashboard" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/DashBoard/Student_Homepage/Student_Dashboard.aspx">
                                   <i class="bi bi-speedometer"></i>
                                   <span class="mt-2">Dashboard</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="wayFinding" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Wayfinding/Student_Wayfinding.aspx">
+                        </li>
+                        <li class="nav-item p-1">
+                            <asp:HyperLink ID="wayFinding" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Wayfinding/Student_Wayfinding.aspx">
                                   <i class="bi bi-map-fill me-2"></i>
                                   <span class="mt-2">Way Finding</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="chatbot" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Chatbot/Student_Chatbot.aspx">
+                        </li>
+                        <li class="nav-item p-1">
+                            <asp:HyperLink ID="chatbot" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Chatbot/Student_Chatbot.aspx">
                                   <i class="bi bi-chat-left-dots-fill me-2"></i>
                                   <span class="mt-2">Chatbot</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="campAppntmnt" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx">
+                        </li>
+                        <li class="nav-item p-1">
+                            <asp:HyperLink ID="campAppntmnt" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx">
                                   <i class="bi bi-calendar2-plus-fill me-2"></i>
                                   <span class="mt-2">Set Appointment</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Academic_Calendar/Student_AcadCalen.aspx">
+
+                        </li>
+                        <li class="nav-item p-1">
+                            <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Academic_Calendar/Student_AcadCalen.aspx">
                                   <i class="bi bi-calendar3 me-2"></i>
                                   <span class="mt-2">Academic Calendar</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Department_Info/Student_deptInfo.aspx">
+                        </li>
+                        <li class="nav-item p-1">
+                            <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Department_Info/Student_deptInfo.aspx">
                                   <i class="bi bi-info-square-fill me-2"></i>
                                   <span class="mt-2">Department Information</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/FAQ/Student_FAQ.aspx">
+                        </li>
+                        <li class="nav-item p-1">
+                            <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/FAQ/Student_FAQ.aspx">
                                   <i class="bi bi-question-square-fill me-2"></i>
                                   <span class="mt-2">FAQ</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:HyperLink ID="HyperLink4" runat="server" CssClass="topnav-item text-cente custom-text-color">
+                        </li>
+                        <li class="nav-item p-1">
+                            <asp:HyperLink ID="HyperLink4" runat="server" CssClass="topnav-item text-cente custom-text-color">
                                   <i class="bi bi-person-circle"></i>
                                   <span class="mt-2">Profile</span>
                                 </asp:HyperLink>
-                            </li>
-                            <li class="nav-item p-1">
-                                <asp:LinkButton ID="logoutLink" runat="server" CssClass="topnav-item text-cente custom-text-color" OnClick="logoutLink_Click">
+                        </li>
+                        <li class="nav-item p-1">
+                            <asp:LinkButton ID="logoutLink" runat="server" CssClass="topnav-item text-cente custom-text-color" OnClick="logoutLink_Click">
                                    <i class="bi bi-box-arrow-right"></i>
                                    <span class="mt-2">Log out</span>
                                 </asp:LinkButton>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="d-none d-lg-block" id="lgout-prfl_btn">
-                        <asp:Button ID="profileBtn" runat="server" Text="Profile" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" />
-                        <asp:Button ID="logoutBtn" runat="server" Text="Logout" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" OnClick="logoutBtn_Click" />
-                    </div>
-                </nav>
-            </header>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-none d-lg-block" id="lgout-prfl_btn">
+                    <asp:Button ID="profileBtn" runat="server" Text="Profile" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" />
+                    <asp:Button ID="logoutBtn" runat="server" Text="Logout" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" OnClick="logoutBtn_Click" />
+                </div>
+            </nav>
+        </header>
         <div class="wrapper d-flex vh-100">
             <%--SIDE NAV--%>
             <div class="sideBar bg-body-tertiary d-none d-lg-block">
@@ -125,13 +157,23 @@
                             <p class="mt-4">Chatbot</p>
                         </asp:HyperLink>
                     </li>
-                     <li class="nav-item ">
+                    <li class="nav-item ">
+
                         <asp:HyperLink ID="sideAppnt" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx">
-                            <i class="bi bi-calendar2-plus-fill fs-4 me-3"></i>
+                            <i class="bi bi-calendar2-plus-fill fs-4 me-3">
+                                       <div class="badge-danger">
+                            <span id="notificationBadge" runat="server" class="badge badge-danger">0</span>
+                            <div id="notificationArea" runat="server" class="notification-area">
+                            </div>
+                        </div>
+                            </i>
                             <p class="mt-4">Set Appointment</p>
                         </asp:HyperLink>
+                 
                     </li>
-                     <li class="nav-item ">
+
+
+                    <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Academic_Calendar/Student_AcadCalen.aspx">
                             <i class="bi bi-calendar3 fs-4 me-3"></i>
                             <p class="mt-4">Academic Calendar</p>
@@ -158,5 +200,6 @@
             </div>
         </div>
     </form>
+
 </body>
 </html>

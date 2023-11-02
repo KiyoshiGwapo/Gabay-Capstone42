@@ -39,7 +39,7 @@
             }
 
         .custom-button {
-            background-color: #007bff; 
+            background-color: darkblue; 
             color: #fff;
             padding: 10px 20px; 
             border: none; 
@@ -50,7 +50,7 @@
         }
 
             .custom-button:hover {
-                background-color: #0056b3; 
+                background-color: #007bff; 
             }
     </style>
     <asp:Button ID="ViewHistoryButton" runat="server" Text="View My History" CssClass="custom-button" OnClick="ViewHistoryButton_Click" />

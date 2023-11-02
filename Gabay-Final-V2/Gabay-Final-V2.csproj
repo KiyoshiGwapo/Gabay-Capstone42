@@ -2337,7 +2337,7 @@
     <Content Include="Views\Modules\Admin_Modules\Manage_FAQ.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_Users.aspx" />
     <Content Include="Views\Modules\Announcement\Department_Announcement.aspx" />
-    <Content Include="Views\Modules\Appointment\HistoryLogs.aspx" />
+    <Content Include="Views\Modules\Appointment\AppointmentHistory.aspx" />
     <Content Include="Views\Modules\Appointment\Appointment_Status.aspx" />
     <Content Include="Views\Modules\Appointment\Guest_Appointment.aspx" />
     <Content Include="Views\Modules\Appointment\Manage_Appointment.aspx" />
@@ -2372,6 +2372,7 @@
     <Compile Include="Models\CampusInfo_model.cs" />
     <Compile Include="Models\Chatbot_model.cs" />
     <Compile Include="Models\DbUtility.cs" />
+    <Compile Include="Models\DepartmentUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prototype\tempPage.aspx.cs">
       <DependentUpon>tempPage.aspx</DependentUpon>
@@ -2660,12 +2661,12 @@
     <Compile Include="Views\Modules\Announcement\Department_Announcement.aspx.designer.cs">
       <DependentUpon>Department_Announcement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Modules\Appointment\HistoryLogs.aspx.cs">
-      <DependentUpon>HistoryLogs.aspx</DependentUpon>
+    <Compile Include="Views\Modules\Appointment\AppointmentHistory.aspx.cs">
+      <DependentUpon>AppointmentHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Modules\Appointment\HistoryLogs.aspx.designer.cs">
-      <DependentUpon>HistoryLogs.aspx</DependentUpon>
+    <Compile Include="Views\Modules\Appointment\AppointmentHistory.aspx.designer.cs">
+      <DependentUpon>AppointmentHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Appointment\Appointment_Status.aspx.cs">
       <DependentUpon>Appointment_Status.aspx</DependentUpon>

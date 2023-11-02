@@ -11,10 +11,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 
-
-namespace Gabay_Final_V2.Views.Modules.Announcement
+namespace Gabay_Final_V2.Views.Modules.Appointment
 {
-    public partial class HistoryLogs : System.Web.UI.Page
+    public partial class AppointmentHistory : System.Web.UI.Page
     {
         public static string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
 
@@ -34,6 +33,15 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             }
         }
 
+        //Go Back Button
+        protected void GoBackButton_Click(object sender, EventArgs e)
+        {
+            if (Session["user_ID"] != null)
+            {
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                Response.Redirect($"Appointment_Status.aspx?userID={userID}");
+            }
+        }
         protected void BindAppointmentHistory(int userID)
         {
             try

@@ -84,7 +84,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             if (Session["user_ID"] != null)
             {
                 int userID = Convert.ToInt32(Session["user_ID"]);
-                Response.Redirect($"HistoryLogs.aspx?userID={userID}");
+                Response.Redirect($"AppointmentHistory.aspx?userID={userID}");
             }
         }
 

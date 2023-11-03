@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Data;
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
@@ -19,6 +20,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Set the minimum date for the date input field
+            date.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+
             if (!IsPostBack)
             {
                 if (Session["user_ID"] != null)
@@ -98,7 +102,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             string CourseYear = Year.Text;
             string DepartmentName = DepartmentDropDown.Text;
 
-            string SchedDate = selectedDateHidden.Text;
+            string SchedDate = date.Value;
             string SchedTime = time.Text;
             string Concern = Message.Text;
 

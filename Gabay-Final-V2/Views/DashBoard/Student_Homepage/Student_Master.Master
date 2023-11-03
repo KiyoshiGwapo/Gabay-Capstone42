@@ -44,11 +44,22 @@
             notificationDiv.innerHTML = message;
             notificationArea.appendChild(notificationDiv);
         }
-        //pawala
+    </script>
+
+    <script type="text/javascript">
         function hideNotificationBadge() {
             var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
             notificationBadgeContainer.style.display = 'none';
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var notificationArea = document.getElementById('notificationArea');
+            if (notificationArea) {
+                notificationArea.addEventListener("click", function () {
+                    hideNotificationBadge();
+                });
+            }
+        });
     </script>
 
     <form id="studentMaster" class="studentMaster" runat="server" autocomplete="off">
@@ -158,17 +169,16 @@
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item ">
-
-                        <asp:HyperLink ID="sideAppnt" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx">
-                            <i class="bi bi-calendar2-plus-fill fs-4 me-3">
-                                       <div class="badge-danger">
-                            <span id="notificationBadge" runat="server" class="badge badge-danger">0</span>
-                            <div id="notificationArea" runat="server" class="notification-area">
+                    <asp:HyperLink ID="sideAppnt" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx" onmouseover="hideNotificationBadge(false);" onmouseout="hideNotificationBadge(true);">
+                        <i class="bi bi-calendar2-plus-fill fs-4 me-3">
+                            <div id="notificationBadgeContainer" class="badge-danger">
+                                <span id="notificationBadge" runat="server" class="badge badge-danger">0</span>
+                                <div id="notificationArea" runat="server" class="notification-area">
+                                </div>
                             </div>
-                        </div>
-                            </i>
-                            <p class="mt-4">Set Appointment</p>
-                        </asp:HyperLink>
+                        </i>
+                        <p class="mt-4">Set Appointment</p>
+                    </asp:HyperLink>
                  
                     </li>
 

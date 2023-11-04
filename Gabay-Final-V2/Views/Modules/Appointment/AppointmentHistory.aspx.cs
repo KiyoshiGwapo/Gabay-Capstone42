@@ -124,5 +124,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             return appointmentData;
         }
+
+        protected void CloseViewModal_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "hideExampleModal", "$('#exampleModal').modal('hide');", true);
+            HiddenFieldAppointment.Value = "";
+        }
+
     }
 }

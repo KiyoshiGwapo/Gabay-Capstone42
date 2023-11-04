@@ -69,18 +69,18 @@
             }
 
         .custom-button {
-            background-color: darkblue; 
+            background-color: darkblue;
             color: #fff;
-            padding: 10px 20px; 
-            border: none; 
+            padding: 10px 20px;
+            border: none;
             border-radius: 5px;
-            cursor: pointer; 
+            cursor: pointer;
             margin-top: 20px;
             float: right;
         }
 
             .custom-button:hover {
-                background-color: #007bff; 
+                background-color: #007bff;
             }
     </style>
     <asp:Button ID="GoBackButton" runat="server" Text="Go Back" CssClass="custom-button" OnClick="GoBackButton_Click" />
@@ -96,8 +96,14 @@
                 <asp:BoundField DataField="course_year" HeaderText="Course Year" />
                 <asp:BoundField DataField="contactNumber" HeaderText="Contact Number" />
                 <asp:BoundField DataField="appointment_date" HeaderText="Date" />
-                <asp:BoundField DataField="appointment_time" HeaderText="Time" />
-                <asp:BoundField DataField="concern" HeaderText="Concern" />
+                <asp:TemplateField HeaderText="View Concern">
+                    <ItemTemplate>
+                        <div class="d-flex justify-content-center">
+                            <asp:Button runat="server" CssClass="btn btn-primary btn-sm view-concern-button" data-toggle="modal" data-target="#concernModal" OnClientClick='<%# "getAppointmentID(" + Eval("ID_appointment") + "); displayConcern(\"" + Eval("concern") + "\"); return false;" %>' Text="View" />
+                        </div>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:BoundField DataField="appointment_status" HeaderText="Status" />
             </Columns>
         </asp:GridView>
@@ -112,12 +118,48 @@
                 <asp:BoundField DataField="course_year" HeaderText="Course Year" />
                 <asp:BoundField DataField="contactNumber" HeaderText="Contact Number" />
                 <asp:BoundField DataField="appointment_date" HeaderText="Date" />
-                <asp:BoundField DataField="appointment_time" HeaderText="Time" />
-                <asp:BoundField DataField="concern" HeaderText="Concern" />
+                <asp:TemplateField HeaderText="View Concern">
+                    <ItemTemplate>
+                        <div class="d-flex justify-content-center">
+                            <asp:Button runat="server" CssClass="btn btn-primary btn-sm view-concern-button" data-toggle="modal" data-target="#concernModal" OnClientClick='<%# "getAppointmentID(" + Eval("ID_appointment") + "); displayConcern(\"" + Eval("concern") + "\"); return false;" %>' Text="View" />
+                        </div>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:BoundField DataField="appointment_status" HeaderText="Status" />
                 <asp:BoundField DataField="StatusChangeDate" HeaderText="Date of History" />
                 <asp:BoundField DataField="NewStatus" HeaderText="Previous Status" />
             </Columns>
         </asp:GridView>
     </div>
+    <asp:HiddenField ID="HiddenFieldAppointment" runat="server" />
+
+    <div class="modal fade" id="concernModal" tabindex="-1" aria-labelledby="concernModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="concernModalLabel">Appointment Concern</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="concernContent"></div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="CloseViewModal" runat="server" CssClass="btn-close" OnClick="CloseViewModal_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function displayConcern(concern) {
+            document.getElementById("concernContent").innerHTML = concern;
+            return false; // Prevent postback
+        }
+        function getAppointmentID(id) {
+            document.getElementById('<%= HiddenFieldAppointment.ClientID %>').value = id;
+        }
+    </script>
+
+
+
 </asp:Content>

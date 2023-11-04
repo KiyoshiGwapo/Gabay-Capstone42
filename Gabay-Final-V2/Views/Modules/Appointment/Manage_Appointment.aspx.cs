@@ -236,10 +236,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                     cmdDateTime.ExecuteNonQuery();
                                 }
 
-                                // Notify that the status has changed.
-                                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
-
-
                                 // Log the status change in the AppointmentStatusHistory table
                                 InsertStatusChangeToHistory(conn, AppointmentID, updateStatus, currentDate, currentTime);
 

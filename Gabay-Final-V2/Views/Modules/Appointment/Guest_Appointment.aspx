@@ -155,7 +155,7 @@
                 <h2 class="form-heading">Search My Appointment</h2>
                 <div class="form-group search-bar">
                     <div class="input-group">
-                        <asp:TextBox ID="searchInput" runat="server" CssClass="form-control text-input" placeholder="Search by Email Address" />
+                        <asp:TextBox ID="searchInput" runat="server" CssClass="form-control text-input" placeholder="Search by Appointment ID" />
                         <span class="input-group-btn">
                             <asp:Button ID="searchButton" runat="server" Text="Search" CssClass="btn btn-search sky-blue-button" OnClick="SearchButton_Click" />
                         </span>

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Net.Mail;
+using ZXing;
+using ZXing.QrCode;
+using MimeKit;
+using MailKit.Net.Smtp;
 using System.Net;
 using System.Web;
 using System.Web.UI;
@@ -91,29 +94,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 string courseYear = "guest";
 
                 // Insert data into the "appointment" table
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                int appointmentID = InsertAppointmentRecord(fullName, email, studentID, courseYear, contactNumber, selectedDate, selectedTime, deptName, concern, status);
+
+                if (appointmentID > 0)
                 {
-                    conn.Open();
-                    string query = "INSERT INTO appointment ([deptName], [full_name], [email], [student_ID], [course_year], [contactNumber], [appointment_date], [appointment_time], [concern], [appointment_status]) " +
-                        "VALUES (@DeptName, @FullName, @Email, @StudentID, @CourseYear, @ContactNumber, @SelectedDate, @SelectedTime, @Concern, @Status)";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@DeptName", deptName);
-                        cmd.Parameters.AddWithValue("@FullName", fullName);
-                        cmd.Parameters.AddWithValue("@Email", email);
-                        cmd.Parameters.AddWithValue("@StudentID", studentID);
-                        cmd.Parameters.AddWithValue("@CourseYear", courseYear);
-                        cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
-                        cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
-                        cmd.Parameters.AddWithValue("@SelectedTime", selectedTime);
-                        cmd.Parameters.AddWithValue("@Concern", concern);
-                        cmd.Parameters.AddWithValue("@Status", status);
-
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    conn.Close();
+                    // Send an email
+                    SendAppointmentConfirmationEmail(fullName, email, selectedDate, selectedTime, deptName, concern, appointmentID);
 
                     // Display a success message
                     SubmissionStatusSubmitted.Text = "Appointment submitted successfully.";
@@ -131,6 +117,79 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
+        private int InsertAppointmentRecord(string fullName, string email, string studentID, string courseYear, string contactNumber, string selectedDate, string selectedTime, string deptName, string concern, string status)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "INSERT INTO appointment ([deptName], [full_name], [email], [student_ID], [course_year], [contactNumber], [appointment_date], [appointment_time], [concern], [appointment_status]) " +
+                    "VALUES (@DeptName, @FullName, @Email, @StudentID, @CourseYear, @ContactNumber, @SelectedDate, @SelectedTime, @Concern, @Status); SELECT SCOPE_IDENTITY()";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DeptName", deptName);
+                    cmd.Parameters.AddWithValue("@FullName", fullName);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@StudentID", studentID);
+                    cmd.Parameters.AddWithValue("@CourseYear", courseYear);
+                    cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+                    cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
+                    cmd.Parameters.AddWithValue("@SelectedTime", selectedTime);
+                    cmd.Parameters.AddWithValue("@Concern", concern);
+                    cmd.Parameters.AddWithValue("@Status", status);
+
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
+        private void SendAppointmentConfirmationEmail(string fullName, string email, string selectedDate, string selectedTime, string deptName, string concern, int appointmentID)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
+            message.To.Add(new MailboxAddress("Recipient", email));
+            message.Subject = "Appointment Details";
+
+            var builder = new BodyBuilder();
+
+            builder.HtmlBody = $@"
+        <div style='text-align: center;margin-bottom: 10px;'>
+            <div>
+                <img src='cid:logo-image' style='width: 100px; height: auto; margin-right: 5px; display: block; margin: 0 auto;'>
+            </div>
+            <div style='letter-spacing: 3px; color: #003366; font-weight: 600;'>
+                GABAY
+            </div>
+        </div>";
+
+            // Add additional appointment details
+            builder.HtmlBody += $@"<div style='text-align: center;'><h1>You have successfully booked an appointment</h1></div>
+                        <div style='text-align: center;'>
+                        <p>Our team is currently verifying the availability of the chosen time and date.</p>
+                        <p>Please stay connected with your email for additional updates regarding your appointment schedule.</p>
+                        <p>Hello!<b> {fullName}</b>, your appointment is set. Please see the details below:</p>
+                        <p><b>Appointment ID:</b> {appointmentID}</p>
+                        <p><b>Appointment Date:</b> {selectedDate}</p>
+                        <p><b>Appointment Time:</b> {selectedTime}</p>
+                        <p><b>Department:</b> {deptName}</p>
+                        <p><b>Concern:</b> {concern}</p>
+                        </div>";
+
+            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\source\\repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+            logoImage.ContentId = "logo-image";
+            logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+
+            message.Body = builder.ToMessageBody();
+
+            // Send the email using MailKit
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
+                client.Send(message);
+                client.Disconnect(true);
+            }
+        }
 
         //Search sa iyang appointment
         protected void searchResultsGridView_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -149,36 +208,38 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
-            // Get the email address entered for the search
-            string searchEmail = searchInput.Text;
+            if (int.TryParse(searchInput.Text, out int appointmentID))
+            {
+                DataTable searchResults = SearchAppointmentsByAppointmentID(appointmentID);
 
-            // Search for appointments with the given email address
-            DataTable searchResults = SearchAppointmentsByEmail(searchEmail);
+                searchResultsGridView.DataSource = searchResults;
+                searchResultsGridView.DataBind();
 
-            // Bind the search results to the GridView
-            searchResultsGridView.DataSource = searchResults;
-            searchResultsGridView.DataBind();
-
-            // Check if there are no search results and update the visibility of the label
-            noResultsLabel.Visible = searchResults.Rows.Count == 0;
+                noResultsLabel.Visible = searchResults.Rows.Count == 0;
+            }
+            else
+            {
+                // Handle the case where the input is not a valid integer
+                noResultsLabel.Visible = true;
+            }
         }
 
 
 
 
-        private DataTable SearchAppointmentsByEmail(string email)
+
+        private DataTable SearchAppointmentsByAppointmentID(int appointmentID)
         {
-            // Implement the logic to query the database and retrieve search results
             DataTable results = new DataTable();
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                string query = "SELECT [full_name], [appointment_status] FROM appointment WHERE [email] = @Email";
+                string query = "SELECT [full_name], [appointment_status] FROM appointment WHERE [ID_appointment] = @AppointmentID";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         adapter.Fill(results);
@@ -188,6 +249,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             return results;
         }
+
 
 
     }

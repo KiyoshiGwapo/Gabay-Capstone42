@@ -31,36 +31,46 @@
     }
     </style>
 
-    <script type="text/javascript">
-        function showNotification(message) {
+<script type="text/javascript">
+    function showNotification(message) {
+        // Check if the badge has already been clicked
+        var badgeClicked = localStorage.getItem('badgeClicked');
+        if (!badgeClicked) {
             // Update the notification badge count here
             var notificationBadge = document.getElementById('<%= notificationBadge.ClientID %>');
-             var currentCount = parseInt(notificationBadge.innerText, 10) || 0;
-             notificationBadge.innerText = (currentCount + 1).toString();
+            var currentCount = parseInt(notificationBadge.innerText, 10) || 0;
+            notificationBadge.innerText = (currentCount + 1).toString();
 
-             var notificationArea = document.getElementById('<%= notificationArea.ClientID %>');
+            var notificationArea = document.getElementById('<%= notificationArea.ClientID %>');
             var notificationDiv = document.createElement("div");
             notificationDiv.className = "alert alert-danger";
             notificationDiv.innerHTML = message;
             notificationArea.appendChild(notificationDiv);
         }
-    </script>
+    }
 
-    <script type="text/javascript">
-        function hideNotificationBadge() {
-            var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
-            notificationBadgeContainer.style.display = 'none';
+    function hideNotificationBadge() {
+        localStorage.setItem('badgeClicked', 'true'); // Set the flag in localStorage
+        var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
+        notificationBadgeContainer.style.display = 'none';
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var notificationArea = document.getElementById('notificationArea');
+        if (notificationArea) {
+            notificationArea.addEventListener("click", function () {
+                hideNotificationBadge();
+            });
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            var notificationArea = document.getElementById('notificationArea');
-            if (notificationArea) {
-                notificationArea.addEventListener("click", function () {
-                    hideNotificationBadge();
-                });
-            }
-        });
-    </script>
+        // Check if the badge has already been clicked and hide it
+        var badgeClicked = localStorage.getItem('badgeClicked');
+        if (badgeClicked) {
+            hideNotificationBadge();
+        }
+    });
+</script>
+
 
     <form id="studentMaster" class="studentMaster" runat="server" autocomplete="off">
         <%--TOP NAV--%>

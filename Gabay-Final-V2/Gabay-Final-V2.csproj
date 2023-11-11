@@ -2880,6 +2880,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\tempPDF\" />
+    <Folder Include="Views\DashBoard\Department_Homepage\Uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

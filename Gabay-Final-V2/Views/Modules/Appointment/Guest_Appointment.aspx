@@ -242,16 +242,26 @@
 
         // Function to set the maximum date to 3 days from today
         function setMaxDate() {
+            // Get the current date
             const today = new Date();
+
+            // Add 3 days to the current date
             today.setDate(today.getDate() + 3);
 
+            // Format the date components to ensure two digits for day and month
             const dd = String(today.getDate()).padStart(2, "0");
-            const mm = String(today.getMonth() + 1).padStart(2, "0");
+            const mm = String(today.getMonth() + 1).padStart(2, "0"); // Note: Month is zero-based
             const yyyy = today.getFullYear();
 
+            // Create the formatted date string in "yyyy-MM-dd" format
             const maxDate = yyyy + "-" + mm + "-" + dd;
+
+            // Set the "max" attribute of the element with id "date"
             document.getElementById("date").setAttribute("max", maxDate);
         }
+        // Call setMaxDate on page load
+        window.onload = setMaxDate;
+
 
         // Add event listeners to input fields
         const fullNameInput = document.getElementById("<%= FullName.ClientID %>");
@@ -284,10 +294,7 @@
         messageInput.addEventListener("input", () => {
             messageInput.classList.remove("invalid");
             messageInput.classList.add("valid");
-        }); s
-
-        // Call setMaxDate on page load
-        window.onload = setMaxDate;
+        }); 
     </script>
 </asp:Content>
 

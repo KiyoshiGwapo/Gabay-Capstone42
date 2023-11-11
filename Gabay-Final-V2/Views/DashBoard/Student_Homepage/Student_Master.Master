@@ -33,9 +33,11 @@
 
 <script type="text/javascript">
     function showNotification(message) {
-        // Check if the badge has already been clicked
-        var badgeClicked = localStorage.getItem('badgeClicked');
-        if (!badgeClicked) {
+        // Check if the badge has already been clicked for this session
+        var sessionId = '<%= Session.SessionID %>';
+        var notificationClicked = localStorage.getItem('badgeClicked_' + sessionId);
+
+        if (!notificationClicked) {
             // Update the notification badge count here
             var notificationBadge = document.getElementById('<%= notificationBadge.ClientID %>');
             var currentCount = parseInt(notificationBadge.innerText, 10) || 0;
@@ -50,12 +52,15 @@
     }
 
     function hideNotificationBadge() {
-        localStorage.setItem('badgeClicked', 'true'); // Set the flag in localStorage
+        var sessionId = '<%= Session.SessionID %>';
+        localStorage.setItem('badgeClicked_' + sessionId, 'true'); // Set the flag in localStorage
         var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
         notificationBadgeContainer.style.display = 'none';
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+        var sessionId = '<%= Session.SessionID %>';
+
         var notificationArea = document.getElementById('notificationArea');
         if (notificationArea) {
             notificationArea.addEventListener("click", function () {
@@ -63,12 +68,34 @@
             });
         }
 
-        // Check if the badge has already been clicked and hide it
-        var badgeClicked = localStorage.getItem('badgeClicked');
-        if (badgeClicked) {
+        // Check if the badge has already been clicked for this session and hide it
+        var notificationClicked = localStorage.getItem('badgeClicked_' + sessionId);
+        if (notificationClicked) {
             hideNotificationBadge();
         }
+
+        // Add an event listener to clear the notification flag when user logs out or switches roles
+        var logoutLink = document.getElementById('<%= logoutLink.ClientID %>');
+        if (logoutLink) {
+            logoutLink.addEventListener("click", function () {
+                clearNotificationFlag(sessionId);
+            });
+        }
+
+        // Add additional event listeners for switching roles if needed
+        // Example:
+        // var switchRoleLink = document.getElementById('switchRoleLink');
+        // if (switchRoleLink) {
+        //     switchRoleLink.addEventListener("click", function () {
+        //         clearNotificationFlag(sessionId);
+        //     });
+        // }
     });
+
+    // Function to clear the notification flag for the current session
+    function clearNotificationFlag(sessionId) {
+        localStorage.removeItem('badgeClicked_' + sessionId); // Clear the flag in localStorage
+    }
 </script>
 
 

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" AutoEventWireup="true" CodeBehind="Department_profile.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Department_Homepage.Department_profile" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
@@ -63,6 +64,22 @@
                                                 </div>
                                                 <asp:Label ID="offHrs" runat="server" Text="Time"></asp:Label>
                                             </div>
+                                        </li>
+                                        <li>
+                                            <div class="FilesCont">
+                                                <div>
+                                                    <span class="fs-5">Files:</span>
+                                                </div>
+                                                <asp:Repeater ID="RptFiles" runat="server" OnItemCommand="RptFiles_ItemCommand">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="LnkFile" runat="server" CommandArgument='<%# Eval("FilePath") %>' OnClick="DownloadFile">
+                                                                   <%# Eval("FileName") %>
+                                                        </asp:LinkButton>
+                                                        <br />
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </div>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -140,6 +157,12 @@
                                             <span><i class="bi bi-chevron-right"></i></span>
                                         </div>
                                     </div>
+                                    <div class="cn p-3" data-bs-toggle="modal" data-bs-target="#filesModal">
+                                        <div class="d-flex justify-content-between modal-items">
+                                            <span>Files</span>
+                                            <span><i class="bi bi-chevron-right"></i></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +176,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
+                    <contenttemplate>
                         <div class="modal-header">
                             <span class="modal-title modalRouting fs-5" id="lgnCrndtls" data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-chevron-left"></i></span>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -182,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-                    </ContentTemplate>
+                    </contenttemplate>
                 </asp:UpdatePanel>
 
             </div>
@@ -193,7 +216,7 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
+                    <contenttemplate>
                         <div class="modal-header">
                             <span class="modal-title modalRouting fs-5" id="dptInfo" data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-chevron-left"></i></span>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -238,7 +261,7 @@
                                 </div>
                             </div>
                         </div>
-                    </ContentTemplate>
+                    </contenttemplate>
                 </asp:UpdatePanel>
             </div>
         </div>
@@ -248,7 +271,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <asp:UpdatePanel ID="UpdatePanel1" class="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
+                    <contenttemplate>
                         <div class="modal-header">
                             <span class="modal-title modalRouting fs-5" id="dptCourse" data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-chevron-left"></i></span>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -284,7 +307,7 @@
                                 </div>
                             </div>
                         </div>
-                    </ContentTemplate>
+                    </contenttemplate>
                 </asp:UpdatePanel>
             </div>
         </div>
@@ -294,7 +317,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <asp:UpdatePanel ID="UpdatePanel4" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
+                    <contenttemplate>
                         <div class="modal-header">
                             <span class="modal-title modalRouting fs-5" data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-chevron-left"></i></span>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -323,11 +346,36 @@
                                 </div>
                             </div>
                         </div>
-                    </ContentTemplate>
+                    </contenttemplate>
                 </asp:UpdatePanel>
             </div>
         </div>
     </div>
+
+    <%-- KATU NI SA FILES NA--%>
+    <div class="modal fade" id="filesModal" aria-hidden="true" aria-labelledby="files" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">File Upload</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <asp:FileUpload ID="fileUpload" runat="server" />
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="BtnUpload_Click" CssClass="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <%-- success modal --%>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -363,16 +411,16 @@
         }
         function resetCourses() {
             var coursesAppended = document.getElementById('<%= CoursesAppended.ClientID %>');
-             var currentContent = coursesAppended.value;
-             var courses = currentContent.split('\n');
+            var currentContent = coursesAppended.value;
+            var courses = currentContent.split('\n');
 
-             if (courses.length > 0) {
-                 courses.pop(); // Remove the last item
-                 coursesAppended.value = courses.join('\n');
-             } else {
-                 // Handle the case where there are no courses left
-                 alert('No Courses Available');
-             }
+            if (courses.length > 0) {
+                courses.pop(); // Remove the last item
+                coursesAppended.value = courses.join('\n');
+            } else {
+                // Handle the case where there are no courses left
+                alert('No Courses Available');
+            }
         }
     </script>
 </asp:Content>

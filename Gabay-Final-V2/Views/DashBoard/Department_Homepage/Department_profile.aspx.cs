@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 {
     public partial class Department_profile : System.Web.UI.Page
     {
+        // Property to hold the list of file paths
         string connection = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,6 +22,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 int deptSessionID = Convert.ToInt32(Session["user_ID"]);
                 loadGeneralInfo(deptSessionID);
                 loadCredentials(deptSessionID);
+                BindUploadedFiles(deptSessionID);
 
             }
 
@@ -364,5 +368,192 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 conn.Close();
             }
         }
+
+        //PARA SA KATUNG FILES NANI
+
+        private string GetLoggedInUserID()
+        {
+
+            return Session["user_ID"]?.ToString();
+        }
+
+        // Modified btnUpload_Click method
+        protected void BtnUpload_Click(object sender, EventArgs e)
+        {
+            if (fileUpload.HasFile)
+            {
+                try
+                {
+                    int sessionID = Convert.ToInt32(Session["user_ID"]);
+                    string fileName = fileUpload.FileName;
+
+                    UpdateFileData(sessionID, fileName);
+
+                    Response.Redirect(Request.RawUrl);
+                }
+                catch (Exception)
+                {
+                    // Handle any exceptions or display an error message
+                }
+            }
+        }
+
+
+        private void UpdateFileData(int sessionID, string fileName)
+        {
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+                string query = @"UPDATE department SET file_path = @filePath WHERE user_ID = @user_ID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@user_ID", sessionID); // Use int parameter
+                    cmd.Parameters.AddWithValue("@filePath", fileName);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+        // Inside your Page_Load or wherever it's appropriate
+        private void BindUploadedFiles(int sessionID)
+        {
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+                string query = "SELECT file_path FROM department WHERE user_ID = @user_ID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@user_ID", sessionID);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable filesTable = new DataTable();
+                        adapter.Fill(filesTable);
+
+                        // Ensure that the 'FilePath' column is present
+                        if (!filesTable.Columns.Contains("FilePath"))
+                        {
+                            filesTable.Columns.Add("FilePath", typeof(string));
+                        }
+
+                        // Assuming that the file path in your database includes the file name
+                        filesTable.Columns.Add("FileName", typeof(string));
+                        foreach (DataRow row in filesTable.Rows)
+                        {
+                            // Check if the 'file_path' column is present
+                            if (filesTable.Columns.Contains("file_path"))
+                            {
+                                object filePathObj = row["file_path"];
+                                if (filePathObj != null && filePathObj != DBNull.Value)
+                                {
+                                    string filePath = filePathObj.ToString();
+                                    if (!string.IsNullOrEmpty(filePath))
+                                    {
+                                        row["FileName"] = Path.GetFileName(filePath);
+                                    }
+                                    else
+                                    {
+                                        // Handle the case where the file path is empty
+                                        row["FileName"] = "No File";
+                                    }
+                                }
+                                else
+                                {
+                                    // Handle the case where the file path is DBNull.Value or null
+                                    row["FileName"] = "No File";
+                                }
+                            }
+                            else
+                            {
+                                // Handle the case where the 'file_path' column is not present
+                                // You can set a default value for the 'FileName' column in this case
+                                row["FileName"] = "No File";
+                            }
+                        }
+
+
+                        RptFiles.DataSource = filesTable;
+                        RptFiles.DataBind();
+                    }
+                }
+            }
+        }
+
+
+        protected void DownloadFile(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string filePath = btn.CommandArgument;
+
+            // Check if the file path is not empty
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                // Retrieve the file data (byte array) from the database
+                byte[] fileData = GetFileDataFromDatabase(filePath);
+
+                if (fileData != null)
+                {
+                    // Set response headers for file download
+                    Response.Clear();
+                    Response.Buffer = true;
+                    Response.ContentType = "application/octet-stream";
+                    Response.AddHeader("Content-Disposition", $"attachment; filename={Path.GetFileName(filePath)}");
+                    Response.BinaryWrite(fileData);
+                    Response.End();
+                }
+                else
+                {
+                    // Handle the case where file data is not retrieved from the database
+                    // You can display an error message or log the issue
+                }
+            }
+            else
+            {
+                // Handle the case where the file path is empty
+                // You can display an error message or log the issue
+            }
+        }
+
+        private byte[] GetFileDataFromDatabase(string filePath)
+        {
+            byte[] fileData = null;
+
+            // Retrieve file data from the database based on the provided file path
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+                string query = "SELECT file_path FROM department WHERE user_ID = @User_ID";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@User_ID", filePath);
+                    object result = cmd.ExecuteScalar();
+                    {
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return (byte[])result;
+                        }
+                    }
+                }
+            }
+
+            return fileData;
+        }
+
+
+
+
+        protected void RptFiles_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            // Handle the item command event here, if needed
+        }
+
+
+
+
+
     }
 }

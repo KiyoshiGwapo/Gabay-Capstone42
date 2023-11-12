@@ -22,7 +22,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 int deptSessionID = Convert.ToInt32(Session["user_ID"]);
                 loadGeneralInfo(deptSessionID);
                 loadCredentials(deptSessionID);
-                BindFilesToDropDownList();
+                BindFilesToDropDownList(deptSessionID);
 
             }
 
@@ -513,7 +513,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             public byte[] FileBytes { get; set; }
         }
 
-        public List<FileData> FetchFilesDataFromDatabase()
+        public List<FileData> FetchFilesDataFromDatabase(int userId)
         {
             List<FileData> filesList = new List<FileData>();
 
@@ -521,11 +521,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             {
                 conn.Open();
 
-                // Modify the query based on your requirements
-                string query = "SELECT FileId, FileName, FileData FROM DepartmentFiles";
+                // Modify the query to retrieve files only for the current user's session
+                string query = "SELECT FileId, FileName, FileData FROM DepartmentFiles WHERE user_ID = @userId";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
+                    command.Parameters.AddWithValue("@userId", userId);
+
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -545,12 +547,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             return filesList;
         }
 
-        // Modify the BindFilesToDropDownList method
-        private void BindFilesToDropDownList()
-        {
-            List<FileData> filesList = FetchFilesDataFromDatabase();
 
+        // Modify the BindFilesToDropDownList method
+        private void BindFilesToDropDownList(int userId)
+        {
+            List<FileData> filesList = FetchFilesDataFromDatabase(userId);
+
+            // Add an empty item as the default in the DropDownList
             ddlFiles.Items.Clear();
+            ddlFiles.Items.Add(new ListItem("Select Here", ""));
 
             foreach (FileData file in filesList)
             {
@@ -561,34 +566,58 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             if (ViewState["SelectedFileId"] != null)
             {
                 int selectedFileId = (int)ViewState["SelectedFileId"];
-                ddlFiles.SelectedValue = selectedFileId.ToString();
+
+                // Check if the selected file is in the DropDownList items
+                if (ddlFiles.Items.FindByValue(selectedFileId.ToString()) != null)
+                {
+                    ddlFiles.SelectedValue = selectedFileId.ToString();
+                }
+                else
+                {
+                    // If the selected file is not in the items, set the selected value to the first item (empty/default)
+                    ddlFiles.SelectedIndex = 0;
+                }
             }
         }
+
+
 
 
 
         // Adjust the SelectedIndexChanged event for ddlFiles
         protected void ddlFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedFileId = int.Parse(ddlFiles.SelectedValue);
-            ViewState["SelectedFileId"] = selectedFileId;
+            // Initialize a variable to store the selectedFileId
+            int selectedFileId;
 
-
-            DownloadErrorLabel.Text = "Selected File ID: " + selectedFileId;
-
-            byte[] selectedFileData = FetchFileDataFromDatabase(selectedFileId);
-            if (selectedFileData != null)
+            // Check if the selected value is a valid integer
+            if (int.TryParse(ddlFiles.SelectedValue, out selectedFileId))
             {
-                DownloadErrorLabel.Text = "";
+                // Successfully parsed, update ViewState
+                ViewState["SelectedFileId"] = selectedFileId;
+                DownloadErrorLabel.Text = "Selected File ID: " + selectedFileId;
+
+                // Fetch and display the selected file data (if needed)
+                byte[] selectedFileData = FetchFileDataFromDatabase(selectedFileId);
+                if (selectedFileData != null)
+                {
+                    DownloadErrorLabel.Text = "";
+                }
+                else
+                {
+                    DownloadErrorLabel.Text = "Selected file data not found.";
+                }
             }
             else
             {
-                DownloadErrorLabel.Text = "Selected file data not found.";
+                // Handle the case where the selected value is not a valid integer
+                DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
             }
         }
 
 
-    
+
+
         protected void RptFiles_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             // Handle the item command event here, if needed

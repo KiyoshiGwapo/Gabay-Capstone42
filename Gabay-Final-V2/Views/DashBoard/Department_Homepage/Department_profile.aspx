@@ -6,41 +6,6 @@
     <link href="../../../Resources/CustomStyleSheet/Dept_profile/DeptProfStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        /* Style for Files section */
-        .FilesCont {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f8f9fa;
-        }
-
-            .FilesCont span {
-                font-size: 1.2em;
-                font-weight: bold;
-            }
-
-        .ddlFiles {
-            margin-top: 10px;
-            width: 100%;
-            padding: 8px;
-            font-size: 1em;
-        }
-
-        .dwnldLnk {
-            margin-top: 10px;
-        }
-
-        /* Optional: Style for success and error modals */
-        .modal-body.bg-success {
-            background-color: #28a745;
-        }
-
-        .modal-body.bg-danger-subtle {
-            background-color: #dc3545;
-        }
-    </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
         <div class="row">
@@ -106,7 +71,7 @@
                                                     <span class="fs-5">Files:</span>
                                                 </div>
                                                 <asp:DropDownList ID="ddlFiles" runat="server" CssClass="ddlFiles text-center" AutoPostBack="true" OnSelectedIndexChanged="ddlFiles_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Select School Year" Value="" />
+                                                    <asp:ListItem Text="Select Here" Value="" />
                                                 </asp:DropDownList>
                                                 <asp:LinkButton ID="LinkButton1" CssClass="dwnldLnk btn" runat="server" Text="View/Download" OnClick="lnkDownload_Click" OnClientClick="openInNewTab();">
                         <i class="bi bi-file-earmark-arrow-down-fill"></i>

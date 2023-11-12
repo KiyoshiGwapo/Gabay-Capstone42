@@ -23,6 +23,8 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 loadGeneralInfo(deptSessionID);
                 loadCredentials(deptSessionID);
                 BindFilesToDropDownList(deptSessionID);
+                // Other code...
+                BindUploadedFiles();
 
             }
 
@@ -615,14 +617,58 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             }
         }
 
-
-
-
         protected void RptFiles_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            // Handle the item command event here, if needed
+            if (e.CommandName == "DeleteFile")
+            {
+                int fileIdToDelete = Convert.ToInt32(e.CommandArgument);
+                DeleteFileData(fileIdToDelete);
+                BindUploadedFiles(); // Refresh the file list
+            }
         }
 
+
+        // Modify the DeleteFileData method
+        private void DeleteFileData(int fileId)
+        {
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+                string deleteQuery = "DELETE FROM DepartmentFiles WHERE FileId = @FileId";
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@FileId", fileId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        private void BindUploadedFiles()
+        {
+            int deptSessionID = Convert.ToInt32(Session["user_ID"]);
+
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+                // Modify the query to retrieve files only for the current user's session
+                string query = "SELECT FileId, FileName FROM DepartmentFiles WHERE user_ID = @userId";
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@userId", deptSessionID);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable filesTable = new DataTable();
+                        adapter.Fill(filesTable);
+                        RptFiles.DataSource = filesTable;
+                        RptFiles.DataBind();
+                    }
+                }
+            }
+        }
 
 
 

@@ -71,7 +71,7 @@
                                                     <span class="fs-5">Files:</span>
                                                 </div>
                                                 <asp:DropDownList ID="ddlFiles" runat="server" CssClass="ddlFiles text-center" AutoPostBack="true" OnSelectedIndexChanged="ddlFiles_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Select Here" Value="" />
+                                                    <asp:ListItem Text="Select School Year" Value="" />
                                                 </asp:DropDownList>
                                                 <asp:LinkButton ID="LinkButton1" CssClass="dwnldLnk btn" runat="server" Text="View/Download" OnClick="lnkDownload_Click" OnClientClick="openInNewTab();">
                         <i class="bi bi-file-earmark-arrow-down-fill"></i>
@@ -360,6 +360,28 @@
                     <h5 class="modal-title" id="uploadModalLabel">File Upload</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">          
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <asp:Repeater ID="RptFiles" runat="server" OnItemCommand="RptFiles_ItemCommand" EnableViewState="true">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("FileName") %></td>
+                                        <td>
+                                            <asp:Button ID="btnDeleteFile" runat="server" Text="Delete" CommandName="DeleteFile" CommandArgument='<%# Eval("FileId") %>' CssClass="btn btn-danger btn-sm" />
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="modal-body">
                     <asp:FileUpload ID="fileUpload" runat="server" />
                 </div>
@@ -372,6 +394,8 @@
             </div>
         </div>
     </div>
+
+
 
 
 

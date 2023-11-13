@@ -2346,6 +2346,7 @@
     <Content Include="Views\Modules\Chatbot\Department_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Guest_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Student_Chatbot.aspx" />
+    <Content Include="Views\Modules\Department_Info\guest f.txt" />
     <Content Include="Views\Modules\Department_Info\Guest_deptInfo.aspx" />
     <Content Include="Views\Modules\Department_Info\Student_deptInfo.aspx" />
     <Content Include="Views\Modules\FAQ\Guest_FAQ.aspx" />

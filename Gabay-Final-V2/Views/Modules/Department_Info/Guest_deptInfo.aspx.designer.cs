@@ -15,12 +15,66 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
     {
 
         /// <summary>
-        /// departmentRepeater control.
+        /// ddlDepartments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater departmentRepeater;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDepartments;
+
+        /// <summary>
+        /// lblDepartmentHead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDepartmentHead;
+
+        /// <summary>
+        /// lblDepartmentDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDepartmentDescription;
+
+        /// <summary>
+        /// lblDepartmentCourses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDepartmentCourses;
+
+        /// <summary>
+        /// lblDepartmentOffHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDepartmentOffHours;
+
+        /// <summary>
+        /// lblDepartmentContactNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDepartmentContactNumber;
+
+        /// <summary>
+        /// lblDepartmentEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDepartmentEmail;
     }
 }

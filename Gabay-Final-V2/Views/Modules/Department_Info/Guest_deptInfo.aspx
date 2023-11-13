@@ -1,124 +1,84 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Guest_Homepage/Guest_Master.Master" AutoEventWireup="true" CodeBehind="Guest_deptInfo.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Department_Info.Guest_deptInfo" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        /* Custom styles for accordion headers */
-        .custom-accordion .accordion-button {
-            background-color: white !important;
-            color: #000000 !important;
-            z-index: 1; /* Add z-index property */
+ <style>
+        /* Add some basic styling for the dropdown */
+        .select-menu {
+            text-align: center; /* Center the dropdown */
+            margin-top: 40px; /* Adjust margin as needed */
         }
 
-            .custom-accordion .accordion-button:hover {
-                background-color: #003366 !important;
-                color: white !important;
-            }
-
-        /* Custom styles for accordion bodies */
-        .custom-accordion .accordion-body {
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            z-index: 1; /* Add z-index property */
+        .select-btn {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 18px;
         }
 
-        /* Custom styles for accordion active headers */
-        .custom-accordion .accordion-button:not(.collapsed) {
-            background-color: #0056b3;
+        .select-btn i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
         }
 
-        .accordion-body li {
-            list-style: none;
+        /* Add styling for the active state */
+        .select-menu.active .select-btn {
+            background-color: #f8f9fa;
+            border-radius: 8px;
         }
 
-        .accordion-item {
-            z-index: 1; /* Add z-index property to ensure it's in front */
+        /* Style the dropdown list */
+        .select-dropdown {
+            width: 300px; /* Adjust the width as needed */
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            margin-top: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;        
+            background-color: #ffffff;
+        }
+
+        /* Show the dropdown list when the parent is active */
+        .select-menu.active .select-dropdown {
+            display: block;
+        }
+
+        /* Style for department details */
+        .department-details {
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Department Information</h1>
-                <div class="accordion custom-accordion" id="departmentAccordion">
-                    <asp:Repeater ID="departmentRepeater" runat="server">
-                        <ItemTemplate>
-                            <div class="accordion-item item-hover">
-                                <h2 class="accordion-header" id="heading<%# Eval("DepartmentID") %>">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%# Eval("DepartmentID") %>" aria-expanded="true" aria-controls="collapse<%# Eval("DepartmentID") %>">
-                                        <div class="fs-5 fw-bold">
-                                            <%# Eval("DepartmentName") %>
-                                        </div>
-                                    </button>
-                                </h2>
-                                <div id="collapse<%# Eval("DepartmentID") %>" class="accordion-collapse collapse" aria-labelledby="heading<%# Eval("DepartmentID") %>" data-bs-parent="#departmentAccordion">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li>
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <span>
-                                                        <%# Eval("DepartmentDescription") %>
-                                                    </span>
-                                                </div>
-                                            </li>
-                                            <hr />
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <span class="fs-5 fw-bold">Department Information</span>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <div class="deptHeadCont mb-1">
-                                                            <div>
-                                                                <span class="fs-5">Dean/Department Head:</span>
-                                                            </div>
-                                                            <%# Eval("DepartmentHead") %>
-                                                        </div>
-                                                        <div class="deptCourses mb-1">
-                                                            <div>
-                                                                <span class="fs-5">Degree programs:</span>
-                                                            </div>
-                                                            <%# Eval("DepartmentCourses") %>
-                                                        </div>
-                                                        <div class="DeptOffHrs mb-1">
-                                                            <div>
-                                                                <span class="fs-5">Office hours:</span>
-                                                            </div>
-                                                            <%# Eval("DepartmentOffHours") %>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <hr />
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <span class="fs-5 fw-bold">Contact Information</span>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <div class="deptConNum mb-1">
-                                                            <div>
-                                                                <span class="fs-5">Dean/Department Head:</span>
-                                                            </div>
-                                                            <%# Eval("DepartmentContactNumber") %>
-                                                        </div>
-                                                        <div class="deptEmail mb-1">
-                                                            <div>
-                                                                <span class="fs-5">Dean/Department Head:</span>
-                                                            </div>
-                                                            <%# Eval("DepartmentEmail") %>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
+      <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Department Information</h1>
+    <div class="containerButton">
+        <div class="select-menu" id="optionMenu">
+            <div class="select-btn">
+                <asp:DropDownList ID="ddlDepartments" CssClass="select-dropdown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlDepartments_SelectedIndexChanged">
+                </asp:DropDownList>
+                <i class="bx bx-chevron-down"></i>
             </div>
         </div>
     </div>
+
+    <div class="department-details" id="departmentDetails">
+        <div>
+            <h2 id="lblDepartmentHead" runat="server"></h2>
+            <p id="lblDepartmentDescription" runat="server"></p>
+            <p id="lblDepartmentCourses" runat="server"></p>
+            <p id="lblDepartmentOffHours" runat="server"></p>
+            <p id="lblDepartmentContactNumber" runat="server"></p>
+            <p id="lblDepartmentEmail" runat="server"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const optionMenu = document.getElementById("optionMenu");
+            optionMenu.classList.add("active");
+        });
+    </script>
 </asp:Content>

@@ -29,6 +29,10 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 UpdateUserCount();
                 ActiveUserCount();
                 PendingUserCount();
+                ApprovedAppointmentCount();
+                PendingAppointmentCount();
+                DeniedAppointmentCount();
+                RescheduleAppointmentCount();
             }
         }
 
@@ -123,6 +127,120 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             }
 
         }
+        //Appointment Statuses
+        private void ApprovedAppointmentCount()
+        {
+            if (Session["user_ID"] != null)
+            {
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Create a SQL command to count approved appointments in the department
+                    string query = @"SELECT COUNT(*) FROM appointment
+                             WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                             AND appointment_status = 'approved'";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@userID", userID);
+                        int approvedAppointmentCount = Convert.ToInt32(command.ExecuteScalar());
+
+                        // Set the Text property of the ApprovedAppointmentCountLabel to display the approved appointment count
+                        ApprovedAppointmentCountLabel.Text = approvedAppointmentCount.ToString();
+                    }
+                }
+            }
+        }
+
+        private void PendingAppointmentCount()
+        {
+            if (Session["user_ID"] != null)
+            {
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Create a SQL command to count approved appointments in the department
+                    string query = @"SELECT COUNT(*) FROM appointment
+                             WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                             AND appointment_status = 'pending'";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@userID", userID);
+                        int pendingAppointmentCount = Convert.ToInt32(command.ExecuteScalar());
+
+                        // Set the Text property of the ApprovedAppointmentCountLabel to display the approved appointment count
+                        PendingAppointmentCountLabel.Text = pendingAppointmentCount.ToString();
+                    }
+                }
+            }
+        }
+
+        private void DeniedAppointmentCount()
+        {
+            if (Session["user_ID"] != null)
+            {
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Create a SQL command to count approved appointments in the department
+                    string query = @"SELECT COUNT(*) FROM appointment
+                             WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                             AND appointment_status = 'denied'";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@userID", userID);
+                        int deniedAppointmentCount = Convert.ToInt32(command.ExecuteScalar());
+
+                        // Set the Text property of the ApprovedAppointmentCountLabel to display the approved appointment count
+                        DeniedAppointmentCountLabel.Text = deniedAppointmentCount.ToString();
+                    }
+                }
+            }
+        }
+
+        private void RescheduleAppointmentCount()
+        {
+            if (Session["user_ID"] != null)
+            {
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Create a SQL command to count approved appointments in the department
+                    string query = @"SELECT COUNT(*) FROM appointment
+                             WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                             AND appointment_status = 'reschedule'";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@userID", userID);
+                        int rescheduleAppointmentCount = Convert.ToInt32(command.ExecuteScalar());
+
+                        // Set the Text property of the ApprovedAppointmentCountLabel to display the approved appointment count
+                        RescheduleAppointmentCountLabel.Text = rescheduleAppointmentCount.ToString();
+                    }
+                }
+            }
+        }
+
+
+        //string query = @"SELECT a.*, ur.role
+        //                FROM appointment a
+        //                INNER JOIN users_table u ON a.student_ID = u.login_ID
+        //                INNER JOIN user_role ur ON u.role_ID = ur.role_id
+        //                WHERE a.deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+        //                AND a.appointment_status = 'approved';";
+
 
     }
+
 }

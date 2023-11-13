@@ -49,8 +49,17 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             // Handle appointment status change event here
             // You can display a notification using JavaScript
             string notificationMessage = "Appointment status has changed. Check Set Appointment for updates.";
+
+            // Increment the notification count and update the session
+            int notificationCount = Convert.ToInt32(notificationArea.InnerText) + 1;
+            Session["NotificationCount"] = notificationCount;
+            notificationArea.InnerText = notificationCount.ToString();
+
+            // Trigger JavaScript function to show notification
             Page.ClientScript.RegisterStartupScript(this.GetType(), "NotificationScript", "showNotification('" + notificationMessage + "');", true);
         }
+
+
         protected void logoutBtn_Click(object sender, EventArgs e)
         {
             Session.Abandon();

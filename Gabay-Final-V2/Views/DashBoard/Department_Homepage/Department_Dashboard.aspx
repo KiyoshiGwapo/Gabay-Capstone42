@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" AutoEventWireup="true" CodeBehind="Department_Dashboard.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Department_Homepage.WebForm1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         .sulod .container {
             margin-top: 10vh;
-            min-height: 90vh;
         }
 
         /* CSS for the chart container */
@@ -42,6 +42,14 @@
                 color: #000000;
                 border-bottom: 2px solid #000000;
             }
+
+        .row {
+            justify-content: space-evenly;
+        }
+        /*
+            .row div {
+                width: 360px;
+            }*/
     </style>
     <div class="sulod">
         <div class="container">
@@ -102,11 +110,111 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
-            <div class="chart-container">
-                <canvas id="myDonutChart" class="chart-canvas"></canvas>
+            <%--  end sa row--%>
+            <div class="row">
+                <div class="chart-container">
+                    <canvas id="myDonutChart" class="chart-canvas"></canvas>
+
+                    <!-- New card on the right side -->
+                    <div class="col-xl-5 col-md-6 mb-4">
+                        <div class="card bg-success text-white shadow h-100">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-3">
+                                        <div class="icon-circle bg-light">
+                                            <!-- Add your image or icon here -->
+                                            <i class="fas fa-check text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Approved </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <!-- Add your ASP.NET Label here -->
+                                            <asp:Label ID="ApprovedAppointmentCountLabel" runat="server" Text=""></asp:Label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-5 col-md-6 mb-4">
+                        <div class="card bg-danger text-white shadow h-100">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-3">
+                                        <div class="icon-circle bg-light">
+                                            <!-- Add your image or icon here -->
+                                            <i class="fas fa-check text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Denied </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <!-- Add your ASP.NET Label here -->
+                                            <asp:Label ID="DeniedAppointmentCountLabel" runat="server" Text=""></asp:Label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-5 col-md-6 mb-4">
+                        <div class="card bg-primary text-white shadow h-100">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-3">
+                                        <div class="icon-circle bg-light">
+                                            <!-- Add your image or icon here -->
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Reschedule</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <!-- Add your ASP.NET Label here -->
+                                            <asp:Label ID="RescheduleAppointmentCountLabel" runat="server" Text=""></asp:Label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-5 col-md-6 mb-4">
+                        <div class="card bg-warning text-white shadow h-100">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-3">
+                                        <div class="icon-circle bg-light">
+                                            <!-- Add your image or icon here -->
+                                            <i class="fas fa-check text-warning"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Pending</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <!-- Add your ASP.NET Label here -->
+                                            <asp:Label ID="PendingAppointmentCountLabel" runat="server" Text=""></asp:Label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>

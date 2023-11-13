@@ -21,82 +21,97 @@
 </head>
 <body>
     <style>
-    .badge-danger {
-        background-color: red;
-        color: white;
-        font-size: 0;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-    }
+        .badge-danger {
+            background-color: red;
+            color: white;
+            font-size: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
     </style>
 
-<script type="text/javascript">
-    function showNotification(message) {
-        // Check if the badge has already been clicked for this session
-        var sessionId = '<%= Session.SessionID %>';
+    <script type="text/javascript">
+        function showNotification(message) {
+            var sessionId = '<%= Session.SessionID %>';
         var notificationClicked = localStorage.getItem('badgeClicked_' + sessionId);
 
-        if (!notificationClicked) {
-            // Update the notification badge count here
-            var notificationBadge = document.getElementById('<%= notificationBadge.ClientID %>');
-            var currentCount = parseInt(notificationBadge.innerText, 10) || 0;
-            notificationBadge.innerText = (currentCount + 1).toString();
+        var currentPage = window.location.pathname.toLowerCase();
+        var excludedPages = ['/views/dashboard/student_homepage/student_dashboard.aspx', '/views/modules/wayfinding/student_wayfinding.aspx', '/views/modules/academic_calendar/student_acadcalen.aspx'];
 
-            var notificationArea = document.getElementById('<%= notificationArea.ClientID %>');
-            var notificationDiv = document.createElement("div");
-            notificationDiv.className = "alert alert-danger";
-            notificationDiv.innerHTML = message;
-            notificationArea.appendChild(notificationDiv);
+        if (!notificationClicked) {
+            // Update notification count on the server
+            PageMethods.UpdateNotificationCount(sessionId, function () {
+                // Callback function, update UI
+                var notificationBadge = document.getElementById('<%= notificationBadge.ClientID %>');
+                var currentCount = parseInt(notificationBadge.innerText, 10) || 0;
+                notificationBadge.innerText = (currentCount + 1).toString();
+
+                var notificationArea = document.getElementById('<%= notificationArea.ClientID %>');
+                var notificationDiv = document.createElement("div");
+                notificationDiv.className = "alert alert-danger";
+                notificationDiv.innerHTML = message;
+                notificationDiv.onmousedown = function () {
+                    hideNotificationBadge();
+                    notificationArea.removeChild(notificationDiv);
+                };
+                notificationArea.appendChild(notificationDiv);
+            });
+
+            // Reset the localStorage flag when a new notification is triggered
+            localStorage.removeItem('badgeClicked_' + sessionId);
         }
     }
+    
 
-    function hideNotificationBadge() {
-        var sessionId = '<%= Session.SessionID %>';
-        localStorage.setItem('badgeClicked_' + sessionId, 'true'); // Set the flag in localStorage
-        var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
-        notificationBadgeContainer.style.display = 'none';
-    }
+        function hideNotificationBadge() {
+            var sessionId = '<%= Session.SessionID %>';
+            localStorage.setItem('badgeClicked_' + sessionId, 'true');
+            var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
+            notificationBadgeContainer.style.display = 'none';
+        }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        var sessionId = '<%= Session.SessionID %>';
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentPage = window.location.pathname.toLowerCase();
+            var excludedPages = ['/views/dashboard/student_homepage/student_dashboard.aspx', '/views/modules/wayfinding/student_wayfinding.aspx', '/views/modules/academic_calendar/student_acadcalen.aspx'];
 
+            if (excludedPages.includes(currentPage)) {
+                var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
+                notificationBadgeContainer.style.display = 'none';
+            }
+
+            var sessionId = '<%= Session.SessionID %>';
         var notificationArea = document.getElementById('notificationArea');
         if (notificationArea) {
-            notificationArea.addEventListener("click", function () {
+            notificationArea.addEventListener("mousedown", function () {
                 hideNotificationBadge();
             });
         }
 
-        // Check if the badge has already been clicked for this session and hide it
         var notificationClicked = localStorage.getItem('badgeClicked_' + sessionId);
-        if (notificationClicked) {
-            hideNotificationBadge();
+
+        // Check if there are notifications to show before hiding
+        var notificationBadge = document.getElementById('<%= notificationBadge.ClientID %>');
+        if (notificationBadge.innerText > 0 && !notificationClicked && !excludedPages.includes(currentPage)) {
+            var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
+            notificationBadgeContainer.style.display = 'block';
         }
 
-        // Add an event listener to clear the notification flag when user logs out or switches roles
         var logoutLink = document.getElementById('<%= logoutLink.ClientID %>');
         if (logoutLink) {
             logoutLink.addEventListener("click", function () {
                 clearNotificationFlag(sessionId);
             });
         }
-
-        // Add additional event listeners for switching roles if needed
-        // Example:
-        // var switchRoleLink = document.getElementById('switchRoleLink');
-        // if (switchRoleLink) {
-        //     switchRoleLink.addEventListener("click", function () {
-        //         clearNotificationFlag(sessionId);
-        //     });
-        // }
     });
 
-    // Function to clear the notification flag for the current session
-    function clearNotificationFlag(sessionId) {
-        localStorage.removeItem('badgeClicked_' + sessionId); // Clear the flag in localStorage
-    }
-</script>
+        function clearNotificationFlag(sessionId) {
+            localStorage.removeItem('badgeClicked_' + sessionId);
+        }
+    </script>
+
+
+
 
 
     <form id="studentMaster" class="studentMaster" runat="server" autocomplete="off">
@@ -205,20 +220,21 @@
                             <p class="mt-4">Chatbot</p>
                         </asp:HyperLink>
                     </li>
-                    <li class="nav-item ">
-                    <asp:HyperLink ID="sideAppnt" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx" onmouseover="hideNotificationBadge(false);" onmouseout="hideNotificationBadge(true);">
-                        <i class="bi bi-calendar2-plus-fill fs-4 me-3">
-                            <div id="notificationBadgeContainer" class="badge-danger">
-                                <span id="notificationBadge" runat="server" class="badge badge-danger">0</span>
-                                <div id="notificationArea" runat="server" class="notification-area">
-                                </div>
-                            </div>
-                        </i>
-                        <p class="mt-4">Set Appointment</p>
-                    </asp:HyperLink>
-                 
-                    </li>
 
+                    <%--  NOTIFICATIONS--%>
+                    <li class="nav-item ">
+                        <asp:HyperLink ID="sideAppnt" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx" onmouseover="hideNotificationBadge(false);" onmouseout="hideNotificationBadge(true);">
+                            <i class="bi bi-calendar2-plus-fill fs-4 me-3">
+                                <div id="notificationBadgeContainer" class="badge-danger" runat="server">
+                                    <span id="notificationBadge" runat="server" class="badge badge-danger">0</span>
+                                    <div id="notificationArea" runat="server" class="notification-area">
+                                    </div>
+                                </div>
+
+                            </i>
+                            <p class="mt-4">Set Appointment</p>
+                        </asp:HyperLink>
+                    </li>
 
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Academic_Calendar/Student_AcadCalen.aspx">

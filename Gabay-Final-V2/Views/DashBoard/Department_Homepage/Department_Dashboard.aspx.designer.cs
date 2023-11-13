@@ -49,5 +49,41 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PendinguserCountLabel;
+
+        /// <summary>
+        /// ApprovedAppointmentCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ApprovedAppointmentCountLabel;
+
+        /// <summary>
+        /// DeniedAppointmentCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DeniedAppointmentCountLabel;
+
+        /// <summary>
+        /// RescheduleAppointmentCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RescheduleAppointmentCountLabel;
+
+        /// <summary>
+        /// PendingAppointmentCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PendingAppointmentCountLabel;
     }
 }

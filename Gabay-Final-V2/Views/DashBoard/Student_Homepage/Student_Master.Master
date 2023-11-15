@@ -17,103 +17,46 @@
     <script src="../../../Resources/CustomJS/OpenModal.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <style>
-        .badge-danger {
-            background-color: red;
-            color: white;
-            font-size: 0;
-            width: 10px;
-            height: 10px;
+        .icon-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            color: #ffffff;
+            background: #003366;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            right: 10px;
+        }
+
+            .icon-button:hover {
+                cursor: pointer;
+            }
+
+            .icon-button:active {
+                background: #cccccc;
+            }
+
+        .icon-button__badge {
+            position: absolute;
+            top: -10px;
+            width: 25px;
+            height: 25px;
+            background: red;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
         }
     </style>
-
-    <script type="text/javascript">
-        function showNotification(message) {
-            var sessionId = '<%= Session.SessionID %>';
-        var notificationClicked = localStorage.getItem('badgeClicked_' + sessionId);
-
-        var currentPage = window.location.pathname.toLowerCase();
-        var excludedPages = ['/views/dashboard/student_homepage/student_dashboard.aspx', '/views/modules/wayfinding/student_wayfinding.aspx', '/views/modules/academic_calendar/student_acadcalen.aspx'];
-
-        if (!notificationClicked) {
-            // Update notification count on the server
-            PageMethods.UpdateNotificationCount(sessionId, function () {
-                // Callback function, update UI
-                var notificationBadge = document.getElementById('<%= notificationBadge.ClientID %>');
-                var currentCount = parseInt(notificationBadge.innerText, 10) || 0;
-                notificationBadge.innerText = (currentCount + 1).toString();
-
-                var notificationArea = document.getElementById('<%= notificationArea.ClientID %>');
-                var notificationDiv = document.createElement("div");
-                notificationDiv.className = "alert alert-danger";
-                notificationDiv.innerHTML = message;
-                notificationDiv.onmousedown = function () {
-                    hideNotificationBadge();
-                    notificationArea.removeChild(notificationDiv);
-                };
-                notificationArea.appendChild(notificationDiv);
-            });
-
-            // Reset the localStorage flag when a new notification is triggered
-            localStorage.removeItem('badgeClicked_' + sessionId);
-        }
-    }
-    
-
-        function hideNotificationBadge() {
-            var sessionId = '<%= Session.SessionID %>';
-            localStorage.setItem('badgeClicked_' + sessionId, 'true');
-            var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
-            notificationBadgeContainer.style.display = 'none';
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var currentPage = window.location.pathname.toLowerCase();
-            var excludedPages = ['/views/dashboard/student_homepage/student_dashboard.aspx', '/views/modules/wayfinding/student_wayfinding.aspx', '/views/modules/academic_calendar/student_acadcalen.aspx'];
-
-            if (excludedPages.includes(currentPage)) {
-                var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
-                notificationBadgeContainer.style.display = 'none';
-            }
-
-            var sessionId = '<%= Session.SessionID %>';
-        var notificationArea = document.getElementById('notificationArea');
-        if (notificationArea) {
-            notificationArea.addEventListener("mousedown", function () {
-                hideNotificationBadge();
-            });
-        }
-
-        var notificationClicked = localStorage.getItem('badgeClicked_' + sessionId);
-
-        // Check if there are notifications to show before hiding
-        var notificationBadge = document.getElementById('<%= notificationBadge.ClientID %>');
-        if (notificationBadge.innerText > 0 && !notificationClicked && !excludedPages.includes(currentPage)) {
-            var notificationBadgeContainer = document.getElementById('notificationBadgeContainer');
-            notificationBadgeContainer.style.display = 'block';
-        }
-
-        var logoutLink = document.getElementById('<%= logoutLink.ClientID %>');
-        if (logoutLink) {
-            logoutLink.addEventListener("click", function () {
-                clearNotificationFlag(sessionId);
-            });
-        }
-    });
-
-        function clearNotificationFlag(sessionId) {
-            localStorage.removeItem('badgeClicked_' + sessionId);
-        }
-    </script>
-
-
-
-
-
     <form id="studentMaster" class="studentMaster" runat="server" autocomplete="off">
         <%--TOP NAV--%>
         <header class="navbar navbar-expand-lg bg-body-tertiary z-1">
@@ -171,6 +114,12 @@
                                 </asp:HyperLink>
                         </li>
                         <li class="nav-item p-1">
+                            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="topnav-item text-cente custom-text-color">
+                                <i class="bi bi-person-circle"></i>
+                                  <span class="mt-2">Notification</span>
+                                </asp:HyperLink>
+                        </li>
+                        <li class="nav-item p-1">
                             <asp:HyperLink ID="HyperLink4" runat="server" CssClass="topnav-item text-cente custom-text-color">
                                   <i class="bi bi-person-circle"></i>
                                   <span class="mt-2">Profile</span>
@@ -184,6 +133,9 @@
                         </li>
                     </ul>
                 </div>
+              <div class="icon-button" onclick="GetUnreadNotifications()" data-toggle="modal" data-target="#notificationModal">
+                <span class="material-icons">notifications</span>
+            </div>
                 <div class="d-none d-lg-block" id="lgout-prfl_btn">
                     <asp:Button ID="profileBtn" runat="server" Text="Profile" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" />
                     <asp:Button ID="logoutBtn" runat="server" Text="Logout" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" OnClick="logoutBtn_Click" />
@@ -225,12 +177,6 @@
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideAppnt" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx" onmouseover="hideNotificationBadge(false);" onmouseout="hideNotificationBadge(true);">
                             <i class="bi bi-calendar2-plus-fill fs-4 me-3">
-                                <div id="notificationBadgeContainer" class="badge-danger" runat="server">
-                                    <span id="notificationBadge" runat="server" class="badge badge-danger">0</span>
-                                    <div id="notificationArea" runat="server" class="notification-area">
-                                    </div>
-                                </div>
-
                             </i>
                             <p class="mt-4">Set Appointment</p>
                         </asp:HyperLink>
@@ -262,7 +208,60 @@
                 </asp:ContentPlaceHolder>
             </div>
         </div>
+
+        
+                     <!-- Add this modal markup at the end of the body tag -->
+                <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="notificationModalLabel">Notification Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
+                                    <Columns>
+                                        <asp:BoundField DataField="AppointmentID" HeaderText="Appointment ID" />
+                                        <asp:BoundField DataField="StatusChangeDate" HeaderText="Status Change Date" />
+                                        <asp:BoundField DataField="NewStatus" HeaderText="New Status" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Read</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
     </form>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    function GetUnreadNotifications() {
+        // Perform an AJAX call to the server
+        $.ajax({
+            type: "POST",
+            url: "Student_Master.Master/GetUnreadNotifications",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                // Handle the result if needed
+                console.log(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                // Handle errors
+                console.error(thrownError);
+            }
+        });
+    }
+</script>
+
 
 </body>
 </html>

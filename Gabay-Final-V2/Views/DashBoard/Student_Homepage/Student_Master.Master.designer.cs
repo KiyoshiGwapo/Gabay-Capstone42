@@ -105,6 +105,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         protected global::System.Web.UI.WebControls.HyperLink faq;
 
         /// <summary>
+        /// HyperLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+
+        /// <summary>
         /// HyperLink4 control.
         /// </summary>
         /// <remarks>
@@ -195,33 +204,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         protected global::System.Web.UI.WebControls.HyperLink sideAppnt;
 
         /// <summary>
-        /// notificationBadgeContainer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notificationBadgeContainer;
-
-        /// <summary>
-        /// notificationBadge control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notificationBadge;
-
-        /// <summary>
-        /// notificationArea control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notificationArea;
-
-        /// <summary>
         /// sideNavCC control.
         /// </summary>
         /// <remarks>
@@ -256,5 +238,14 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+
+        /// <summary>
+        /// notificationGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView notificationGridView;
     }
 }

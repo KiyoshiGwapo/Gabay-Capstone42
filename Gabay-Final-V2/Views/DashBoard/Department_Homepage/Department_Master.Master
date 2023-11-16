@@ -17,10 +17,64 @@
     <script src="../../../Resources/CustomJS/OpenModal.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+    <style>
+        .icon-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            color: #ffffff;
+            background: #003366;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            right: 10px;
+        }
+
+            .icon-button:hover {
+                cursor: pointer;
+            }
+
+            .icon-button:active {
+                background: #cccccc;
+            }
+
+        .icon-button__badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 25px;
+            height: 25px;
+            background: red;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .centered-gridview {
+            margin: auto;
+           text-align: center;
+           justify-content: space-evenly;
+        }
+
+        .center-align {
+            text-align: center;
+        }
+
+    </style>
     <form id="departmentMaster" class="departmentMaster" runat="server">
-         <%--TOP NAV--%>
+        <%--TOP NAV--%>
         <header class="shadow sticky-top">
             <nav class="navbar navbar-expand-lg bg-body-tertiary z-1">
                 <div class="container-fluid  bg-white">
@@ -95,6 +149,10 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="icon-button" onclick="GetUnreadNotifications()" data-toggle="modal" data-target="#notificationModal">
+                        <span class="material-icons">notifications</span>
+                        <asp:Label ID="lblNotificationCount" runat="server" CssClass="icon-button__badge"></asp:Label>
+                    </div>
                     <div class="d-none d-lg-block" id="lgout-prfl_btn">
                         <asp:HyperLink ID="profileBtn" runat="server" CssClass="btn logout-profileBtn" NavigateUrl="~/Views/DashBoard/Department_Homepage/Department_profile.aspx?=">Profile</asp:HyperLink>
                         <asp:Button ID="logoutBtn" runat="server" Text="Logout" CssClass="btn logout-profileBtn" OnClick="logoutBtn_Click" UseSubmitBehavior="false" />
@@ -144,7 +202,7 @@
                             <p class="mt-4">Campus Information</p>
                         </asp:HyperLink>
                     </li>--%>
-                     <li class="nav-item ">
+                    <li class="nav-item ">
                         <asp:HyperLink ID="sideManageAppnt" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Appointment/Manage_Appointment.aspx?=">
                             <i class="bi bi-calendar3-event-fill fs-4 me-3"></i>
                             <p class="mt-4">Manage Appointment</p>
@@ -169,6 +227,58 @@
                 </asp:ContentPlaceHolder>
             </div>
         </div>
+
+        <!-- Add this modal markup at the end of the body tag -->
+        <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="notificationModalLabel">Notification Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="centered-gridview">
+                        <Columns>
+                        <%--    <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" SortExpression="ID_appointment" ItemStyle-CssClass="center-align" />--%>
+                            <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name" ItemStyle-CssClass="center-align" />
+                            <asp:BoundField DataField="appointment_date" HeaderText="Date" SortExpression="appointment_date" ItemStyle-CssClass="center-align" />
+                            <asp:BoundField DataField="appointment_status" HeaderText="Status" SortExpression="appointment_status" ItemStyle-CssClass="center-align" />
+                        </Columns>
+                    </asp:GridView>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Read" CssClass="btn btn-primary" OnClientClick="hideBadge(); return true;" OnClick="btnMarkAsRead_Click" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </form>
+
+    <script>
+        function GetUnreadNotifications() {
+            $.ajax({
+                type: "POST",
+                url: "Department_Master.Master/GetUnreadNotificationsDataTableFromDatabase",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    // Update the badge content with the count of unread notifications
+                    updateBadge(result.d.Count);
+
+                    // Bind the data to the GridView
+                    notificationGridView.DataSource = result.d.Data;
+                    notificationGridView.DataBind();
+                },
+
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.error(thrownError);
+                }
+            });
+        }
+    </script>
 </body>
 </html>

@@ -120,14 +120,15 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             string SchedTime, string Concern)
         {
             string statusSched = "pending";
+            string notificationStatus = "UNREAD";
             Concern = Concern.Replace("<br>", "\n");
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"INSERT INTO appointment (deptName, full_name, email, student_ID, course_year,
                                                           contactNumber, appointment_date, appointment_time,
-                                                          concern, appointment_status)
+                                                          concern, appointment_status, Notification)
                                  VALUES (@DepartmentName, @fullname, @email, @StudIdNum, @CourseYear, @ConNum,
-                                         @SchedDate, @SchedTime, @Concern, @statusSched)";
+                                         @SchedDate, @SchedTime, @Concern, @statusSched, @Notification)";
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -142,7 +143,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     cmd.Parameters.AddWithValue("@SchedTime", SchedTime);
                     cmd.Parameters.AddWithValue("@Concern", Concern);
                     cmd.Parameters.AddWithValue("@statusSched", statusSched);
-                    
+                    cmd.Parameters.AddWithValue("@Notification", notificationStatus);
                     cmd.ExecuteNonQuery();
                 }
             }

@@ -132,6 +132,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         protected global::System.Web.UI.WebControls.LinkButton logoutLink;
 
         /// <summary>
+        /// lblNotificationCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNotificationCount;
+
+        /// <summary>
         /// profileBtn control.
         /// </summary>
         /// <remarks>

@@ -140,7 +140,7 @@
                 </div>
                 <div class="icon-button" onclick="GetUnreadNotifications()" data-toggle="modal" data-target="#notificationModal">
                     <span class="material-icons">notifications</span>
-                    <span class="icon-button__badge"></span>
+                    <asp:Label ID="lblNotificationCount" runat="server" CssClass="icon-button__badge"></asp:Label>
                 </div>
                 <div class="d-none d-lg-block" id="lgout-prfl_btn">
                     <asp:Button ID="profileBtn" runat="server" Text="Profile" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" />
@@ -236,7 +236,7 @@
                         </asp:GridView>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Read" CssClass="btn btn-primary" OnClientClick="hideBadge(); return true;" OnClick="btnMarkAsRead_Click" />
+                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Read" CssClass="btn btn-primary" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" />
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -257,6 +257,10 @@
             success: function (result) {
                 // Update the badge content with the count of unread notifications
                 updateBadge(result.d.Count);
+
+                // Bind the data to the GridView
+                notificationGridView.DataSource = result.d.Data;
+                notificationGridView.DataBind();
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.error(thrownError);
@@ -264,38 +268,6 @@
         });
     }
 
-    function updateBadge(count) {
-        var badge = $('.icon-button__badge'); // Add a dot here to select by class
-
-        // Show or hide the badge based on the count
-        if (count > 0) {
-            badge.text(count);
-            showBadge(); // Show the badge when there are unread notifications
-        } else {
-            hideBadge(); // Hide the badge when there are no unread notifications
-        }
-    }
-
-    function hideBadge() {
-        var badge = $('.icon-button__badge'); // Add a dot here to select by class
-        badge.addClass('hidden');
-    }
-
-    function showBadge() {
-        var badge = $('.icon-button__badge'); // Add a dot here to select by class
-
-        // The badge visibility is controlled by the server-side logic
-        // If the badge should be visible, the server sets a class on the badge element
-        if (!badge.hasClass('hidden')) {
-            badge.removeClass('hidden');
-        } else {
-            hideBadge();
-        }
-    }
-
-    $(document).ready(function () {
-        GetUnreadNotifications();
-    });
 </script>
 
 

@@ -206,6 +206,11 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             }
         }
 
+        protected void prflBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void logoutBtn_Click(object sender, EventArgs e)
         {
             Session.Abandon();

@@ -2324,6 +2324,7 @@
     <Content Include="Views\DashBoard\Department_Homepage\Pending_students.aspx" />
     <Content Include="Views\DashBoard\Guest_Homepage\Guest_Dashboard.aspx" />
     <Content Include="Views\DashBoard\Student_Homepage\Student_Dashboard.aspx" />
+    <Content Include="Views\DashBoard\Student_Homepage\Student_profile.aspx" />
     <Content Include="Views\LoginPages\Admin_login.aspx" />
     <Content Include="Views\LoginPages\Department_login.aspx" />
     <Content Include="Views\LoginPages\ForgotPassword.aspx" />
@@ -2570,6 +2571,13 @@
     </Compile>
     <Compile Include="Views\DashBoard\Student_Homepage\Student_Dashboard.aspx.designer.cs">
       <DependentUpon>Student_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashBoard\Student_Homepage\Student_profile.aspx.cs">
+      <DependentUpon>Student_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DashBoard\Student_Homepage\Student_profile.aspx.designer.cs">
+      <DependentUpon>Student_profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPages\Admin_login.aspx.cs">
       <DependentUpon>Admin_login.aspx</DependentUpon>

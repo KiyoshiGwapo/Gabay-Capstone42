@@ -114,13 +114,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
 
         /// <summary>
-        /// HyperLink4 control.
+        /// prflBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
+        protected global::System.Web.UI.WebControls.LinkButton prflBtn;
 
         /// <summary>
         /// logoutLink control.
@@ -147,7 +147,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button profileBtn;
+        protected global::System.Web.UI.WebControls.HyperLink profileBtn;
 
         /// <summary>
         /// logoutBtn control.

@@ -47,6 +47,7 @@
         .icon-button__badge {
             position: absolute;
             top: -10px;
+            right: -10px;
             width: 25px;
             height: 25px;
             background: red;
@@ -55,6 +56,10 @@
             justify-content: center;
             align-items: center;
             border-radius: 50%;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
     <form id="studentMaster" class="studentMaster" runat="server" autocomplete="off">
@@ -133,9 +138,10 @@
                         </li>
                     </ul>
                 </div>
-              <div class="icon-button" onclick="GetUnreadNotifications()" data-toggle="modal" data-target="#notificationModal">
-                <span class="material-icons">notifications</span>
-            </div>
+                <div class="icon-button" onclick="GetUnreadNotifications()" data-toggle="modal" data-target="#notificationModal">
+                    <span class="material-icons">notifications</span>
+                    <span class="icon-button__badge"></span>
+                </div>
                 <div class="d-none d-lg-block" id="lgout-prfl_btn">
                     <asp:Button ID="profileBtn" runat="server" Text="Profile" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" />
                     <asp:Button ID="logoutBtn" runat="server" Text="Logout" CssClass="btn logout-profileBtn " UseSubmitBehavior="false" OnClick="logoutBtn_Click" />
@@ -209,58 +215,89 @@
             </div>
         </div>
 
-        
-                     <!-- Add this modal markup at the end of the body tag -->
-                <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="notificationModalLabel">Notification Details</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
-                                    <Columns>
-                                        <asp:BoundField DataField="AppointmentID" HeaderText="Appointment ID" />
-                                        <asp:BoundField DataField="StatusChangeDate" HeaderText="Status Change Date" />
-                                        <asp:BoundField DataField="NewStatus" HeaderText="New Status" />
-                                    </Columns>
-                                </asp:GridView>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Read</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
+
+        <!-- Add this modal markup at the end of the body tag -->
+        <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="notificationModalLabel">Notification Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
+                            <Columns>
+                                <asp:BoundField DataField="AppointmentID" HeaderText="Appointment ID" />
+                                <asp:BoundField DataField="StatusChangeDate" HeaderText="Status Changed Date" />
+                                <asp:BoundField DataField="NewStatus" HeaderText="Status" />
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Read" CssClass="btn btn-primary" OnClientClick="hideBadge(); return true;" OnClick="btnMarkAsRead_Click" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
+            </div>
+        </div>
 
 
 
     </form>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     function GetUnreadNotifications() {
-        // Perform an AJAX call to the server
         $.ajax({
             type: "POST",
-            url: "Student_Master.Master/GetUnreadNotifications",
+            url: "Student_Master.Master/GetUnreadNotificationsDataTableFromDatabase",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (result) {
-                // Handle the result if needed
-                console.log(result);
+                // Update the badge content with the count of unread notifications
+                updateBadge(result.d.Count);
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                // Handle errors
                 console.error(thrownError);
             }
         });
     }
+
+    function updateBadge(count) {
+        var badge = $('.icon-button__badge'); // Add a dot here to select by class
+
+        // Show or hide the badge based on the count
+        if (count > 0) {
+            badge.text(count);
+            showBadge(); // Show the badge when there are unread notifications
+        } else {
+            hideBadge(); // Hide the badge when there are no unread notifications
+        }
+    }
+
+    function hideBadge() {
+        var badge = $('.icon-button__badge'); // Add a dot here to select by class
+        badge.addClass('hidden');
+    }
+
+    function showBadge() {
+        var badge = $('.icon-button__badge'); // Add a dot here to select by class
+
+        // The badge visibility is controlled by the server-side logic
+        // If the badge should be visible, the server sets a class on the badge element
+        if (!badge.hasClass('hidden')) {
+            badge.removeClass('hidden');
+        } else {
+            hideBadge();
+        }
+    }
+
+    $(document).ready(function () {
+        GetUnreadNotifications();
+    });
 </script>
+
 
 
 </body>

@@ -69,7 +69,7 @@
                 <asp:HyperLink ID="GabayLogo" runat="server" CssClass="navbar-brand gBrand d-flex">
                     <img src="../../../../Resources/Images/UC-LOGO.png" class="logoUC"/>
                     <p class="mt-2">GABAY</p>
-                    </asp:HyperLink>
+                </asp:HyperLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -79,62 +79,62 @@
                             <asp:HyperLink ID="dashboard" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/DashBoard/Student_Homepage/Student_Dashboard.aspx">
                                   <i class="bi bi-speedometer"></i>
                                   <span class="mt-2">Dashboard</span>
-                                </asp:HyperLink>
+                            </asp:HyperLink>
                         </li>
                         <li class="nav-item p-1">
                             <asp:HyperLink ID="wayFinding" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Wayfinding/Student_Wayfinding.aspx">
                                   <i class="bi bi-map-fill me-2"></i>
                                   <span class="mt-2">Way Finding</span>
-                                </asp:HyperLink>
+                            </asp:HyperLink>
                         </li>
                         <li class="nav-item p-1">
                             <asp:HyperLink ID="chatbot" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Chatbot/Student_Chatbot.aspx">
                                   <i class="bi bi-chat-left-dots-fill me-2"></i>
                                   <span class="mt-2">Chatbot</span>
-                                </asp:HyperLink>
+                            </asp:HyperLink>
                         </li>
                         <li class="nav-item p-1">
                             <asp:HyperLink ID="campAppntmnt" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx">
                                   <i class="bi bi-calendar2-plus-fill me-2"></i>
                                   <span class="mt-2">Set Appointment</span>
-                                </asp:HyperLink>
+                            </asp:HyperLink>
 
                         </li>
                         <li class="nav-item p-1">
                             <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Academic_Calendar/Student_AcadCalen.aspx">
                                   <i class="bi bi-calendar3 me-2"></i>
                                   <span class="mt-2">Academic Calendar</span>
-                                </asp:HyperLink>
+                            </asp:HyperLink>
                         </li>
                         <li class="nav-item p-1">
                             <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Department_Info/Student_deptInfo.aspx">
                                   <i class="bi bi-info-square-fill me-2"></i>
                                   <span class="mt-2">Department Information</span>
-                                </asp:HyperLink>
+                            </asp:HyperLink>
                         </li>
                         <li class="nav-item p-1">
                             <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/FAQ/Student_FAQ.aspx">
                                   <i class="bi bi-question-square-fill me-2"></i>
                                   <span class="mt-2">FAQ</span>
-                                </asp:HyperLink>
+                            </asp:HyperLink>
                         </li>
                         <li class="nav-item p-1">
                             <asp:HyperLink ID="HyperLink1" runat="server" CssClass="topnav-item text-cente custom-text-color">
                                 <i class="bi bi-person-circle"></i>
                                   <span class="mt-2">Notification</span>
-                                </asp:HyperLink>
+                            </asp:HyperLink>
                         </li>
                         <li class="nav-item p-1">
                             <asp:LinkButton ID="prflBtn" runat="server" CssClass="topnav-item text-cente custom-text-color" OnClick="prflBtn_Click">
                                    <i class="bi bi-person-circle"></i>
                                    <span class="mt-2">Profile</span>
-                                </asp:LinkButton>
+                            </asp:LinkButton>
                         </li>
                         <li class="nav-item p-1">
                             <asp:LinkButton ID="logoutLink" runat="server" CssClass="topnav-item text-cente custom-text-color" OnClick="logoutLink_Click">
                                    <i class="bi bi-box-arrow-right"></i>
                                    <span class="mt-2">Log out</span>
-                                </asp:LinkButton>
+                            </asp:LinkButton>
                         </li>
                     </ul>
                 </div>
@@ -227,16 +227,23 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
-                            <Columns>
-                                <asp:BoundField DataField="AppointmentID" HeaderText="Appointment ID" />
-                                <asp:BoundField DataField="StatusChangeDate" HeaderText="Status Changed Date" />
-                                <asp:BoundField DataField="NewStatus" HeaderText="Status" />
-                            </Columns>
-                        </asp:GridView>
+                      <!-- wlay  notify -->
+                    <div id="noNotificationMessage"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
+                                    <Columns>
+                                        <asp:BoundField DataField="AppointmentID" HeaderText="Appointment ID" />
+                                        <asp:BoundField DataField="StatusChangeDate" HeaderText="Status Changed Date" />
+                                        <asp:BoundField DataField="NewStatus" HeaderText="Status" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Read" CssClass="btn btn-primary" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" />
+                        <!-- Add or modify buttons here as needed -->
+                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Clear" CssClass="btn btn-primary" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" />
                         <%-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
                     </div>
                 </div>
@@ -293,8 +300,6 @@
                 }
             }
         }
-
-
     </script>
 
 

@@ -15,7 +15,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
     public partial class Student_Master : System.Web.UI.MasterPage
     {
         string connection = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
-  protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetNoStore();
@@ -32,6 +32,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
 
                 FetchUnreadNotifications();
                 HideBadgeIfNoUnreadNotifications();
+
             }
             else
             {
@@ -192,16 +193,24 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             public DataTable Data { get; set; }
         }
 
+        private bool HasUnreadNotifications(int userID)
+        {
+            // Check if there are any unread notifications for the user
+            NotificationResult result = GetUnreadNotificationsDataTableFromDatabase(userID);
+            return result.Count > 0;
+        }
+
         private void HideBadgeIfNoUnreadNotifications()
         {
             if (Session["user_ID"] != null)
             {
                 int userID = Convert.ToInt32(Session["user_ID"]);
-                DataTable dt = GetUnreadNotificationsFromDatabase(userID);
 
-                if (dt.Rows.Count == 0)
+                // Check if there are no unread notifications
+                if (!HasUnreadNotifications(userID))
                 {
-                    ScriptManager.RegisterStartupScript(this, GetType(), "hideBadgeScript", "hideBadge();", true);
+                    // If there are no unread notifications, hide the badge
+                    lblNotificationCount.Style.Add("display", "none");
                 }
             }
         }

@@ -84,7 +84,16 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date;
+        protected global::System.Web.UI.WebControls.TextBox date;
+
+        /// <summary>
+        /// calendar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calendar;
 
         /// <summary>
         /// Message control.

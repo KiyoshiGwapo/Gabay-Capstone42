@@ -61,13 +61,13 @@
             }
 
         /* Custom styles for status labels */
-    .status-not-submitted {
-        color: red;
-    }
+        .status-not-submitted {
+            color: red;
+        }
 
-    .status-submitted {
-        color: green;
-    }
+        .status-submitted {
+            color: green;
+        }
     </style>
 
     <div class="form-wrapper">
@@ -80,7 +80,7 @@
                     <label for="DepartmentDropDown" class="form-label">Department</label>
                     <asp:DropDownList ID="departmentChoices" CssClass="form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True">
                         <asp:ListItem Selected="True" Value="">
-        Choose a Department...
+                     Choose a Department...
                         </asp:ListItem>
                     </asp:DropDownList>
 
@@ -102,20 +102,16 @@
                         <div class="col">
                             <label for="time" class="form-label">Time</label>
                             <asp:DropDownList ID="time" runat="server" CssClass="form-control text-input">
-                                <asp:ListItem Value="" Selected="True">Select Available Time</asp:ListItem>
-                                <asp:ListItem Value="8:00 AM">8:00 AM</asp:ListItem>
-                                <asp:ListItem Value="9:00 AM">9:00 AM</asp:ListItem>
-                                <asp:ListItem Value="10:00 AM">10:00 AM</asp:ListItem>
-                                <asp:ListItem Value="11:00 AM">11:00 AM</asp:ListItem>
-                                <asp:ListItem Value="1:00 PM">1:00 PM</asp:ListItem>
-                                <asp:ListItem Value="2:00 PM">2:00 PM</asp:ListItem>
-                                <asp:ListItem Value="3:00 PM">3:00 PM</asp:ListItem>
-                                <asp:ListItem Value="4:00 PM">4:00 PM</asp:ListItem>
+                                <asp:ListItem Text="Select Down Below:" Value="" Selected="true"></asp:ListItem>
+
+                                <%-- Available times will be dynamically added here --%>
                             </asp:DropDownList>
                         </div>
-                        <div class="col">
-                            <label for="selectedDate" class="form-label">Date</label>
-                            <input type="date" id="date" runat="server" name="date" class="form-control text-input" />
+                   <div class="col">
+                    <label for="selectedDate" class="form-label">Date</label>
+                    <asp:TextBox ID="date" runat="server" CssClass="form-control text-input" AutoPostBack="true" OnTextChanged="DateSelectionChanged"></asp:TextBox>
+                    <asp:Calendar ID="calendar" runat="server" CssClass="calendar" OnSelectionChanged="Calendar_SelectionChanged" Visible="false"></asp:Calendar>
+                </div>
                         </div>
                     </div>
                 </div>
@@ -124,11 +120,8 @@
                     <asp:TextBox ID="Message" runat="server" TextMode="MultiLine" Rows="6" Columns="30" CssClass="form-control text-input" placeholder="Your Concern"></asp:TextBox>
                 </div>
                 <br>
-                <button type="button" class="btn btn-primary btn-submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Proceed
-                </button>
+                
 
-            </div>
             <%--    SEARCH NI--%>
             <style>
                 .search-bar {
@@ -294,7 +287,7 @@
         messageInput.addEventListener("input", () => {
             messageInput.classList.remove("invalid");
             messageInput.classList.add("valid");
-        }); 
+        });
     </script>
 </asp:Content>
 

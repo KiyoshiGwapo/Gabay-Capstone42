@@ -28,6 +28,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             {
                 // Populate the department dropdown list
                 ddlDept(departmentChoices);
+                if (Request.Form[date.UniqueID] != null)
+                {
+                    string selectedDate = date.Text;
+                    PopulateAvailableTimes();
+                }
             }
         }
 
@@ -84,7 +89,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 string fullName = FullName.Text;
                 string contactNumber = ContactN.Text;
                 string selectedTime = time.SelectedValue;
-                string selectedDate = date.Value;
+                string selectedDate = date.Text;
                 string deptName = departmentChoices.SelectedItem.Text; // Get the selected department name
                 string concern = Message.Text; // Get the concern/message
 
@@ -110,7 +115,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     Email.Text = "";
                     ContactN.Text = "";
                     time.SelectedIndex = 0; // Reset the dropdown selection
-                    date.Value = "";
+                    date.Text = "";
                     departmentChoices.SelectedIndex = 0; // Reset the dropdown selection
                     Message.Text = "";
                 }
@@ -236,7 +241,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             {
                 conn.Open();
 
-                string query = "SELECT [full_name], [appointment_status] FROM appointment WHERE [ID_appointment] = @AppointmentID";
+                string query = "SELECT full_name, appointment_status FROM appointment WHERE ID_appointment = @AppointmentID";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
@@ -249,6 +254,74 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             return results;
         }
+
+        //TIME KAtung ma check if naa na
+
+        private void PopulateAvailableTimes()
+        {
+            // Fetch existing appointment times from the database
+            List<string> existingTimes = GetExistingAppointmentTimesFromDatabase();
+
+            // Define a list of all possible times
+            List<string> allTimes = new List<string>
+                {
+                    "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"
+                };
+
+            // Find and exclude the existing appointment times
+            List<string> availableTimes = allTimes.Except(existingTimes).ToList();
+
+            // If there are no available times, add the "cannot select time" option
+            if (availableTimes.Count == 0)
+            {
+                availableTimes.Add("Cannot Select Time");
+            }
+
+            // Populate the dropdown with available times
+            time.DataSource = availableTimes;
+            time.DataBind();
+        }
+
+        protected void DateSelectionChanged(object sender, EventArgs e)
+        {
+            calendar.Visible = !calendar.Visible;
+        }
+
+        protected void Calendar_SelectionChanged(object sender, EventArgs e)
+        {
+            date.Text = calendar.SelectedDate.ToShortDateString();
+            calendar.Visible = false;
+        }
+
+
+        private List<string> GetExistingAppointmentTimesFromDatabase()
+        {
+            List<string> existingTimes = new List<string>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // Update the query to filter by the selected date
+                string query = "SELECT DISTINCT appointment_time FROM appointment WHERE appointment_date = @SelectedDate";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SelectedDate", date.Text);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            existingTimes.Add(reader["appointment_time"].ToString());
+                        }
+                    }
+                }
+            }
+
+            return existingTimes;
+        }
+
+
 
 
 

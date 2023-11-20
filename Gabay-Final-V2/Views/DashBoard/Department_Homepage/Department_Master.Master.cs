@@ -227,6 +227,12 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             public DataTable Data { get; set; }
         }
 
+        private bool HasUnreadNotifications(int userID)
+        {
+            // Check if there are any unread notifications for the user
+            NotificationResult result = GetUnreadNotificationsDataTableFromDatabase(userID);
+            return result.Count > 0;
+        }
         private void HideBadgeIfNoUnreadNotifications()
         {
             if (Session["user_ID"] != null)
@@ -235,9 +241,10 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 NotificationResult result = GetUnreadNotificationsDataTableFromDatabase(userID);
 
                 // Check if there are no unread notifications
-                if (result != null && result.Data != null && result.Data.Rows.Count == 0)
+                if (!HasUnreadNotifications(userID))
                 {
-                    ScriptManager.RegisterStartupScript(this, GetType(), "hideBadgeScript", "hideBadge();", true);
+                    // If there are no unread notifications, hide the badge
+                    lblNotificationCount.Style.Add("display", "none");
                 }
             }
         }

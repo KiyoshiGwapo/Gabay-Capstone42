@@ -7,6 +7,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 {
@@ -201,8 +204,181 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             ScriptManager.RegisterStartupScript(this, GetType(), "hideEditPasswordModal", "$('#editPasswordModal').modal('hide');", true);
         }
 
+        //Generate Reports
+
+        protected void btnDownloadReports_Click(object sender, EventArgs e)
+        {
+            // Determine which GridView is currently active (Students or Departments)
+            GridView gridView;
+            if (ddlFilter.SelectedValue == "Students")
+            {
+                gridView = GridViewStudents;
+            }
+            else if (ddlFilter.SelectedValue == "Departments")
+            {
+                gridView = GridViewDepartments;
+            }
+            else
+            {
+                // Handle the case where no filter is selected
+                return;
+            }
+
+            // Create a DataTable to hold the data from the GridView
+            DataTable dt = new DataTable();
+
+            // Add columns to the DataTable based on the GridView header
+            foreach (DataControlField field in gridView.Columns)
+            {
+                // Exclude the "Actions" column
+                if (field.HeaderText != "Actions")
+                {
+                    dt.Columns.Add(field.HeaderText);
+                }
+            }
+
+            foreach (GridViewRow row in gridView.Rows)
+            {
+                DataRow dr = dt.NewRow();
+
+                // Iterate through the cells in the row
+                foreach (TableCell cell in row.Cells)
+                {
+                    DataControlField field = gridView.Columns[row.Cells.GetCellIndex(cell)];
+
+                    // Exclude the "Actions" column
+                    if (field.HeaderText != "Actions")
+                    {
+                        // Add the cell text to the DataRow
+                        dr[field.HeaderText] = cell.Text;
+                    }
+                }
+
+                // Add the DataRow to the DataTable
+                dt.Rows.Add(dr);
+            }
+
+            // Determine the selected report type (Excel or PDF)
+            string reportType = ddlReportType.SelectedValue;
+
+            // Call the appropriate method to export the DataTable
+            if (reportType == "Excel")
+            {
+                ExportToExcel(dt);
+            }
+            else if (reportType == "PDF")
+            {
+                // Call the method to export to PDF (implement this method)
+                ExportToPDF(dt);
+            }
+        }
+
+        private void ExportToExcel(DataTable dt)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=ExportedData.xls");
+            Response.Charset = "";
+            Response.ContentType = "application/vnd.ms-excel";
+
+            using (System.IO.StringWriter sw = new System.IO.StringWriter())
+            {
+                using (HtmlTextWriter htw = new HtmlTextWriter(sw))
+                {
+                    // Create a form to contain the grid
+                    Table table = new Table();
+                    table.GridLines = GridLines.Both;
+
+                    // Add the header row to the table
+                    TableRow headerRow = new TableRow();
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        // Exclude the "Department" and "Actions" columns
+                        if (dt.Columns[i].ColumnName != "Department" && dt.Columns[i].ColumnName != "Actions")
+                        {
+                            TableCell cell = new TableCell();
+                            cell.Text = dt.Columns[i].ColumnName;
+                            headerRow.Cells.Add(cell);
+                        }
+                    }
+                    table.Rows.Add(headerRow);
+
+                    // Add each data row to the table
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        TableRow row = new TableRow();
+                        for (int j = 0; j < dt.Columns.Count; j++)
+                        {
+                            // Exclude the "Department" and "Actions" columns
+                            if (dt.Columns[j].ColumnName != "Department" && dt.Columns[j].ColumnName != "Actions")
+                            {
+                                TableCell cell = new TableCell();
+                                cell.Text = dt.Rows[i][j].ToString();
+                                row.Cells.Add(cell);
+                            }
+                        }
+                        table.Rows.Add(row);
+                    }
+
+                    // Render the table to the HTMLTextWriter
+                    table.RenderControl(htw);
+
+                    // Write the HTML to the response stream
+                    Response.Write(sw.ToString());
+                    Response.End();
+                }
+            }
+        }
 
 
+        private void ExportToPDF(DataTable dt)
+        {
+            Document document = new Document();
+
+            // Provide the path where you want to save the PDF file
+            string filePath = Server.MapPath("~/ExportedData.pdf");
+
+            // Create a PdfWriter instance to write to the document
+            PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
+
+            document.Open();
+
+            // Add a table to the document
+            PdfPTable table = new PdfPTable(dt.Columns.Count);
+
+            // Add columns to the table
+            foreach (DataColumn column in dt.Columns)
+            {
+                // Exclude the "Actions" column
+                if (column.ColumnName != "Actions" && column.ColumnName != "Department")
+                {
+                    table.AddCell(new Phrase(column.ColumnName));
+                }
+            }
+
+            // Add rows to the table
+            foreach (DataRow row in dt.Rows)
+            {
+                foreach (DataColumn column in dt.Columns)
+                {
+                    // Exclude the "Actions" column
+                    if (column.ColumnName != "Actions" && column.ColumnName != "Department")
+                    {
+                        table.AddCell(new Phrase(row[column].ToString()));
+                    }
+                }
+            }
+
+            document.Add(table);
+
+            document.Close();
+
+            // Provide the file for download
+            Response.ContentType = "application/pdf";
+            Response.AppendHeader("Content-Disposition", "attachment; filename=ExportedData.pdf");
+            Response.TransmitFile(filePath);
+            Response.End();
+        }
 
 
 

@@ -12,8 +12,19 @@
             <asp:ListItem Text="Students Account" Value="Students"></asp:ListItem>
             <asp:ListItem Text="Departments Account" Value="Departments"></asp:ListItem>
         </asp:DropDownList>
+        <div class="d-flex flex-row justify-content-end mt-3">
+            <asp:DropDownList ID="ddlReportType" runat="server" CssClass="form-select me-2 w-50">
+                <asp:ListItem Text="Choose Format" Value="" Disabled="true" Selected="true"></asp:ListItem>
+                <asp:ListItem Text="Excel" Value="Excel"></asp:ListItem>
+                <asp:ListItem Text="PDF" Value="PDF"></asp:ListItem>
+            </asp:DropDownList>
+            <asp:Button ID="btnDownloadReports" runat="server" Text="Generate Reports" OnClick="btnDownloadReports_Click" CssClass="btn btn-success" />
+        </div>
         <div class="mt-2"></div>
     </div>
+
+
+
 
     <div class="table-responsive">
         <asp:GridView ID="GridViewStudents" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered text-center" DataKeyNames="ID">
@@ -22,11 +33,6 @@
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-CssClass="" />
                 <asp:BoundField DataField="StudentDepartment" HeaderText="Student Department" SortExpression="StudentDepartment" ItemStyle-CssClass="" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-CssClass="" />
-                <asp:TemplateField Visible="false" HeaderText="Department" SortExpression="Department">
-                    <ItemTemplate>
-                        <asp:Label ID="lblStudentDepartment" runat="server" Text='<%# Eval("StudentDepartment") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
                         <%--             <asp:LinkButton ID="lnkEdit" runat="server" Text='<i class="fas fa-edit"></i>' CssClass="btn btn-primary" OnClientClick='<%# "showEditPasswordModal(" + Container.DataItemIndex + "); return false;" %>' />--%>
@@ -44,7 +50,7 @@
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-CssClass="" />
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
-                       <asp:LinkButton ID="lnkEdit" runat="server" Text='<i class="fas fa-edit"></i>' CssClass="btn btn-primary" OnClientClick='<%# "showEditPasswordModal(" + Container.DataItemIndex + "); return false;" %>' />
+                        <asp:LinkButton ID="lnkEdit" runat="server" Text='<i class="fas fa-edit"></i>' CssClass="btn btn-primary" OnClientClick='<%# "showEditPasswordModal(" + Container.DataItemIndex + "); return false;" %>' />
                         <asp:LinkButton ID="lnkDelete" runat="server" Text='<i class="fas fa-trash-alt" style="color: white;"></i>' CssClass="btn btn-danger" OnClientClick='<%# "showConfirmationModal(" + Container.DataItemIndex + "); return false;" %>' />
                     </ItemTemplate>
                 </asp:TemplateField>

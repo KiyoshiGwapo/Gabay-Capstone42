@@ -24,6 +24,24 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
         protected global::System.Web.UI.WebControls.DropDownList ddlFilter;
 
         /// <summary>
+        /// ddlReportType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlReportType;
+
+        /// <summary>
+        /// btnDownloadReports control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDownloadReports;
+
+        /// <summary>
         /// GridViewStudents control.
         /// </summary>
         /// <remarks>

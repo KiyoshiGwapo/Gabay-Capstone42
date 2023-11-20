@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <style>
         /* Custom CSS for the form */
         .form-wrapper {
@@ -68,6 +67,31 @@
         .status-submitted {
             color: green;
         }
+
+        .img-placeholder {
+            width: 100px;
+            height: auto;
+        }
+
+        .reschedBtn {
+            margin-left: 5px;
+        }
+
+            .reschedBtn:hover {
+                opacity: 80%;
+            }
+
+        .acceptBtn {
+            width: 160px;
+        }
+
+        .submission-status-Submitted {
+            color: green;
+        }
+
+        .submit-status-NotSubmitted {
+            color: red;
+        }
     </style>
 
     <div class="form-wrapper">
@@ -80,7 +104,7 @@
                     <label for="DepartmentDropDown" class="form-label">Department</label>
                     <asp:DropDownList ID="departmentChoices" CssClass="form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True">
                         <asp:ListItem Selected="True" Value="">
-                     Choose a Department...
+							Choose a Department...
                         </asp:ListItem>
                     </asp:DropDownList>
 
@@ -99,19 +123,17 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
+
+                        <div class="form-group">
+                            <label for="selectedDate" class="form-label">Date</label>
+                            <input type="text" id="date" runat="server" name="date" class="form-control text-input datepicker" />
+                        </div>
+
                         <div class="col">
                             <label for="time" class="form-label">Time</label>
                             <asp:DropDownList ID="time" runat="server" CssClass="form-control text-input">
-                                <asp:ListItem Text="Select Down Below:" Value="" Selected="true"></asp:ListItem>
-
-                                <%-- Available times will be dynamically added here --%>
+                                <asp:ListItem Value="" Selected="True">Select Available Time</asp:ListItem>
                             </asp:DropDownList>
-                        </div>
-                   <div class="col">
-                    <label for="selectedDate" class="form-label">Date</label>
-                    <asp:TextBox ID="date" runat="server" CssClass="form-control text-input" AutoPostBack="true" OnTextChanged="DateSelectionChanged"></asp:TextBox>
-                    <asp:Calendar ID="calendar" runat="server" CssClass="calendar" OnSelectionChanged="Calendar_SelectionChanged" Visible="false"></asp:Calendar>
-                </div>
                         </div>
                     </div>
                 </div>
@@ -120,9 +142,12 @@
                     <asp:TextBox ID="Message" runat="server" TextMode="MultiLine" Rows="6" Columns="30" CssClass="form-control text-input" placeholder="Your Concern"></asp:TextBox>
                 </div>
                 <br>
-                
+                <button type="button" class="btn btn-primary btn-submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Proceed
+                </button>
 
-            <%--    SEARCH NI--%>
+            </div>
+            <%--SEARCH NI--%>
             <style>
                 .search-bar {
                     margin: 10px 0;
@@ -142,6 +167,26 @@
                     background-color: skyblue;
                     margin-left: 10px;
                 }
+
+                .auto-style1 {
+                    border-style: none;
+                    border-color: inherit;
+                    border-width: 0;
+                    --bs-btn-close-color: #000;
+                    --bs-btn-close-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+                    --bs-btn-close-opacity: 0.5;
+                    --bs-btn-close-hover-opacity: 0.75;
+                    --bs-btn-close-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+                    --bs-btn-close-focus-opacity: 1;
+                    --bs-btn-close-disabled-opacity: 0.25;
+                    --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%);
+                    box-sizing: content-box;
+                    width: 1em;
+                    padding: 0.25em 0.25em;
+                    color: var(--bs-btn-close-color);
+                    border-radius: 0.375rem;
+                    opacity: var(--bs-btn-close-opacity);
+                }
             </style>
 
             <div class="col-md-6">
@@ -157,21 +202,85 @@
                 <div class="search-results">
                     <asp:GridView ID="searchResultsGridView" runat="server" AutoGenerateColumns="False" CssClass="table">
                         <Columns>
+                            <asp:BoundField DataField="ID_appointment" HeaderText="ID" />
                             <asp:BoundField DataField="full_name" HeaderText="Full Name" />
                             <asp:BoundField DataField="appointment_status" HeaderText="Appointment Status" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button ID="reschedBtn" runat="server" Text="View" CssClass="btn btn-primary text-light"
+                                        OnClick="reschedBtn_Click" OnClientClick='<%# "openModal(); return getAppointmentID(" + Eval("ID_appointment") + ");" %>'
+                                        Visible='<%# Eval("appointment_status").ToString().Equals("reschedule") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                         <HeaderStyle CssClass="table-header" />
                     </asp:GridView>
                     <asp:Label ID="noResultsLabel" runat="server" Text="No results found" Visible="false" CssClass="no-results-label"></asp:Label>
                 </div>
             </div>
-
-
-
+        </div>
+    </div>
+    <asp:HiddenField ID="HiddenField1" runat="server" />
+    <%--MODAL--%>
+    <div class="modal fade" id="reschedModal" tabindex="-1" aria-labelledby="reschedModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Appointment Reschedule</h1>
+                    <asp:Button ID="reschedCloseBtn" runat="server" CssClass="btn-close" OnClick="reschedCloseBtn_Click" />
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <img class="img-placeholder" src="../../../Resources/Images/tempIcons/reschedule-icon-6.jpg" />
+                                </div>
+                                <div class="text-center mb-3">
+                                    <p class="fs-5 fw-bold">Heads up!</p>
+                                    <span>Hello,
+                                        <asp:Label ID="AppointeeName" runat="server" Text="Label"></asp:Label></span>
+                                    <p>Your appointment date has been changed, would you like to accept this new date?</p>
+                                    <span class="mb-3">
+                                        <asp:Label ID="ReschedDate" runat="server" Text="Date" CssClass="fw-bold"></asp:Label>
+                                        <span>at </span>
+                                        <asp:Label ID="ReschedTime" runat="server" Text="Time" CssClass="fw-bold"></asp:Label>
+                                    </span>
+                                    <p>
+                                        Appointment ID:
+                                        <asp:Label ID="AppointmentID" runat="server" Text="Label" CssClass="fw-bold"></asp:Label>
+                                    </p>
+                                </div>
+                                <div class="d-flex justify-content-center ">
+                                    <asp:LinkButton ID="acceptBtn" runat="server" CssClass="btn bg-success text-light reschedBtn acceptBtn" OnClick="acceptBtn_Click">Accept</asp:LinkButton>
+                                    <asp:LinkButton ID="rejectBtn" runat="server" CssClass="btn bg-danger text-light reschedBtn" OnClick="rejectBtn_Click">Reject</asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <%--MODAL--%>
+    <div class="modal fade" id="rejectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <asp:Button ID="rejectAppmntCls" runat="server" CssClass="btn-close" OnClick="rejectAppmntCls_Click" />
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to reject this appoint?</p>
+                    <span>Rejecting this appointment means your appointment ticket will be closed</span>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="cancel" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="cancel_Click" />
+                    <asp:Button ID="rejectAppmntBtn" runat="server" Text="Proceed" CssClass="btn btn-primary text-light" OnClick="rejectAppmntBtn_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -181,9 +290,7 @@
                 </div>
                 <div class="modal-body">
                     Send Appointment Request?
-			
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <asp:Button ID="SubmitButton" runat="server" Text="Submit Appointment" OnClick="SubmitButton_Click" ValidationGroup="FormValidation" CssClass="btn btn-primary" />
@@ -191,7 +298,40 @@
             </div>
         </div>
     </div>
+
+    <%-- Success modal --%>
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body bg-success text-center text-light">
+                    <i class="bi bi-info-circle-fill"></i>
+                    <p id="successMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-- Error modal --%>
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body bg-danger text-center text-light">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <asp:HiddenField ID="FormSubmittedHiddenField" runat="server" Value="false" />
+    <script>
+        function getAppointmentID(id) {
+            document.getElementById('<%= HiddenField1.ClientID %>').value = id;
+        }
+    </script>
+    <script>
+        function openModal() {
+            $('#exampleModal').modal('show');
+        }
+    </script>
     <script>
         function checkFormFields() {
             var fullName = document.getElementById('<%= FullName.ClientID %>').value;
@@ -218,7 +358,6 @@
             inputFields[i].addEventListener("input", checkFormFields);
         }
     </script>
-
     <script>
         function checkField(fieldName, pattern) {
             const input = document.getElementById(fieldName);
@@ -235,26 +374,16 @@
 
         // Function to set the maximum date to 3 days from today
         function setMaxDate() {
-            // Get the current date
             const today = new Date();
-
-            // Add 3 days to the current date
             today.setDate(today.getDate() + 3);
 
-            // Format the date components to ensure two digits for day and month
             const dd = String(today.getDate()).padStart(2, "0");
-            const mm = String(today.getMonth() + 1).padStart(2, "0"); // Note: Month is zero-based
+            const mm = String(today.getMonth() + 1).padStart(2, "0");
             const yyyy = today.getFullYear();
 
-            // Create the formatted date string in "yyyy-MM-dd" format
             const maxDate = yyyy + "-" + mm + "-" + dd;
-
-            // Set the "max" attribute of the element with id "date"
             document.getElementById("date").setAttribute("max", maxDate);
         }
-        // Call setMaxDate on page load
-        window.onload = setMaxDate;
-
 
         // Add event listeners to input fields
         const fullNameInput = document.getElementById("<%= FullName.ClientID %>");
@@ -288,6 +417,17 @@
             messageInput.classList.remove("invalid");
             messageInput.classList.add("valid");
         });
-    </script>
-</asp:Content>
 
+        // Call setMaxDate on page load
+        window.onload = setMaxDate;
+
+        $(document).ready(function () {
+            $('.datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
+
+</asp:Content>

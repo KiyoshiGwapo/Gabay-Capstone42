@@ -13,6 +13,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data;
+using System.Web.Script.Serialization;
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
@@ -21,18 +22,18 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         public static string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Set the minimum date for the date input field
-            date.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
 
             if (!IsPostBack)
             {
+                // Set the maximum date to 3 days from today
+                date.Attributes.Add("max", DateTime.Now.AddDays(3).ToShortDateString());
+                // Set the minimum date for the date input field
+                date.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
                 // Populate the department dropdown list
                 ddlDept(departmentChoices);
-                if (Request.Form[date.UniqueID] != null)
-                {
-                    string selectedDate = date.Text;
-                    PopulateAvailableTimes();
-                }
+                // Call PopulateAvailableTimes only on the initial load, not on postbacks
+                string selectedDate = date.Value; // Get the selected date
+                PopulateAvailableTimes(selectedDate);
             }
         }
 
@@ -89,14 +90,14 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 string fullName = FullName.Text;
                 string contactNumber = ContactN.Text;
                 string selectedTime = time.SelectedValue;
-                string selectedDate = date.Text;
+                string selectedDate = date.Value;
                 string deptName = departmentChoices.SelectedItem.Text; // Get the selected department name
                 string concern = Message.Text; // Get the concern/message
 
                 // Additional data
                 string status = "pending";
                 string studentID = "guest";
-                string courseYear = "guest";
+                string courseYear = "4";
 
                 // Insert data into the "appointment" table
                 int appointmentID = InsertAppointmentRecord(fullName, email, studentID, courseYear, contactNumber, selectedDate, selectedTime, deptName, concern, status);
@@ -115,7 +116,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     Email.Text = "";
                     ContactN.Text = "";
                     time.SelectedIndex = 0; // Reset the dropdown selection
-                    date.Text = "";
+                    date.Value = "";
                     departmentChoices.SelectedIndex = 0; // Reset the dropdown selection
                     Message.Text = "";
                 }
@@ -180,7 +181,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         <p><b>Concern:</b> {concern}</p>
                         </div>";
 
-            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\source\\repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
             logoImage.ContentId = "logo-image";
             logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
@@ -229,10 +230,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-
-
-
-
         private DataTable SearchAppointmentsByAppointmentID(int appointmentID)
         {
             DataTable results = new DataTable();
@@ -241,60 +238,354 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             {
                 conn.Open();
 
-                string query = "SELECT full_name, appointment_status FROM appointment WHERE ID_appointment = @AppointmentID";
+                string query = "SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
+
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         adapter.Fill(results);
                     }
                 }
+
             }
 
             return results;
         }
 
-        //TIME KAtung ma check if naa na
-
-        private void PopulateAvailableTimes()
+        protected void reschedBtn_Click(object sender, EventArgs e)
         {
-            // Fetch existing appointment times from the database
-            List<string> existingTimes = GetExistingAppointmentTimesFromDatabase();
+            try
+            {
+                int appointmentID = Convert.ToInt32(HiddenField1.Value);
+
+                if (reschedSchedule(appointmentID, out string appointmentStats, out string appointmentDate, out string appointmentTime, out string appoiteeName))
+                {
+                    if (appointmentStats == "reschedule")
+                    {
+                        AppointmentID.Text = HiddenField1.Value.ToString();
+                        ReschedDate.Text = appointmentDate;
+                        ReschedTime.Text = appointmentTime;
+                        AppointeeName.Text = appoiteeName;
+                    }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showSuccessModal", $"$('#reschedModal').modal('show');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                string ErrorMessage = ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                   $"$('#errorMessage').text('{ErrorMessage}'); $('#errorModal').modal('show');", true);
+            }
+
+        }
+
+        public bool reschedSchedule(int appointmentID, out string appointmentStats, out string appointmentDate, out string appointmentTime, out string apppointeeName)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT appointment_status, full_name, appointment_date, appointment_time FROM appointment WHERE ID_appointment = @AppointmentID";
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            appointmentStats = reader["appointment_status"].ToString();
+                            DateTime date = (DateTime)reader["appointment_date"];
+                            appointmentDate = date.ToString("dd MMM, yyyy ddd");
+                            appointmentTime = reader["appointment_time"].ToString();
+                            apppointeeName = reader["full_name"].ToString();
+                            return true;
+                        }
+                        else
+                        {
+                            appointmentStats = null;
+                            appointmentDate = null;
+                            appointmentTime = null;
+                            apppointeeName = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        protected void reschedCloseBtn_Click(object sender, EventArgs e)
+        {
+            HiddenField1.Value = null;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showSuccessModal", $"$('#reschedModal').modal('hide');", true);
+        }
+
+        protected void acceptBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int appointmentID = Convert.ToInt32(HiddenField1.Value);
+                approveAppointment(appointmentID);
+
+                int.TryParse(searchInput.Text, out int searchAppointmentID);
+                DataTable searchResults = SearchAppointmentsByAppointmentID(searchAppointmentID);
+                searchResultsGridView.DataSource = searchResults;
+                searchResultsGridView.DataBind();
+
+                string successMessage = "Your schedule is set! Please check your email, we sent you the details of your appointment along with your QR code";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+
+            }
+            catch (Exception ex)
+            {
+                string ErrorMessage = ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                   $"$('#errorMessage').text('{ErrorMessage}'); $('#errorModal').modal('show');", true);
+            }
+        }
+
+        public void approveAppointment(int AppointmentID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string getAppointmentInfoQuery = @"SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
+                conn.Open();
+                using (SqlCommand setCmd = new SqlCommand(getAppointmentInfoQuery, conn))
+                {
+                    setCmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+
+                    using (SqlDataReader reader = setCmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string appointmentID = reader["ID_appointment"].ToString();
+                            string appointee = reader["full_name"].ToString();
+                            string destination = reader["deptName"].ToString();
+                            DateTime date = (DateTime)reader["appointment_date"];
+                            string appointmentDate = date.ToString("dd MMM, yyyy ddd");
+                            string appointmentTime = reader["appointment_time"].ToString();
+                            string appointeeEmail = reader["email"].ToString();
+
+                            string TempUrl = $"https://localhost:44341/Prototype/tempPage.aspx?appointmentID={appointmentID}";
+
+                            BarcodeWriter barcodeWriter = new BarcodeWriter();
+                            barcodeWriter.Format = BarcodeFormat.QR_CODE;
+                            barcodeWriter.Options = new QrCodeEncodingOptions
+                            {
+                                Width = 200,
+                                Height = 200,
+                            };
+                            System.Drawing.Bitmap qrCodeBitmap = barcodeWriter.Write(TempUrl);
+
+                            // Save the QR code as a temporary image file
+                            string tempQRCodeFilePath = Server.MapPath("~/TempQRCode.png");
+                            qrCodeBitmap.Save(tempQRCodeFilePath, System.Drawing.Imaging.ImageFormat.Png);
+
+                            var message = new MimeMessage();
+                            message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
+                            message.To.Add(new MailboxAddress("Recipient", appointeeEmail));
+                            message.Subject = "Appointment Details";
+
+                            var builder = new BodyBuilder();
+
+                            // Add the logo and QR code centered in the email body
+                            builder.HtmlBody = $@"
+                                <div style='text-align: center;margin-bottom: 10px;'>
+                                    <div>
+                                        <img src='cid:logo-image' style='width: 100px; height: auto; margin-right: 5px; display: block; margin: 0 auto;'>
+                                    </div>
+                                    <div style='letter-spacing: 3px; color: #003366; font-weight: 600;'>
+                                        GABAY
+                                    </div>
+                                </div>
+                                <div style='text-align: center;'>
+                                    <img src='cid:qr-code-image' width='200' height='200'>
+                                </div>";
+
+                            // Add additional appointment details
+                            builder.HtmlBody += $@"<div style='text-align: center;'><h1>Your Appointment is all set!</h1></div>
+                                                <div style='text-align: center;'>
+                                                <p>Hello!<b> {appointee}</b>, your appointment is set please see the details below</p>
+                                                <p><b>Appointment ID:</b> {appointmentID}</p>
+                                                <p><b>Schedule:</b> {appointmentDate} {appointmentTime}</p>
+                                                <p><b>Destination:</b> {destination}</p>
+                                                </div>";
+
+                            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                            logoImage.ContentId = "logo-image";
+                            logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+
+                            var qrCodeImage = builder.LinkedResources.Add(tempQRCodeFilePath);
+                            qrCodeImage.ContentId = "qr-code-image";
+                            qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+
+                            message.Body = builder.ToMessageBody();
+
+                            // Send the email using MailKit
+                            using (var client = new SmtpClient())
+                            {
+                                client.Connect("smtp.gmail.com", 587, false);
+                                client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
+                                client.Send(message);
+                                client.Disconnect(true);
+                            }
+
+                            // Clean up (optional)
+                            System.IO.File.Delete(tempQRCodeFilePath);
+                        }
+
+                        reader.Close();
+                    }
+                }
+
+
+                string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
+                string updateStatus = "approved";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmd.Parameters.AddWithValue("@AppointmentStats", updateStatus);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Insert a record into AppointmentStatusHistory
+                string queryInsertHistory = @"
+                INSERT INTO AppointmentStatusHistory (AppointmentID, StatusChangeDate, PreviousStatus, NewStatus)
+                VALUES (@AppointmentID, @StatusChangeDate, @PreviousStatus, @NewStatus)";
+                using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
+                {
+                    cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
+                    cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status");
+                    cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "approved");
+                    cmdInsertHistory.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+        protected void rejectBtn_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showRejectModal", $"$('#rejectModal').modal('show');", true);
+        }
+
+        protected void cancel_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showRejectModal", $"$('#reschedModal').modal('show');", true);
+        }
+
+        protected void rejectAppmntCls_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showHideModal", $"$('#rejectModal').modal('hide');", true);
+        }
+
+        protected void rejectAppmntBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int appointmentID = Convert.ToInt32(HiddenField1.Value);
+                rejectAppointment(appointmentID);
+
+                int.TryParse(searchInput.Text, out int searchAppointmentID);
+                DataTable searchResults = SearchAppointmentsByAppointmentID(searchAppointmentID);
+                searchResultsGridView.DataSource = searchResults;
+                searchResultsGridView.DataBind();
+
+                string successMessage = "Your appointment ticket is now closed";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+            }
+            catch (Exception ex)
+            {
+                string ErrorMessage = ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                   $"$('#errorMessage').text('{ErrorMessage}'); $('#errorModal').modal('show');", true);
+            }
+        }
+
+        public void rejectAppointment(int AppointmentID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
+                conn.Open();
+                string updateStatus = "rejected";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmd.Parameters.AddWithValue("@AppointmentStats", updateStatus);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Insert a record into AppointmentStatusHistory
+                string queryInsertHistory = @"
+                INSERT INTO AppointmentStatusHistory (AppointmentID, StatusChangeDate, PreviousStatus, NewStatus)
+                VALUES (@AppointmentID, @StatusChangeDate, @PreviousStatus, @NewStatus)";
+                using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
+                {
+                    cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now); // Current date and time
+                    cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status"); // Replace with the actual previous status
+                    cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "rejected"); // New status
+                    cmdInsertHistory.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+        }
+
+        //TIME KAtung ma check if naa na
+        private void PopulateAvailableTimes(string selectedDate)
+        {
+            // Your existing logic for fetching and populating available times
+            List<string> availableTimes = GetAvailableTimes(selectedDate);
+
+            // Return the available times to the client
+            Response.Clear();
+            Response.Write(new JavaScriptSerializer().Serialize(availableTimes));
+            Response.ContentType = "application/json; charset=utf-8";
+            Response.End();
+        }
+
+        // Call PopulateAvailableTimes with the selectedDate parameter
+        protected void DateSelectionChanged(object sender, EventArgs e)
+        {
+            string selectedDate = date.Value;
+            PopulateAvailableTimes(selectedDate);
+        }
+
+
+
+
+        protected void Calendar_SelectionChanged(object sender, EventArgs e)
+        {
+            string selectedDate = date.Value;
+            PopulateAvailableTimes(selectedDate);
+        }
+
+        private List<string> GetAvailableTimes(string selectedDate)
+        {
+            // Fetch existing appointment times from the database based on the selected date
+            List<string> existingTimes = GetExistingAppointmentTimesFromDatabase(selectedDate);
 
             // Define a list of all possible times
             List<string> allTimes = new List<string>
-                {
-                    "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"
-                };
+    {
+        "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"
+    };
 
             // Find and exclude the existing appointment times
             List<string> availableTimes = allTimes.Except(existingTimes).ToList();
 
-            // If there are no available times, add the "cannot select time" option
+            // If there are no available times, add the "Cannot Select Time" option
             if (availableTimes.Count == 0)
             {
                 availableTimes.Add("Cannot Select Time");
             }
 
-            // Populate the dropdown with available times
-            time.DataSource = availableTimes;
-            time.DataBind();
+            return availableTimes;
         }
-
-        protected void DateSelectionChanged(object sender, EventArgs e)
-        {
-            calendar.Visible = !calendar.Visible;
-        }
-
-        protected void Calendar_SelectionChanged(object sender, EventArgs e)
-        {
-            date.Text = calendar.SelectedDate.ToShortDateString();
-            calendar.Visible = false;
-        }
-
-
-        private List<string> GetExistingAppointmentTimesFromDatabase()
+        private List<string> GetExistingAppointmentTimesFromDatabase(string selectedDate)
         {
             List<string> existingTimes = new List<string>();
 
@@ -302,11 +593,10 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             {
                 conn.Open();
 
-                // Update the query to filter by the selected date
                 string query = "SELECT DISTINCT appointment_time FROM appointment WHERE appointment_date = @SelectedDate";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@SelectedDate", date.Text);
+                    cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -321,9 +611,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             return existingTimes;
         }
 
-
-
-
+   
 
     }
 }

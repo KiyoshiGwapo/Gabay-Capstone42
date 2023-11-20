@@ -266,18 +266,43 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (result) {
-                    // Update the badge content with the count of unread notifications
-                    updateBadge(result.d.Count);
+                    // Check if there are unread notifications
+                    if (result.d.Count > 0) {
+                        // Update the badge content with the count of unread notifications
+                        updateBadge(result.d.Count);
 
-                    // Bind the data to the GridView
-                    notificationGridView.DataSource = result.d.Data;
-                    notificationGridView.DataBind();
+                        // Bind the data to the GridView
+                        notificationGridView.DataSource = result.d.Data;
+                        notificationGridView.DataBind();
+
+                        // Show the modal
+                        $('#notificationModal').modal('show');
+                    } else {
+                        // If count is 0, hide or style the badge accordingly
+                        hideBadge();
+                    }
                 },
-
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.error(thrownError);
                 }
             });
+        }
+
+        function hideBadge() {
+            // Get the label element representing the badge
+            var badgeLabel = document.getElementById('<%= lblNotificationCount.ClientID %>');
+
+            // Check if the badge label exists
+            if (badgeLabel) {
+                // Check if the count is zero
+                if (parseInt(badgeLabel.innerHTML) === 0) {
+                    // If count is zero, make the badge invisible
+                    badgeLabel.style.display = 'none';
+                } else {
+                    // If count is not zero, set background color to red
+                    badgeLabel.style.backgroundColor = 'red';
+                }
+            }
         }
     </script>
 </body>

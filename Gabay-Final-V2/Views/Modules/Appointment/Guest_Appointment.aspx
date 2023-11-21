@@ -84,14 +84,6 @@
         .acceptBtn {
             width: 160px;
         }
-
-        .submission-status-Submitted {
-            color: green;
-        }
-
-        .submit-status-NotSubmitted {
-            color: red;
-        }
     </style>
 
     <div class="form-wrapper">
@@ -102,7 +94,7 @@
                 <asp:Label ID="SubmitStatusNotSubmitted" runat="server" Text="" CssClass="submit-status-NotSubmitted" />
                 <div class="form-group">
                     <label for="DepartmentDropDown" class="form-label">Department</label>
-                    <asp:DropDownList ID="departmentChoices" CssClass="form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True">
+                    <asp:DropDownList ID="departmentChoices" CssClass="form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True" OnSelectedIndexChanged="departmentChoices_SelectedIndexChanged">
                         <asp:ListItem Selected="True" Value="">
 							Choose a Department...
                         </asp:ListItem>
@@ -123,16 +115,18 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-
-                        <div class="form-group">
-                            <label for="selectedDate" class="form-label">Date</label>
-                            <input type="text" id="date" runat="server" name="date" class="form-control text-input datepicker" />
+                    <div class="col">
+                        <label for="selectedDate" class="form-label">Date</label>
+                        <div class="input-group">
+                            <input type="date" id="date" runat="server" name="date" class="form-control text-input" />
+                            <asp:Button ID="btnUpdateAvailableTimes" runat="server" Text="Update" OnClick="btnUpdateAvailableTimes_Click" CssClass="btn btn-primary" />
                         </div>
-
+                    </div>
                         <div class="col">
                             <label for="time" class="form-label">Time</label>
                             <asp:DropDownList ID="time" runat="server" CssClass="form-control text-input">
                                 <asp:ListItem Value="" Selected="True">Select Available Time</asp:ListItem>
+                                <%--available times will be dynamically populated here --%>
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -420,14 +414,5 @@
 
         // Call setMaxDate on page load
         window.onload = setMaxDate;
-
-        $(document).ready(function () {
-            $('.datepicker').datepicker({
-                format: 'yyyy-mm-dd',
-                autoclose: true,
-                todayHighlight: true
-            });
-        });
     </script>
-
 </asp:Content>

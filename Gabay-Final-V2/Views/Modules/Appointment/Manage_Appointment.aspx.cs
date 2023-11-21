@@ -13,6 +13,9 @@ using MailKit.Net.Smtp;
 using System.Configuration;
 using System.Web;
 using Gabay_Final_V2.Models;
+using System.Web.UI.WebControls;
+using System.Windows;
+using static iTextSharp.text.pdf.PdfDocument;
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
@@ -32,7 +35,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             //{
             //    appointmentPage.AppointmentStatusChanged += HandleAppointmentStatusChanged;          
             //}
-         }
+        }
 
         public class DepartmentUser
         {
@@ -45,14 +48,23 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-
-
         private void BindingAppointment()
         {
             if (Session["user_ID"] != null)
             {
                 int user_ID = Convert.ToInt32(Session["user_ID"]);
                 DataTable dt = fetchAppointBasedOnDepartment(user_ID);
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string studentID = (string)row["student_ID"];
+
+                    if (studentID == "guest")
+                    {
+                        // Set "User Type" to "Guest" for guest appointments
+                        row["role"] = "guest";
+                    }
+                }
 
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
@@ -69,9 +81,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
                 string queryFetchStudent = @"SELECT a.*, ur.role
                                             FROM appointment a
-                                            INNER JOIN users_table u ON a.student_ID = u.login_ID
-                                            INNER JOIN user_role ur ON u.role_ID = ur.role_id
-                                            WHERE a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)";
+                                            LEFT JOIN users_table u ON a.student_ID = u.login_ID
+                                            LEFT JOIN user_role ur ON u.role_ID = ur.role_id
+                                            WHERE (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)
+                                            OR a.student_ID = 'guest')
+                                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))
+                                            AND (a.appointment_status = 'pending' OR a.appointment_status = 'reschedule' OR a.appointment_status = 'approved')";
                 using (SqlCommand cmd = new SqlCommand(queryFetchStudent, conn))
                 {
                     cmd.Parameters.AddWithValue("@departmentUserID", userID);
@@ -85,8 +100,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             return studentTable;
         }
 
-        public void LoadAppointmentModal(int AppointmentID)
+        public bool LoadAppointmentModal(int AppointmentID, out string appointmentStats)
         {
+            appointmentStats = null;
             // Retrieve the User_ID from the session
             using (SqlConnection conn = new SqlConnection(connection))
             {
@@ -107,6 +123,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                             AppointmentTime.Text = reader["appointment_time"].ToString();
                             appointmentConcern.Text = reader["concern"].ToString();
                             AppointmentStatus.Text = reader["appointment_status"].ToString();
+                            appointmentStats = AppointmentStatus.Text;
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
                         }
                     }
                 }
@@ -117,7 +139,25 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             int hiddenID = Convert.ToInt32(HiddenFieldAppointment.Value);
 
-            LoadAppointmentModal(hiddenID);
+            if (LoadAppointmentModal(hiddenID, out string appointmentStats))
+            {
+                if (appointmentStats == "approved")
+                {
+                    approved.Attributes["class"] = "col-8 mb-2 d-grid d-none";
+                    reject.Attributes["class"] = "col-4 mb-2 d-grid d-none";
+                    resched.Attributes["class"] = "col-12 mb-2 d-none";
+                    servedlnk.Attributes["class"] = "col-8 mb-2 d-grid";
+                    noShowlnk.Attributes["class"] = "col-4 mb-2 d-grid";
+                }
+                else
+                {
+                    approved.Attributes["class"] = "col-8 mb-2 d-grid";
+                    reject.Attributes["class"] = "col-4 mb-2 d-grid";
+                    resched.Attributes["class"] = "col-12 mb-2";
+                    servedlnk.Attributes["class"] = "col-8 mb-2 d-grid d-none";
+                    noShowlnk.Attributes["class"] = "col-4 mb-2 d-grid d-none";
+                }
+            };
             ScriptManager.RegisterStartupScript(this, this.GetType(), "showExampleModal", "$('#exampleModal').modal('show');", true);
         }
 
@@ -189,8 +229,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             using (SqlConnection conn = new SqlConnection(connection))
             {
-                string query = @"SELECT appointment_date, appointment_time, appointment_status
-             FROM appointment WHERE ID_appointment = @AppointmentID";
+                string query = @"SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
                 conn.Open();
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -204,6 +243,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                             DateTime date = (DateTime)reader["appointment_date"];
                             string currentDate = date.ToString("dd MMM, yyyy ddd");
                             string currentTime = reader["appointment_time"].ToString();
+                            string appointeeEmail = reader["email"].ToString().Trim();
+                            string appointee = reader["full_name"].ToString();
+                            string destination = reader["deptName"].ToString();
                             string updateStatus = "reschedule";
 
                             if (newDate != currentDate || newTime != currentTime)
@@ -243,6 +285,61 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                 // Notify that the status has changed.
                                 DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
                             }
+
+                            DateTime newdate = DateTime.Parse(newDate);
+                            string formattedNewDate = newdate.ToString("dd MMM, yyyy ddd");
+
+                            var message = new MimeMessage();
+                            message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
+                            message.To.Add(new MailboxAddress("Recipient", appointeeEmail));
+                            message.Subject = "Appointment Details";
+
+                            var builder = new BodyBuilder();
+
+                            // Add the logo and QR code centered in the email body
+                            builder.HtmlBody = $@"
+                                <div style='text-align: center;margin-bottom: 10px;'>
+                                    <div>
+                                        <img src='cid:logo-image' style='width: 100px; height: auto; margin-right: 5px; display: block; margin: 0 auto;'>
+                                    </div>
+                                    <div style='letter-spacing: 3px; color: #003366; font-weight: 600;'>
+                                        GABAY
+                                    </div>
+                                </div>
+                                <div style='text-align: center;'>
+                                    <img src='cid:resched-image' width='200' height='200'>
+                                </div>";
+
+                            // Add additional appointment details
+                            builder.HtmlBody += $@"<div style='text-align: center;'><h1>Heads up!</h1></div>
+                                                <div style='text-align: center;'>
+                                                <p>Hello!<b> {appointee}</b>, your appointment with an appointment ID: <b>{AppointmentID}</b> scheduled on <b>{currentDate} {currentTime}</b> </p>
+                                                <p>has been rescheduled on <b>{formattedNewDate} {newTime}</b>, please go to the GABAY webpage to accept or reject your new appointment status</p>
+                                                <p>If you have any concern question kindly visit the {destination}'s office or book another appointment</p>
+                                                <p>Thank you!</p>
+                                                </div>
+                                                <div style='text-align: center;'>
+                                                <a href='https://localhost:44341/Landing_Page/LandingPage.aspx' style='display: inline-block; padding: 10px; background-color: #007BFF; color: #fff; text-decoration: none; margin-top: 20px;'>Go to GABAY</a>
+                                                </div>";
+
+                            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                            logoImage.ContentId = "logo-image";
+                            logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+
+                            var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\reschedule-icon-6.jpg");
+                            qrCodeImage.ContentId = "resched-image";
+                            qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+
+                            message.Body = builder.ToMessageBody();
+
+                            // Send the email using MailKit
+                            using (var client = new SmtpClient())
+                            {
+                                client.Connect("smtp.gmail.com", 587, false);
+                                client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
+                                client.Send(message);
+                                client.Disconnect(true);
+                            }
                         }
                     }
                 }
@@ -259,7 +356,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
             {
                 cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-                cmd.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now); 
+                cmd.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
                 cmd.Parameters.AddWithValue("@PreviousStatus", "current_status");
                 cmd.Parameters.AddWithValue("@NewStatus", newStatus);
                 cmd.Parameters.AddWithValue("@Notification", "UNREAD");
@@ -267,7 +364,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 cmd.ExecuteNonQuery();
             }
         }
-
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
@@ -312,12 +408,22 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         protected void ApproveButton_Click(object sender, EventArgs e)
         {
-            int AppointmentID = Convert.ToInt32(HiddenFieldAppointment.Value);
-            approveAppointment(AppointmentID);
-            BindingAppointment();
-            string successMessage = "Schedule is set.";
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
-                $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+            try
+            {
+                int AppointmentID = Convert.ToInt32(HiddenFieldAppointment.Value);
+                approveAppointment(AppointmentID);
+                BindingAppointment();
+                string successMessage = "Schedule is set.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+            }
+            catch (Exception ex)
+            {
+                string ErrorMessage = ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                   $"$('#errorMessage').text('{ErrorMessage}'); $('#errorModal').modal('show');", true);
+            }
+
         }
 
         public void approveAppointment(int AppointmentID)
@@ -387,7 +493,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                                 <p><b>Destination:</b> {destination}</p>
                                                 </div>";
 
-                            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\source\\repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
                             logoImage.ContentId = "logo-image";
                             logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
@@ -431,8 +537,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
                 {
                     cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-                    cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now); 
-                    cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status"); 
+                    cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
+                    cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status");
                     cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "approved");
                     cmdInsertHistory.Parameters.AddWithValue("@Notification", "UNREAD");
                     cmdInsertHistory.ExecuteNonQuery();
@@ -522,11 +628,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                                 <p>Thank you!</p>
                                                 </div>";
 
-                            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\source\\repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
                             logoImage.ContentId = "logo-image";
                             logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
-                            var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\rodri\\source\\repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\error.png");
+                            var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\error.png");
                             qrCodeImage.ContentId = "erro-image";
                             qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
@@ -546,6 +652,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     }
                 }
                 string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
+
                 string updateStatus = "rejected";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -571,6 +678,113 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 // Notify that the status has changed.
                 DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
 
+
+
+                conn.Close();
+            }
+        }
+
+        protected void served_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int AppointmentID = Convert.ToInt32(HiddenFieldAppointment.Value);
+                servedAppointment(AppointmentID);
+                BindingAppointment();
+                string successMessage = "Appointment completed!";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+
+        }
+
+        public void servedAppointment(int AppointmentID)
+        {
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
+                conn.Open();
+                string updateStatus = "served";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmd.Parameters.AddWithValue("@AppointmentStats", updateStatus);
+                    cmd.ExecuteNonQuery();
+                }
+                string queryInsertHistory = @"
+                INSERT INTO AppointmentStatusHistory (AppointmentID, StatusChangeDate, PreviousStatus, NewStatus, Notification)
+                VALUES (@AppointmentID, @StatusChangeDate, @PreviousStatus, @NewStatus, @Notification)";
+                using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
+                {
+                    cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
+                    cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status");
+                    cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "served");
+                    cmdInsertHistory.Parameters.AddWithValue("@Notification", "UNREAD");
+
+                    cmdInsertHistory.ExecuteNonQuery();
+                }
+
+
+                // Notify that the status has changed.
+                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
+
+                conn.Close();
+            }
+        }
+
+        protected void noshow_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int AppointmentID = Convert.ToInt32(HiddenFieldAppointment.Value);
+                noShowAppointment(AppointmentID);
+                BindingAppointment();
+                string successMessage = "No Appointee Showed up!";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+        }
+
+        public void noShowAppointment(int AppointmentID)
+        {
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
+                conn.Open();
+                string updateStatus = "no show";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmd.Parameters.AddWithValue("@AppointmentStats", updateStatus);
+                    cmd.ExecuteNonQuery();
+                }
+                string queryInsertHistory = @"
+                INSERT INTO AppointmentStatusHistory (AppointmentID, StatusChangeDate, PreviousStatus, NewStatus)
+                VALUES (@AppointmentID, @StatusChangeDate, @PreviousStatus, @NewStatus)";
+                using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
+                {
+                    cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
+                    cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status");
+                    cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "approved");
+                    cmdInsertHistory.ExecuteNonQuery();
+                }
+
+                // Notify that the status has changed.
+                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
 
                 conn.Close();
             }

@@ -13,7 +13,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data;
-using System.Web.Script.Serialization;
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
@@ -25,15 +24,13 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             if (!IsPostBack)
             {
-                // Set the maximum date to 3 days from today
-                date.Attributes.Add("max", DateTime.Now.AddDays(3).ToShortDateString());
-                // Set the minimum date for the date input field
-                date.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+
                 // Populate the department dropdown list
                 ddlDept(departmentChoices);
-                // Call PopulateAvailableTimes only on the initial load, not on postbacks
-                string selectedDate = date.Value; // Get the selected date
-                PopulateAvailableTimes(selectedDate);
+
+                // Update available times based on the default date and department
+                UpdateAvailableTimes();
+
             }
         }
 
@@ -181,7 +178,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         <p><b>Concern:</b> {concern}</p>
                         </div>";
 
-            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+
             logoImage.ContentId = "logo-image";
             logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
@@ -534,84 +532,157 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-        //TIME KAtung ma check if naa na
-        private void PopulateAvailableTimes(string selectedDate)
+        protected void departmentChoices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Your existing logic for fetching and populating available times
-            List<string> availableTimes = GetAvailableTimes(selectedDate);
-
-            // Return the available times to the client
-            Response.Clear();
-            Response.Write(new JavaScriptSerializer().Serialize(availableTimes));
-            Response.ContentType = "application/json; charset=utf-8";
-            Response.End();
+            UpdateDateOptions();
+            DisableBookedTimes();
+            // Update available times when the department is changed
+            UpdateAvailableTimes();
         }
 
-        // Call PopulateAvailableTimes with the selectedDate parameter
-        protected void DateSelectionChanged(object sender, EventArgs e)
+        private void UpdateDateOptions()
         {
-            string selectedDate = date.Value;
-            PopulateAvailableTimes(selectedDate);
+            // Set the minimum date to today + 3 days
+            date.Attributes["min"] = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd");
         }
 
-
-
-
-        protected void Calendar_SelectionChanged(object sender, EventArgs e)
+        private void DisableBookedTimes()
         {
-            string selectedDate = date.Value;
-            PopulateAvailableTimes(selectedDate);
-        }
-
-        private List<string> GetAvailableTimes(string selectedDate)
-        {
-            // Fetch existing appointment times from the database based on the selected date
-            List<string> existingTimes = GetExistingAppointmentTimesFromDatabase(selectedDate);
-
-            // Define a list of all possible times
-            List<string> allTimes = new List<string>
-    {
-        "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"
-    };
-
-            // Find and exclude the existing appointment times
-            List<string> availableTimes = allTimes.Except(existingTimes).ToList();
-
-            // If there are no available times, add the "Cannot Select Time" option
-            if (availableTimes.Count == 0)
-            {
-                availableTimes.Add("Cannot Select Time");
-            }
-
-            return availableTimes;
-        }
-        private List<string> GetExistingAppointmentTimesFromDatabase(string selectedDate)
-        {
-            List<string> existingTimes = new List<string>();
-
+            // Check the database for existing appointments on the selected date and disable booked times
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
-
-                string query = "SELECT DISTINCT appointment_time FROM appointment WHERE appointment_date = @SelectedDate";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
+                    conn.Open();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    string query = "SELECT appointment_time FROM appointment WHERE deptName = @DepartmentName AND appointment_date = @AppointmentDate";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@DepartmentName", departmentChoices.SelectedValue);
+                    cmd.Parameters.AddWithValue("@AppointmentDate", date.Value);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Loop through the results and disable corresponding times in the 'time' DropDownList
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        string bookedTime = reader["appointment_time"].ToString();
+                        ListItem item = time.Items.FindByValue(bookedTime);
+                        if (item != null)
                         {
-                            existingTimes.Add(reader["appointment_time"].ToString());
+                            item.Attributes["class"] = "disabled";
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
-
-            return existingTimes;
         }
 
-   
+        protected void btnUpdateAvailableTimes_Click(object sender, EventArgs e)
+        {
+            UpdateAvailableTimes();
+            DisableBookedTimes();
+        }
+
+        protected void date_TextChanged(object sender, EventArgs e)
+        {
+            DisableBookedTimes();
+            UpdateAvailableTimes();  // Call the function when the date is changed
+        }
+
+        private void UpdateAvailableTimes()
+        {
+            // Get the selected date and department
+            string selectedDate = date.Value;
+            string selectedDepartment = departmentChoices.SelectedValue;
+
+            // Fetch available times based on the selected date and department from the database
+            List<string> availableTimes = GetAvailableTimes(selectedDate, selectedDepartment);
+
+            // Clear existing items and add the default "Select Available Time" item
+            time.Items.Clear();
+            time.Items.Add(new ListItem("Select Available Time", ""));
+
+            // Clear the disabled class for all items
+            foreach (ListItem item in time.Items)
+            {
+                item.Attributes.Remove("class");
+            }
+
+            // Add the available times to the dropdown
+            foreach (string timeSlot in availableTimes)
+            {
+                time.Items.Add(new ListItem(timeSlot, timeSlot));
+            }
+        }
+
+
+
+
+        private List<string> GetAvailableTimes(string selectedDate, string selectedDepartment)
+        {
+            List<string> allTimes = new List<string>
+    {
+        "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
+        "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"
+    };
+
+            // Fetch booked times from the database based on the selected date and department
+            List<string> bookedTimes = FetchBookedTimesFromDatabase(selectedDate, selectedDepartment);
+
+            // Calculate available times by excluding booked times
+            List<string> availableTimes = allTimes.Except(bookedTimes).ToList();
+
+            return availableTimes;
+        }
+
+        private List<string> FetchBookedTimesFromDatabase(string selectedDate, string selectedDepartment)
+        {
+            List<string> bookedTimes = new List<string>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query = "SELECT appointment_time FROM appointment WHERE deptName = @DepartmentName AND appointment_date = @AppointmentDate";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@DepartmentName", selectedDepartment);
+                        cmd.Parameters.AddWithValue("@AppointmentDate", selectedDate);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string bookedTime = reader["appointment_time"].ToString();
+                                bookedTimes.Add(bookedTime);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle the exception (you can log or display an error message)
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            return bookedTimes;
+        }
+
+
 
     }
 }

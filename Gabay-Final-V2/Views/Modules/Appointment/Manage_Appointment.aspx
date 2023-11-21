@@ -105,35 +105,41 @@
 
                                 <div class="col-12 mb-2">
                                     <div class="form-floating">
-                                        <asp:TextBox ID="appointmentConcern" CssClass="form-control appointmentConcern" runat="server"  placeholder="Concern"  style="height: 120px" TextMode="MultiLine" ReadOnly="true"></asp:TextBox>
+                                        <asp:TextBox ID="appointmentConcern" CssClass="form-control appointmentConcern" runat="server" placeholder="Concern" Style="height: 120px" TextMode="MultiLine" ReadOnly="true"></asp:TextBox>
                                         <label for="appointmentConcern">Concern</label>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-2">
-                                   <div class="appointmentSchedule d-flex flex-column">
-                                       <div class="d-flex justify-content-between">
-                                           <span class="fs-5 fw-medium">Schedule</span>
-                                           <div class="appointmentStatus">
-                                               <asp:Label ID="AppointmentStatus" runat="server" Text="Status"></asp:Label>
-                                           </div>
-                                       </div>
-                                       <asp:Label ID="AppointmentDate" runat="server" Text="Date"></asp:Label>
-                                       <asp:Label ID="AppointmentTime" runat="server" Text="Time"></asp:Label>
-                                   </div>
+                                    <div class="appointmentSchedule d-flex flex-column">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="fs-5 fw-medium">Schedule</span>
+                                            <div class="appointmentStatus">
+                                                <asp:Label ID="AppointmentStatus" runat="server" Text="Status"></asp:Label>
+                                            </div>
+                                        </div>
+                                        <asp:Label ID="AppointmentDate" runat="server" Text="Date"></asp:Label>
+                                        <asp:Label ID="AppointmentTime" runat="server" Text="Time"></asp:Label>
+                                    </div>
                                 </div>
-                                <div class="col-12 mb-2">
-                                    <div class="appointmentActions">
+                                <div class="col-12 mb-2" id="resched" runat="server">
+                                    <div class="appointmentActions resched">
                                         <asp:LinkButton ID="appointmentReschedule" runat="server" OnClick="appointmentReschedule_Click">
                                             <i class="bi bi-calendar-minus-fill"></i>
                                             <span>Reschedule Appointment</span>
                                         </asp:LinkButton>
                                     </div>
                                 </div>
-                                <div class="col-8 mb-2 d-grid">
+                                <div class="col-8 mb-2 d-grid" id="approved" runat="server">
                                     <asp:LinkButton ID="ApproveLink" runat="server" CssClass="btn btn-primary" OnClick="ApproveLink_Click">Approve Appointment</asp:LinkButton>
                                 </div>
-                                 <div class="col-4 mb-2 d-grid">
-                                     <asp:LinkButton ID="RejectLink" runat="server" CssClass="btn btn-danger" OnClick="RejectLink_Click">Reject</asp:LinkButton>
+                                <div class="col-4 mb-2 d-grid" id="reject" runat="server">
+                                    <asp:LinkButton ID="RejectLink" runat="server" CssClass="btn btn-danger" OnClick="RejectLink_Click">Reject</asp:LinkButton>
+                                </div>
+                                <div class="col-8 mb-2 d-grid" id="servedlnk" runat="server">
+                                    <asp:LinkButton ID="served" runat="server" CssClass="btn btn-primary" OnClick="served_Click">Served</asp:LinkButton>
+                                </div>
+                                <div class="col-4 mb-2 d-grid" id="noShowlnk" runat="server">
+                                    <asp:LinkButton ID="noshow" runat="server" CssClass="btn btn-danger" OnClick="noshow_Click">No Show</asp:LinkButton>
                                 </div>
                             </div>
                         </div>
@@ -141,6 +147,7 @@
                 </div>
             </div>
         </div>
+    
         <%-- Reschedule Modal --%>
         <div class="modal fade" id="reschedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -288,6 +295,7 @@
                 </div>
             </div>
         </div>
+        
        
         <%-- Success modal --%>
         <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
 using System.IO;
 
 namespace Gabay_Final_V2.Views.Modules.Admin_Modules
@@ -329,8 +330,6 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 }
             }
         }
-
-
         private void ExportToPDF(DataTable dt)
         {
             Document document = new Document();
@@ -343,28 +342,40 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
             document.Open();
 
-            // Add a table to the document
+            // Add title to the document
+            Paragraph title = new Paragraph("Generated Report", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));
+            title.Alignment = Element.ALIGN_CENTER;
+            document.Add(title);
+
+            // Add spacing between title and table
+            document.Add(new Paragraph("\n"));
+
+            // Add table to the document
             PdfPTable table = new PdfPTable(dt.Columns.Count);
+            table.WidthPercentage = 100; // Table width is set to 100% of the page width
 
             // Add columns to the table
             foreach (DataColumn column in dt.Columns)
             {
-                // Exclude the "Actions" column
                 if (column.ColumnName != "Actions" && column.ColumnName != "Department")
                 {
-                    table.AddCell(new Phrase(column.ColumnName));
+                    PdfPCell cell = new PdfPCell(new Phrase(column.ColumnName, new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                    cell.BackgroundColor = new BaseColor(91, 192, 222); // Header row background color
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(cell);
                 }
             }
 
-            // Add rows to the table
+            // Add data rows to the table
             foreach (DataRow row in dt.Rows)
             {
                 foreach (DataColumn column in dt.Columns)
                 {
-                    // Exclude the "Actions" column
                     if (column.ColumnName != "Actions" && column.ColumnName != "Department")
                     {
-                        table.AddCell(new Phrase(row[column].ToString()));
+                        PdfPCell cell = new PdfPCell(new Phrase(row[column].ToString(), new Font(Font.FontFamily.HELVETICA, 10)));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
                     }
                 }
             }
@@ -379,6 +390,8 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             Response.TransmitFile(filePath);
             Response.End();
         }
+
+
 
 
 

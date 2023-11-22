@@ -54,6 +54,24 @@
                                                   <asp:Label ID="offHrs" runat="server" Text="Time"></asp:Label>
                                               </div>
                                           </li>
+
+                                            <li>
+                                            <div class="FilesCont">
+                                                <div>
+                                                    <span class="fs-5">Files:</span>
+                                                </div>
+                                                <asp:DropDownList ID="ddlFiles" runat="server" CssClass="ddlFiles text-center" AutoPostBack="true" OnSelectedIndexChanged="ddlFiles_SelectedIndexChanged">
+                                                    <asp:ListItem Text="Select School Year" Value="" />
+                                                </asp:DropDownList>
+                                                <asp:LinkButton ID="LinkButton1" CssClass="dwnldLnk btn" runat="server" Text="View/Download" OnClick="lnkDownload_Click" OnClientClick="openInNewTab();">
+                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                                                </asp:LinkButton>
+                                            </div>
+                                            <asp:Label ID="DownloadErrorLabel" runat="server" ForeColor="Red" />
+
+
+                                        </li>
+
                                       </ul>
                                   </div>
                                   

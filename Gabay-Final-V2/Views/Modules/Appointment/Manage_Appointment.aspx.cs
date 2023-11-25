@@ -818,52 +818,129 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             // Create a MemoryStream to store the PDF content
             using (MemoryStream memoryStream = new MemoryStream())
             {
-                // Create a Document object
                 Document document = new Document();
 
-                // Create a PdfWriter instance with the MemoryStream
                 PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
 
-                // Open the Document for writing
+                // Open the Document 
                 document.Open();
 
-                // Create a PdfPTable with the same number of columns as your DataTable
-                PdfPTable table = new PdfPTable(dt.Columns.Count);
+                // Set column widths and alignment
+                float[] columnWidths = { 2f, 2f, 2f, 2f, 2f, 2f, 2f, 2f }; // widths 
+                PdfPTable table = new PdfPTable(columnWidths);
+                table.WidthPercentage = 100; // page width
 
-                // Add column headers to the table
+                // Add a row for generated reports
+                PdfPCell generatedReportsCell = new PdfPCell(new Phrase("Generated Reports", FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.BOLD)));
+                generatedReportsCell.Colspan = table.NumberOfColumns;
+                generatedReportsCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(generatedReportsCell);
+
+                // Add spacing row
+                table.AddCell(new PdfPCell(new Phrase("")) { Colspan = table.NumberOfColumns });
+
+                // Add column headers to the table (excluding unwanted columns)
                 foreach (DataColumn column in dt.Columns)
                 {
-                    table.AddCell(column.ColumnName);
-                }
-
-                // Add data rows to the table
-                foreach (DataRow row in dt.Rows)
-                {
-                    foreach (var cellValue in row.ItemArray)
+                    if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
                     {
-                        table.AddCell(cellValue.ToString());
+                        PdfPCell headerCell = new PdfPCell(new Phrase(GetColumnHeader(column.ColumnName), FontFactory.GetFont(FontFactory.HELVETICA, 10, Font.BOLD)));
+                        headerCell.BackgroundColor = BaseColor.LIGHT_GRAY;
+                        headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(headerCell);
                     }
                 }
 
-                // Add a row for counts
-                PdfPCell countCell = new PdfPCell(new Phrase("Counts"));
-                countCell.Colspan = dt.Columns.Count;
-                countCell.HorizontalAlignment = 1; // 0=Left, 1=Center, 2=Right
-                table.AddCell(countCell);
+                // Add data rows to the table (excluding unwanted columns)
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (DataColumn column in dt.Columns)
+                    {
+                        if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
+                        {
+                            PdfPCell dataCell = new PdfPCell(new Phrase(GetCellData(column, row[column]), FontFactory.GetFont(FontFactory.HELVETICA, 8)));
+                            dataCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            table.AddCell(dataCell);
+                        }
+                    }
+                }
 
+                // Add the first table to the document
+                document.Add(table);
+
+                // Add spacing row
+                document.Add(new Paragraph("\n"));
+
+                // Create a new table for status counts
+                PdfPTable statusTable = new PdfPTable(2);
+                statusTable.WidthPercentage = 50; // 50% of the page width
+
+                // Add a row for counts
+                PdfPCell countCell = new PdfPCell(new Phrase("Department-Specific Counts", FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.BOLD)));
+                countCell.Colspan = 2;
+                countCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                statusTable.AddCell(countCell);
+
+                // Calculate counts for each status
+                int pendingCount = CountAppointments(dt, "pending");
                 int approvedCount = CountAppointments(dt, "approved");
                 int rescheduledCount = CountAppointments(dt, "rescheduled");
                 int servedCount = CountAppointments(dt, "served");
                 int deniedCount = CountAppointments(dt, "denied");
 
                 // Add counts to the table
-                table.AddCell($"Approved: {approvedCount}");
-                table.AddCell($"Rescheduled: {rescheduledCount}");
-                table.AddCell($"Served: {servedCount}");
-                table.AddCell($"Denied: {deniedCount}");
+                statusTable.AddCell(new PdfPCell(new Phrase("All Pending:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase(pendingCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase("All Approved:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase(approvedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase("All Rescheduled:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase(rescheduledCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase("All Served:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase(servedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase("All Denied:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase(deniedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
 
-                // Add the table to the document
-                document.Add(table);
+
+                // Add the status table to the document
+                document.Add(statusTable);
+
+                // Add spacing row
+                document.Add(new Paragraph("\n"));
+
+                // Create a new table for department-specific counts
+                PdfPTable departmentTable = new PdfPTable(columnWidths);
+                departmentTable.WidthPercentage = 100; // page width
+      
 
                 // Close the Document
                 document.Close();
@@ -873,6 +950,44 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 Response.AppendHeader("Content-Disposition", "attachment; filename=AppointmentReport.pdf");
                 Response.BinaryWrite(memoryStream.ToArray());
                 Response.End();
+            }
+        }
+
+
+
+        // Helper method to count appointments based on status
+        private int CountAppointments(DataTable dt, string status)
+        {
+            return dt.AsEnumerable().Count(r => r.Field<string>("appointment_status") == status);
+        }
+
+        // Helper method to get column header text
+        private string GetColumnHeader(string columnName)
+        {
+            switch (columnName)
+            {
+                case "student_ID":
+                    return "Student";
+                case "course_year":
+                    return "Year Level";
+                default:
+                    return columnName;
+            }
+        }
+
+        // Helper method to get cell data with special formatting
+        private string GetCellData(DataColumn column, object cellValue)
+        {
+            switch (column.ColumnName)
+            {
+                case "student_ID":
+                    // If the value is a number, display "Student"
+                    return int.TryParse(cellValue.ToString(), out _) ? "Student" : cellValue.ToString();
+                case "course_year":
+                    // Rename the "course_year" column to "Year Level"
+                    return cellValue.ToString();
+                default:
+                    return cellValue.ToString();
             }
         }
 
@@ -964,13 +1079,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             // End the response
             Response.End();
         }
-
-        private int CountAppointments(DataTable dt, string status)
-        {
-            return dt.AsEnumerable().Count(row => row.Field<string>("appointment_status") == status);
-        }
-
-
 
 
     }

@@ -1,28 +1,34 @@
 ﻿.navbar {
     background-color: #003366 !important;
 }
+
 .navbar-brand {
     color: white !important;
     font-size: 25px;
     letter-spacing: 5px;
     font-weight: 500;
 }
+
 .navbar-nav a {
     color: white;
 }
-.navbar-nav a:hover {
-    color: #0067ce;
+
+    .navbar-nav a:hover {
+        color: #0067ce;
+    }
+
+.navbar-nav button {
+    color: white;
+    font-weight: 500;
 }
-.navbar-nav button{
-    color:white;
-    font-weight:500;
-}
+
 .homeSection {
     height: 750px !important;
     background-image: url('../../images/model-flip1.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .hLeft-cont {
     margin-left: 30px;
     height: 100%;
@@ -30,11 +36,13 @@
     flex-direction: column; /* Stack elements vertically */
     justify-content: center; /* Center vertically */
 }
+
 .hLeft h1 {
     font-size: 50px;
     font-weight: 600;
     letter-spacing: 2px;
 }
+
 .exploreBtn {
     font-size: 18px; /* Adjust button font size as needed */
     background-color: #003366; /* Change button background color as needed */
@@ -43,16 +51,19 @@
     border: none; /* Remove button border if necessary */
     cursor: pointer;
 }
-.exploreBtn:hover{
-    color: white;
-    background-color: #0067ce;
-}
+
+    .exploreBtn:hover {
+        color: white;
+        background-color: #0067ce;
+    }
+
 .divider {
     width: 80%;
     height: 3px;
     background-color: #808080; /* You can adjust the color as needed */
     margin: 10px 0; /* Adjust the margin to control the space between elements */
 }
+
 @media screen and (max-width: 995px) {
     .divider {
         width: 100%;
@@ -60,67 +71,74 @@
         background-color: #808080; /* You can adjust the color as needed */
         margin: 10px 0;
     }
-    .hLeft{
-        display:flex;
-        flex-direction:column;
-        text-align:center;
-        align-items:center;
-        justify-content:center;
+
+    .hLeft {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
+
     .button-area {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    .homeSection{
 
+    .homeSection {
     }
-    .homeSection::before {
-        /*background-image: url('../../images/model-flip.png');
+
+        .homeSection::before {
+            /*background-image: url('../../images/model-flip.png');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;*/
-        content: "";
-        background-image: url('../../images/model-flip.png');
-        background-size: cover;
-        opacity: 0.5;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
-
+            content: "";
+            background-image: url('../../images/model-flip.png');
+            background-size: cover;
+            opacity: 0.5;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 }
+
 .featureSection {
     height: auto;
     padding-bottom: 20px;
     background-color: #003366 !important;
 }
-.featHeader{
-    text-align:center;
+
+.featHeader {
+    text-align: center;
     font-size: 35px;
     letter-spacing: 3px;
     color: white;
 }
+
 .customImg {
-    width:auto;
+    width: auto;
     height: 200px;
 }
-.tempIcons{
+
+.tempIcons {
     height: auto;
     width: 150px;
-    display:flex;
+    display: flex;
 }
-.card-body{
+
+.card-body {
     min-height: 100px;
 }
 /*  section */
 
 .services {
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 .section-bg {
@@ -279,103 +297,112 @@
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
-.team{
+.team {
     padding: 10px;
 }
-.team .member {
-    position: relative;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    border-radius: 5px;
-    background: #fff;
-    transition: 0.5s;
-    height: 100%;
-}
 
-    .team .member .pic {
-        overflow: hidden;
-        width: 180px;
-        border-radius: 50%;
-    }
-
-        .team .member .pic img {
-            transition: ease-in-out 0.3s;
-        }
-
-    .team .member:hover {
-        transform: translateY(-10px);
-    }
-
-    .team .member .member-info {
-        padding-left: 30px;
-    }
-
-    .team .member h4 {
-        font-weight: 700;
-        margin-bottom: 5px;
-        font-size: 20px;
-        color: #37517e;
-    }
-
-    .team .member span {
-        display: block;
-        font-size: 15px;
-        padding-bottom: 10px;
+    .team .member {
         position: relative;
-        font-weight: 500;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        border-radius: 5px;
+        background: #fff;
+        transition: 0.5s;
+        height: 100%;
     }
 
-        .team .member span::after {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 50px;
-            height: 1px;
-            background: #cbd6e9;
-            bottom: 0;
-            left: 0;
+        .team .member .pic {
+            overflow: hidden;
+            width: 180px; /* Set the default width for all pics */
+            height: 180px; /* Set the default height for all pics */
         }
 
-    .team .member p {
-        margin: 10px 0 0 0;
-        font-size: 14px;
-    }
+            .team .member .pic img {
+                transition: ease-in-out 0.3s;
+                overflow: hidden;
+                width: 180px; /* Set the default width for all pics */
+                height: 180px; /* Set the default height for all pics */
+            }
+            .pic img{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
 
-    .team .member .social {
-        margin-top: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
+        .team .member:hover {
+            transform: translateY(-10px);
+        }
 
-        .team .member .social a {
-            transition: ease-in-out 0.3s;
+        .team .member .member-info {
+            padding-left: 30px;
+        }
+
+        .team .member h4 {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 20px;
+            color: #37517e;
+        }
+
+        .team .member span {
+            display: block;
+            font-size: 15px;
+            padding-bottom: 10px;
+            position: relative;
+            font-weight: 500;
+        }
+
+            .team .member span::after {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 50px;
+                height: 1px;
+                background: #cbd6e9;
+                bottom: 0;
+                left: 0;
+            }
+
+        .team .member p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+        }
+
+        .team .member .social {
+            margin-top: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50px;
-            width: 32px;
-            height: 32px;
-            background: #eff2f8;
+            justify-content: flex-start;
         }
 
-            .team .member .social a i {
-                color: #37517e;
-                font-size: 16px;
-                margin: 0 2px;
+            .team .member .social a {
+                transition: ease-in-out 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+                width: 32px;
+                height: 32px;
+                background: #eff2f8;
             }
 
-            .team .member .social a:hover {
-                background: #47b2e4;
-            }
-
-                .team .member .social a:hover i {
-                    color: #fff;
+                .team .member .social a i {
+                    color: #37517e;
+                    font-size: 16px;
+                    margin: 0 2px;
                 }
 
-            .team .member .social a + a {
-                margin-left: 8px;
-            }
+                .team .member .social a:hover {
+                    background: #47b2e4;
+                }
+
+                    .team .member .social a:hover i {
+                        color: #fff;
+                    }
+
+                .team .member .social a + a {
+                    margin-left: 8px;
+                }
 
 /* Footer */
 

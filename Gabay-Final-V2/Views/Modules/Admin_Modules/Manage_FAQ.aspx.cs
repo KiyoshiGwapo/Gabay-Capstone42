@@ -5,13 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
 
 namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 {
     public partial class Manage_FAQ : System.Web.UI.Page
     {
-        private static readonly string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
+        private string connectionString = "Data Source=DESKTOP-6DAE04O\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,20 +37,35 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
         protected void btnAddFAQ_Click(object sender, EventArgs e)
         {
-            string newQuestion = txtNewQuestion.Text;
-            string newAnswer = txtNewAnswer.Text;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO FAQTable (Question, Answer) VALUES (@Question, @Answer)", connection);
-                cmd.Parameters.AddWithValue("@Question", newQuestion);
-                cmd.Parameters.AddWithValue("@Answer", newAnswer);
-                cmd.ExecuteNonQuery();
-            }
+                string newQuestion = txtNewQuestion.Text;
+                string newAnswer = txtNewAnswer.Text;
 
-            // Reload FAQs after adding a new one
-            LoadFAQs();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO FAQTable (Question, Answer) VALUES (@Question, @Answer)", connection);
+                    cmd.Parameters.AddWithValue("@Question", newQuestion);
+                    cmd.Parameters.AddWithValue("@Answer", newAnswer);
+                    cmd.ExecuteNonQuery();
+                }
+                // Reload FAQs after adding a new one
+                LoadFAQs();
+
+                string successMessage = "Question Added successfully.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+            }
+            catch  (Exception ex)
+            {
+                string errorMessage = "An error occurred while adding a question: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+            
+
+           
         }
 
         protected void FAQRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)

@@ -60,22 +60,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
         protected global::System.Web.UI.WebControls.Label StudentPendingUserCountLabel;
 
         /// <summary>
-        /// BarStudentsCcsCountLabel control.
+        /// BarStudentsUserCountLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField BarStudentsCcsCountLabel;
-
-        /// <summary>
-        /// BarStudentsEngineerUserCountLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField BarStudentsEngineerUserCountLabel;
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsUserCountLabel;
 
         /// <summary>
         /// BarStudentsNursingUserCountLabel control.
@@ -85,41 +76,5 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField BarStudentsNursingUserCountLabel;
-
-        /// <summary>
-        /// BarStudentsCustomUserCountLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField BarStudentsCustomUserCountLabel;
-
-        /// <summary>
-        /// BarStudentsNauticalUserCountLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField BarStudentsNauticalUserCountLabel;
-
-        /// <summary>
-        /// BarStudentsMarineEUserCountLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField BarStudentsMarineEUserCountLabel;
-
-        /// <summary>
-        /// BarStudentsCrimUserCountLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField BarStudentsCrimUserCountLabel;
     }
 }

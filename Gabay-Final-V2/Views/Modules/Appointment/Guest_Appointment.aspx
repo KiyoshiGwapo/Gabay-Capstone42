@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Guest_Homepage/Guest_Master.Master" AutoEventWireup="true" CodeBehind="Guest_Appointment.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Appointment.Guest_Appointment" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Guest_Homepage/Guest_Master.Master" AutoEventWireup="true" CodeBehind="Guest_Appointment.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Appointment.Guest_Appointment" ViewStateMode="Enabled" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         /* Custom CSS for the form */
         .form-wrapper {
@@ -60,30 +59,26 @@
             }
 
         /* Custom styles for status labels */
-        .status-not-submitted {
-            color: red;
-        }
+    .status-not-submitted {
+        color: red;
+    }
 
-        .status-submitted {
-            color: green;
-        }
-
-        .img-placeholder {
-            width: 100px;
-            height: auto;
-        }
-
-        .reschedBtn {
-            margin-left: 5px;
-        }
-
-            .reschedBtn:hover {
-                opacity: 80%;
-            }
-
-        .acceptBtn {
-            width: 160px;
-        }
+    .status-submitted {
+        color: green;
+    }
+    .img-placeholder{
+        width: 100px;
+        height: auto;
+    }
+    .reschedBtn{
+        margin-left:5px;
+    }
+    .reschedBtn:hover{
+        opacity:80%;
+    }
+    .acceptBtn{
+        width: 160px;
+    }
     </style>
 
     <div class="form-wrapper">
@@ -96,7 +91,7 @@
                     <label for="DepartmentDropDown" class="form-label">Department</label>
                     <asp:DropDownList ID="departmentChoices" CssClass="form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True" OnSelectedIndexChanged="departmentChoices_SelectedIndexChanged">
                         <asp:ListItem Selected="True" Value="">
-							Choose a Department...
+                            Choose a Department...
                         </asp:ListItem>
                     </asp:DropDownList>
 
@@ -114,23 +109,30 @@
                     <asp:TextBox ID="ContactN" runat="server" CssClass="form-control text-input" placeholder="Contact Number" type="tel"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <div class="row">
-                    <div class="col">
-                        <label for="selectedDate" class="form-label">Date</label>
-                        <div class="input-group">
-                            <input type="date" id="date" runat="server" name="date" class="form-control text-input" />
-                            <asp:Button ID="btnUpdateAvailableTimes" runat="server" Text="Update" OnClick="btnUpdateAvailableTimes_Click" CssClass="btn btn-primary" />
+                    <div class="row">		
+                        <div class="col">
+                            <label for="selectedDate" class="form-label">Date</label>
+                            <asp:TextBox ID="date" runat="server" TextMode="Date" CssClass="form-control text-input" OnTextChanged="date_TextChanged" AutoPostBack="True"></asp:TextBox>
+                            <asp:HiddenField ID="SelectedDate" runat="server" />
                         </div>
-                    </div>
+                        <asp:HiddenField ID="deptID" runat="server" />
                         <div class="col">
                             <label for="time" class="form-label">Time</label>
                             <asp:DropDownList ID="time" runat="server" CssClass="form-control text-input">
                                 <asp:ListItem Value="" Selected="True">Select Available Time</asp:ListItem>
-                                <%--available times will be dynamically populated here --%>
+                                <asp:ListItem Value="8:00 AM">8:00 AM</asp:ListItem>
+                                <asp:ListItem Value="9:00 AM">9:00 AM</asp:ListItem>
+                                <asp:ListItem Value="10:00 AM">10:00 AM</asp:ListItem>
+                                <asp:ListItem Value="11:00 AM">11:00 AM</asp:ListItem>
+                                <asp:ListItem Value="1:00 PM">1:00 PM</asp:ListItem>
+                                <asp:ListItem Value="2:00 PM">2:00 PM</asp:ListItem>
+                                <asp:ListItem Value="3:00 PM">3:00 PM</asp:ListItem>
+                                <asp:ListItem Value="4:00 PM">4:00 PM</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="Message" class="form-label">Concern</label>
                     <asp:TextBox ID="Message" runat="server" TextMode="MultiLine" Rows="6" Columns="30" CssClass="form-control text-input" placeholder="Your Concern"></asp:TextBox>
@@ -161,7 +163,6 @@
                     background-color: skyblue;
                     margin-left: 10px;
                 }
-
                 .auto-style1 {
                     border-style: none;
                     border-color: inherit;
@@ -232,18 +233,14 @@
                                 </div>
                                 <div class="text-center mb-3">
                                     <p class="fs-5 fw-bold">Heads up!</p>
-                                    <span>Hello,
-                                        <asp:Label ID="AppointeeName" runat="server" Text="Label"></asp:Label></span>
+                                    <span>Hello, <asp:Label ID="AppointeeName" runat="server" Text="Label"></asp:Label></span>
                                     <p>Your appointment date has been changed, would you like to accept this new date?</p>
                                     <span class="mb-3">
                                         <asp:Label ID="ReschedDate" runat="server" Text="Date" CssClass="fw-bold"></asp:Label>
-                                        <span>at </span>
+                                        <span> at </span>
                                         <asp:Label ID="ReschedTime" runat="server" Text="Time" CssClass="fw-bold"></asp:Label>
                                     </span>
-                                    <p>
-                                        Appointment ID:
-                                        <asp:Label ID="AppointmentID" runat="server" Text="Label" CssClass="fw-bold"></asp:Label>
-                                    </p>
+                                    <p>Appointment ID: <asp:Label ID="AppointmentID" runat="server" Text="Label" CssClass="fw-bold"></asp:Label></p>
                                 </div>
                                 <div class="d-flex justify-content-center ">
                                     <asp:LinkButton ID="acceptBtn" runat="server" CssClass="btn bg-success text-light reschedBtn acceptBtn" OnClick="acceptBtn_Click">Accept</asp:LinkButton>
@@ -256,19 +253,19 @@
             </div>
         </div>
     </div>
-
+    
     <div class="modal fade" id="rejectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <asp:Button ID="rejectAppmntCls" runat="server" CssClass="btn-close" OnClick="rejectAppmntCls_Click" />
+                    <asp:Button ID="rejectAppmntCls" runat="server" CssClass="btn-close" OnClick="rejectAppmntCls_Click"/>
                 </div>
                 <div class="modal-body">
                     <p>Are you sure to reject this appoint?</p>
                     <span>Rejecting this appointment means your appointment ticket will be closed</span>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="cancel" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="cancel_Click" />
+                    <asp:Button ID="cancel" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="cancel_Click"/>
                     <asp:Button ID="rejectAppmntBtn" runat="server" Text="Proceed" CssClass="btn btn-primary text-light" OnClick="rejectAppmntBtn_Click" />
                 </div>
             </div>
@@ -316,11 +313,11 @@
         </div>
     </div>
     <asp:HiddenField ID="FormSubmittedHiddenField" runat="server" Value="false" />
-    <script>
-        function getAppointmentID(id) {
-            document.getElementById('<%= HiddenField1.ClientID %>').value = id;
-        }
-    </script>
+     <script>
+         function getAppointmentID(id) {
+             document.getElementById('<%= HiddenField1.ClientID %>').value = id;
+         }
+     </script>
     <script>
         function openModal() {
             $('#exampleModal').modal('show');

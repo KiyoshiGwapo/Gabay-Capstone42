@@ -147,8 +147,12 @@
     <Content Include="Prototype\WebForm15.aspx" />
     <Content Include="Prototype\WebForm16.aspx" />
     <Content Include="Prototype\WebForm17.aspx" />
+    <Content Include="Prototype\WebForm18.aspx" />
+    <Content Include="Prototype\WebForm19.aspx" />
     <Content Include="Prototype\WebForm2.aspx" />
     <Content Include="Prototype\ManageStudent.aspx" />
+    <Content Include="Prototype\WebForm20.aspx" />
+    <Content Include="Prototype\WebForm21.aspx" />
     <Content Include="Prototype\WebForm4.aspx" />
     <Content Include="Prototype\WebForm5.aspx" />
     <Content Include="Prototype\WebForm6.aspx" />
@@ -156,6 +160,7 @@
     <Content Include="Prototype\WebForm8.aspx" />
     <Content Include="Prototype\WebForm9.aspx" />
     <Content Include="Resources\CustomJS\AcadCalendar\AcadCalendarJS.js" />
+    <Content Include="Resources\CustomJS\bootstrap-icons.css" />
     <Content Include="Resources\CustomJS\bootstrap.min.js" />
     <Content Include="Resources\CustomJS\Chatbot\AppointmentJS.js" />
     <Content Include="Resources\CustomJS\Chatbot\ChatbotJS.js" />
@@ -2241,6 +2246,7 @@
     <Content Include="Resources\CustomStyleSheet\Chatbot\ManageChatbotStyle.css" />
     <Content Include="Resources\CustomStyleSheet\DeptInfo\DeptInfo.css" />
     <Content Include="Resources\CustomStyleSheet\Dept_profile\DeptProfStyle.css" />
+    <Content Include="Resources\CustomStyleSheet\GuestDashboard.css" />
     <Content Include="Resources\CustomStyleSheet\Landing_Page\LandingPageStyle.css" />
     <Content Include="Resources\CustomStyleSheet\PendingPageStyle.css" />
     <Content Include="Resources\CustomStyleSheet\RegistrationStyle.css" />
@@ -2248,7 +2254,15 @@
     <Content Include="Resources\Images\tempIcons\ccs logo.png" />
     <Content Include="Resources\Images\tempIcons\database.png" />
     <Content Include="Resources\Images\tempIcons\error.png" />
+    <Content Include="Resources\Images\tempIcons\model2.png" />
     <Content Include="Resources\Images\tempIcons\reschedule-icon-6.jpg" />
+    <Content Include="Resources\Images\tempIcons\students.png" />
+    <Content Include="Resources\Images\tempIcons\teachers.png" />
+    <Content Include="Resources\Images\tempIcons\teamPics\Arnan.jpg" />
+    <Content Include="Resources\Images\tempIcons\teamPics\Jeremiah.jpg" />
+    <Content Include="Resources\Images\tempIcons\teamPics\Kent %282%29.jpg" />
+    <Content Include="Resources\Images\tempIcons\teamPics\luab.jpg" />
+    <Content Include="Resources\Images\tempIcons\teamPics\rowel.png" />
     <Content Include="Resources\Images\tempIcons\verified.png" />
     <Content Include="Resources\Images\uclm.png" />
     <Content Include="Resources\Images\buildings\1099451.jpg" />
@@ -2332,6 +2346,7 @@
     <Content Include="Views\LoginPages\Student_login.aspx" />
     <Content Include="Views\Modules\Academic_Calendar\Student_AcadCalen.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_AcadCalen.aspx" />
+    <Content Include="Views\Modules\Admin_Modules\Manage_Announcement.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_CampusInfo.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_Chatbot.aspx" />
     <Content Include="Views\Modules\Admin_Modules\Manage_Department.aspx" />
@@ -2347,7 +2362,6 @@
     <Content Include="Views\Modules\Chatbot\Department_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Guest_Chatbot.aspx" />
     <Content Include="Views\Modules\Chatbot\Student_Chatbot.aspx" />
-    <Content Include="Views\Modules\Department_Info\guest f.txt" />
     <Content Include="Views\Modules\Department_Info\Guest_deptInfo.aspx" />
     <Content Include="Views\Modules\Department_Info\Student_deptInfo.aspx" />
     <Content Include="Views\Modules\FAQ\Guest_FAQ.aspx" />
@@ -2446,6 +2460,20 @@
     <Compile Include="Prototype\WebForm17.aspx.designer.cs">
       <DependentUpon>WebForm17.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Prototype\WebForm18.aspx.cs">
+      <DependentUpon>WebForm18.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm18.aspx.designer.cs">
+      <DependentUpon>WebForm18.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm19.aspx.cs">
+      <DependentUpon>WebForm19.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm19.aspx.designer.cs">
+      <DependentUpon>WebForm19.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Prototype\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2459,6 +2487,20 @@
     </Compile>
     <Compile Include="Prototype\ManageStudent.aspx.designer.cs">
       <DependentUpon>ManageStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm20.aspx.cs">
+      <DependentUpon>WebForm20.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm20.aspx.designer.cs">
+      <DependentUpon>WebForm20.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\WebForm21.aspx.cs">
+      <DependentUpon>WebForm21.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\WebForm21.aspx.designer.cs">
+      <DependentUpon>WebForm21.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\WebForm4.aspx.cs">
       <DependentUpon>WebForm4.aspx</DependentUpon>
@@ -2627,6 +2669,13 @@
     </Compile>
     <Compile Include="Views\Modules\Admin_Modules\Manage_AcadCalen.aspx.designer.cs">
       <DependentUpon>Manage_AcadCalen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_Announcement.aspx.cs">
+      <DependentUpon>Manage_Announcement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Modules\Admin_Modules\Manage_Announcement.aspx.designer.cs">
+      <DependentUpon>Manage_Announcement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Modules\Admin_Modules\Manage_CampusInfo.aspx.cs">
       <DependentUpon>Manage_CampusInfo.aspx</DependentUpon>
@@ -2889,7 +2938,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\tempPDF\" />
-    <Folder Include="Views\DashBoard\Department_Homepage\Uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,14 +6,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.IO;
+using System.Web.UI.WebControls;
 
 namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 {
     public partial class Department_profile : System.Web.UI.Page
     {
-        // Property to hold the list of file paths
         string connection = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +27,46 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 
             }
 
+        }
+
+        //// UPLOAD DEPARTMENT
+        //protected void BtnUpload_Click(object sender, EventArgs e)
+        //{
+        //    if (fileUpload.HasFile)
+        //    {
+        //        try
+        //        {
+        //            // Get the file name and data
+        //            string fileName = !string.IsNullOrEmpty(txtFileName.Text) ? txtFileName.Text : Path.GetFileName(fileUpload.FileName);
+        //            byte[] fileData = fileUpload.FileBytes;
+
+        //            // Insert the file data into the database
+        //            InsertFileData(fileName, fileData);
+
+        //            // Display a success message or perform any other actions
+        //            Response.Redirect(Request.RawUrl);
+        //        }
+        //        catch (Exception)
+        //        {
+        //            // Handle any exceptions or display an error message
+        //        }
+        //    }
+        //}
+        //INSET DEPARTMENT
+        private void InsertFileData(string fileName, byte[] fileData)
+        {
+         //   using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+               // connection.Open();
+                //string insertQuery = "INSERT INTO UploadedFiles (FileName, FileData) VALUES (@FileName, @FileData)";
+
+          //      using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                {
+              //      command.Parameters.AddWithValue("@FileName", fileName);
+            //        command.Parameters.AddWithValue("@FileData", fileData);
+              //      command.ExecuteNonQuery();
+                }
+            }
         }
         public void loadGeneralInfo(int sessionID)
         {
@@ -172,6 +211,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 conn.Close();
             }
         }
+       
 
         protected void updBtnDeptInfo_Click(object sender, EventArgs e)
         {
@@ -375,7 +415,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         //PARA SA KATUNG FILES NANI
         private string GetLoggedInUserID()
         {
-
             return Session["user_ID"]?.ToString();
         }
 
@@ -392,9 +431,10 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 
                     // Get the user_ID from the session
                     int deptSessionID = Convert.ToInt32(Session["user_ID"]);
+                    int deptID = 2024;
 
                     // Insert the file data into the database along with user_ID
-                    InsertFileData(fileName, fileData, deptSessionID);
+                    InsertFileData(fileName, fileData, deptSessionID, deptID);
 
                     // Display a success message or perform any other actions
                     Response.Redirect(Request.RawUrl);
@@ -412,18 +452,19 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 
 
         // Modify the UpdateFileData method
-        private void InsertFileData(string fileName, byte[] fileData, int userId)
+        private void InsertFileData(string fileName, byte[] fileData, int userId, int deptID)
         {
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 conn.Open();
-                string insertQuery = "INSERT INTO DepartmentFiles (FileName, FileData, user_ID) VALUES (@FileName, @FileData, @user_ID)";
+                string insertQuery = "INSERT INTO DepartmentFiles (FileName, FileData, user_ID, department_ID) VALUES (@FileName, @FileData, @user_ID, @deptID)";
 
                 using (SqlCommand command = new SqlCommand(insertQuery, conn))
                 {
                     command.Parameters.AddWithValue("@FileName", fileName);
                     command.Parameters.AddWithValue("@FileData", fileData);
                     command.Parameters.AddWithValue("@user_ID", userId);
+                    command.Parameters.AddWithValue("@deptID", deptID);
                     command.ExecuteNonQuery();
                 }
             }
@@ -669,9 +710,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 }
             }
         }
-
-
-
 
     }
 }

@@ -33,7 +33,7 @@ namespace Gabay_Final_V2.Views.LoginPages
                 }
                 else
                 {
-                    if (loginStatus == "pending")
+                    if (loginStatus == "pending" || loginStatus == "deactivate")
                     {
                         pendingError.Attributes["class"] = "alert alert-danger";
                         errorDiv.Attributes["class"] = "alert alert-danger d-none";

@@ -16,6 +16,11 @@ using Gabay_Final_V2.Models;
 using System.Web.UI.WebControls;
 using System.Windows;
 using static iTextSharp.text.pdf.PdfDocument;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
+using System.Linq;
+
 
 namespace Gabay_Final_V2.Views.Modules.Appointment
 {
@@ -65,7 +70,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         row["role"] = "guest";
                     }
                 }
-
+               
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
             }
@@ -100,7 +105,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             return studentTable;
         }
 
-        public bool LoadAppointmentModal(int AppointmentID, out string appointmentStats)
+        public bool LoadAppointmentModal(int AppointmentID,out string appointmentStats)
         {
             appointmentStats = null;
             // Retrieve the User_ID from the session
@@ -139,9 +144,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             int hiddenID = Convert.ToInt32(HiddenFieldAppointment.Value);
 
-            if (LoadAppointmentModal(hiddenID, out string appointmentStats))
+            if (LoadAppointmentModal(hiddenID,out string appointmentStats))
             {
-                if (appointmentStats == "approved")
+                if( appointmentStats == "approved")
                 {
                     approved.Attributes["class"] = "col-8 mb-2 d-grid d-none";
                     reject.Attributes["class"] = "col-4 mb-2 d-grid d-none";
@@ -423,7 +428,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                    $"$('#errorMessage').text('{ErrorMessage}'); $('#errorModal').modal('show');", true);
             }
-
+            
         }
 
         public void approveAppointment(int AppointmentID)
@@ -695,18 +700,18 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
                     $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 string errorMessage = ex.Message;
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                     $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
-
+            
         }
 
         public void servedAppointment(int AppointmentID)
         {
-            using (SqlConnection conn = new SqlConnection(connection))
+            using(SqlConnection conn = new SqlConnection(connection))
             {
                 string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
                 conn.Open();
@@ -789,5 +794,184 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 conn.Close();
             }
         }
+
+
+        //Generate Reports
+        protected void btnDownloadReports_Click(object sender, EventArgs e)
+        {
+            string reportType = ddlReportType.SelectedValue;
+
+            if (reportType == "Excel")
+            {
+                ExportToExcel();
+            }
+            else if (reportType == "PDF")
+            {
+                ExportToPDF();
+            }
+        }
+
+        private void ExportToPDF()
+        {
+            DataTable dt = fetchAppointBasedOnDepartment(Convert.ToInt32(Session["user_ID"]));
+
+            // Create a MemoryStream to store the PDF content
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                // Create a Document object
+                Document document = new Document();
+
+                // Create a PdfWriter instance with the MemoryStream
+                PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
+
+                // Open the Document for writing
+                document.Open();
+
+                // Create a PdfPTable with the same number of columns as your DataTable
+                PdfPTable table = new PdfPTable(dt.Columns.Count);
+
+                // Add column headers to the table
+                foreach (DataColumn column in dt.Columns)
+                {
+                    table.AddCell(column.ColumnName);
+                }
+
+                // Add data rows to the table
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (var cellValue in row.ItemArray)
+                    {
+                        table.AddCell(cellValue.ToString());
+                    }
+                }
+
+                // Add a row for counts
+                PdfPCell countCell = new PdfPCell(new Phrase("Counts"));
+                countCell.Colspan = dt.Columns.Count;
+                countCell.HorizontalAlignment = 1; // 0=Left, 1=Center, 2=Right
+                table.AddCell(countCell);
+
+                int approvedCount = CountAppointments(dt, "approved");
+                int rescheduledCount = CountAppointments(dt, "rescheduled");
+                int servedCount = CountAppointments(dt, "served");
+                int deniedCount = CountAppointments(dt, "denied");
+
+                // Add counts to the table
+                table.AddCell($"Approved: {approvedCount}");
+                table.AddCell($"Rescheduled: {rescheduledCount}");
+                table.AddCell($"Served: {servedCount}");
+                table.AddCell($"Denied: {deniedCount}");
+
+                // Add the table to the document
+                document.Add(table);
+
+                // Close the Document
+                document.Close();
+
+                // Transmit the PDF file to the response
+                Response.ContentType = "application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=AppointmentReport.pdf");
+                Response.BinaryWrite(memoryStream.ToArray());
+                Response.End();
+            }
+        }
+
+
+        private void ExportToExcel()
+        {
+            DataTable dt = fetchAppointBasedOnDepartment(Convert.ToInt32(Session["user_ID"]));
+
+            // Clear the response content
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=AppointmentReport.xls");
+            Response.ContentType = "application/ms-excel";
+
+            // Create a StringWriter
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+
+            // Create a Table
+            Table table = new Table();
+
+            // Add the header row to the table
+            TableRow headerRow = new TableRow();
+            foreach (DataColumn column in dt.Columns)
+            {
+                TableCell cell = new TableCell();
+                cell.Text = column.ColumnName;
+                headerRow.Cells.Add(cell);
+            }
+            table.Rows.Add(headerRow);
+
+            // Add data rows to the table
+            foreach (DataRow row in dt.Rows)
+            {
+                TableRow dataRow = new TableRow();
+                foreach (var cellValue in row.ItemArray)
+                {
+                    TableCell cell = new TableCell();
+                    cell.Text = cellValue.ToString();
+                    dataRow.Cells.Add(cell);
+                }
+                table.Rows.Add(dataRow);
+            }
+
+            // Add a row for counts
+            TableRow countRow = new TableRow();
+            TableCell countCell = new TableCell();
+            countCell.Text = "Counts";
+            countCell.ColumnSpan = dt.Columns.Count;
+            countRow.Cells.Add(countCell);
+            table.Rows.Add(countRow);
+
+            int approvedCount = CountAppointments(dt, "approved");
+            int rescheduledCount = CountAppointments(dt, "rescheduled");
+            int servedCount = CountAppointments(dt, "served");
+            int deniedCount = CountAppointments(dt, "denied");
+
+            // Add counts to the table
+            TableRow approvedCountRow = new TableRow();
+            TableCell approvedCountCell = new TableCell();
+            approvedCountCell.Text = $"Approved: {approvedCount}";
+            approvedCountRow.Cells.Add(approvedCountCell);
+            table.Rows.Add(approvedCountRow);
+
+            TableRow rescheduledCountRow = new TableRow();
+            TableCell rescheduledCountCell = new TableCell();
+            rescheduledCountCell.Text = $"Rescheduled: {rescheduledCount}";
+            rescheduledCountRow.Cells.Add(rescheduledCountCell);
+            table.Rows.Add(rescheduledCountRow);
+
+            TableRow servedCountRow = new TableRow();
+            TableCell servedCountCell = new TableCell();
+            servedCountCell.Text = $"Served: {servedCount}";
+            servedCountRow.Cells.Add(servedCountCell);
+            table.Rows.Add(servedCountRow);
+
+            TableRow deniedCountRow = new TableRow();
+            TableCell deniedCountCell = new TableCell();
+            deniedCountCell.Text = $"Denied: {deniedCount}";
+            deniedCountRow.Cells.Add(deniedCountCell);
+            table.Rows.Add(deniedCountRow);
+
+            // Render the table to the StringWriter
+            table.RenderControl(htw);
+
+            // Write the content to the response
+            Response.Write(sw.ToString());
+
+            // End the response
+            Response.End();
+        }
+
+        private int CountAppointments(DataTable dt, string status)
+        {
+            return dt.AsEnumerable().Count(row => row.Field<string>("appointment_status") == status);
+        }
+
+
+
+
     }
 }

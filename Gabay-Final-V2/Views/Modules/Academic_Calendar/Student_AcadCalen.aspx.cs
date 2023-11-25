@@ -7,15 +7,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Data.SqlClient;
-using System.Configuration;
 using static Gabay_Final_V2.Models.AcadCalen_model;
 
 namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
 {
     public partial class Student_AcadCalen : System.Web.UI.Page
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

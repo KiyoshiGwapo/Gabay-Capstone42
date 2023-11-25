@@ -28,9 +28,9 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 int user_ID = Convert.ToInt32(Session["user_ID"]);
                 string query = @"SELECT A.*
                      FROM Announcement A
-                     INNER JOIN department D ON A.User_ID = D.user_ID
-                     INNER JOIN student S ON D.ID_dept = S.department_ID
-                     WHERE S.user_ID = @user_ID";
+                     LEFT JOIN department D ON A.User_ID = D.user_ID
+                     LEFT JOIN student S ON D.ID_dept = S.department_ID
+                     WHERE S.user_ID = @user_ID OR A.User_ID = 4052";
 
                 using (SqlConnection connection = new SqlConnection(connStr))
                 {

@@ -21,16 +21,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         public static string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
             if (!IsPostBack)
             {
-
+                UpdateDateOptions();
                 // Populate the department dropdown list
                 ddlDept(departmentChoices);
-
-                // Update available times based on the default date and department
-                UpdateAvailableTimes();
-
             }
         }
 
@@ -87,17 +83,18 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 string fullName = FullName.Text;
                 string contactNumber = ContactN.Text;
                 string selectedTime = time.SelectedValue;
-                string selectedDate = date.Value;
+                string selectedDate = date.Text;
                 string deptName = departmentChoices.SelectedItem.Text; // Get the selected department name
                 string concern = Message.Text; // Get the concern/message
 
                 // Additional data
                 string status = "pending";
                 string studentID = "guest";
+                string notificationStatus = "UNREAD";
                 string courseYear = "4";
 
                 // Insert data into the "appointment" table
-                int appointmentID = InsertAppointmentRecord(fullName, email, studentID, courseYear, contactNumber, selectedDate, selectedTime, deptName, concern, status);
+                int appointmentID = InsertAppointmentRecord(fullName, email, studentID, courseYear, contactNumber, selectedDate, selectedTime, deptName, concern, status, notificationStatus);
 
                 if (appointmentID > 0)
                 {
@@ -113,20 +110,20 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     Email.Text = "";
                     ContactN.Text = "";
                     time.SelectedIndex = 0; // Reset the dropdown selection
-                    date.Value = "";
+                    date.Text = "";
                     departmentChoices.SelectedIndex = 0; // Reset the dropdown selection
                     Message.Text = "";
                 }
             }
         }
 
-        private int InsertAppointmentRecord(string fullName, string email, string studentID, string courseYear, string contactNumber, string selectedDate, string selectedTime, string deptName, string concern, string status)
+        private int InsertAppointmentRecord(string fullName, string email, string studentID, string courseYear, string contactNumber, string selectedDate, string selectedTime, string deptName, string concern, string status, string notificationStatus)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO appointment ([deptName], [full_name], [email], [student_ID], [course_year], [contactNumber], [appointment_date], [appointment_time], [concern], [appointment_status]) " +
-                    "VALUES (@DeptName, @FullName, @Email, @StudentID, @CourseYear, @ContactNumber, @SelectedDate, @SelectedTime, @Concern, @Status); SELECT SCOPE_IDENTITY()";
+                string query = "INSERT INTO appointment ([deptName], [full_name], [email], [student_ID], [course_year], [contactNumber], [appointment_date], [appointment_time], [concern], [appointment_status], [Notification]) " +
+                    "VALUES (@DeptName, @FullName, @Email, @StudentID, @CourseYear, @ContactNumber, @SelectedDate, @SelectedTime, @Concern, @Status, @Notif); SELECT SCOPE_IDENTITY()";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -140,6 +137,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     cmd.Parameters.AddWithValue("@SelectedTime", selectedTime);
                     cmd.Parameters.AddWithValue("@Concern", concern);
                     cmd.Parameters.AddWithValue("@Status", status);
+                    cmd.Parameters.AddWithValue("@Notif", notificationStatus);
 
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }
@@ -178,8 +176,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         <p><b>Concern:</b> {concern}</p>
                         </div>";
 
-            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
-
+            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
             logoImage.ContentId = "logo-image";
             logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
@@ -239,12 +236,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 string query = "SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(results);
-                    }
+                   cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
+                    
+                   using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                   {
+                     adapter.Fill(results);
+                   }
                 }
 
             }
@@ -257,10 +254,10 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             try
             {
                 int appointmentID = Convert.ToInt32(HiddenField1.Value);
-
-                if (reschedSchedule(appointmentID, out string appointmentStats, out string appointmentDate, out string appointmentTime, out string appoiteeName))
+               
+                if(reschedSchedule(appointmentID,out string appointmentStats, out string appointmentDate, out string appointmentTime, out string appoiteeName))
                 {
-                    if (appointmentStats == "reschedule")
+                    if(appointmentStats == "reschedule")
                     {
                         AppointmentID.Text = HiddenField1.Value.ToString();
                         ReschedDate.Text = appointmentDate;
@@ -276,21 +273,21 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                    $"$('#errorMessage').text('{ErrorMessage}'); $('#errorModal').modal('show');", true);
             }
-
+            
         }
 
-        public bool reschedSchedule(int appointmentID, out string appointmentStats, out string appointmentDate, out string appointmentTime, out string apppointeeName)
+        public bool reschedSchedule(int appointmentID,out string appointmentStats, out string appointmentDate, out string appointmentTime, out string apppointeeName)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using(SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "SELECT appointment_status, full_name, appointment_date, appointment_time FROM appointment WHERE ID_appointment = @AppointmentID";
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using(SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using(SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if(reader.Read())
                         {
                             appointmentStats = reader["appointment_status"].ToString();
                             DateTime date = (DateTime)reader["appointment_date"];
@@ -503,7 +500,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         public void rejectAppointment(int AppointmentID)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using(SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
                 conn.Open();
@@ -532,12 +529,42 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-        protected void departmentChoices_SelectedIndexChanged(object sender, EventArgs e)
+       
+
+        public string convertDeptIDtoName(string deptID)
         {
-            UpdateDateOptions();
-            DisableBookedTimes();
-            // Update available times when the department is changed
-            UpdateAvailableTimes();
+            string deptName = "";
+
+            // Convert deptID to integer
+            int convertedID = Convert.ToInt32(deptID);
+
+            // Use using statement to automatically close connection
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"SELECT dept_name FROM department WHERE ID_dept = @deptID";
+
+                // Use using statement to automatically close command
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    // Add parameter to the query
+                    cmd.Parameters.AddWithValue("@deptID", convertedID);
+
+                    // Execute the query and read the result
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Check if there are rows returned
+                        if (reader.Read())
+                        {
+                            // Retrieve the department name from the result
+                            deptName = reader["dept_name"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return deptName;
         }
 
         private void UpdateDateOptions()
@@ -546,143 +573,57 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             date.Attributes["min"] = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd");
         }
 
-        private void DisableBookedTimes()
+        protected void departmentChoices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Check the database for existing appointments on the selected date and disable booked times
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-
-                    string query = "SELECT appointment_time FROM appointment WHERE deptName = @DepartmentName AND appointment_date = @AppointmentDate";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@DepartmentName", departmentChoices.SelectedValue);
-                    cmd.Parameters.AddWithValue("@AppointmentDate", date.Value);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    // Loop through the results and disable corresponding times in the 'time' DropDownList
-                    while (reader.Read())
-                    {
-                        string bookedTime = reader["appointment_time"].ToString();
-                        ListItem item = time.Items.FindByValue(bookedTime);
-                        if (item != null)
-                        {
-                            item.Attributes["class"] = "disabled";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-        }
-
-        protected void btnUpdateAvailableTimes_Click(object sender, EventArgs e)
-        {
-            UpdateAvailableTimes();
-            DisableBookedTimes();
+            string departmentName = departmentChoices.SelectedValue;
+            deptID.Value = departmentName;
+            convertDeptIDtoName(deptID.Value);
         }
 
         protected void date_TextChanged(object sender, EventArgs e)
         {
-            DisableBookedTimes();
-            UpdateAvailableTimes();  // Call the function when the date is changed
+            string selectedDate = date.Text;
+            string selectedDept = deptID.Value;
+            
+            SelectedDate.Value = selectedDate;
+
+            checkAppointmentTime(convertDeptIDtoName(selectedDept), selectedDate);
         }
 
-        private void UpdateAvailableTimes()
+        public void checkAppointmentTime(string selectedDept, string selectedDate)
         {
-            // Get the selected date and department
-            string selectedDate = date.Value;
-            string selectedDepartment = departmentChoices.SelectedValue;
-
-            // Fetch available times based on the selected date and department from the database
-            List<string> availableTimes = GetAvailableTimes(selectedDate, selectedDepartment);
-
-            // Clear existing items and add the default "Select Available Time" item
-            time.Items.Clear();
-            time.Items.Add(new ListItem("Select Available Time", ""));
-
-            // Clear the disabled class for all items
-            foreach (ListItem item in time.Items)
-            {
-                item.Attributes.Remove("class");
-            }
-
-            // Add the available times to the dropdown
-            foreach (string timeSlot in availableTimes)
-            {
-                time.Items.Add(new ListItem(timeSlot, timeSlot));
-            }
-        }
-
-
-
-
-        private List<string> GetAvailableTimes(string selectedDate, string selectedDepartment)
-        {
-            List<string> allTimes = new List<string>
-    {
-        "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM",
-        "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"
-    };
-
-            // Fetch booked times from the database based on the selected date and department
-            List<string> bookedTimes = FetchBookedTimesFromDatabase(selectedDate, selectedDepartment);
-
-            // Calculate available times by excluding booked times
-            List<string> availableTimes = allTimes.Except(bookedTimes).ToList();
-
-            return availableTimes;
-        }
-
-        private List<string> FetchBookedTimesFromDatabase(string selectedDate, string selectedDepartment)
-        {
-            List<string> bookedTimes = new List<string>();
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                try
+                conn.Open();
+
+                string query = @"SELECT appointment_time from appointment
+                                 WHERE deptName = @selectedDept
+                                 AND appointment_date = @selectedDate
+                                 AND (appointment_status != 'rejected' AND appointment_status != 'served' AND appointment_status != 'no show')";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    conn.Open();
+                    cmd.Parameters.AddWithValue("@selectedDept", selectedDept);
+                    cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
 
-                    string query = "SELECT appointment_time FROM appointment WHERE deptName = @DepartmentName AND appointment_date = @AppointmentDate";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@DepartmentName", selectedDepartment);
-                        cmd.Parameters.AddWithValue("@AppointmentDate", selectedDate);
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        // Check if there are any rows in the result set
+                        if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
                                 string bookedTime = reader["appointment_time"].ToString();
-                                bookedTimes.Add(bookedTime);
+                                ListItem item = time.Items.FindByValue(bookedTime);
+                                if (item != null)
+                                {
+                                    item.Enabled = false;
+                                }
                             }
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    // Handle the exception (you can log or display an error message)
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
             }
-
-            return bookedTimes;
         }
-
-
-
     }
 }

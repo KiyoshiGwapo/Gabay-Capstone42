@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
-
 
 namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
 {
@@ -19,6 +16,8 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         {
             if (!IsPostBack)
             {
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.Cache.SetNoStore();
                 int deptSessionID = Convert.ToInt32(Session["user_ID"]);
                 LoadStudentDetails(deptSessionID);
             }
@@ -71,7 +70,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 // Optionally, you can show a success message or redirect the user
                 ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
             }
-            else
+            else 
             {
                 // Optionally, show an error message or handle the case where passwords don't match or the current password is incorrect
                 ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show');", true);

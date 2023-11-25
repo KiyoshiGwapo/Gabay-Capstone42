@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Student_Homepage/Student_Master.Master" AutoEventWireup="true" CodeBehind="AppointmentHistory.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Appointment.AppointmentHistory" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -90,12 +89,12 @@
             <Columns>
                 <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" />
                 <asp:BoundField DataField="deptName" HeaderText="Department" />
-                <asp:BoundField DataField="full_name" HeaderText="Full Name" />
-                <asp:BoundField DataField="email" HeaderText="Email" />
-                <asp:BoundField DataField="student_ID" HeaderText="Student ID" />
-                <asp:BoundField DataField="course_year" HeaderText="Course Year" />
-                <asp:BoundField DataField="contactNumber" HeaderText="Contact Number" />
-                <asp:BoundField DataField="appointment_date" HeaderText="Date" />
+                <%--<asp:BoundField DataField="full_name" HeaderText="Full Name" />--%>
+                <%--<asp:BoundField DataField="email" HeaderText="Email" />--%>
+                <%--<asp:BoundField DataField="student_ID" HeaderText="Student ID" />--%>
+                <%--<asp:BoundField DataField="course_year" HeaderText="Course Year" />--%>
+                <%--<asp:BoundField DataField="contactNumber" HeaderText="Contact Number" />--%>
+                <%--<asp:BoundField DataField="appointment_date" HeaderText="Date" />--%>
                 <asp:TemplateField HeaderText="View Concern">
                     <ItemTemplate>
                         <div class="d-flex justify-content-center">
@@ -112,12 +111,12 @@
             <Columns>
                 <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" />
                 <asp:BoundField DataField="deptName" HeaderText="Department" />
-                <asp:BoundField DataField="full_name" HeaderText="Full Name" />
-                <asp:BoundField DataField="email" HeaderText="Email" />
-                <asp:BoundField DataField="student_ID" HeaderText="Student ID" />
-                <asp:BoundField DataField="course_year" HeaderText="Course Year" />
-                <asp:BoundField DataField="contactNumber" HeaderText="Contact Number" />
-                <asp:BoundField DataField="appointment_date" HeaderText="Date" />
+                <%--<asp:BoundField DataField="full_name" HeaderText="Full Name" />--%>
+                <%--<asp:BoundField DataField="email" HeaderText="Email" />--%>
+                <%--<asp:BoundField DataField="student_ID" HeaderText="Student ID" />--%>
+                <%--<asp:BoundField DataField="course_year" HeaderText="Course Year" />--%>
+                <%--<asp:BoundField DataField="contactNumber" HeaderText="Contact Number" />--%>
+                <%--<asp:BoundField DataField="appointment_date" HeaderText="Date" />--%>
                 <asp:TemplateField HeaderText="View Concern">
                     <ItemTemplate>
                         <div class="d-flex justify-content-center">
@@ -159,7 +158,4 @@
             document.getElementById('<%= HiddenFieldAppointment.ClientID %>').value = id;
         }
     </script>
-
-
-
 </asp:Content>

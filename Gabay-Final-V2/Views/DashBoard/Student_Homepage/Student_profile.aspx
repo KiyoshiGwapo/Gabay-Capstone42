@@ -1,9 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Student_Homepage/Student_Master.Master" AutoEventWireup="true" CodeBehind="Student_profile.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Student_Homepage.Student_profile" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
+   <style>
         .profile-icon {
             display: flex;
             justify-content: center;
@@ -304,5 +303,4 @@
             </div>
         </div>
     </div>
-
 </asp:Content>

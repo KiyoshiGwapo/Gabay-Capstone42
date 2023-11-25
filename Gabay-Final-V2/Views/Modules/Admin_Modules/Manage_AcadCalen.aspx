@@ -153,4 +153,28 @@
         <!-- Add Bootstrap CSS link -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    
+     <%-- Success modal --%>
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body bg-success text-center text-light">
+                    <i class="bi bi-info-circle-fill"></i>
+                    <p id="successMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+     <%-- Error modal --%>
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body bg-danger text-center text-light">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

@@ -2,7 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid">
+    <style>
+        .addDept{
+            padding: 5px 90px;
+        }
+        .addDeptBtn{
+            width:600px;
+            height:50px;
+        }
+    </style>
+    <div class="container addDept">
         <div class="row gx-2">
             <span class="fs-2">Add Department</span>
             <%-- department login id inputs and errors --%>
@@ -121,8 +130,8 @@
                 </div>
             </div>
 
-            <div class="col-12">
-                <div class="d-grid">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="d-grid addDeptBtn">
                     <asp:Button ID="addDeptBtn" runat="server" Text="Add Department" CssClass="btn mt-2 bg-primary text-white" OnClick="addDeptBtn_Click" />
                 </div>
             </div>
@@ -133,8 +142,6 @@
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">Modal Title</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
 
                         <!-- Modal body -->
@@ -144,7 +151,7 @@
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn bg-primary text-light" data-dismiss="modal">Close</button>
                         </div>
 
                     </div>

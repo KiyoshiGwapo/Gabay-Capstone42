@@ -77,3 +77,52 @@
     color: white;
     border-radius: 50px;
 }
+
+.slider-container {
+    overflow: hidden;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.cards {
+    display: flex;
+    transition: transform 0.5s;
+}
+
+.card {
+    width: 300px;
+    margin-right: 10px;
+    display: flex !important;
+}
+
+.hidden-card {
+    width: 300px;
+    height: 300px;
+    display: none;
+}
+
+.container-slider {
+    display: flex;
+    align-items: center;
+}
+
+.buttons {
+    margin: 10px;
+    height: 30px;
+    width: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+}

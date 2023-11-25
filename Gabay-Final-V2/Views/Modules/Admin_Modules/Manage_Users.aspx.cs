@@ -12,6 +12,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
 using System.IO;
 
+
 namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 {
     public partial class Manage_Users : System.Web.UI.Page
@@ -32,8 +33,6 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             SetGridViewVisibility();
             BindGridView(ddlFilter.SelectedValue);
         }
-
-
 
         private void BindGridView(string filter)
         {
@@ -87,122 +86,159 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
         protected void btnConfirmDelete_Click(object sender, EventArgs e)
         {
-            // Get the selected row index from the hidden field
-            int rowIndex = Convert.ToInt32(hfSelectedRowIndex.Value);
+            try
+            {
+                // Get the selected row index from the hidden field
+                int rowIndex = Convert.ToInt32(hfSelectedRowIndex.Value);
 
-            // Determine which GridView is currently active (Students or Departments)
-            GridView gridView;
-            if (ddlFilter.SelectedValue == "Students")
-            {
-                gridView = GridViewStudents;
-            }
-            else if (ddlFilter.SelectedValue == "Departments")
-            {
-                gridView = GridViewDepartments;
-            }
-            else
-            {
-                // Handle the case where no filter is selected
-                return;
-            }
-
-            // Make sure the rowIndex is within bounds
-            if (rowIndex >= 0 && rowIndex < gridView.Rows.Count)
-            {
-                int idToDelete = Convert.ToInt32(gridView.DataKeys[rowIndex].Value);
-
-                // Perform the delete operation based on your database schema
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                // Determine which GridView is currently active (Students or Departments)
+                GridView gridView;
+                if (ddlFilter.SelectedValue == "Students")
                 {
-                    connection.Open();
-                    string deleteQuery = "";
-                    if (ddlFilter.SelectedValue == "Students")
-                    {
-                        deleteQuery = "DELETE FROM student WHERE ID_student = @ID";
-                    }
-                    else if (ddlFilter.SelectedValue == "Departments")
-                    {
-                        deleteQuery = "DELETE FROM department WHERE ID_dept = @ID";
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(deleteQuery, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@ID", idToDelete);
-                        cmd.ExecuteNonQuery();
-                    }
+                    gridView = GridViewStudents;
+                }
+                else if (ddlFilter.SelectedValue == "Departments")
+                {
+                    gridView = GridViewDepartments;
+                }
+                else
+                {
+                    // Handle the case where no filter is selected
+                    return;
                 }
 
-                // Rebind the GridView to reflect the changes
-                BindGridView(ddlFilter.SelectedValue);
+                // Make sure the rowIndex is within bounds
+                if (rowIndex >= 0 && rowIndex < gridView.Rows.Count)
+                {
+                    int idToDelete = Convert.ToInt32(gridView.DataKeys[rowIndex].Value);
 
-                // Optionally, show a success message or perform other actions after delete
+                    // Perform the delete operation based on your database schema
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string deleteQuery = "";
+                        if (ddlFilter.SelectedValue == "Students")
+                        {
+                            deleteQuery = "DELETE FROM student WHERE ID_student = @ID";
+                        }
+                        else if (ddlFilter.SelectedValue == "Departments")
+                        {
+                            deleteQuery = "DELETE FROM department WHERE ID_dept = @ID";
+                        }
+
+                        using (SqlCommand cmd = new SqlCommand(deleteQuery, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@ID", idToDelete);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Rebind the GridView to reflect the changes
+                    BindGridView(ddlFilter.SelectedValue);
+
+                    // Optionally, show a success message or perform other actions after delete
+                }
+
+                // Hide the modal after delete
+                ScriptManager.RegisterStartupScript(this, GetType(), "hideModal", "$('#confirmDeleteModal').modal('hide');", true);
+
+                string successMessage = "Announcement Added successfully.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
             }
-
-            // Hide the modal after delete
-            ScriptManager.RegisterStartupScript(this, GetType(), "hideModal", "$('#confirmDeleteModal').modal('hide');", true);
+            catch  (Exception ex)
+            {
+                string errorMessage = "An error occurred while deleting the announcement: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+            
         }
 
         //EDIT PASSWORD
 
         protected void btnConfirmEditPassword_Click(object sender, EventArgs e)
         {
-            // Get the selected row index from the hidden field
-            int rowIndex = Convert.ToInt32(hfSelectedRowIndex.Value);
-
-            // Determine which GridView is currently active (Students or Departments)
-            GridView gridView;
-            if (ddlFilter.SelectedValue == "Students")
+            try
             {
-                gridView = GridViewStudents;
-            }
-            else if (ddlFilter.SelectedValue == "Departments")
-            {
-                gridView = GridViewDepartments;
-            }
-            else
-            {
-                // Handle the case where no filter is selected
-                return;
-            }
+                // Get the selected row index from the hidden field
+                int rowIndex = Convert.ToInt32(hfSelectedRowIndex.Value);
 
-            // Make sure the rowIndex is within bounds
-            if (rowIndex >= 0 && rowIndex < gridView.Rows.Count)
-            {
-                int idToEdit = Convert.ToInt32(gridView.DataKeys[rowIndex].Value);
-
-                // Get the new password from the input field in the modal
-                string newPassword = txtNewPassword.Text;
-
-                // Perform the password change operation based on your database schema
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                // Determine which GridView is currently active (Students or Departments)
+                GridView gridView;
+                if (ddlFilter.SelectedValue == "Students")
                 {
-                    connection.Open();
-                    string updateQuery = "";
-                    if (ddlFilter.SelectedValue == "Students")
-                    {
-                        updateQuery = "UPDATE student SET stud_pass = @Password WHERE ID_student = @ID";
-                    }
-                    else if (ddlFilter.SelectedValue == "Departments")
-                    {
-                        updateQuery = "UPDATE department SET dept_pass = @Password WHERE ID_dept = @ID";
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@ID", idToEdit);
-                        cmd.Parameters.AddWithValue("@Password", newPassword);
-                        cmd.ExecuteNonQuery();
-                    }
+                    gridView = GridViewStudents;
+                }
+                else if (ddlFilter.SelectedValue == "Departments")
+                {
+                    gridView = GridViewDepartments;
+                }
+                else
+                {
+                    // Handle the case where no filter is selected
+                    return;
                 }
 
-                // Rebind the GridView to reflect the changes
-                BindGridView(ddlFilter.SelectedValue);
+                // Make sure the rowIndex is within bounds
+                if (rowIndex >= 0 && rowIndex < gridView.Rows.Count)
+                {
+                    int idToEdit = Convert.ToInt32(gridView.DataKeys[rowIndex].Value);
 
-                // Optionally, show a success message or perform other actions after password change
+                    // Get the new password from the input field in the modal
+                    string newPassword = txtNewPassword.Text;
+
+                    // Perform the password change operation based on your database schema
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string updateQuery = "";
+                        string updateUserQuery = "";
+                        if (ddlFilter.SelectedValue == "Students")
+                        {
+                            updateQuery = "UPDATE student SET stud_pass = @Password WHERE ID_student = @ID";
+                            updateUserQuery = "UPDATE users_table SET password = @Password WHERE user_ID IN (SELECT user_ID FROM student WHERE ID_student = @ID)";
+                        }
+                        else if (ddlFilter.SelectedValue == "Departments")
+                        {
+                            updateQuery = "UPDATE department SET dept_pass = @Password WHERE ID_dept = @ID";
+                            updateUserQuery = "UPDATE users_table SET password = @Password WHERE user_ID IN (SELECT user_ID FROM department WHERE ID_dept = @ID)";
+                        }
+
+                        using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@ID", idToEdit);
+                            cmd.Parameters.AddWithValue("@Password", newPassword);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        using (SqlCommand cmd = new SqlCommand(updateUserQuery, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@ID", idToEdit);
+                            cmd.Parameters.AddWithValue("@Password", newPassword);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    // Rebind the GridView to reflect the changes
+                    BindGridView(ddlFilter.SelectedValue);
+
+                    // Optionally, show a success message or perform other actions after password change
+                }
+
+                // Hide the modal after password change
+                ScriptManager.RegisterStartupScript(this, GetType(), "hideEditPasswordModal", "$('#editPasswordModal').modal('hide');", true);
+                
+                string successMessage = "Password updated successfully.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
             }
-
-            // Hide the modal after password change
-            ScriptManager.RegisterStartupScript(this, GetType(), "hideEditPasswordModal", "$('#editPasswordModal').modal('hide');", true);
+            catch  (Exception ex)
+            {
+                string errorMessage = "An error occurred while updating the password: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+            
         }
 
         //Generate Reports
@@ -390,10 +426,6 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             Response.TransmitFile(filePath);
             Response.End();
         }
-
-
-
-
 
     }
 }

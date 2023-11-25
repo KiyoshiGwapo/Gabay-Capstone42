@@ -105,7 +105,7 @@ function showNewbldgGroundFloor() {
         elements[i].style.display = "block";
     }
 
-    var floors = ["newbldggrnd", "uclmmap", "newbldg2ndflr", "newbldg3rdflr", "newbldg4thflr", "newbldg5thflr","newbldg6thflr"];
+    var floors = ["newbldggrnd", "uclmmap", "newbldg2ndflr", "newbldg3rdflr", "newbldg4thflr", "newbldg5thflr", "newbldg6thflr"];
     for (var i = 0; i < floors.length; i++) {
         var element = document.getElementById(floors[i]);
         if (floors[i] === "newbldggrnd") {
@@ -130,7 +130,7 @@ function showNsabldgGroundFloor() {
         elements[i].style.display = "block";
     }
 
-    var floors = ["nsabldggrnd", "uclmmap", "nsabldgsecnd", "nsabldgthird", "nsabldgfourth","nsabldgfifth"];
+    var floors = ["nsabldggrnd", "uclmmap", "nsabldgsecnd", "nsabldgthird", "nsabldgfourth", "nsabldgfifth"];
     for (var i = 0; i < floors.length; i++) {
         var element = document.getElementById(floors[i]);
         if (floors[i] === "nsabldggrnd") {
@@ -155,7 +155,7 @@ function showCBEbldgGroundFloor() {
         elements[i].style.display = "block";
     }
 
-    var floors = ["cbebuildinggrnd", "uclmmap", "cbebuilding2nd", "cbebuilding3rd", "cbebuilding4th", "cbebuilding5th", "cbebuilding6th", "cbebuilding7th", "cbebuilding8th", "cbebuilding9th","cbebuilding10th"];
+    var floors = ["cbebuildinggrnd", "uclmmap", "cbebuilding2nd", "cbebuilding3rd", "cbebuilding4th", "cbebuilding5th", "cbebuilding6th", "cbebuilding7th", "cbebuilding8th", "cbebuilding9th", "cbebuilding10th"];
     for (var i = 0; i < floors.length; i++) {
         var element = document.getElementById(floors[i]);
         if (floors[i] === "cbebuildinggrnd") {
@@ -243,7 +243,7 @@ function showFloor(floorId) {
     const floors = ["oldgroundfloor", "oldmez", "secondold", "thirdold", "fourthold", "fifthold", "rdold", "anxgrnd", "anxmez",
         "anx2ndflr", "anx3rdflr", "anx4thflr", "anx5thflr", "anx6thflr", "anxroofdeck", "uclmwholemap", "newbldggrnd", "newbldg2ndflr", "newbldg3rdflr",
         "newbldg4thflr", "newbldg5thflr", "newbldg6thflr", "nsabldggrnd", "nsabldgsecnd", "nsabldgthird", "nsabldgfourth", "nsabldgfifth", "cbebuildinggrnd",
-        "cbebuilding2nd", "cbebuilding3rd", "cbebuilding4th", "cbebuilding5th", "cbebuilding6th", "cbebuilding7th", "cbebuilding8th", "cbebuilding9th", "cbebuilding10th","meroom"];
+        "cbebuilding2nd", "cbebuilding3rd", "cbebuilding4th", "cbebuilding5th", "cbebuilding6th", "cbebuilding7th", "cbebuilding8th", "cbebuilding9th", "cbebuilding10th", "meroom"];
 
     for (let i = 0; i < floors.length; i++) {
         const element = document.getElementById(floors[i]);
@@ -532,59 +532,59 @@ document.addEventListener('DOMContentLoaded', function () {
     var nsacanteen = document.getElementById('nsacanteen');
 
     //nsa building 2ndfloor buttons
-     var ns201 = document.getElementById('ns201');
-     var ns202 = document.getElementById('ns202');
-     var ns203 = document.getElementById('ns203');
-     var ns204 = document.getElementById('ns204');
-     var ns205 = document.getElementById('ns205');
-     var dormmaster = document.getElementById('dormmaster');
-     var dq201 = document.getElementById('dq201');
-     var dq209 = document.getElementById('dq209');
-     var dqfcr = document.getElementById('dqfcr2');
-     var dqmcr = document.getElementById('dqmcr2');
+    var ns201 = document.getElementById('ns201');
+    var ns202 = document.getElementById('ns202');
+    var ns203 = document.getElementById('ns203');
+    var ns204 = document.getElementById('ns204');
+    var ns205 = document.getElementById('ns205');
+    var dormmaster = document.getElementById('dormmaster');
+    var dq201 = document.getElementById('dq201');
+    var dq209 = document.getElementById('dq209');
+    var dqfcr = document.getElementById('dqfcr2');
+    var dqmcr = document.getElementById('dqmcr2');
 
-     //nsa building 3rdfloor buttons
-     var shwroom = document.getElementById('shwroom');
-     var ns302 = document.getElementById('ns302');
-     var ns303 = document.getElementById('ns303');
-     var ns304 = document.getElementById('ns304');
-     var ns305 = document.getElementById('ns305');
-     var ns306 = document.getElementById('ns306');
-     var dq313 = document.getElementById('dq313');
-     var chargngstn = document.getElementById('chargngstn');
-     var dq309 = document.getElementById('dq309');
-     var dq301 = document.getElementById('dq301');
-     var dqfcr30 = document.getElementById('dqfcr30');
-     var dqmcr3 = document.getElementById('dqmcr3');
+    //nsa building 3rdfloor buttons
+    var shwroom = document.getElementById('shwroom');
+    var ns302 = document.getElementById('ns302');
+    var ns303 = document.getElementById('ns303');
+    var ns304 = document.getElementById('ns304');
+    var ns305 = document.getElementById('ns305');
+    var ns306 = document.getElementById('ns306');
+    var dq313 = document.getElementById('dq313');
+    var chargngstn = document.getElementById('chargngstn');
+    var dq309 = document.getElementById('dq309');
+    var dq301 = document.getElementById('dq301');
+    var dqfcr30 = document.getElementById('dqfcr30');
+    var dqmcr3 = document.getElementById('dqmcr3');
 
-      //nsa building 4thfloor buttons
-     var toilet = document.getElementById('toilet');
-     var ns401 = document.getElementById('ns401');
-     var ns402 = document.getElementById('ns402');
-     var ns403 = document.getElementById('ns403');
-     var ns404 = document.getElementById('ns404');
-     var ns405 = document.getElementById('ns405');
-     var minihtl = document.getElementById('minihtl');
-     var stoickrm = document.getElementById('stoickrm');
-     var dq410 = document.getElementById('dq410');
-     var dq401 = document.getElementById('dq401');
-     var fcr4nsa = document.getElementById('fcr4nsa');
-     var mcr4nsa = document.getElementById('mcr4nsa');
+    //nsa building 4thfloor buttons
+    var toilet = document.getElementById('toilet');
+    var ns401 = document.getElementById('ns401');
+    var ns402 = document.getElementById('ns402');
+    var ns403 = document.getElementById('ns403');
+    var ns404 = document.getElementById('ns404');
+    var ns405 = document.getElementById('ns405');
+    var minihtl = document.getElementById('minihtl');
+    var stoickrm = document.getElementById('stoickrm');
+    var dq410 = document.getElementById('dq410');
+    var dq401 = document.getElementById('dq401');
+    var fcr4nsa = document.getElementById('fcr4nsa');
+    var mcr4nsa = document.getElementById('mcr4nsa');
 
-     //nsa building 5thfloor buttons
-     var navrm = document.getElementById('navrm');
-     var c6lab = document.getElementById('c6lab');
-     var ns503 = document.getElementById('ns503');
-     var ns504 = document.getElementById('ns504');
-     var ns505 = document.getElementById('ns505');
-     var phylab = document.getElementById('phylab');
-     var toolrm = document.getElementById('toolrm');
-     var chemlab = document.getElementById('chemlab');
-     var fcr5nsa = document.getElementById('fcr5nsa');
-     var mcr5nsa = document.getElementById('mcr5nsa');
-     var dq501 = document.getElementById('dq501');
+    //nsa building 5thfloor buttons
+    var navrm = document.getElementById('navrm');
+    var c6lab = document.getElementById('c6lab');
+    var ns503 = document.getElementById('ns503');
+    var ns504 = document.getElementById('ns504');
+    var ns505 = document.getElementById('ns505');
+    var phylab = document.getElementById('phylab');
+    var toolrm = document.getElementById('toolrm');
+    var chemlab = document.getElementById('chemlab');
+    var fcr5nsa = document.getElementById('fcr5nsa');
+    var mcr5nsa = document.getElementById('mcr5nsa');
+    var dq501 = document.getElementById('dq501');
 
-     //cbe building groundfloor buttons
+    //cbe building groundfloor buttons
     var cbe101 = document.getElementById('cbe101');
     var cbe102 = document.getElementById('cbe102');
     var canteen = document.getElementById('canteen');
@@ -650,7 +650,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var femalecr4cbe = document.getElementById('femalecr4cbe');
     var fnctnhall = document.getElementById('fnctnhall');
 
-     //cbe building fifthfloor button
+    //cbe building fifthfloor button
     var cbe501 = document.getElementById('cbe501');
     var cbe502 = document.getElementById('cbe502');
     var cbe503 = document.getElementById('cbe503');
@@ -814,7 +814,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var rtfmcrgrnd = document.getElementById('_Fcr_');
     var rtaccnt = document.getElementById('_accounting_2');
     var gate2tomcr = document.getElementById('gate2tomcr');
-    var gate2tofcr = document.getElementById('gate2tofcr'); 
+    var gate2tofcr = document.getElementById('gate2tofcr');
     var gate2tocicsco = document.getElementById('gate2tocicsco');
 
     //mezbuild routes
@@ -831,11 +831,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var rcisco = document.getElementById('cisco');
     var rgsr1 = document.getElementById('gsr1');
     var rgsr2 = document.getElementById('gsr2');
-    var rtobm = document.getElementById('_to_mezbuild_'); 
-    var gate2tomez = document.getElementById('gate2tomez'); 
+    var rtobm = document.getElementById('_to_mezbuild_');
+    var gate2tomez = document.getElementById('gate2tomez');
     var gate2tobm = document.getElementById('gate2tobm');
     var gate2to2nd = document.getElementById('gate2to2nd');
-    var gate2tomain2nd = document.getElementById('gate2tomain2nd'); 
+    var gate2tomain2nd = document.getElementById('gate2tomain2nd');
     var g2toc2 = document.getElementById('g2toc2');
 
 
@@ -872,8 +872,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var rtte13 = document.getElementById('rtclinic');
     var rtte14 = document.getElementById('rt3to4');
     var rtte15 = document.getElementById('rt3anx');
-    var rtte16 = document.getElementById('rt3to4lft'); 
-    var rtte17 = document.getElementById('rtg1toannexleft'); 
+    var rtte16 = document.getElementById('rt3to4lft');
+    var rtte17 = document.getElementById('rtg1toannexleft');
 
     //4thfloor routes
     var rt4to5 = document.getElementById('r4thto5th');
@@ -912,6 +912,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var rtg2toold = document.getElementById('rtg2tooldbldg');
     var rtg2tog1 = document.getElementById('gate2togate1');
     var rtpdshs = document.getElementById('rtpdshs');
+    var rtoldtostdy = document.getElementById('rtoldtostdy');
     var rtg2tostdy = document.getElementById('rtg2tostdy');
     var rtcanteen = document.getElementById('rtg2tocanteen');
     var rtpco = document.getElementById('rtpco');
@@ -1170,7 +1171,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var rttomachineshp = document.getElementById('rttomachineshp');
 
     //nsa building secondfloor route
-    var rtdormmster = document.getElementById('rtdormmster'); 
+    var rtdormmster = document.getElementById('rtdormmster');
     var rtns201 = document.getElementById('rtns201');
     var rtns202 = document.getElementById('rtns202');
     var rtns203 = document.getElementById('rtns203');
@@ -1179,25 +1180,25 @@ document.addEventListener('DOMContentLoaded', function () {
     var rtdq201 = document.getElementById('rtdq201');
     var rtd1209 = document.getElementById('rtd1209');
     var rtfmlecrnsa2 = document.getElementById('rtfmlecrnsa2');
-    var rtmlecrnsa2 = document.getElementById('rtmlecrnsa2'); 
+    var rtmlecrnsa2 = document.getElementById('rtmlecrnsa2');
     var rt2to3nsa = document.getElementById('rt2to3nsa');
 
-     //nsa building thirdfloor route
-    var rtcharging = document.getElementById('rtcharging'); 
-    var rtshowerrom = document.getElementById('rtshowerrom'); 
-    var rtns302 = document.getElementById('rtns302'); 
-    var rtns303 = document.getElementById('rtns303'); 
-    var rtns304 = document.getElementById('rtns304'); 
-    var rtns305 = document.getElementById('rtns305'); 
-    var rtns306 = document.getElementById('rtns306'); 
-    var rtdq313 = document.getElementById('rtdq313'); 
-    var rtdq301 = document.getElementById('rtdq301'); 
-    var rtdq309 = document.getElementById('rtdq309'); 
-    var fmlecrnsa3 = document.getElementById('fmlecrnsa3'); 
-    var mlecrnsa3 = document.getElementById('mlecrnsa3'); 
+    //nsa building thirdfloor route
+    var rtcharging = document.getElementById('rtcharging');
+    var rtshowerrom = document.getElementById('rtshowerrom');
+    var rtns302 = document.getElementById('rtns302');
+    var rtns303 = document.getElementById('rtns303');
+    var rtns304 = document.getElementById('rtns304');
+    var rtns305 = document.getElementById('rtns305');
+    var rtns306 = document.getElementById('rtns306');
+    var rtdq313 = document.getElementById('rtdq313');
+    var rtdq301 = document.getElementById('rtdq301');
+    var rtdq309 = document.getElementById('rtdq309');
+    var fmlecrnsa3 = document.getElementById('fmlecrnsa3');
+    var mlecrnsa3 = document.getElementById('mlecrnsa3');
     var rt3to4nsa = document.getElementById('rt3to4nsa');
 
-     //nsa building fourthfloor route
+    //nsa building fourthfloor route
     var rttoiletbath = document.getElementById('rttoiletbath');
     var rtns401 = document.getElementById('rtns401');
     var rtns402 = document.getElementById('rtns402');
@@ -1294,8 +1295,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var rtcbe406 = document.getElementById('rtcbe406');
     var rtcbe407 = document.getElementById('rtcbe407');
     var rtcbe408 = document.getElementById('rtcbe408');
-   
-   //cbe building fifthfloor route
+
+    //cbe building fifthfloor route
     var rt5to6cbe = document.getElementById('rt5to6cbe');
     var rtcbe501 = document.getElementById('rtcbe501');
     var rtcbe502 = document.getElementById('rtcbe502');
@@ -1431,7 +1432,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var rtg1tocvrdcrt = document.getElementById('rtg1tocvrdcrt');
     var rtg9tocvrdcrt = document.getElementById('rtg9tocvrdcrt');
     var rttomeroom = document.getElementById('rttomeroom');
-    var rtmachneshp = document.getElementById('rtmachineshp'); 
+    var rtmachneshp = document.getElementById('rtmachineshp');
 
     var rtg1tog2 = document.getElementById('gate1togate2');
     var rtoldtonew = document.getElementById('rtoldtonewbldg');
@@ -1507,14 +1508,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var map32 = document.getElementById('cbebuilding5th');
     var map33 = document.getElementById('uclmmap');
     var map34 = document.getElementById('cbebuilding6th');
-    var map35 = document.getElementById('cbebuilding7th'); 
+    var map35 = document.getElementById('cbebuilding7th');
     var map36 = document.getElementById('cbebuilding8th');
     var map37 = document.getElementById('cbebuilding9th');
     var map38 = document.getElementById('cbebuilding10th');
     var map39 = document.getElementById('meroom');
 
     //maps to be hidden
-    function hideMaps(){
+    function hideMaps() {
         map1.style.display = 'none';
         map2.style.display = 'none';
         map3.style.display = 'none';
@@ -1852,7 +1853,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var ismfrClicked = false;
     var isnsacanteenClicked = false;
 
-     //nsa building second floor clicked
+    //nsa building second floor clicked
     var isns201Clicked = false;
     var isns202Clicked = false;
     var isns203Clicked = false;
@@ -1868,36 +1869,36 @@ document.addEventListener('DOMContentLoaded', function () {
     var isshwroomClicked = false;
     var isns302Clicked = false;
     var isns303Clicked = false;
-    var isns304Clicked = false; 
-    var isns305Clicked = false; 
-    var isns306Clicked = false; 
-    var isdq313Clicked = false; 
+    var isns304Clicked = false;
+    var isns305Clicked = false;
+    var isns306Clicked = false;
+    var isdq313Clicked = false;
     var ischargngstnClicked = false;
-    var isdq309Clicked = false; 
+    var isdq309Clicked = false;
     var isdq301Clicked = false;
     var isdqfcr30Clicked = false;
-    var isdqmcr3Clicked = false; 
+    var isdqmcr3Clicked = false;
 
     //nsa building 4thfloor clicked
-    var istoiletClicked = false; 
-    var isns401Clicked = false; 
-    var isns402Clicked = false; 
-    var isns403Clicked = false; 
-    var isns404Clicked = false; 
-    var isns405Clicked = false; 
-    var isminihtlClicked = false; 
-    var isstoickrmClicked = false; 
-    var isdq410Clicked = false; 
-    var isdq401Clicked = false; 
-    var isfcr4nsaClicked = false; 
-    var ismcr4nsaClicked = false; 
+    var istoiletClicked = false;
+    var isns401Clicked = false;
+    var isns402Clicked = false;
+    var isns403Clicked = false;
+    var isns404Clicked = false;
+    var isns405Clicked = false;
+    var isminihtlClicked = false;
+    var isstoickrmClicked = false;
+    var isdq410Clicked = false;
+    var isdq401Clicked = false;
+    var isfcr4nsaClicked = false;
+    var ismcr4nsaClicked = false;
 
     //nsa building 5thfloor clicked
-    var isnavrmClicked = false; 
-    var isc6labClicked = false; 
-    var isns503Clicked = false; 
-    var isns504Clicked = false; 
-    var isns505Clicked = false; 
+    var isnavrmClicked = false;
+    var isc6labClicked = false;
+    var isns503Clicked = false;
+    var isns504Clicked = false;
+    var isns505Clicked = false;
     var isphylabClicked = false;
     var istoolrmClicked = false;
     var ischemlabClicked = false;
@@ -1921,7 +1922,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Call the showroute function passing necessary parameters (route, oldbtn1, etc.)
             showRoute(rtreg, oldbtn1);
-           
+
         }
     });
     guidance.addEventListener('click', function () {
@@ -2008,7 +2009,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     malecrold.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
-           /* isMalecroldClicked = true;*/
+            /* isMalecroldClicked = true;*/
 
             hideMaps(),
                 hideRoute()
@@ -2032,7 +2033,7 @@ document.addEventListener('DOMContentLoaded', function () {
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "From gate one, take to the left; ahead is a small staircase near the guidance center; take it;";
-            window.speechSynthesis.speak(msg);          
+            window.speechSynthesis.speak(msg);
             showRoute(rtmzrt, oldbtn1, rte1, anxbtn2);
             setTimeout(function () {
                 hideMaps()
@@ -2040,7 +2041,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 msg.text = "progress to the left;.. Room M4 is the last room.";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
-                hideFloorButton()              
+                hideFloorButton()
                 showRoute(rtm4, oldbtn1, rte1, anxbtn2);
             }, 7500);
         }
@@ -2062,7 +2063,7 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(function () {
 
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "progress to the left; Room M3, is located beside Room M2.";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -2078,7 +2079,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             hideMaps(),
                 hideRoute()
-                map1.style.display = 'block';
+            map1.style.display = 'block';
             hideFloorButton()
 
             msg.text = "From gate one, proceed to left, ahead there is a small staircase beside guidance center, take it";
@@ -2088,7 +2089,7 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(function () {
 
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go left, and straight to room M1";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -2103,17 +2104,17 @@ document.addEventListener('DOMContentLoaded', function () {
             isButton15Clicked = true;
             hideMaps(),
                 hideRoute()
-                map1.style.display = 'block';
+            map1.style.display = 'block';
             hideFloorButton()
             msg.text = "From gate one, proceed to left, ahead there is a small staircase beside guidance center, take it";
             window.speechSynthesis.speak(msg);
             showRoute(rtmzrt, oldbtn1, rte1, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go left, and straight pass room m1,... to room M2,.. yearbook office";
                 window.speechSynthesis.speak(msg);
-                    map3.style.display = 'block';
+                map3.style.display = 'block';
                 hideFloorButton()
                 showRoute(rtm2, oldbtn1, rte1, anxbtn2);
             }, 7500);
@@ -2124,8 +2125,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnResearchClicked = true;
 
-            hideMaps(),          
-            hideRoute()
+            hideMaps(),
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2135,7 +2136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte1, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right to the room, the research room is straight ahead";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -2149,7 +2150,7 @@ document.addEventListener('DOMContentLoaded', function () {
             isBtnC2Clicked = true;
 
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2159,7 +2160,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtetoc2, oldbtn1, rc2, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then turn left to computer laboratory 2";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -2172,7 +2173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             isBtnCiscoClicked = true;
 
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2182,7 +2183,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtetoc2, oldbtn1, rcisco, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right to Cisco Laboratory";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -2195,7 +2196,7 @@ document.addEventListener('DOMContentLoaded', function () {
             isBtnMbldgClicked = true;
 
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2205,7 +2206,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtobm, oldbtn1, mbldg, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then turn right to the building maintenance office";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -2217,7 +2218,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnGsr1Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2227,7 +2228,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rgsr1, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right to the room, you are now facing GSR 1";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -2239,7 +2240,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnGsr2Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2249,7 +2250,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rgsr2, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right to the room,.. GSR 2 is located beside GSR 1";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -2269,7 +2270,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isButtonC1Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2279,7 +2280,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rte1, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go straight,.. then go right to Computer Laboratory 1";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2292,17 +2293,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtn212Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
-            
+
 
             showRoute(route, oldbtn1, rte3, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then turn right to room 212,..besides room 211";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2314,18 +2315,18 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnRrClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
-            
+
 
             showRoute(route, oldbtn1, rte5, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go straight to the right aisle, ahead of computer laboratory 1, is repair room";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2337,18 +2338,18 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtn211Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
-            
+
 
             showRoute(route, oldbtn1, rte4, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right to room 211";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2360,7 +2361,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtn208Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2370,7 +2371,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte7, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go straight,..beside room 207 is room 208";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2382,7 +2383,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtn207Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2392,7 +2393,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte8, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go straight,..beside dark room,.. is room 207";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2404,7 +2405,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnSpchClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2414,7 +2415,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte9, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right from crime laboratory,... then go straight then left,.. to speech laboratory";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2426,7 +2427,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnFcr2ndClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2436,7 +2437,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte11, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right from crime laboratory, go straight then right to female Comfort Room";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2448,7 +2449,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnDrkClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
 
@@ -2458,7 +2459,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rdark, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 map2.style.display = 'block';
 
                 msg.text = "then go left on the first room to Dark Room";
@@ -2473,7 +2474,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnCrimeClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP,..  proceed to 2nd floor,";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -2481,7 +2482,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rcrime, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right on the first room to Crime Laboratory";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2493,7 +2494,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isBtnHrClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
@@ -2501,7 +2502,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rhr, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go left to Human Resources department";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2521,7 +2522,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isRmc4Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
@@ -2530,7 +2531,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2539,7 +2540,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Go right.. to Computer Laboratory 4";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2551,7 +2552,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isFcltyClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
@@ -2560,7 +2561,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2569,7 +2570,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Go left.. to Nursing Faculty Room";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2581,7 +2582,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isEdrlyClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -2590,7 +2591,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2599,7 +2600,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Turn left, then right, and continue straight to the Nursing Elderly Room.";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2611,7 +2612,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isClncClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -2620,7 +2621,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2629,7 +2630,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then right to microbiology lab... then go straight and left to Satelite Clinic";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2641,7 +2642,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isConslClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -2650,7 +2651,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2658,8 +2659,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),           
-                hideRoute()
+                hideMaps(),
+                    hideRoute()
                 msg.text = "then right to microbiology lab... then go straight all the way to Nursing Consultation Room";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2671,7 +2672,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isRm305Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -2680,7 +2681,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2689,7 +2690,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then right to Microbiology and Parasitology laboratory";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2701,7 +2702,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isRm306Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -2710,7 +2711,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2719,7 +2720,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then left to Room 306";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2731,7 +2732,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isRm307Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -2740,7 +2741,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2749,7 +2750,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go straight and left... after Room 306 is Room 307";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2761,7 +2762,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isRm308Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -2770,7 +2771,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2779,7 +2780,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go straight and left... after Room 307 is Room 308";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2791,7 +2792,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isRm309Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
@@ -2800,7 +2801,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 map2.style.display = 'block';
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
@@ -2808,7 +2809,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "go to the right aisle.. Room 309 is located after Computer Laboratory 4";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2819,7 +2820,7 @@ document.addEventListener('DOMContentLoaded', function () {
     rm312.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isRm312Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -2827,7 +2828,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2835,7 +2836,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "turn right... Room 312 is located rightside of computer laboratory 4";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2846,7 +2847,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fmcr3rd.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isFmcr3rdClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -2855,7 +2856,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2863,7 +2864,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "turn right to Microbiology and Parasitology laboratory... Female ComfortRoom is located ahead of Microbiology and Parasitology laboratory";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2876,7 +2877,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cad.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             iscadClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -2884,7 +2885,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2893,14 +2894,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtcad, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. to Campus Affairs Director Office";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -2911,7 +2912,7 @@ document.addEventListener('DOMContentLoaded', function () {
     anatomy.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isanatomyClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -2919,7 +2920,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2927,7 +2928,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
@@ -2935,7 +2936,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 8500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go straight... Anatomy Laboratory is located ahead of Campus Affairs Director Office";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -2946,7 +2947,7 @@ document.addEventListener('DOMContentLoaded', function () {
     amphi.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isamphiClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -2954,7 +2955,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2962,14 +2963,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte14, oldbtn1, rtamph, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then take the right aisle go straight.. Amphitheater is located next to Skills laboratory";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -2980,7 +2981,7 @@ document.addEventListener('DOMContentLoaded', function () {
     skill.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isskillClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
@@ -2988,7 +2989,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -2996,14 +2997,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte14, oldbtn1, rtskill, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right to Skills Laboratory";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -3014,7 +3015,7 @@ document.addEventListener('DOMContentLoaded', function () {
     opd.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isopdClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -3022,7 +3023,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3030,14 +3031,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtopd, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right to OPD Emergency Room";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -3048,7 +3049,7 @@ document.addEventListener('DOMContentLoaded', function () {
     klab.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isklabClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
@@ -3056,7 +3057,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3064,14 +3065,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtklab, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right.. then go straight.. then turn left to Kitchen Laboratory 1";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -3082,7 +3083,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ck.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isckClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
@@ -3090,7 +3091,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3098,14 +3099,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte14, oldbtn1, rtcoldk, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left.. and go straight to cold Kitchen laboratory located beside HRM mini Resto";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -3116,7 +3117,7 @@ document.addEventListener('DOMContentLoaded', function () {
     resto.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isrestoClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -3124,7 +3125,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3132,14 +3133,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte14, oldbtn1, rtresto, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left to HRM mini Resto";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -3150,7 +3151,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fcr4th.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isfcr4thClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -3158,7 +3159,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3166,14 +3167,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtfcr4th, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right and straight to female comfort room located ahead of OPD Emergency room";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
@@ -3186,29 +3187,29 @@ document.addEventListener('DOMContentLoaded', function () {
     emptyrm1.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isemptyrm1Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map2.style.display = 'block';
                 showRoute(rte6, oldbtn1, rtte16, anxbtn2);
             }, 2600);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rt4to5, anxbtn2);
             }, 4000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map5.style.display = 'block';
                 showRoute(rtlefto5th, oldbtn1, remptyrm1, anxbtn2);
             }, 5000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map6.style.display = 'block';
                 showRoute(remptyrm1, oldbtn1, rte6, anxbtn2);
             }, 6000);
@@ -3217,7 +3218,7 @@ document.addEventListener('DOMContentLoaded', function () {
     rm507.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isrm507Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -3225,7 +3226,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3233,21 +3234,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, oldbtn1, rt4to5, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
                 showRoute(rtlefto5th, oldbtn1, r507, anxbtn2);
             }, 11500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to Physics Laboratory - room 507";
                 window.speechSynthesis.speak(msg);
                 map6.style.display = 'block';
@@ -3258,7 +3259,7 @@ document.addEventListener('DOMContentLoaded', function () {
     rm509.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isrm509Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -3266,7 +3267,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3274,21 +3275,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte14, oldbtn1, rt4to5, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
                 showRoute(rt4to5, oldbtn1, r509, anxbtn2);
             }, 11500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right and left to Chemistry Laboratory Room 509";
                 window.speechSynthesis.speak(msg);
                 map6.style.display = 'block';
@@ -3299,29 +3300,29 @@ document.addEventListener('DOMContentLoaded', function () {
     stkfm1.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isstkfm1Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map2.style.display = 'block';
                 showRoute(rte6, oldbtn1, rtte16, anxbtn2);
             }, 2600);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtlefto5th, anxbtn2);
             }, 4000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map5.style.display = 'block';
                 showRoute(rtlefto5th, oldbtn1, rstkrm1, anxbtn2);
             }, 5000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map6.style.display = 'block';
                 showRoute(rstkrm1, oldbtn1, rte6, anxbtn2);
             }, 6000);
@@ -3330,7 +3331,7 @@ document.addEventListener('DOMContentLoaded', function () {
     rm511.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isrm511Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then left to the main stairs going to second floor";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -3338,7 +3339,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3346,21 +3347,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte14, oldbtn1, rt4to5, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
                 showRoute(rt4to5, oldbtn1, r511, anxbtn2);
             }, 11500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right to Chemistry Laboratory Room 511";
                 window.speechSynthesis.speak(msg);
                 map6.style.display = 'block';
@@ -3371,7 +3372,7 @@ document.addEventListener('DOMContentLoaded', function () {
     rmbio.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isrmbioClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -3379,7 +3380,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3387,21 +3388,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtlefto5th, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
                 showRoute(rtlefto5th, oldbtn1, rbio, anxbtn2);
             }, 11500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right to Biology Laboratory";
                 window.speechSynthesis.speak(msg);
                 map6.style.display = 'block';
@@ -3412,29 +3413,29 @@ document.addEventListener('DOMContentLoaded', function () {
     emptyrm2.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isemptyrm2Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map2.style.display = 'block';
                 showRoute(rte6, oldbtn1, rtte16, anxbtn2);
             }, 2600);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtlefto5th, anxbtn2);
             }, 4000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map5.style.display = 'block';
                 showRoute(rtlefto5th, oldbtn1, remptyrm2, anxbtn2);
             }, 5000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map6.style.display = 'block';
                 showRoute(remptyrm2, oldbtn1, rte6, anxbtn2);
             }, 6000);
@@ -3443,29 +3444,29 @@ document.addEventListener('DOMContentLoaded', function () {
     emptyrm3.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isemptyrm3Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map2.style.display = 'block';
                 showRoute(rte2, oldbtn1, rtte14, anxbtn2);
             }, 2600);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map4.style.display = 'block';
                 showRoute(rtte14, oldbtn1, rt4to5, anxbtn2);
             }, 4000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map5.style.display = 'block';
                 showRoute(rt4to5, oldbtn1, remptyrm3, anxbtn2);
             }, 5000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map6.style.display = 'block';
                 showRoute(remptyrm3, oldbtn1, rte6, anxbtn2);
             }, 6000);
@@ -3474,29 +3475,29 @@ document.addEventListener('DOMContentLoaded', function () {
     stkrm2.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isstkrm2Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(route, oldbtn1, rte2, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map2.style.display = 'block';
                 showRoute(rte2, oldbtn1, rtte14, anxbtn2);
             }, 2600);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map4.style.display = 'block';
                 showRoute(rtte14, oldbtn1, rt4to5, anxbtn2);
             }, 4000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map5.style.display = 'block';
                 showRoute(rt4to5, oldbtn1, rstkrm2, anxbtn2);
             }, 5000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map6.style.display = 'block';
                 showRoute(rstkrm2, oldbtn1, rte6, anxbtn2);
             }, 6000);
@@ -3505,7 +3506,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fcr5th.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isfcr5thClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -3513,7 +3514,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3521,21 +3522,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtlefto5th, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
                 showRoute(rtlefto5th, oldbtn1, rfcr5th, anxbtn2);
             }, 11500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right and go straight to the female comfort room";
                 window.speechSynthesis.speak(msg);
                 map6.style.display = 'block';
@@ -3548,7 +3549,7 @@ document.addEventListener('DOMContentLoaded', function () {
     rdbtn.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isfcr5thClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "Go straight from gate one, then right to the staircase beside EDP";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -3556,7 +3557,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rte10, oldbtn1, rte6, anxbtn2);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map2.style.display = 'block';
@@ -3564,28 +3565,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map4.style.display = 'block';
                 showRoute(rtte16, oldbtn1, rtlefto5th, anxbtn2);
             }, 8500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map5.style.display = 'block';
                 showRoute(rtlefto5th, oldbtn1, rtrfdk, anxbtn2);
             }, 11500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to Roof Top";
                 window.speechSynthesis.speak(msg);
                 map6.style.display = 'block';
                 showRoute(rtrfdk, oldbtn1, rtrd, anxbtn2);
             }, 14500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "the old building Roof Top";
                 window.speechSynthesis.speak(msg);
                 map7.style.display = 'block';
@@ -3612,6 +3613,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
                 showRoute(rtoldtocanteen, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+        }
+    });
+
+    stdybtn.addEventListener('click', function () {
+        if (!isbtngate2Clicked) {
+            isnsacanteenClicked = true;
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Then go straight from old building to Study Hall and Enrollment Area";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtostdy, anxbtn2, rtg2toold, oldbtn1);
             }, 6200);
         }
     });
@@ -3970,7 +3990,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rtg1toarchve, anxbtn2, rtlefto5th, oldbtn1);
-            }, 15500);           
+            }, 15500);
         }
     });
     btncrmelab.addEventListener('click', function () {
@@ -4208,7 +4228,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 msg.text = "then go straight to college of computer studies faculty room then turn right.. 1st room to the right is College of computer studies dean's office";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
-                showRoute(rtg1toccsdean, anxbtn2 , rte2, oldbtn1); 
+                showRoute(rtg1toccsdean, anxbtn2, rte2, oldbtn1);
             }, 15000);
         }
     });
@@ -4507,7 +4527,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 17500);
         }
     });
-    
+
     /////////////////////////////////////
     /////gate 1 to annex 4thfloor//////
 
@@ -4666,7 +4686,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 map5.style.display = 'block';
                 showRoute(rtlefto5th, oldbtn1, rte6, anxbtn2);
             }, 11500);
-           
+
             setTimeout(function () {
                 hideMaps(), hideRoute()
                 msg.text = "then turn right then proceed to annex 4thfloor stairs";
@@ -4679,7 +4699,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 msg.text = "then turn right to HRM Faculty Room";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
-                showRoute(rtg1hrmfaculty, anxbtn2 , rte6, oldbtn1); 
+                showRoute(rtg1hrmfaculty, anxbtn2, rte6, oldbtn1);
             }, 20500);
         }
     });
@@ -4928,7 +4948,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //////////////////////////////////////////
 
     btnbar.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnbarClicked = true;
 
             hideMaps(), hideRoute()
@@ -6467,7 +6487,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnpdshs.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnpdshsClicked) {
             isbtnpdshsClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 go straight.. then turn right to Perfect Discipline for Senior Highschool Student";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -6479,8 +6499,8 @@ document.addEventListener('DOMContentLoaded', function () {
     stdybtn.addEventListener('click', function () {
         if (isbtngate2Clicked && !isstdybtnClicked) {
             isstdybtnClicked = true;
-            hideMaps(),hideRoute()
-            msg.text = "From gate 2 go straight.. then turn left to study hall";
+            hideMaps(), hideRoute()
+            msg.text = "From gate 2 go straight.. then turn left to study hall and Enrollment Area";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
@@ -6491,7 +6511,7 @@ document.addEventListener('DOMContentLoaded', function () {
     canten.addEventListener('click', function () {
         if (isbtngate2Clicked && !iscantenClicked) {
             iscantenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             hideMaps(), hideRoute()
             msg.text = "From gate 2 go straight to annex building Canteen";
             window.speechSynthesis.speak(msg);
@@ -6501,10 +6521,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
     });
+
+    stdybtn.addEventListener('click', function () {
+        if (isbtngate2Clicked && !isstdybtnClicked) {
+            isstdybtnClicked = true;
+            hideMaps(), hideRoute()
+            hideMaps(), hideRoute()
+            msg.text = "From gate 2 go straight then turn left to study hall or Enrollment Area";
+            window.speechSynthesis.speak(msg);
+            map8.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg2tostdy, anxbtn2, rte1, oldbtn1);
+
+        }
+    });
     pco.addEventListener('click', function () {
         if (isbtngate2Clicked && !ispcoClicked) {
             ispcoClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             hideMaps(), hideRoute()
             msg.text = "From gate 2 go straight then turn left to PCO office";
             window.speechSynthesis.speak(msg);
@@ -6556,14 +6590,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnsao.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnsaoClicked) {
             isbtnsaoClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 turn right.. there's a small staircase beside Perfect Discipline for Senior Highschool Student";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2toc2, anxbtn2, rtsao, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn left and go straight.. on your left side is the Student Affairs Office";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6574,14 +6608,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnma9.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnma9Clicked) {
             isbtnma9Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtma9, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and turn left.. straight ahead is Room M-A-9";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6592,14 +6626,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnma8.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnma8Clicked) {
             isbtnma8Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtma8, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and turn left.. straight ahead is Room M-A-8";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6610,14 +6644,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnma7.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnma7Clicked) {
             isbtnma7Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtma8, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and turn left.. straight ahead is Room M-A-7";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6628,14 +6662,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnma6.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnma6Clicked) {
             isbtnma6Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map8.style.display = 'block';
             hideFloorButton()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             showRoute(rtg2tomez, anxbtn2, rtma6, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right first room is Room M-A-6";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6646,14 +6680,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnma5.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnma5Clicked) {
             isbtnma5Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtma6, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right then straight to  Room M-A-5";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6664,14 +6698,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnma4.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnma4Clicked) {
             isbtnma4Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtma4, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right then straight to  Room M-A-4";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6682,14 +6716,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnma3.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnma3Clicked) {
             isbtnma3Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 turn right.. there's a small staircase beside Perfect Discipline for Senior Highschool Student";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2toc2, anxbtn2, rtma3, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn left and go straight ahead to room m-a-3";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6700,14 +6734,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnma2.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnma2Clicked) {
             isbtnma2Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 turn right.. there's a small staircase beside Perfect Discipline for Senior Highschool Student";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2toc2, anxbtn2, rtma2, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn left and go straight ahead to room m-a-2";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -6720,21 +6754,21 @@ document.addEventListener('DOMContentLoaded', function () {
     btnarhve.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnarhveClicked) {
             isbtnarhveClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and turn left.. straight ahead is 2nd floor archive room,";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -6745,21 +6779,21 @@ document.addEventListener('DOMContentLoaded', function () {
     btncrmelab.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtncrmelabClicked) {
             isbtncrmelabClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then straight.. next to room A-23 is Crime Laboratory Annex building";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -6770,21 +6804,21 @@ document.addEventListener('DOMContentLoaded', function () {
     btna23.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtna23Clicked) {
             isbtna23Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then straight.. to room a-23";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -6795,21 +6829,21 @@ document.addEventListener('DOMContentLoaded', function () {
     btna24.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtna24Clicked) {
             isbtna24Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right to room a-24";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -6820,21 +6854,21 @@ document.addEventListener('DOMContentLoaded', function () {
     btnavr.addEventListener('click', function () {
         if (isbtngate2Clicked && !ibtnavrClicked) {
             ibtnavrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right to Audio visual Room - annex building";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -6845,21 +6879,21 @@ document.addEventListener('DOMContentLoaded', function () {
     btnchoir.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnchoirClicked) {
             isbtnchoirClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right then straight ahaead to Choir Room beside the AVR";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -6870,21 +6904,21 @@ document.addEventListener('DOMContentLoaded', function () {
     btncrimfclty.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtncrimfcltyClicked) {
             isbtncrimfcltyClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right then straight ahaead then turn left to criminology faculty room";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -6895,21 +6929,21 @@ document.addEventListener('DOMContentLoaded', function () {
     btncnsul2nd.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtncnsul2ndClicked) {
             isbtncnsul2ndClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right.. then go straight.. then turn left.. to criminology consultation room located next to criminology faculty room";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -6923,28 +6957,28 @@ document.addEventListener('DOMContentLoaded', function () {
     ma9.addEventListener('click', function () {
         if (isbtngate2Clicked && !isma9Clicked) {
             isma9Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 11500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and turn left.. straight ahead is 3rd floor archive room,";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -6955,28 +6989,28 @@ document.addEventListener('DOMContentLoaded', function () {
     collgefclty.addEventListener('click', function () {
         if (isbtngate2Clicked && !iscollgefcltyClicked) {
             iscollgefcltyClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and turn left to college faculty room";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -6987,28 +7021,28 @@ document.addEventListener('DOMContentLoaded', function () {
     a31.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa31Clicked) {
             isa31Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right to room a-31";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -7019,28 +7053,28 @@ document.addEventListener('DOMContentLoaded', function () {
     a32.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa32Clicked) {
             isa32Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right next to room A-31 is. Room A-32";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -7051,28 +7085,28 @@ document.addEventListener('DOMContentLoaded', function () {
     a35.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa35Clicked) {
             isa35Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and go straight ahead. then turn left to Room a-35";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -7083,28 +7117,28 @@ document.addEventListener('DOMContentLoaded', function () {
     cssdean.addEventListener('click', function () {
         if (isbtngate2Clicked && !iscssdeanClicked) {
             iscssdeanClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and go straight to College of Computer Science Dean's Office";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -7115,28 +7149,28 @@ document.addEventListener('DOMContentLoaded', function () {
     ccsfclty.addEventListener('click', function () {
         if (isbtngate2Clicked && !isccsfcltyClicked) {
             isccsfcltyClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and go straight.. next to College of Computer Science Dean's office is, College of Computer science faculty room,";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -7147,28 +7181,28 @@ document.addEventListener('DOMContentLoaded', function () {
     cnslrm.addEventListener('click', function () {
         if (isbtngate2Clicked && !iscnslrmClicked) {
             iscnslrmClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right and go straight Consultation Room";
                 window.speechSynthesis.speak(msg);
                 msg.text = "Then proceed to 3rd floor";
@@ -7181,28 +7215,28 @@ document.addEventListener('DOMContentLoaded', function () {
     fcr3rd.addEventListener('click', function () {
         if (isbtngate2Clicked && !isfcr3rdClicked) {
             isfcr3rdClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and go straight, and then go left, then straight, pass Room a-35, then turn right, to female cr";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -7213,28 +7247,28 @@ document.addEventListener('DOMContentLoaded', function () {
     mcr3rd.addEventListener('click', function () {
         if (isbtngate2Clicked && !ismcr3rdClicked) {
             ismcr3rdClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and go straight, and then go left, then straight, pass Room a-35, then turn right, to male cr";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -7248,35 +7282,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btnhrmfclty.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnhrmfcltyClicked) {
             isbtnhrmfcltyClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and turn left, then go straight to HRM faculty room";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7287,35 +7321,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btnchair.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnchairClicked) {
             isbtnchairClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and turn left, then go straight to HRM Chairperson's Room";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7326,35 +7360,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btngeneral.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtngeneralClicked) {
             isbtngeneralClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and turn left, then go straight to General Storage Room";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7365,35 +7399,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btntravel.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtntravelClicked) {
             isbtntravelClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and turn left, then go straight to Travel Service room";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7404,35 +7438,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btnhousekeep.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnhousekeepClicked) {
             isbtnhousekeepClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right to House Keeping Office";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7443,35 +7477,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btnhrmkitchn.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnhrmkitchnClicked) {
             isbtnhrmkitchnClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right to HRM Kitchen laboratory 2";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7482,35 +7516,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btnreception.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnreceptionClicked) {
             isbtnreceptionClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, then go straight to HRM Reception Area";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7521,35 +7555,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btnhotel.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnhotelClicked) {
             isbtnhotelClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, then go straight to HRM Reception Area, then turn left to HRM mini Hotel";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7560,35 +7594,35 @@ document.addEventListener('DOMContentLoaded', function () {
     btntetac.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtntetacClicked) {
             isbtntetacClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, then turn left to T-E-T-A-C office";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -7601,42 +7635,42 @@ document.addEventListener('DOMContentLoaded', function () {
     btnbar.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnbarClicked) {
             isbtnbarClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and turn left, then go straight to Bartending Room";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -7647,42 +7681,42 @@ document.addEventListener('DOMContentLoaded', function () {
     a53.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa53Clicked) {
             isa53Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and turn left, then go straight to Room a-53";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -7693,42 +7727,42 @@ document.addEventListener('DOMContentLoaded', function () {
     a52.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa52Clicked) {
             isa52Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and turn left, then go straight to Room a-52, next to room a-53";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -7739,42 +7773,42 @@ document.addEventListener('DOMContentLoaded', function () {
     a54.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa54Clicked) {
             isa54Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, to room a-54";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -7785,42 +7819,42 @@ document.addEventListener('DOMContentLoaded', function () {
     a55.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa55Clicked) {
             isa55Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, go straight to room a-55, next to room a-54";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -7831,42 +7865,42 @@ document.addEventListener('DOMContentLoaded', function () {
     a56.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa56Clicked) {
             isa56Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, go straight to room a-56, next to room a-55";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -7877,42 +7911,42 @@ document.addEventListener('DOMContentLoaded', function () {
     a57.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa57Clicked) {
             isa57Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right,go straight to room a-57, next to room a-56";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -7923,42 +7957,42 @@ document.addEventListener('DOMContentLoaded', function () {
     a58.addEventListener('click', function () {
         if (isbtngate2Clicked && !isa58Clicked) {
             isa58Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, then go straight, then turn left, to room a-58";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -7969,42 +8003,42 @@ document.addEventListener('DOMContentLoaded', function () {
     malecr5th.addEventListener('click', function () {
         if (isbtngate2Clicked && !ismalecr5thClicked) {
             ismalecr5thClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, then go straight, then turn left, pass room a-58, is the male comfort room";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -8018,49 +8052,49 @@ document.addEventListener('DOMContentLoaded', function () {
     btna61.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtna61Clicked) {
             isbtna61Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, and turn left, go straight to Room A-61";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
@@ -8072,7 +8106,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isbtngate2Clicked && !isbtna62Clicked) {
             isbtna62Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -8080,7 +8114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -8088,7 +8122,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 9600);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -8096,7 +8130,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 12500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -8104,7 +8138,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -8112,7 +8146,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 18500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -8120,7 +8154,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 21500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then turn right, and turn left, go straight to Room A-62";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
@@ -8132,7 +8166,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isbtngate2Clicked && !isbtna63Clicked) {
             isbtna63Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -8140,7 +8174,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -8148,7 +8182,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 9600);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -8156,7 +8190,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 12500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -8164,7 +8198,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -8172,7 +8206,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 18500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -8180,7 +8214,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 21500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then turn right, to Room A-63";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
@@ -8192,7 +8226,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isbtngate2Clicked && !isbtna64Clicked) {
             isbtna64Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -8200,7 +8234,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -8208,7 +8242,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 9600);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -8216,7 +8250,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 12500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -8224,7 +8258,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
@@ -8232,7 +8266,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 18500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
@@ -8240,7 +8274,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 21500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then turn right, then go straight, to Room A-64";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
@@ -8252,7 +8286,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isbtngate2Clicked && !isbtna65Clicked) {
             isbtna65Clicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -8260,7 +8294,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
@@ -8268,7 +8302,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 9600);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
@@ -8276,7 +8310,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 12500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
@@ -8284,21 +8318,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right,then go straight, to Room A-65";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
@@ -8309,49 +8343,49 @@ document.addEventListener('DOMContentLoaded', function () {
     btna66.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtna66Clicked) {
             isbtna66Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map8.style.display = 'block';
             hideFloorButton()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, then go straight, to Room A-66";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
@@ -8362,49 +8396,49 @@ document.addEventListener('DOMContentLoaded', function () {
     btna67.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtna67Clicked) {
             isbtna67Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, then go straight, and then turn left, to Room A-67";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
@@ -8415,49 +8449,49 @@ document.addEventListener('DOMContentLoaded', function () {
     btnfcr6th.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnfcr6thClicked) {
             isbtnfcr6thClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then turn right, then go straight, and then turn left, next to Room A-67, is the female comfort room";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
@@ -8470,56 +8504,56 @@ document.addEventListener('DOMContentLoaded', function () {
     btndojo.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtndojoClicked) {
             isbtndojoClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to Roof top";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
                 showRoute(rt6torofdk, oldbtn1, rtg2tomez, oldbtn1);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, then turn left to Dojo gym";
                 window.speechSynthesis.speak(msg);
                 map15.style.display = 'block';
@@ -8530,56 +8564,56 @@ document.addEventListener('DOMContentLoaded', function () {
     btnmcrrd.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnmcrrdClicked) {
             isbtnmcrrdClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to Roof top";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
                 showRoute(rt6torofdk, oldbtn1, rtg2tomez, oldbtn1);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight and turn right, to male showerroom";
                 window.speechSynthesis.speak(msg);
                 map15.style.display = 'block';
@@ -8590,56 +8624,56 @@ document.addEventListener('DOMContentLoaded', function () {
     btnfcrrd.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnfcrrdClicked) {
             isbtnfcrrdClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to Roof top";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
                 showRoute(rt6torofdk, oldbtn1, rtg2tomez, oldbtn1);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight and turn right, to female showerroom";
                 window.speechSynthesis.speak(msg);
                 map15.style.display = 'block';
@@ -8650,56 +8684,56 @@ document.addEventListener('DOMContentLoaded', function () {
     btnpmp.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnpmpClicked) {
             isbtnpmpClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to Roof top";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
                 showRoute(rt6torofdk, oldbtn1, rtg2tomez, oldbtn1);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight and turn right, to pumping station room";
                 window.speechSynthesis.speak(msg);
                 map15.style.display = 'block';
@@ -8710,56 +8744,56 @@ document.addEventListener('DOMContentLoaded', function () {
     btna72.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtna72Clicked) {
             isbtna72Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to Roof top";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
                 showRoute(rt6torofdk, oldbtn1, rtg2tomez, oldbtn1);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight to room A-72";
                 window.speechSynthesis.speak(msg);
                 map15.style.display = 'block';
@@ -8770,56 +8804,56 @@ document.addEventListener('DOMContentLoaded', function () {
     btna71.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtna71Clicked) {
             isbtna71Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to Roof top";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
                 showRoute(rt6torofdk, oldbtn1, rtg2tomez, oldbtn1);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass to room A-72, is room A-71";
                 window.speechSynthesis.speak(msg);
                 map15.style.display = 'block';
@@ -8830,56 +8864,56 @@ document.addEventListener('DOMContentLoaded', function () {
     btnfiring.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnfiringClicked) {
             isbtnfiringClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From gate 2 Go straight pass through the study hall.. and turn left to Annex building main staircase.. then proceed to mezzanine floor";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tomez, anxbtn2, rtmezto2nd, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map9.style.display = 'block';
                 showRoute(rtmezto2nd, oldbtn1, rtacrhve, oldbtn1);
             }, 9600);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map10.style.display = 'block';
                 showRoute(rt2ndto3rd, oldbtn1, rtg2tomez, oldbtn1);
             }, 12500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map11.style.display = 'block';
                 showRoute(rt3to4flr, oldbtn1, rtg2tomez, oldbtn1);
             }, 15500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map12.style.display = 'block';
                 showRoute(rt4to5anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 18500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map13.style.display = 'block';
                 showRoute(rt5to6anx, oldbtn1, rtg2tomez, oldbtn1);
             }, 21500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Then proceed to Roof top";
                 window.speechSynthesis.speak(msg);
                 map14.style.display = 'block';
                 showRoute(rt6torofdk, oldbtn1, rtg2tomez, oldbtn1);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass to room A-72, then left turn at room a-71, go straight, then right turn to firing range";
                 window.speechSynthesis.speak(msg);
                 map15.style.display = 'block';
@@ -8892,16 +8926,16 @@ document.addEventListener('DOMContentLoaded', function () {
     //new building groundfloor startpoint gate1
 
     btntraining.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
-           
-            hideMaps(),hideRoute()
+        if (!isbtngate2Clicked) {
+
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -8909,7 +8943,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -8918,7 +8952,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs turn right, to onboard training office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -8928,16 +8962,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     btnnsa2.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
 
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -8945,7 +8979,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -8954,7 +8988,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to N-S-A-2 office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -8964,15 +8998,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     btnn104.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
-            hideMaps(),hideRoute()
+        if (!isbtngate2Clicked) {
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -8980,7 +9014,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -8989,7 +9023,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to room n-104";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -8999,16 +9033,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     btniqa.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtniqaClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9016,7 +9050,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9025,7 +9059,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to I-Q-A office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9034,16 +9068,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnscholar.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnscholarClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9051,7 +9085,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9060,7 +9094,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to scholar office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9069,16 +9103,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnmedical.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnmedicalClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9086,7 +9120,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9095,7 +9129,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9104,16 +9138,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnmale.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnmaleClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9121,7 +9155,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9130,7 +9164,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9139,16 +9173,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnfemale.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnfemaleClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9156,7 +9190,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9165,7 +9199,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9174,16 +9208,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnchapel.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnchapelClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9191,7 +9225,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9200,7 +9234,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left to new chapel, and chaplain's office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9209,16 +9243,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btntxtbk.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtntxtbkClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9226,7 +9260,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9235,7 +9269,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, pass the social hall, then go straight to textbook section";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9244,16 +9278,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnn118.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnn118Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9261,7 +9295,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9270,7 +9304,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, pass the social hall, then go straight to textbook section, then turn left to room n-118";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9279,16 +9313,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btncnteenn.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtncnteennClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9296,7 +9330,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9305,7 +9339,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, pass the social hall, then go straight to textbook section, then turn left and go straight to new canteen";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9314,16 +9348,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnpresidnt.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnpresidntClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9331,7 +9365,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9340,7 +9374,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to president's office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9349,16 +9383,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnchancel.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnchancelClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9366,7 +9400,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9375,7 +9409,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to chancelor's office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9384,16 +9418,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnsocialhall.addEventListener('click', function () {
-        if (!isbtngate2Clicked) { 
+        if (!isbtngate2Clicked) {
             isbtnsocialhallClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9401,7 +9435,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9410,7 +9444,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, to social hall";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9419,7 +9453,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    
+
 
     ////////////////////////////////////////////////////
     /////////////////gate 2 starting////////////////////
@@ -9427,7 +9461,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btntraining.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtntrainingClicked) {
             isbtntrainingClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9435,7 +9469,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9444,7 +9478,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map17.style.display = 'block';
                 msg.text = "from the new building, go straight pass the stairs turn right, to onboard training office";
                 window.speechSynthesis.speak(msg);
@@ -9455,7 +9489,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnnsa2.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnnsa2Clicked) {
             isbtnnsa2Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9463,7 +9497,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9472,7 +9506,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to N-S-A-2 office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9484,7 +9518,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnn104.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnn104Clicked) {
             isbtnn104Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9492,7 +9526,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9501,7 +9535,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to room n-104";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9513,7 +9547,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btniqa.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtniqaClicked) {
             isbtniqaClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9521,7 +9555,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9530,7 +9564,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to I-Q-A office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9541,7 +9575,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnscholar.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnscholarClicked) {
             isbtnscholarClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9549,7 +9583,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9558,7 +9592,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to scholar office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9569,16 +9603,16 @@ document.addEventListener('DOMContentLoaded', function () {
     btnmedical.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnmedicalClicked) {
             isbtnmedicalClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
-           
+
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9587,7 +9621,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9598,7 +9632,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnmale.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnmaleClicked) {
             isbtnmaleClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9606,7 +9640,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9615,7 +9649,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9626,7 +9660,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnfemale.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnfemaleClicked) {
             isbtnfemaleClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9634,7 +9668,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9643,7 +9677,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9654,7 +9688,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnchapel.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnchapelClicked) {
             isbtnchapelClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9662,7 +9696,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9671,7 +9705,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left to new chapel, and chaplain's office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9682,7 +9716,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btntxtbk.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtntxtbkClicked) {
             isbtntxtbkClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
 
@@ -9691,7 +9725,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
 
@@ -9701,7 +9735,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, pass the social hall, then go straight to textbook section";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9712,7 +9746,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnn118.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnn118Clicked) {
             isbtnn118Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
 
@@ -9721,7 +9755,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
 
@@ -9731,7 +9765,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, pass the social hall, then go straight to textbook section, then turn left to room n-118";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9742,7 +9776,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btncnteenn.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtncnteennClicked) {
             isbtncnteennClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9750,7 +9784,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9759,7 +9793,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, pass the social hall, then go straight to textbook section, then turn left and go straight to new canteen";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9770,7 +9804,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnpresidnt.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnpresidntClicked) {
             isbtnpresidntClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9778,7 +9812,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9787,7 +9821,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to president's office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9798,7 +9832,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnchancel.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnchancelClicked) {
             isbtnchancelClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9806,7 +9840,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9815,7 +9849,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to chancelor's office";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9826,7 +9860,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnsocialhall.addEventListener('click', function () {
         if (isbtngate2Clicked && !isbtnsocialhallClicked) {
             isbtnsocialhallClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2, turn left, to annex 2 building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
@@ -9834,7 +9868,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9843,7 +9877,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, to social hall";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -9852,24 +9886,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-   
+
 
     ///////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////
 
-    
+
     //newbuilding 2ndfloor startpoint gate1
     btnnewlib.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnnewlibClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9877,7 +9911,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9886,15 +9920,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
-                msg.text = "then turn right, then go straight, to new library"; 
+                hideMaps(), hideRoute()
+                msg.text = "then turn right, then go straight, to new library";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rtnewlib, newbtn, rtg2toold, anxbtn2);
@@ -9904,14 +9938,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnmalecr2flr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnmalecr2flrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9919,7 +9953,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9928,14 +9962,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, then go straight, pass the library, to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -9946,14 +9980,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnfemalecr2flr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnfemalecr2flrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -9961,7 +9995,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -9970,14 +10004,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, then go straight, pass the library, to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -9988,14 +10022,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnmaritimelib.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnmaritimelibClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10003,7 +10037,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10012,14 +10046,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, then go straight, next to technical section, is Maritime Library";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -10030,14 +10064,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btntechnical.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtntechnicalClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10045,7 +10079,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to annex-2 building to maritime building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10054,14 +10088,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, then go straight, next to multimedia room, is Technical Section";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -10072,14 +10106,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnmultimedia.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnmultimediaClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10087,7 +10121,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10096,14 +10130,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, then go straight, next to Room N-205, is Multimedia room";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -10114,14 +10148,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnn205.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnn205Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10129,7 +10163,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10138,14 +10172,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, then go straight, next to New Library, is Room N-205";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -10156,14 +10190,14 @@ document.addEventListener('DOMContentLoaded', function () {
     library.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             islibraryClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10171,7 +10205,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10180,14 +10214,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, then go straight, then turn left at Maritime library, to Main Library";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -10198,14 +10232,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnalmni.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnalmniClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10213,7 +10247,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10222,14 +10256,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, pass the social hall, then go straight to textbook section, then turn left to the staircase, then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtmarine2flrleft, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then right turn to NSA alumni office- new building";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -10240,14 +10274,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnn218.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnn218Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10255,7 +10289,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10264,14 +10298,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, pass the social hall, then go straight to textbook section, then turn left to the staircase, then proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtmarine2flrleft, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then right turn to Room N-218";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
@@ -10399,7 +10433,7 @@ document.addEventListener('DOMContentLoaded', function () {
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
-            
+
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
@@ -10434,7 +10468,7 @@ document.addEventListener('DOMContentLoaded', function () {
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
-            showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);          
+            showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
@@ -10469,7 +10503,7 @@ document.addEventListener('DOMContentLoaded', function () {
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
-            showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);          
+            showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
@@ -10505,7 +10539,7 @@ document.addEventListener('DOMContentLoaded', function () {
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
-           
+
             setTimeout(function () {
                 hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
@@ -10540,7 +10574,7 @@ document.addEventListener('DOMContentLoaded', function () {
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
-           
+
             setTimeout(function () {
                 hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
@@ -10575,7 +10609,7 @@ document.addEventListener('DOMContentLoaded', function () {
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
-           
+
             setTimeout(function () {
                 hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
@@ -10610,7 +10644,7 @@ document.addEventListener('DOMContentLoaded', function () {
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2tonewbldg, anxbtn2, rtg2toreg, oldbtn1);
-           
+
             setTimeout(function () {
                 hideMaps(), hideRoute()
                 msg.text = "from annex 2 building go straight, to new building";
@@ -10642,14 +10676,14 @@ document.addEventListener('DOMContentLoaded', function () {
     speechlb.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isspeechlbClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10657,7 +10691,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10666,21 +10700,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight to Speech Laboratory-new building";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -10691,14 +10725,14 @@ document.addEventListener('DOMContentLoaded', function () {
     comlab.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             iscomlabClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10706,7 +10740,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10715,21 +10749,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass Speech Laboratory-new building, to computer laboratory new building";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -10740,14 +10774,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n304.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn304Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10755,7 +10789,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10764,21 +10798,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass computer laboratory-new building , to room n-304";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -10789,14 +10823,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n305.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn305Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg)
                 map8.style.display = 'block';
@@ -10804,7 +10838,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10813,21 +10847,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-304, to room n-305";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -10838,14 +10872,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n306.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn306Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10853,7 +10887,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10862,21 +10896,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-305, to room n-306";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -10887,14 +10921,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n307.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn307Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10902,7 +10936,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10911,21 +10945,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-306, to room n-307";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -10936,14 +10970,14 @@ document.addEventListener('DOMContentLoaded', function () {
     MTFO.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isMTFOClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -10951,7 +10985,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -10960,21 +10994,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-307, to maritime transportation faculty office";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -10985,14 +11019,14 @@ document.addEventListener('DOMContentLoaded', function () {
     femalcr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isfemalcrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11000,7 +11034,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11009,21 +11043,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass maritime transportation faculty office, to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11034,14 +11068,14 @@ document.addEventListener('DOMContentLoaded', function () {
     malecr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             ismalecrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11049,7 +11083,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11058,21 +11092,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg)
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass female comfort room, to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11083,14 +11117,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n310.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn310Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11098,7 +11132,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11107,21 +11141,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass maritime transportation faculty room, then turn left to, room n-310";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11132,14 +11166,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n311.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn311Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11147,7 +11181,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11156,21 +11190,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-310, to room n-311";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11181,14 +11215,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n312.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn312Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11196,7 +11230,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11205,21 +11239,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-311, to room n-312";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11230,14 +11264,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n313.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn313Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11245,7 +11279,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11254,21 +11288,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-312, to room n-313";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11279,14 +11313,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n314.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn314Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11294,7 +11328,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11303,21 +11337,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-313, to room n-314";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11328,14 +11362,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n315.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn315Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11343,7 +11377,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11352,21 +11386,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-314, to room n-315";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11377,14 +11411,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n316.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn316Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11392,7 +11426,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11401,21 +11435,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-315, to room n-316";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11426,14 +11460,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n317.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn317Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11441,7 +11475,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11450,21 +11484,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-316, to room n-317";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11475,22 +11509,22 @@ document.addEventListener('DOMContentLoaded', function () {
     guidancecntr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isguidancecntrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
-                window.speechSynthesis.speak(msg); 
+                window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11499,21 +11533,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-316, then turn left, to guidance center new building";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11524,14 +11558,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n318.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn318Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -11539,7 +11573,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -11548,21 +11582,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, turn left at maritime transportation office, then go straight pass room n-316, then turn left, pass guidance center new building, to room n-318";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
@@ -11862,7 +11896,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right, go straight pass room n-307 to, maritime transportation faculty office"; 
+                msg.text = "then turn right, go straight pass room n-307 to, maritime transportation faculty office";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(rtMTFO, newbtn, rtg2toold, anxbtn2);
@@ -12378,14 +12412,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n401.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn401Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12393,7 +12427,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12402,28 +12436,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight to room n-401";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12434,14 +12468,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n402.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn402Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12449,7 +12483,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12458,28 +12492,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-401, to room n-402";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12490,14 +12524,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n403.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn403Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12505,7 +12539,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12514,28 +12548,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-402, to room n-403";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12546,14 +12580,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n404.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn404Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12561,7 +12595,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12570,28 +12604,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-403, to room n-404";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12602,14 +12636,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n405.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn405Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12617,7 +12651,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12626,28 +12660,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-404, to room n-405";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12658,14 +12692,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n406.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn406Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12673,7 +12707,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12682,28 +12716,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-405, to room n-406";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12714,14 +12748,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n407.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn407Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12729,7 +12763,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12738,28 +12772,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-406, to room n-407";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12770,14 +12804,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n408.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn408Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12785,7 +12819,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12794,28 +12828,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-407, to room n-408";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12826,14 +12860,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n409.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn409Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12841,7 +12875,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12850,28 +12884,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight pass room n-408, to room n-409";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12882,14 +12916,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n410.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn410Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12897,7 +12931,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12906,28 +12940,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, to room n-410";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12938,14 +12972,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n415.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn415Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -12953,7 +12987,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -12962,28 +12996,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, then go straight pass desktop engine Room simulation, to room n-415";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -12994,14 +13028,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n416.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn416Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13009,7 +13043,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13018,28 +13052,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, then go straight pass room n-415, to room n-416";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -13050,14 +13084,14 @@ document.addEventListener('DOMContentLoaded', function () {
     n418.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isn418Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13065,7 +13099,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13074,28 +13108,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, then go straight, then turn left at room n-416, then straight to room n-418";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -13106,14 +13140,14 @@ document.addEventListener('DOMContentLoaded', function () {
     MT.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isMTClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13121,7 +13155,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13130,28 +13164,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, then go straight, then turn left at room n-416, then straight to Maritime transportation office";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -13162,14 +13196,14 @@ document.addEventListener('DOMContentLoaded', function () {
     malecr4th.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             ismalecr4thClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13177,7 +13211,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13186,28 +13220,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, pass room n-409, to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -13218,7 +13252,7 @@ document.addEventListener('DOMContentLoaded', function () {
     showerrm.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isshowerrmClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
 
@@ -13226,7 +13260,7 @@ document.addEventListener('DOMContentLoaded', function () {
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13234,7 +13268,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13243,28 +13277,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, pass male comfort room, to showerroom";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -13275,14 +13309,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ERS.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isERSClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13290,7 +13324,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13299,28 +13333,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, then go straight,  to engine room simulation";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -13331,14 +13365,14 @@ document.addEventListener('DOMContentLoaded', function () {
     briefngrm.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbriefngrmClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13346,7 +13380,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13355,28 +13389,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, then go straight,  pass engine room simulation, to breifing room";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -13387,14 +13421,14 @@ document.addEventListener('DOMContentLoaded', function () {
     DERS.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isDERSClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13402,7 +13436,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13411,28 +13445,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, then go straight,  pass breifing room, to desktop engine room simulator";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -13443,14 +13477,14 @@ document.addEventListener('DOMContentLoaded', function () {
     MPRR.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isMPRRClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -13458,7 +13492,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -13467,28 +13501,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, then turn left at room n-409, then go straight,  pass room n-416, to mock p-r-c review room";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
@@ -14485,14 +14519,14 @@ document.addEventListener('DOMContentLoaded', function () {
     c5.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isc5Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -14500,7 +14534,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -14509,35 +14543,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, go straight, to computer laboratory 5";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -14548,14 +14582,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ampi.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isampiClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -14563,7 +14597,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -14572,35 +14606,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight, to amphitheater";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -14611,14 +14645,14 @@ document.addEventListener('DOMContentLoaded', function () {
     MAAC.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isMAACClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -14626,7 +14660,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -14635,35 +14669,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left and, go straight, to maritime academe assessment center";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -14674,14 +14708,14 @@ document.addEventListener('DOMContentLoaded', function () {
     MLO.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isMLOClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -14689,7 +14723,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -14698,35 +14732,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left and, go straight, to maritime laboratory office";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -14737,14 +14771,14 @@ document.addEventListener('DOMContentLoaded', function () {
     fcr5thm.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isfcr5thmClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -14752,7 +14786,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -14761,35 +14795,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left and, go straight, pass maritime laboratory office, to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -14800,14 +14834,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mcr5thm.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             ismcr5thmClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -14815,7 +14849,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -14824,35 +14858,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left and, go straight, pass female comfort room, to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -14863,14 +14897,14 @@ document.addEventListener('DOMContentLoaded', function () {
     MCR.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isMCRClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -14878,7 +14912,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -14887,35 +14921,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left, to maritime C-B-T Room";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -14926,7 +14960,7 @@ document.addEventListener('DOMContentLoaded', function () {
     FMSR.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isFMSRClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
 
@@ -14934,7 +14968,7 @@ document.addEventListener('DOMContentLoaded', function () {
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -14942,7 +14976,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -14951,35 +14985,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left, to maritime C-B-T Room, and go straight to full mission simulation room";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -14990,14 +15024,14 @@ document.addEventListener('DOMContentLoaded', function () {
     LCHS.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isLCHSClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -15005,7 +15039,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -15014,35 +15048,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left, to maritime C-B-T Room, and go straight pass full mission simulation room, to liquid cargo handling simulator";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -15053,14 +15087,14 @@ document.addEventListener('DOMContentLoaded', function () {
     RASR.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isRASRClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -15068,7 +15102,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -15077,35 +15111,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left, to maritime C-B-T Room, and go straight pass liquid cargo handling simulator, to Radar or A-R-P-A simulation room";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -15116,14 +15150,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ECDIS2.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isECDIS2Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -15131,7 +15165,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -15140,35 +15174,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left, to maritime C-B-T Room, and go straight pass Radar or A-R-P-A simulation room, to E-C-D-I-S";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -15179,14 +15213,14 @@ document.addEventListener('DOMContentLoaded', function () {
     CSR.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isCSRClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -15194,7 +15228,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -15203,35 +15237,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left, to maritime C-B-T Room, and go straight, and then turn left at, Radar or A-R-P-A simulation room, to chemistry stockroom";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -15242,14 +15276,14 @@ document.addEventListener('DOMContentLoaded', function () {
     CHL.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isCHLClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -15257,7 +15291,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -15266,35 +15300,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left, to maritime C-B-T Room, and go straight, and then turn left at, Radar, or A-R-P-A simulation room, to chemistry laboratory";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
@@ -16040,14 +16074,14 @@ document.addEventListener('DOMContentLoaded', function () {
     gdmss.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isgdmssClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16055,7 +16089,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16064,42 +16098,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
                 showRoute(rt5to6M, newbtn, rtg2toold, anxbtn2);
             }, 41500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to G-D-M-S-S";
                 window.speechSynthesis.speak(msg);
                 map22.style.display = 'block';
@@ -16110,14 +16144,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mckbrdge.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             ismckbrdgeClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16125,7 +16159,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16134,42 +16168,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
                 showRoute(rt5to6M, newbtn, rtg2toold, anxbtn2);
             }, 41500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to mock bridge";
                 window.speechSynthesis.speak(msg);
                 map22.style.display = 'block';
@@ -16180,20 +16214,20 @@ document.addEventListener('DOMContentLoaded', function () {
     bmcr6.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbmcr6Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map8.style.display = 'block';
                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16202,42 +16236,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
                 showRoute(rt5to6M, newbtn, rtg2toold, anxbtn2);
             }, 41500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left pass G-D-M-S-S, to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map22.style.display = 'block';
@@ -16248,14 +16282,14 @@ document.addEventListener('DOMContentLoaded', function () {
     fcr6.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isfcr6Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16263,7 +16297,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16272,42 +16306,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
                 showRoute(rt5to6M, newbtn, rtg2toold, anxbtn2);
             }, 41500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left pass G-D-M-S-S, to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map22.style.display = 'block';
@@ -16318,14 +16352,14 @@ document.addEventListener('DOMContentLoaded', function () {
     avr6.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isavr6Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16333,7 +16367,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16342,42 +16376,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map18.style.display = 'block';
                 showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
             }, 24500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map19.style.display = 'block';
                 showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
             }, 28500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map20.style.display = 'block';
                 showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
             }, 32500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 6th floor";
                 window.speechSynthesis.speak(msg);
                 map21.style.display = 'block';
                 showRoute(rt5to6M, newbtn, rtg2toold, anxbtn2);
             }, 41500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left, and turn left again to audio visual room";
                 window.speechSynthesis.speak(msg);
                 map22.style.display = 'block';
@@ -16710,14 +16744,14 @@ document.addEventListener('DOMContentLoaded', function () {
     cbt3.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             iscbt3Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16725,7 +16759,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16734,14 +16768,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, turn right to C-B-T room 3";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -16753,14 +16787,14 @@ document.addEventListener('DOMContentLoaded', function () {
     cbt2.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             iscbt2Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16768,7 +16802,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16777,14 +16811,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass cbt room 3, then turn right to cbt room 2";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -16796,14 +16830,14 @@ document.addEventListener('DOMContentLoaded', function () {
     cbt1.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             iscbt1Clicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16811,7 +16845,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16820,14 +16854,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass cbt room 2, then turn right to cbt room 1";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -16839,14 +16873,14 @@ document.addEventListener('DOMContentLoaded', function () {
     nsaofce.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsaofceClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16854,7 +16888,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16863,14 +16897,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass cbt room 1, then turn right to N-S-A office";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -16882,14 +16916,14 @@ document.addEventListener('DOMContentLoaded', function () {
     perfectdiscipl.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isperfectdisciplClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16897,7 +16931,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16906,14 +16940,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass N-S-A office, then turn right to perfect discipline office";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -16925,14 +16959,14 @@ document.addEventListener('DOMContentLoaded', function () {
     cctv.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             iscctvClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16940,7 +16974,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16949,14 +16983,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map23.style.display = 'block';
                 showRoute(rtcctv, nsabtn, rtg2toold, newbtn);
             }, 26500);
@@ -16966,14 +17000,14 @@ document.addEventListener('DOMContentLoaded', function () {
     genED.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isgenEDClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -16981,7 +17015,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -16990,14 +17024,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass perfect discipline office, then turn right to general education faculty room";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -17009,14 +17043,14 @@ document.addEventListener('DOMContentLoaded', function () {
     shsPE.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isshsPEClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17024,7 +17058,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17033,14 +17067,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass C-D-R-C office, then turn right to senior highschool physical education faculty";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -17052,14 +17086,14 @@ document.addEventListener('DOMContentLoaded', function () {
     cdrc.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             iscdrcClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17067,7 +17101,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17076,14 +17110,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass maritime superintendent office, then turn right to C-D-R-C office";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -17095,14 +17129,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mso.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             ismsoClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17110,7 +17144,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17119,14 +17153,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass general education faculty room, then turn right to maritime superintedent office";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -17138,14 +17172,14 @@ document.addEventListener('DOMContentLoaded', function () {
     fecr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isfecrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17153,7 +17187,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17162,14 +17196,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass senior highschool physical education faculty, then turn right to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -17181,14 +17215,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mlecr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             ismlecrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17196,7 +17230,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17205,14 +17239,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass female comfort room, then turn right to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -17224,14 +17258,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mfr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             ismfrClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17239,7 +17273,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17248,14 +17282,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight pass senior highschool physical education faculty, then turn left to maritime faculty room";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -17267,14 +17301,14 @@ document.addEventListener('DOMContentLoaded', function () {
     nsacanteen.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17282,7 +17316,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17291,14 +17325,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building.., go straight to general education faculty room, then turn left to n-s-a canteen";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
@@ -17816,67 +17850,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     //nsa building 2ndfloor function
-        ns201.addEventListener('click', function () {
-            if (!isbtngate2Clicked) {
-                isns201Clicked = true;
-                hideMaps(),hideRoute()
-                msg.text = "From Gate 1.. go straight pass the cashier";
-                window.speechSynthesis.speak(msg);
-                map1.style.display = 'block';
-                hideFloorButton()
-                showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-                setTimeout(function () {
-                    hideMaps(),hideRoute()
-                    msg.text = "Go straight pass to study hall";
-                    window.speechSynthesis.speak(msg);
-                    map8.style.display = 'block';
-                    showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-                }, 6200);
-
-                setTimeout(function () {
-                    hideMaps(),hideRoute()
-                    msg.text = "Go straight pass to annex-2 building to new building";
-                    window.speechSynthesis.speak(msg);
-                    map16.style.display = 'block';
-                    anxbtn2.style.display = 'none';
-                    showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-                }, 13500);
-
-                setTimeout(function () {
-                    hideMaps(),hideRoute()
-                    msg.text = "from the new building, go straight to N-S-A building";
-                    window.speechSynthesis.speak(msg);
-                    map17.style.display = 'block';
-                    showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-                }, 19500);
-                setTimeout(function () {
-                    hideMaps(),hideRoute()
-                    msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
-                    window.speechSynthesis.speak(msg);
-                    map23.style.display = 'block';
-                    showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-                }, 26500);
-                setTimeout(function () {
-                    hideMaps(),hideRoute()
-                    msg.text = "then turn right on dormitory master office,... the go straight to the last room,.. to room ns-201";
-                    window.speechSynthesis.speak(msg);
-                    map24.style.display = 'block';
-                    showRoute(rtns201, nsabtn, rtg2toold, newbtn);
-                }, 36500);
-
-            }
-        });
-    ns202.addEventListener('click', function () {
+    ns201.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
-            isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-            map1.style.display = 'block';
-            hideFloorButton()
+            isns201Clicked = true;
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17884,7 +17868,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17893,21 +17877,71 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "then turn right on dormitory master office,... the go straight to the last room,.. to room ns-201";
+                window.speechSynthesis.speak(msg);
+                map24.style.display = 'block';
+                showRoute(rtns201, nsabtn, rtg2toold, newbtn);
+            }, 36500);
+
+        }
+    });
+    ns202.addEventListener('click', function () {
+        if (!isbtngate2Clicked) {
+            isnsacanteenClicked = true;
+            hideMaps(), hideRoute()
+            map1.style.display = 'block';
+            hideFloorButton()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory master office,... the go straight pass room ns-203,.. to room ns-202";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -17919,14 +17953,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns203.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17934,7 +17968,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17943,21 +17977,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory master office,... the go straight pass room ns-204,.. to room ns-203";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -17969,14 +18003,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns204.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -17984,7 +18018,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -17993,21 +18027,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory master office,... the go straight pass room ns-205,.. to room ns-204";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -18019,14 +18053,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns205.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18034,7 +18068,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18043,21 +18077,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory master office,... the go straight,.. to room ns-205";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -18069,14 +18103,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dormmaster.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18084,7 +18118,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18093,21 +18127,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to.., dormitory master office";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -18119,14 +18153,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dq201.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18134,7 +18168,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18143,21 +18177,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then,.. U turn from the left on dormitory master office to,... dormitory quarters room numbers 201 to 208";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -18169,14 +18203,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dq209.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18184,7 +18218,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18193,21 +18227,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on dormitory master office to,... dormitory quarters room numbers 209 to 212";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -18219,14 +18253,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dqfcr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18234,7 +18268,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18243,21 +18277,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on dormitory master office,.. then go straight pass,.. dormitory quarters room number 212,.. to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -18269,14 +18303,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dqmcr.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18284,7 +18318,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18293,21 +18327,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on dormitory master office,.. then go straight pass,.. female comfort room,.. to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
@@ -18756,14 +18790,14 @@ document.addEventListener('DOMContentLoaded', function () {
     shwroom.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18771,7 +18805,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18780,28 +18814,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on charging station,... the go straight to the last room,.. to showerroom";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -18813,14 +18847,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns302.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18828,7 +18862,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18837,28 +18871,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on charging station,... the go straight pass room ns-303,.. to room ns-302";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -18870,14 +18904,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns303.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18885,7 +18919,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18894,28 +18928,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on charging station,... the go straight pass room ns-304,.. to room ns-303";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -18927,14 +18961,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns304.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18942,7 +18976,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -18951,28 +18985,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on charging station,... the go straight pass room ns-305,.. to room ns-304";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -18984,14 +19018,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns305.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -18999,7 +19033,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -19008,28 +19042,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on charging station,... the go straight pass room ns-306,.. to room ns-305";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -19041,14 +19075,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns306.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -19056,7 +19090,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -19065,28 +19099,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on charging station,... the go straight pass dorm quarters room number 315,.. to room ns-306";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -19098,14 +19132,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dq313.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -19113,7 +19147,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -19122,28 +19156,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on charging station,... the go straight to dorm quarters room number 313 to 315";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -19155,14 +19189,14 @@ document.addEventListener('DOMContentLoaded', function () {
     chargngstn.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -19170,7 +19204,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -19179,28 +19213,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then to straight to charging station";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -19212,14 +19246,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dq309.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -19227,7 +19261,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -19236,28 +19270,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left at charging station, then go straight to dormitory quarters room number 309 to 311";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -19269,14 +19303,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dq301.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -19284,7 +19318,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -19293,28 +19327,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then,.. U turn from the left on charging station to,... dormitory quarters room numbers 301 to 308";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -19326,14 +19360,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dqfcr30.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -19341,7 +19375,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -19350,28 +19384,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left at charging station,.. then go straight pass dormitory quarters room number 311,.. to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -19383,14 +19417,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dqmcr3.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -19398,7 +19432,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -19407,28 +19441,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left at charging station,.. then go straight pass dormitory quarters room number 311,.. to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
@@ -20047,14 +20081,14 @@ document.addEventListener('DOMContentLoaded', function () {
     toilet.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20062,7 +20096,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20071,35 +20105,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory quarters room number 413,... the go straight to the last room,.. to toilet and bathroom";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20111,14 +20145,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns401.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20126,7 +20160,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20135,35 +20169,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory quarters room number 413,... the go straight pass room ns-402,.. to room ns-401";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20175,14 +20209,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns402.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20190,7 +20224,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20199,35 +20233,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory quarters room number 413,... the go straight pass room ns-403,.. to room ns-402";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20239,14 +20273,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns403.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20254,7 +20288,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20263,35 +20297,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory quarters room number 413,... the go straight pass room ns-404,.. to room ns-403";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20303,14 +20337,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns404.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20318,7 +20352,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20327,35 +20361,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory quarters room number 413,... the go straight pass room ns-405,.. to room ns-404";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20367,14 +20401,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns405.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20382,7 +20416,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20391,35 +20425,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on dormitory quarters room number 413,... to room ns-405";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20431,14 +20465,14 @@ document.addEventListener('DOMContentLoaded', function () {
     minihtl.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20446,7 +20480,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20455,35 +20489,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on dormitory quarters room number 413,... then go straight pass dormitory quarters room number 410,... to mini hotel nsa building";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20495,14 +20529,14 @@ document.addEventListener('DOMContentLoaded', function () {
     stoickrm.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20510,7 +20544,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20519,35 +20553,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on dormitory quarters room number 413,... then go straight pass dormitory quarters room number 410,... to n-s-a building,.. 4th floor stock room";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20559,14 +20593,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dq410.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20574,7 +20608,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20583,35 +20617,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg)
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to dormitory quarters room numbers 410 to 413";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20623,14 +20657,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dq401.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20638,7 +20672,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20647,35 +20681,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then,.. U turn from the left on dormitory quarters room number 413 to,... dormitory quarters room numbers 401 to 408";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20687,14 +20721,14 @@ document.addEventListener('DOMContentLoaded', function () {
     fcr4nsa.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20702,7 +20736,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20711,35 +20745,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on dormitory quarters room number 413,... then go straight pass mini hotel nsa building,... to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -20751,14 +20785,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mcr4nsa.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -20766,7 +20800,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -20775,35 +20809,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on dormitory quarters room number 413,... then go straight pass mini hotel nsa building,... to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
@@ -21506,14 +21540,14 @@ document.addEventListener('DOMContentLoaded', function () {
     navrm.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -21521,7 +21555,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -21530,42 +21564,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on room ns-505,... then go straight to the last room,... to navigation room";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -21577,14 +21611,14 @@ document.addEventListener('DOMContentLoaded', function () {
     c6lab.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -21592,7 +21626,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -21601,42 +21635,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on room ns-505,... then go straight pass room ns-503,... to computer laboratory 6";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -21648,14 +21682,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns503.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -21663,7 +21697,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -21672,42 +21706,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on room ns-505,... then go straight pass room ns-504,... to room ns-503";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -21719,14 +21753,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns504.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -21734,7 +21768,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -21743,42 +21777,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right on room ns-505,... then go to,.. room ns-504";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -21790,14 +21824,14 @@ document.addEventListener('DOMContentLoaded', function () {
     ns505.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -21805,7 +21839,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -21814,42 +21848,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to room ns-505";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -21861,14 +21895,14 @@ document.addEventListener('DOMContentLoaded', function () {
     phylab.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -21876,7 +21910,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -21885,42 +21919,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on room ns-505,... to Physics laboratory";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -21930,16 +21964,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     toolrm.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -21947,7 +21981,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -21956,42 +21990,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on room ns-505,... then go straight pass physics laboratory,.. to tool room- n-s-a building";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -22001,16 +22035,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     chemlab.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -22018,7 +22052,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -22027,42 +22061,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on room ns-505,... then go straight pass tool room,.. to chemistry laboratory";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -22072,16 +22106,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     fcr5nsa.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -22089,7 +22123,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -22098,42 +22132,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on room ns-505,... then go straight pass chemistry laboratory,.. to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -22143,16 +22177,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     mcr5nsa.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -22160,7 +22194,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -22169,42 +22203,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left on room ns-505,... then go straight pass female comfort room,.. to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -22214,16 +22248,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     dq501.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -22231,7 +22265,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -22240,42 +22274,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to third floor";
                 window.speechSynthesis.speak(msg);
                 map24.style.display = 'block';
                 showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fourth floor";
                 window.speechSynthesis.speak(msg);
                 map25.style.display = 'block';
                 showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
             }, 40000);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to fifth floor";
                 window.speechSynthesis.speak(msg);
                 map26.style.display = 'block';
                 showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
             }, 44500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then,.. U turn from the left on room ns-505 to,... dormitory quarters room numbers 501 to 508";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
@@ -22996,16 +23030,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //cbe building groundfloor
     cbe101.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23013,7 +23047,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23022,41 +23056,41 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go right to room cbe 101";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtcbe101, cbebtn, rtg2toold, nsabtn);
             }, 36500);
-            
+
 
         }
     });
     cbe102.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23064,7 +23098,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23073,21 +23107,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight pass room cbe101 to cbe 102";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
@@ -23098,16 +23132,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     canteen.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23115,7 +23149,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23124,21 +23158,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight pass room cbe102,.. then right turn,.. to business building canteen";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
@@ -23149,16 +23183,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     generatorrm.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23166,7 +23200,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23175,21 +23209,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight pass business building canteen,.. then right turn,.. to generator room";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
@@ -23200,37 +23234,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     firepump.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map8.style.display = 'block';
                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map16.style.display = 'block';
                 anxbtn2.style.display = 'none';
                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map28.style.display = 'block';
                 showRoute(rtfirepmp, cbebtn, rtg2toold, nsabtn);
             }, 36500);
@@ -23239,16 +23273,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     malecrcbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23256,7 +23290,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23265,21 +23299,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to,... male comfort room";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
@@ -23290,16 +23324,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     fmlecrcbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23307,7 +23341,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23316,21 +23350,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight pass male comfort room,... to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
@@ -23341,37 +23375,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cctvrmcbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map8.style.display = 'block';
                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map16.style.display = 'block';
                 anxbtn2.style.display = 'none';
                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 map28.style.display = 'block';
                 showRoute(rtcctvrmcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
@@ -23717,16 +23751,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //cbe building 2ndfloor
     cbe201.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23734,7 +23768,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23743,28 +23777,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight to,..room cbe 201";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -23775,16 +23809,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe202.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23792,7 +23826,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23801,28 +23835,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight pass room cbe 203 to,..room cbe 201";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -23833,16 +23867,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe203.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23850,7 +23884,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23859,28 +23893,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight to room cbe 203";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -23891,16 +23925,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe204.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23908,7 +23942,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23917,28 +23951,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight to room cbe 204";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -23949,16 +23983,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe205.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -23966,7 +24000,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -23975,28 +24009,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 204,.. to room cbe 205";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24007,16 +24041,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe206.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24024,7 +24058,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24033,28 +24067,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 205,.. to room cbe 206";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24065,16 +24099,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe207.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24082,7 +24116,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24091,28 +24125,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass female comfort room,.. to room cbe 207";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24123,16 +24157,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe208.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24140,7 +24174,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24149,28 +24183,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 207,.. to room cbe 208";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24181,16 +24215,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe209.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24198,7 +24232,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24207,28 +24241,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 208,.. to room cbe 209";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24239,16 +24273,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe210.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24256,7 +24290,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24265,28 +24299,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 209,.. to room cbe 210";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24297,16 +24331,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe211.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24314,7 +24348,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24323,28 +24357,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass computer laboratory - business building,.. to room cbe 211";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24355,16 +24389,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe212.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24372,7 +24406,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24381,28 +24415,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 211,.. to room cbe 212";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24413,16 +24447,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe213.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24430,7 +24464,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24439,28 +24473,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight to room cbe 212 then left turn,.. to room cbe 213";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24471,16 +24505,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe214.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24488,7 +24522,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24497,28 +24531,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight to room cbe 212 then left turn,.. right beside cbe room 213 is room cbe 214";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24529,16 +24563,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     malecr2cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24546,7 +24580,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24555,28 +24589,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 206,.. to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24587,16 +24621,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     fmalecr2cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24604,7 +24638,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24613,28 +24647,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass male comfort room,.. to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -24645,16 +24679,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     computerlab2cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -24662,7 +24696,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -24671,28 +24705,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 210,.. to computer laboratory - business building";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
@@ -25577,16 +25611,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //3rdfloor cbe building
     cbe301.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -25594,7 +25628,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -25603,35 +25637,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight to the last room,.. to room cbe 301";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -25642,16 +25676,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe302.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -25659,7 +25693,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -25668,35 +25702,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight pass cbe room 303,.. to room cbe 302";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -25707,16 +25741,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe303.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -25724,7 +25758,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -25733,35 +25767,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight to room cbe 303";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -25772,16 +25806,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe304.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -25789,7 +25823,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -25798,35 +25832,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go to room,.. cbe 304";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -25837,16 +25871,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe305.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -25854,7 +25888,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -25863,35 +25897,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 304,.. to room cbe 305";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -25902,16 +25936,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe306.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -25919,7 +25953,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -25928,35 +25962,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 305,.. to room cbe 306";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -25967,16 +26001,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     malecr3cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -25984,7 +26018,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -25993,35 +26027,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 306,.. to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26032,16 +26066,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     femalecr3cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26049,7 +26083,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26058,35 +26092,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass male comfort room,.. to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26097,16 +26131,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     bookkeeping.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26114,7 +26148,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26123,35 +26157,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass female comfort room,.. to Book keeping office";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26162,16 +26196,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     simulrm.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26179,7 +26213,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26188,35 +26222,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass Book keeping office,.. to simulation room";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26227,16 +26261,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbadean.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26244,7 +26278,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26253,35 +26287,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass simulation room,.. to college of business administration dean's office";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26292,16 +26326,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbafaculty.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26309,7 +26343,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26318,35 +26352,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass college of business administration dean's office,.. to college of business administration faculty office";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26357,16 +26391,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     customdean.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26374,7 +26408,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26383,35 +26417,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass college of business administration faculty office,.. to customs dean's office";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26422,16 +26456,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     customfaculty.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26439,7 +26473,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26448,35 +26482,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass customs dean's office,.. to customs faculty office";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26487,16 +26521,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     reviewrm.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26504,7 +26538,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26513,35 +26547,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass customs faculty office,.. to review room";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26552,16 +26586,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     multimedia.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26569,7 +26603,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26578,35 +26612,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass review room,.. to multimedia room";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26617,16 +26651,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe310.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26634,7 +26668,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26643,35 +26677,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight to multimedia room,.. then turn left to room ceb 310";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -26682,16 +26716,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe311.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -26699,7 +26733,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -26708,35 +26742,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight to multimedia room,.. then turn left beside  room ceb 310 is,... room cbe 311";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
@@ -27797,16 +27831,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //cbe building 4thfloor
     cbe401.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -27814,7 +27848,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -27823,42 +27857,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight to to the last room,.. to room cbe 401";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -27869,16 +27903,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe403.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -27886,7 +27920,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -27895,42 +27929,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass female comfort room,.. to room cbe 403";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -27941,16 +27975,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe404.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -27958,7 +27992,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -27967,42 +28001,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass function hall,.. to room cbe 404";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28013,16 +28047,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe405.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28030,7 +28064,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28039,42 +28073,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 404,.. to room cbe 405";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28085,16 +28119,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe406.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28102,7 +28136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28111,42 +28145,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 405,.. to room cbe 406";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28157,16 +28191,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe407.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28174,7 +28208,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28183,42 +28217,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 406,.. then turn left,.. to room cbe 407";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28229,16 +28263,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe408.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28246,7 +28280,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28255,42 +28289,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 406,.. then turn left,.. to room cbe 408";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28301,16 +28335,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     edtec.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28318,7 +28352,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28327,42 +28361,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight pass education dean's office.. to EDTEC room";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28373,16 +28407,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     edudean.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28390,7 +28424,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28399,42 +28433,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight pass education faculty office.. to education dean's office";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28445,16 +28479,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     edufaclty.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28462,7 +28496,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28471,42 +28505,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to,.. education faculty room";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28517,16 +28551,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     simulroom.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28534,7 +28568,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28543,42 +28577,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass education faculty room,.. to review room";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28589,16 +28623,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     reviewroom.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28606,7 +28640,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28615,42 +28649,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass simulation room,.. to review room";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28661,16 +28695,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     malecr4cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28678,7 +28712,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28687,42 +28721,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass review room,.. to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28733,16 +28767,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     femalecr4cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28750,7 +28784,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28759,42 +28793,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass male comfort room,.. to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -28805,16 +28839,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     fnctnhall.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -28822,7 +28856,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -28831,42 +28865,42 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 403,.. to function hall";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
@@ -29859,16 +29893,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //cbe 5th floor
     cbe501.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -29876,7 +29910,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -29885,49 +29919,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
             }, 50500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight to the last room,.. to room cbe 501";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -29938,16 +29972,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe502.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -29955,7 +29989,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -29964,49 +29998,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
             }, 50500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn right,.. and go straight pass room cbe 503,.. to room cbe 502";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30017,16 +30051,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe503.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -30034,7 +30068,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -30043,49 +30077,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
             }, 50500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight,.. to room cbe 503";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30096,16 +30130,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe504.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -30113,7 +30147,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -30122,49 +30156,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
             }, 50500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass stockroom,.. to room cbe 504";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30175,16 +30209,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe505.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -30192,7 +30226,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -30201,49 +30235,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
             }, 50500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 504,.. to room cbe 505";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30254,16 +30288,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe506.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -30271,7 +30305,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -30280,49 +30314,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
             }, 50500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 505,.. to room cbe 506";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30333,16 +30367,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe507.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -30350,7 +30384,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -30359,49 +30393,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
             }, 50500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass female comfort room,.. to room cbe 507";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30412,16 +30446,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe508.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-            hideMaps(),hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -30429,7 +30463,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 6200);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -30438,49 +30472,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 13500);
 
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the new building, go straight to N-S-A building";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "from the N-S-A building, go straight to business building";
                 window.speechSynthesis.speak(msg);
                 map23.style.display = 'block';
                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
             }, 26500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map28.style.display = 'block';
                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
             }, 36500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
                 map29.style.display = 'block';
                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
             }, 42500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
                 map30.style.display = 'block';
                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
             }, 46500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map31.style.display = 'block';
                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
             }, 50500);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 507,.. to room cbe 508";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30491,75 +30525,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe509.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 508,.. to room cbe 509";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30570,75 +30604,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe510.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 509,.. to room cbe 510";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30649,75 +30683,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe511.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 510,.. to room cbe 511";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30728,75 +30762,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe512.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 511,.. to room cbe 512";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30807,75 +30841,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe513.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 512,.. to room cbe 513";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30886,75 +30920,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe514.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 513,.. to room cbe 514";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -30965,75 +30999,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe515.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight to room cbe 514,.. then turn left,... to room cbe 515";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -31044,75 +31078,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     cbe516.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight to room cbe 514,.. then turn left,... to room cbe 516";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -31123,75 +31157,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     malecr5cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass room cbe 506,.. to male comfort room";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -31202,75 +31236,75 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     femalecr5cbe.addEventListener('click', function () {
-         if (!isbtngate2Clicked) {
+        if (!isbtngate2Clicked) {
             isnsacanteenClicked = true;
-             hideMaps(), hideRoute()
-             msg.text = "From Gate 1.. go straight pass the cashier";
-             window.speechSynthesis.speak(msg);
-             map1.style.display = 'block';
-             hideFloorButton()
-             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to study hall";
-                 window.speechSynthesis.speak(msg);
-                 map8.style.display = 'block';
-                 showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
-             }, 6200);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "Go straight pass to annex-2 building to new building";
-                 window.speechSynthesis.speak(msg);
-                 map16.style.display = 'block';
-                 anxbtn2.style.display = 'none';
-                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-             }, 13500);
-
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the new building, go straight to N-S-A building";
-                 window.speechSynthesis.speak(msg);
-                 map17.style.display = 'block';
-                 showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-             }, 19500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "from the N-S-A building, go straight to business building";
-                 window.speechSynthesis.speak(msg);
-                 map23.style.display = 'block';
-                 showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
-             }, 26500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
-                 window.speechSynthesis.speak(msg);
-                 map28.style.display = 'block';
-                 showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
-             }, 36500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 3rd floor";
-                 window.speechSynthesis.speak(msg);
-                 map29.style.display = 'block';
-                 showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
-             }, 42500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 4th floor";
-                 window.speechSynthesis.speak(msg);
-                 map30.style.display = 'block';
-                 showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
-             }, 46500);
-             setTimeout(function () {
-                 hideMaps(), hideRoute()
-                 msg.text = "then proceed to 5th floor";
-                 window.speechSynthesis.speak(msg);
-                 map31.style.display = 'block';
-                 showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
-             }, 50500);
+            hideMaps(), hideRoute()
+            msg.text = "From Gate 1.. go straight pass the cashier";
+            window.speechSynthesis.speak(msg);
+            map1.style.display = 'block';
+            hideFloorButton()
+            showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to study hall";
+                window.speechSynthesis.speak(msg);
+                map8.style.display = 'block';
+                showRoute(rtoldtonew, anxbtn2, rtg2toold, oldbtn1);
+            }, 6200);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "Go straight pass to annex-2 building to new building";
+                window.speechSynthesis.speak(msg);
+                map16.style.display = 'block';
+                anxbtn2.style.display = 'none';
+                showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
+            }, 13500);
+
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the new building, go straight to N-S-A building";
+                window.speechSynthesis.speak(msg);
+                map17.style.display = 'block';
+                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+            }, 19500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the N-S-A building, go straight to business building";
+                window.speechSynthesis.speak(msg);
+                map23.style.display = 'block';
+                showRoute(rtnsatocbe, nsabtn, rtg2toold, newbtn);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then go straight to the stairs,.. proceed to 2nd floor";
+                window.speechSynthesis.speak(msg);
+                map28.style.display = 'block';
+                showRoute(rtgrndto2ndflrcbe, cbebtn, rtg2toold, nsabtn);
+            }, 36500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 3rd floor";
+                window.speechSynthesis.speak(msg);
+                map29.style.display = 'block';
+                showRoute(rt2to3cbe, cbebtn, rtg2toold, nsabtn);
+            }, 42500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 4th floor";
+                window.speechSynthesis.speak(msg);
+                map30.style.display = 'block';
+                showRoute(rt3to4cbe, cbebtn, rtg2toold, nsabtn);
+            }, 46500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map31.style.display = 'block';
+                showRoute(rt4to5cbe, cbebtn, rtg2toold, nsabtn);
+            }, 50500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
                 msg.text = "then turn left,.. and go straight pass male comfort room,.. to female comfort room";
                 window.speechSynthesis.speak(msg);
                 map32.style.display = 'block';
@@ -42716,7 +42750,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 66500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left,.. and go straight pass room cbe 904,.. to room cbe 905";
+                msg.text = "then turn left,.. and go straight pass room cbe 904,.. to Allied Engineering Department";
                 window.speechSynthesis.speak(msg);
                 map37.style.display = 'block';
                 showRoute(rtcbe905, cbebtn, rtg2toold, nsabtn);
@@ -42821,7 +42855,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 66500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left,.. and go straight pass room cbe 905,.. to room cbe 906";
+                msg.text = "then turn left,.. and go straight pass Allied Engineering Department,.. to room cbe 906";
                 window.speechSynthesis.speak(msg);
                 map37.style.display = 'block';
                 showRoute(rtcbe906, cbebtn, rtg2toold, nsabtn);
@@ -44156,7 +44190,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 60500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left,.. and go straight pass room cbe 904,.. to room cbe 905";
+                msg.text = "then turn left,.. and go straight pass room cbe 904,.. to Allied Engineering Department";
                 window.speechSynthesis.speak(msg);
                 map37.style.display = 'block';
                 showRoute(rtcbe905, cbebtn, rtg2toold, nsabtn);
@@ -44254,7 +44288,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 60500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left,.. and go straight pass room cbe 905,.. to room cbe 906";
+                msg.text = "then turn left,.. and go straight pass Allied Engineering Department,.. to room cbe 906";
                 window.speechSynthesis.speak(msg);
                 map37.style.display = 'block';
                 showRoute(rtcbe906, cbebtn, rtg2toold, nsabtn);
@@ -48970,14 +49004,14 @@ document.addEventListener('DOMContentLoaded', function () {
     registrar.addEventListener('click', function () {
         if (isbtngate2Clicked && !isregistrarClicked) {
             isregistrarClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2,... go straight and turn right to old building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2toold, anxbtn2, rtg2toreg, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight pass the cashier to registrar office";
                 window.speechSynthesis.speak(msg);
                 map1.style.display = 'block';
@@ -48989,14 +49023,14 @@ document.addEventListener('DOMContentLoaded', function () {
     guidance.addEventListener('click', function () {
         if (isbtngate2Clicked && !isguidanceClicked) {
             isguidanceClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2,... go straight and turn right to old building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2toold, anxbtn2, rtg2toreg, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight pass the cashier,.. then turn right,..and go straight to guidance center";
                 window.speechSynthesis.speak(msg);
                 map1.style.display = 'block';
@@ -49008,14 +49042,14 @@ document.addEventListener('DOMContentLoaded', function () {
     cashier.addEventListener('click', function () {
         if (isbtngate2Clicked && !iscashierClicked) {
             iscashierClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2,... go straight and turn right to old building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2toold, anxbtn2, rtg2toreg, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight,... turn right to cashier office";
                 window.speechSynthesis.speak(msg);
                 map1.style.display = 'block';
@@ -49027,14 +49061,14 @@ document.addEventListener('DOMContentLoaded', function () {
     account.addEventListener('click', function () {
         if (isbtngate2Clicked && !isaccountClicked) {
             isaccountClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2,... go straight and turn right to old building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2toold, anxbtn2, rtg2toreg, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight,.. turn left to accounting office";
                 window.speechSynthesis.speak(msg);
                 map1.style.display = 'block';
@@ -49046,14 +49080,14 @@ document.addEventListener('DOMContentLoaded', function () {
     edp.addEventListener('click', function () {
         if (isbtngate2Clicked && !isedpClicked) {
             isedpClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "from gate 2,... go straight and turn right to old building";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
             showRoute(rtg2toold, anxbtn2, rtg2toreg, oldbtn1);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then go straight pass accounting office,.. then turn left to edp office";
                 window.speechSynthesis.speak(msg);
                 map1.style.display = 'block';
@@ -49122,7 +49156,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 msg.text = "then go straight pass the cashier office,.. then turn right pass guidance center to the stairs";
                 window.speechSynthesis.speak(msg);
                 map1.style.display = 'block';
-                hideFloorButton()           
+                hideFloorButton()
                 showRoute(gate2tomez, oldbtn1, rte1, anxbtn2);
             }, 5500);
             setTimeout(function () {
@@ -49159,7 +49193,7 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(function () {
 
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "progress to the left; Room M3, is located beside Room M2.";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -49185,12 +49219,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 msg.text = "then go straight pass the cashier office,.. then turn right pass guidance center to the stairs";
                 window.speechSynthesis.speak(msg);
                 map1.style.display = 'block';
-                hideFloorButton()               
+                hideFloorButton()
                 showRoute(gate2tomez, oldbtn1, rte1, anxbtn2);
             }, 5500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go left, and straight to room M1";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -49250,7 +49284,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 msg.text = "then go straight pass the accounting office,.. then turn left,.. take the stairs beside the accounting office";
                 window.speechSynthesis.speak(msg);
                 map1.style.display = 'block';
-                hideFloorButton()           
+                hideFloorButton()
                 showRoute(gate2tobm, oldbtn1, rte1, anxbtn2);
             }, 5500);
             setTimeout(function () {
@@ -49284,7 +49318,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 5500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go right to the room, the research room is straight ahead";
                 window.speechSynthesis.speak(msg);
                 map3.style.display = 'block';
@@ -49404,7 +49438,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /////////////////
 
     buttonc1.addEventListener('click', function () {
-        if(isbtngate2Clicked && !isedpClicked) {
+        if (isbtngate2Clicked && !isedpClicked) {
             isButton12Clicked = true;
 
             hideMaps(), hideRoute()
@@ -51077,14 +51111,14 @@ document.addEventListener('DOMContentLoaded', function () {
     btnswmpool.addEventListener('click', function () {
         if (!isbtngate2Clicked) {
             isbtnswmpoolClicked = true;
-            hideMaps(),hideRoute()
+            hideMaps(), hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
             hideFloorButton()
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
-                hideMaps(),hideRoute()
+                hideMaps(), hideRoute()
                 msg.text = "then Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -51093,7 +51127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then Go straight pass to annex-2 building,.. and then  take the left route,.. then go straight to swimming pool";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -51156,7 +51190,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isbtngate2Clicked) {
             isbtnswmpoolClicked = true;
             hideMaps(),
-            hideRoute()
+                hideRoute()
             msg.text = "From Gate 1.. go straight pass the cashier";
             window.speechSynthesis.speak(msg);
             map1.style.display = 'block';
@@ -51164,7 +51198,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Go straight pass to study hall";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
@@ -51173,7 +51207,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "Go straight pass to annex-2 building to new building";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -51182,7 +51216,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 15500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "from the new building, go straight pass the stairs, and go straight to medical and dental clinic, then turn left, to social hall";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
@@ -51190,7 +51224,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 19500);
             setTimeout(function () {
                 hideMaps(),
-                hideRoute()
+                    hideRoute()
                 msg.text = "then go straight to covered court";
                 window.speechSynthesis.speak(msg);
                 map16.style.display = 'block';
@@ -53421,7 +53455,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cbe807, cbe808, cbe809, cbe810, cbe811, cbe812, cbe813, cbe814, cbe815, cbe816, malecr8cbe, femalecr8cbe, cbe901, cbe902, cbe903, cbe904, cbe905, cbe906, cpelab, fablab, eceroom,
             eeroom, rvwroom, ieroom, malecr9cbe, femalecr9cbe, cbe1001, cbe1002, cbe1003, cbe1004, cbe1005, cbe1006, cbe1007, cbe1008, cbe1009, cbe1010, cbe1011, cbe1012, cbe1013, cbe1014, cbe1015,
             cbe1016, malecr10cbe, femalecr10cbe, anxmcrmezflr, anxfcrmezflr, drwngrm, me110, mefemalecr, me111, memechlab, me114, me115, me116, me117, me118, me119, me120, me101, me102, me103, me104,
-            me105, me106, me107, memalecr,
+            me105, me106, me107, memalecr, 
 
 
             btnarhve, btncrmelab, btna23, btna24, btnavr, btnchoir, btncrimfclty, btncnsul2nd, ma9, collgefclty, a31, a32, a35, cssdean, ccsfclty, cnslrm,
@@ -53461,7 +53495,7 @@ document.addEventListener('DOMContentLoaded', function () {
             rtg1toa31, rtg1toa32, rtg1toa35, rtg1toconsul, rtg1toccsfaculty, rtg1toccsdean, rtg1toannexleft, rtte17, rtg1toarchve, rtg1tocrimelb, rtg1toa23, rtg1toa24, rtg1toavr, rtg1tochoirrom, rtg1tocrimfaculty,
             rtg1toconsulrom, rannex2nd, rtte15, rtmainannex, rtleftannex4th, rtg1hrmfaculty, rtg1toCO, rtg1togs, rtg1totsr, rtg1totetac, rtg1tohko, rtg1tohrmminihotel, rtg1toreceparea, rtg1tohrmkit2
             , rtmcrmez, rtfcrmez, gate2tomcr, gate2tofcr, gate2tomez, gate2tobm, gate2to2nd, gate2tomain2nd, g2toc2, gate2tocicsco, rtmachneshp, ranx2, rttomeroom, rtme101, rtme102, rtme103, rtme104, rtme105,
-            rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120];
+            rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy];
 
 
 
@@ -53502,12 +53536,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 rtg1toa31, rtg1toa32, rtg1toa35, rtg1toconsul, rtg1toccsfaculty, rtg1toccsdean, rtg1toannexleft, rtte17, rtg1toarchve, rtg1tocrimelb, rtg1toa23, rtg1toa24, rtg1toavr, rtg1tochoirrom, rtg1tocrimfaculty,
                 rtg1toconsulrom, rannex2nd, rtte15, rtmainannex, rtleftannex4th, rtg1hrmfaculty, rtg1toCO, rtg1togs, rtg1totsr, rtg1totetac, rtg1tohko, rtg1tohrmminihotel, rtg1toreceparea, rtg1tohrmkit2
                 , rtmcrmez, rtfcrmez, gate2tomcr, gate2tofcr, gate2tomez, gate2tobm, gate2to2nd, gate2tomain2nd, g2toc2, gate2tocicsco, rtmachneshp, ranx2, rttomeroom, rtme101, rtme102, rtme103, rtme104, rtme105,
-                rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120); 
+                rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy);
         }
     });
 
 
-    
+
 
 
     function showRoute(routeElement, btnToShow, routeToHide, btnToHide) {
@@ -53523,7 +53557,7 @@ document.addEventListener('DOMContentLoaded', function () {
         btnToHide.style.display = 'none';
     }
 
-    function hideRoute() { 
+    function hideRoute() {
         const elements = [route, rte1, rte3, rte4, rte2, rtte3, rte5, rte6, rte7, rte8, rte9, rte10, rtte5, rtte6, rte11, rtte12,
             rtte13, route6, mbldg, rc2, rcisco, rgsr1, rgsr2, rtetoc2, rtobm, rdark, rcrime, rhr, rtte10, rtte7, rtte8, rtte9, rtte4, rtte2, rtte11,
             rtte16, rtcad, rtanatomy, rtamph, rtte14, rtskill, rtopd, rtklab, rtcoldk, rtresto, rtfcr4th, rt4to5, remptyrm1, rtlefto5th, r507,
@@ -53560,7 +53594,7 @@ document.addEventListener('DOMContentLoaded', function () {
             rtg1toa31, rtg1toa32, rtg1toa35, rtg1toconsul, rtg1toccsfaculty, rtg1toccsdean, rtg1toannexleft, rtte17, rtg1toarchve, rtg1tocrimelb, rtg1toa23, rtg1toa24, rtg1toavr, rtg1tochoirrom, rtg1tocrimfaculty,
             rtg1toconsulrom, rannex2nd, rtte15, rtmainannex, rtleftannex4th, rtg1hrmfaculty, rtg1toCO, rtg1togs, rtg1totsr, rtg1totetac, rtg1tohko, rtg1tohrmminihotel, rtg1toreceparea, rtg1tohrmkit2
             , rtmcrmez, rtfcrmez, gate2tomcr, gate2tofcr, gate2tomez, gate2tobm, gate2to2nd, gate2tomain2nd, g2toc2, gate2tocicsco, rtmachneshp, ranx2, rttomeroom, rtme101, rtme102, rtme103, rtme104, rtme105,
-            rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120]; 
+            rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy];
 
         elements.forEach(element => element.style.display = 'none');
 
@@ -53826,7 +53860,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isdq309Clicked = false;
         isdq301Clicked = false;
         isdqfcr30Clicked = false;
-        isdqmcr3Clicked = false; 
+        isdqmcr3Clicked = false;
 
         istoiletClicked = false;
         isns401Clicked = false;
@@ -53839,7 +53873,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isdq410Clicked = false;
         isdq401Clicked = false;
         isfcr4nsaClicked = false;
-        ismcr4nsaClicked = false; 
+        ismcr4nsaClicked = false;
 
         isnavrmClicked = false;
         isc6labClicked = false;
@@ -53855,8 +53889,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-    
-    
+
+
 });
 
 
@@ -53868,7 +53902,7 @@ function showucmap() {
     var floors = ["oldgroundfloor", "oldmez", "secondold", "thirdold", "fourthold", "fifthold", "rdold", "anxgrnd", "anxmez", "anx2ndflr",
         "anx3rdflr", "anx4thflr", "anx5thflr", "anx6thflr", "anxroofdeck", "uclmwholemap", "newbldggrnd", "newbldg2ndflr", "newbldg3rdflr",
         "newbldg4thflr", "newbldg5thflr", "newbldg6thflr", "nsabldggrnd", "nsabldgsecnd", "nsabldgthird", "nsabldgfourth", "nsabldgfifth", "cbebuildinggrnd",
-        "cbebuilding2nd", "cbebuilding3rd", "cbebuilding4th", "cbebuilding5th", "cbebuilding6th", "cbebuilding7th", "cbebuilding8th", "cbebuilding9th", "cbebuilding10th","meroom"];
+        "cbebuilding2nd", "cbebuilding3rd", "cbebuilding4th", "cbebuilding5th", "cbebuilding6th", "cbebuilding7th", "cbebuilding8th", "cbebuilding9th", "cbebuilding10th", "meroom"];
 
     // Hide floors and dropdown buttons
     for (var i = 0; i < floors.length; i++) {
@@ -53886,8 +53920,8 @@ function showucmap() {
     searchInput1.value = "";
     contentDiv.style.display = "none";
     errorMessage.style.display = "none";
-    
-    
+
+
 
     // Hide elements with class "annex1"
     var annexElements = document.getElementsByClassName("annex1");
@@ -54014,8 +54048,8 @@ document.addEventListener("DOMContentLoaded", function () {
     homeButton.addEventListener("click", function () {
 
         // Additionally, you can call the showucmap() function here if needed
-       showucmap()
-   
+        showucmap()
+
 
     });
 });

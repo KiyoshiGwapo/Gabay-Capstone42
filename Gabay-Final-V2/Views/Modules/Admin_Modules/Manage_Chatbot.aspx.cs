@@ -30,19 +30,33 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
         protected void scriptBtn_Click(object sender, EventArgs e)
         {
-            string Keywords = this.KeywordTextArea.Text.ToLower();
-            string Script = this.ScriptTextArea.Text;
-
-            if (!string.IsNullOrEmpty(Script) && !string.IsNullOrEmpty(Keywords))
+            try
             {
-                Chatbot_model conn = new Chatbot_model();
-                conn.AddResponse(Script, Keywords);
+                string Keywords = this.KeywordTextArea.Text.ToLower();
+                string Script = this.ScriptTextArea.Text;
 
-                ScriptTextArea.Text = string.Empty;
-                KeywordTextArea.Text = string.Empty;
+                if (!string.IsNullOrEmpty(Script) && !string.IsNullOrEmpty(Keywords))
+                {
+                    Chatbot_model conn = new Chatbot_model();
+                    conn.AddResponse(Script, Keywords);
 
-                BindDT();
+                    ScriptTextArea.Text = string.Empty;
+                    KeywordTextArea.Text = string.Empty;
+
+                    BindDT();
+                }
+
+                string successMessage = "Script Added successfully.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
             }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred while adding the script: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+            
         }
 
         protected void ScriptTable_RowEditing(object sender, GridViewEditEventArgs e)
@@ -68,43 +82,57 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
         protected void updtBtn_Click(object sender, EventArgs e)
         {
-            // Get the selected row index
-            int rowIndex = ScriptTable.EditIndex;
-
-            // Check if the selected row index is valid
-            if (rowIndex >= 0 && rowIndex < ScriptTable.Rows.Count)
+            try
             {
-                // Get the controls within the selected row
-                GridViewRow selectedRow = ScriptTable.Rows[rowIndex];
-                Label scriptContentLabel = selectedRow.FindControl("ScriptContentLabel") as Label;
-                Label keywordsLabel = selectedRow.FindControl("KeywordsLabel") as Label;
+                // Get the selected row index
+                int rowIndex = ScriptTable.EditIndex;
 
-                // Update the data in the GridView row
-                scriptContentLabel.Text = ScriptTextArea.Text;
-                keywordsLabel.Text = KeywordTextArea.Text;
+                // Check if the selected row index is valid
+                if (rowIndex >= 0 && rowIndex < ScriptTable.Rows.Count)
+                {
+                    // Get the controls within the selected row
+                    GridViewRow selectedRow = ScriptTable.Rows[rowIndex];
+                    Label scriptContentLabel = selectedRow.FindControl("ScriptContentLabel") as Label;
+                    Label keywordsLabel = selectedRow.FindControl("KeywordsLabel") as Label;
 
-                // Save the updated data to the database
-                int scriptId = Convert.ToInt32(ScriptTable.DataKeys[rowIndex].Value);
-                string updatedScript = ScriptTextArea.Text;
-                string updatedKeywords = KeywordTextArea.Text;
+                    // Update the data in the GridView row
+                    scriptContentLabel.Text = ScriptTextArea.Text;
+                    keywordsLabel.Text = KeywordTextArea.Text;
 
-                Chatbot_model conn = new Chatbot_model();
-                conn.UpdateResponse(scriptId, updatedScript, updatedKeywords);
+                    // Save the updated data to the database
+                    int scriptId = Convert.ToInt32(ScriptTable.DataKeys[rowIndex].Value);
+                    string updatedScript = ScriptTextArea.Text;
+                    string updatedKeywords = KeywordTextArea.Text;
 
-                // Reset the TextBox controls
-                ScriptTextArea.Text = string.Empty;
-                KeywordTextArea.Text = string.Empty;
+                    Chatbot_model conn = new Chatbot_model();
+                    conn.UpdateResponse(scriptId, updatedScript, updatedKeywords);
 
-                // Hide the Update and Cancel buttons, and show the Save button
-                saveBtnCont.Attributes["class"] = "d-grid";
-                updtBtnCont.Attributes["class"] = "d-flex justify-content-evenly d-none";
+                    // Reset the TextBox controls
+                    ScriptTextArea.Text = string.Empty;
+                    KeywordTextArea.Text = string.Empty;
 
-                // Cancel the editing operation of the GridView
-                ScriptTable.EditIndex = -1;
+                    // Hide the Update and Cancel buttons, and show the Save button
+                    saveBtnCont.Attributes["class"] = "d-grid";
+                    updtBtnCont.Attributes["class"] = "d-flex justify-content-evenly d-none";
 
-                // Refresh the GridView with updated data
-                BindDT();
+                    // Cancel the editing operation of the GridView
+                    ScriptTable.EditIndex = -1;
+
+                    // Refresh the GridView with updated data
+                    BindDT();
+
+                    string successMessage = "Script Updated successfully.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+                }
             }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred while updating the script: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+            
         }
 
         protected void cnclBtn_Click(object sender, EventArgs e)
@@ -121,12 +149,26 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
         protected void ScriptTable_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int scriptID = Convert.ToInt32(ScriptTable.DataKeys[e.RowIndex].Value);
+            try
+            {
+                int scriptID = Convert.ToInt32(ScriptTable.DataKeys[e.RowIndex].Value);
 
-            Chatbot_model conn = new Chatbot_model();
-            conn.DeleteResponse(scriptID);
+                Chatbot_model conn = new Chatbot_model();
+                conn.DeleteResponse(scriptID);
 
-            BindDT();
+                BindDT();
+
+                string successMessage = "Script Deleted successfully.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred while deleting the script: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+            
         }
     }
 }

@@ -19,9 +19,6 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
             int studentSessionID = Convert.ToInt32(Session["user_ID"]);
             LoadData(studentSessionID);
             BindFilesToDropDownList(studentSessionID);
-            // Other code...
-
-
         }
         public void LoadData(int studentSessionID)
         {
@@ -155,9 +152,9 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
 
 
         // Modify the BindFilesToDropDownList method
-        private void BindFilesToDropDownList(int userId)
+        private void BindFilesToDropDownList(int studentSessionID)
         {
-            List<FileData> filesList = FetchFilesDataFromDatabase(userId);
+            List<FileData> filesList = FetchFilesDataFromDatabase(studentSessionID);
 
             // Add an empty item as the default in the DropDownList
             ddlFiles.Items.Clear();
@@ -255,5 +252,8 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
             }
         }
 
+
+
     }
 }
+

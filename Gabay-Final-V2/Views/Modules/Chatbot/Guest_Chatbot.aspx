@@ -16,15 +16,9 @@
         </div>
     </div>
     <script>
-        function buttonClick(buttonText) {
-            // Send the clicked button's text as user input to the server
-            document.getElementById('<%= txtUserInput.ClientID %>').value = buttonText;
+        function menuButtonClick(choice) {
+            document.getElementById('<%= txtUserInput.ClientID %>').value = choice;
             document.getElementById('<%= btnSend.ClientID %>').click();
         }
-        function scrollToBottom() {
-            var chatContainer = document.querySelector('.chatContainer');
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
-        scrollToBottom();
     </script>
 </asp:Content>

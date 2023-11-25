@@ -42,21 +42,27 @@
                             <li class="nav-item p-1">
                                 <asp:HyperLink ID="manageDep" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Department.aspx">
                               <i class="bi bi-building-fill-add"></i>
-                              <span class="mt-2">Manage Department</span>
+                              <span class="mt-2">Add Department</span>
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
                                 <asp:HyperLink ID="manageUser" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Users.aspx">
-                              <i class="bi bi-building-fill-add"></i>
+                              <i class="bi bi-people-fill me-2"></i>
                               <span class="mt-2">Manage Users</span>
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item p-1">
+                                <asp:HyperLink ID="ManageAnnouncement" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Users.aspx">
+                               <i class="bi bi-question-square-fill me-2"></i>
+                              <span class="mt-2">Manage Announcement</span>
+                                </asp:HyperLink>
+                            </li>
+                          <%--  <li class="nav-item p-1">
                                 <asp:HyperLink ID="wayFinding" runat="server" CssClass="topnav-item text-cente custom-text-color">
                               <i class="bi bi-map-fill me-2"></i>
                               <span class="mt-2">Way Finding</span>
                                 </asp:HyperLink>
-                            </li>
+                            </li>--%>
                             <li class="nav-item p-1">
                                 <asp:HyperLink ID="chatbot" runat="server" CssClass="topnav-item text-cente custom-text-color" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Chatbot.aspx">
                               <i class="bi bi-chat-left-dots-fill me-2"></i>
@@ -90,7 +96,7 @@
                         </ul>
                     </div>
                     <div class="d-none d-lg-block" id="lgout-prfl_btn">
-                        <asp:Button ID="profileBtn" runat="server" CssClass="btn logout-profileBtn" Text="Profile" UseSubmitBehavior="false" />
+                       
                         <asp:Button ID="logoutBtn" runat="server" CssClass="btn logout-profileBtn" Text="Logout" UseSubmitBehavior="false" OnClick="logoutBtn_Click" />
                     </div>
                 </div>
@@ -117,21 +123,28 @@
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideNavDept" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Department.aspx">
                             <i class="bi bi-building-fill-add"></i>
-                            <p class="mt-4">Manage Department</p>
+                            <p class="mt-4">Add Department</p>
                         </asp:HyperLink>
                     </li>
+
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideNavPend" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Users.aspx">
                             <i class="bi bi-people-fill fs-4 me-3"></i>
                             <p class="mt-4">Manage Users</p>
                         </asp:HyperLink>
                     </li>
-                    <li class="nav-item ">
+                     <li class="nav-item ">
+                        <asp:HyperLink ID="sideMangeAnnouncement" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Announcement.aspx">
+                           <i class="bi bi-megaphone-fill me-3"></i>
+                           <p class="mt-4">Manage Announcement</p>
+                        </asp:HyperLink>
+                    </li>
+                   <%-- <li class="nav-item ">
                         <asp:HyperLink ID="sideNavWF" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-map-fill fs-4 me-3"></i>
                             <p class="mt-4">Manage Way Finding</p>
                         </asp:HyperLink>
-                    </li>
+                    </li>--%>
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCB" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Chatbot.aspx">
                             <i class="bi bi-kanban-fill fs-4 me-3""></i>

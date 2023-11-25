@@ -75,7 +75,7 @@
                                     <asp:LinkButton ID="learnMoreBtn" CssClass="btn bg-primary learnMoreBtn text-center"
                                         runat="server" OnClientClick='<%# "setAnnouncementID(" + Eval("AnnouncementID") + ");" %>'
                                         OnClick="learnMoreBtn_Click">
-                                            Learn More
+                                            Read More
                                     </asp:LinkButton>
                                 </div>
                             </div>

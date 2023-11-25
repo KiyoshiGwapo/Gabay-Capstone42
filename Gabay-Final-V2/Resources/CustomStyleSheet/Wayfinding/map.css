@@ -1,5 +1,4 @@
-﻿﻿
-/*
+﻿/*
 .container {
     float: right;
     width: 80%;
@@ -26,12 +25,11 @@
 }
 
 */
-/*
-.layout {
+/*.layout {
     width: 1366px;
     height: 900px;
     display: grid;
-    grid: "header header header" 0% "leftSide body rightSide" 64% "footer footer footer" 20% / 10% 1fr 2%;
+    grid: "header header header" 0% "body body rightSide" 64% "footer footer footer" 20% / 10% 20% 2%;
     gap: 8px;
 }*/
 /*.layout {
@@ -46,21 +44,21 @@
     grid-template-columns: 10% 1fr 2%;
     gap: 8px;
 }*/
-.layout {
+/*.layout {
     width: 100%;
-    max-width: 1366px; /* Set a maximum width to prevent layout from becoming too wide */
-    height: auto; /* Allow the height to adjust based on content */
-    display: grid;
+    max-width: 1366px;*/ /* Set a maximum width to prevent layout from becoming too wide */
+/*height: auto;*/ /* Allow the height to adjust based on content */
+/*display: grid;
     grid-template-areas:
         "header header header"
-        "leftSide body rightSide"
+        "body rightSide rightSide"
         "footer footer footer";
-    grid-template-rows: auto 1fr auto; /* Use 'auto' for header and footer, and '1fr' for the body to fill available space */
-    grid-template-columns: auto 1fr auto; /* Reduced side margins for smaller screens */
-    gap: 8px;
-}
-
+    grid-template-rows: auto 2fr auto;*/ /* Use 'auto' for header and footer, and '1fr' for the body to fill available space */
+/*grid-template-columns: auto 1fr auto;*/ /* Reduced side margins for smaller screens */
+/*gap: 8px;
+}*/
 /* Media query for smaller screens */
+/*
 @media (max-width: 768px) {
     .layout {
         grid-template-areas:
@@ -69,17 +67,14 @@
             "footer";
         grid-template-rows: auto 1fr auto;
         grid-template-columns: 100%; /* Full width for the main content on smaller screens */
-        gap: 4px; /* Smaller gap for smaller screens */
-    }
+/*gap: 4px;*/ /*Smaller gap for smaller screens*/
+/*}
 
     .leftSide,
     .rightSide {
-        display: none; /* Hide left and right sides on smaller screens */
-    }
-}
-
-
-
+        display: none;*/ /* Hide left and right sides on smaller screens */
+/*}
+}*/
 .header {
     grid-area: header;
 }
@@ -88,25 +83,39 @@
     grid-area: leftSide;
 }
 
+.cont1 {
+    /*position: relative;*/
+    display: flex;
+}
+
 .body {
-    grid-area: body;
+    /* grid-area: body;*/
     background-color: ghostwhite;
     border: 2px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+    /*padding: 10px;*/
     position: relative;
     z-index: 1;
+    /*width: 1300px;*/
+    flex-grow: 1;
+    border-bottom: none; /* Hide the bottom border */
 }
 
-.rightSide {
-    grid-area: rightSide;
-}
+
 
 .btnmp {
+    /*width: 120px;
+    margin: 5px;
+    display: flex;*/
+
     width: 120px;
     margin: 5px;
     display: flex;
+    position: relative;
+    /*top: 50%;
+    left: 1400px;*/ /* Adjust the right value based on the width of .body and .btnmp */
+    z-index: 2;
 }
 
 .footer {
@@ -474,50 +483,82 @@ ul {
 }
 
 #oldmez, #secondold, #thirdold, #oldgroundfloor, #fourthold, #fifthold, #rdold {
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /* bottom: 90px;*/
     position: relative;
+    width: 1000px; /* Set your desired width */
+    height: 1000px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #anxgrnd {
-    transform: scale(0.7);
+    /* transform: scale(0.7);*/
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /*bottom: 100px;*/
     position: relative;
+    width: 780px; /* Set your desired width */
+    height: 780px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 
 
 #anxmez {
-    transform: scale(0.7);
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /* bottom: 100px;*/
     position: relative;
+    width: 780px; /* Set your desired width */
+    height: 780px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #anx2ndflr, #anx3rdflr, #anx4thflr, #anx5thflr, #anx6thflr, #anxroofdeck {
-    transform: scale(0.7);
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /*bottom: 100px;*/
     position: relative;
+    width: 780px; /* Set your desired width */
+    height: 780px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #newbldggrnd, #newbldg2ndflr, #newbldg3rdflr, #newbldg5thflr {
-    transform: scale(0.6);
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /* bottom: 220px;*/
     position: relative;
+    width: 700px; /* Set your desired width */
+    height: 700px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #newbldg4thflr {
@@ -527,52 +568,88 @@ ul {
     display: none;
     /*bottom: 220px;*/
     position: relative;
+    width: 700px; /* Set your desired width */
+    height: 700px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #newbldg6thflr {
-    transform: scale(0.7);
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /*bottom: 180px;*/
     position: relative;
+    width: 700px; /* Set your desired width */
+    height: 700px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #nsabldggrnd, #nsabldgsecnd {
-    transform: scale(0.6);
+    transform: scale(1);
     justify-content: normal;
     align-items: inherit;
     display: none;
     /* bottom: 400px;*/
     position: relative;
+    width: 700px; /* Set your desired width */
+    height: 700px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #nsabldgthird {
-    transform: scale(0.6);
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /* bottom: 510px;*/
     position: relative;
+    width: 700px; /* Set your desired width */
+    height: 700px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #nsabldgfourth {
-    transform: scale(0.6);
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /*bottom: 520px;*/
     position: relative;
+    width: 700px; /* Set your desired width */
+    height: 700px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 
 #nsabldgfifth {
-    transform: scale(0.6);
+    transform: scale(1);
     justify-content: center;
     align-items: center;
     display: none;
     /*bottom: 535px;*/
     position: relative;
+    width: 700px; /* Set your desired width */
+    height: 700px; /* Set your desired height */
+
+    top: 50%; /* Move to 50% from the top */
+    left: 50%; /* Move to 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
 }
 
 #cbebuildinggrnd, #cbebuilding2nd, #cbebuilding3rd, #cbebuilding4th, #cbebuilding5th, #cbebuilding6th, #cbebuilding7th, #cbebuilding8th, #cbebuilding9th, #cbebuilding10th {
@@ -1233,14 +1310,24 @@ label {
 }*/
 
 
-.container {
+/*.container {
     width: 500px;
-    justify-content: left;
-    align-items: center;
-    height: 10vh;
+    justify-content: left;*/
+/* align-items: center;*/
+/*height: 10vh;
     display: block;
     position: relative;
     z-index: 2;
+}*/
+
+.container {
+    width: 500px;
+    height: 10vh;
+    display: block;
+    position: relative; /* Change to absolute positioning */
+    left: -478px; /* Align to the left side of the screen */
+    top: 0; /* Align to the top of the screen */
+    z-index: 1;
 }
 
 .search-bar {
@@ -1251,6 +1338,8 @@ label {
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 585px;
+    height: 10vh;
 }
 
 .search-input {
@@ -1328,7 +1417,7 @@ label {
     position: relative; /* Add this to make absolute positioning work for child elements */
     max-height: 150px; /* Set a maximum height for the content container */
     overflow-y: auto; /* Enable vertical scrolling when content overflows */
-    z-index: 2;
+    z-index: 1;
 }
 
     /* Remove the display: none; property from .content */
@@ -1408,6 +1497,7 @@ label {
     max-height: 150px; /*Set a maximum height for the content container*/
     overflow-y: auto; /*Enable vertical scrolling when content overflows*/
     display: none;
+    z-index: 1;
 }
 
     .content1 .gates li {
@@ -1444,7 +1534,7 @@ label {
 
 .search1 {
     font-family: Tahoma;
-    width: 190px;
+    width: 210px;
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -1483,12 +1573,14 @@ label {
     border-radius: 5px;
     /*justify-content: center;*/
     padding: 10px;
-    width: 250px;
+    width: 300px;
     position: relative;
     display: none;
+    z-index: 1;
 }
 
 #close {
+    height: 10vh;
     left: 235px;
     position: relative;
     cursor: pointer;

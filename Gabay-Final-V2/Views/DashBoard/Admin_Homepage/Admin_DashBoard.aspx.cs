@@ -22,7 +22,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
                 {
                     int userID = Convert.ToInt32(Session["user_ID"]);
 
-                    string userName = FetchSessionStringAdmin(userID);
+                    string userName = FetchSessionStringAdmin(userID).ToUpper();
 
                     lblDept_name.Text = userName;
                     // Call the method to retrieve and display the user count
@@ -139,33 +139,26 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
         //KATUNG BAR CHART NANI
 
 
-        private int GetAllStudentUserCount(string studentId)
+        private int GetDepartmentUserCount(string departmentId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT COUNT(*) FROM student " +
-                      "INNER JOIN department ON student.department_ID = department.ID_dept " +
-                      "WHERE student.department_ID = @StudentId";
+                string query = "SELECT COUNT(*) FROM student WHERE department_ID = @DepartmentId";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@StudentId", studentId);
-                    int studentCount = Convert.ToInt32(command.ExecuteScalar());
-                    return studentCount;
+                    command.Parameters.AddWithValue("@DepartmentId", departmentId);
+                    int departmentCount = Convert.ToInt32(command.ExecuteScalar());
+                    return departmentCount;
                 }
             }
         }
 
         private void BarUserCounts()
         {
-            BarStudentsCcsCountLabel.Value = GetAllStudentUserCount("2024").ToString();
-            BarStudentsEngineerUserCountLabel.Value = GetAllStudentUserCount("2026").ToString();
-            BarStudentsNursingUserCountLabel.Value = GetAllStudentUserCount("2025").ToString();
-            BarStudentsCustomUserCountLabel.Value = GetAllStudentUserCount("2032").ToString();
-            BarStudentsNauticalUserCountLabel.Value = GetAllStudentUserCount("2033").ToString();
-            BarStudentsMarineEUserCountLabel.Value = GetAllStudentUserCount("2034").ToString();
-            BarStudentsCrimUserCountLabel.Value = GetAllStudentUserCount("2027").ToString();
+            BarStudentsUserCountLabel.Value = GetDepartmentUserCount("2024").ToString();
+            BarStudentsNursingUserCountLabel.Value = GetDepartmentUserCount("2025").ToString();
             // Add more department ari
         }
 

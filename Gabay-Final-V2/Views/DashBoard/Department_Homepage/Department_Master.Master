@@ -14,10 +14,10 @@
     <link href="../../../FontAwesome/css/all.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../../../Resources/CustomJS/OpenModal.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <style>
@@ -62,16 +62,19 @@
             display: none;
         }
 
-        .centered-gridview {
-            margin: auto;
-           text-align: center;
-           justify-content: space-evenly;
+        .modal-dialog.modal-dialog-right {
+            right: 0 !important;
+            margin-right: 3% !important;
+            top: 6% !important;
         }
 
-        .center-align {
-            text-align: center;
+        .custom-button {
+            background-color: grey;
+            color: white;
+            width: 200px;
+            margin: 0 auto;
+            display: block;
         }
-
     </style>
     <form id="departmentMaster" class="departmentMaster" runat="server">
         <%--TOP NAV--%>
@@ -105,12 +108,12 @@
                                   <span class="mt-2">Way Finding</span>
                                 </asp:HyperLink>
                             </li>
-                            <li class="nav-item p-1">
+                            <%-- <li class="nav-item p-1">
                                 <asp:HyperLink ID="chatbot" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Chatbot/Department_Chatbot.aspx?=">
                                   <i class="bi bi-chat-left-dots-fill me-2"></i>
                                   <span class="mt-2">Chatbot</span>
                                 </asp:HyperLink>
-                            </li>
+                            </li>--%>
                             <%--<li class="nav-item p-1">
                                 <asp:HyperLink ID="campusInfo" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Campus_Info/Department_CampusInfo.aspx">
                                   <i class="bi bi-info-square-fill me-2"></i>
@@ -123,12 +126,12 @@
                                   <span class="mt-2">Manage Appointment</span>
                                 </asp:HyperLink>
                             </li>
-                            <li class="nav-item p-1">
+                            <%--<li class="nav-item p-1">
                                 <asp:HyperLink ID="campCalendar" runat="server" CssClass="topnav-item text-center custom-text-color">
                                   <i class="bi bi-calendar2-month-fill me-2"></i>
                                   <span class="mt-2">Academic Calendar</span>
                                 </asp:HyperLink>
-                            </li>
+                            </li>--%>
                             <li class="nav-item p-1">
                                 <asp:HyperLink ID="faq" runat="server" CssClass="topnav-item text-center custom-text-color" NavigateUrl="~/Views/Modules/Announcement/Department_Announcement.aspx?=">
                                   <i class="bi bi-question-square-fill me-2"></i>
@@ -190,12 +193,12 @@
                             <p class="mt-4">Way Finding</p>
                         </asp:HyperLink>
                     </li>
-                    <li class="nav-item ">
+                    <%-- <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCB" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Chatbot/Department_Chatbot.aspx?=">
                             <i class="bi bi-chat-left-dots-fill fs-4 me-3"></i>
                             <p class="mt-4">Chatbot</p>
                         </asp:HyperLink>
-                    </li>
+                    </li>--%>
                     <%--<li class="nav-item ">
                         <asp:HyperLink ID="sideNavCI" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Campus_Info/Department_CampusInfo.aspx">
                             <i class="bi bi-info-square-fill fs-4 me-3"></i>
@@ -208,12 +211,12 @@
                             <p class="mt-4">Manage Appointment</p>
                         </asp:HyperLink>
                     </li>
-                    <li class="nav-item ">
+                    <%-- <li class="nav-item ">
                         <asp:HyperLink ID="sideNavCC" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-calendar2-month-fill fs-4 me-3"></i>
                             <p class="mt-4">Academic Calendar</p>
                         </asp:HyperLink>
-                    </li>
+                    </li>--%>
                     <li class="nav-item ">
                         <asp:HyperLink ID="sideNavFAQ" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Announcement/Department_Announcement.aspx?=">
                             <i class="bi bi-question-square-fill fs-4 me-3"></i>
@@ -228,9 +231,8 @@
             </div>
         </div>
 
-        <!-- Add this modal markup at the end of the body tag -->
         <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-right" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="notificationModalLabel">Notification Details</h5>
@@ -239,25 +241,29 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                    <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="centered-gridview">
-                        <Columns>
-                        <%--    <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" SortExpression="ID_appointment" ItemStyle-CssClass="center-align" />--%>
-                            <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name" ItemStyle-CssClass="center-align" />
-                            <asp:BoundField DataField="appointment_date" HeaderText="Date" SortExpression="appointment_date" ItemStyle-CssClass="center-align" />
-                            <asp:BoundField DataField="appointment_status" HeaderText="Status" SortExpression="appointment_status" ItemStyle-CssClass="center-align" />
-                        </Columns>
-                    </asp:GridView>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
+                                    <Columns>
+                                        <%--    <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" SortExpression="ID_appointment" ItemStyle-CssClass="center-align" />--%>
+                                        <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name" ItemStyle-CssClass="center-align" />
+                                        <asp:BoundField DataField="appointment_date" HeaderText="Date" SortExpression="appointment_date" ItemStyle-CssClass="center-align" />
+                                        <asp:BoundField DataField="appointment_status" HeaderText="Status" SortExpression="appointment_status" ItemStyle-CssClass="center-align" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Read" CssClass="btn btn-primary" OnClientClick="hideBadge(); return true;" OnClick="btnMarkAsRead_Click" />
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Read" CssClass="custom-button" OnClientClick="hideBadge(); return true;" OnClick="btnMarkAsRead_Click" />
+                       <%-- <asp:LinkButton ID="btnMarkAsRead" runat="server" CssClass="custom-button" OnClientClick="hideBadge(); return true;" OnClick="btnMarkAsRead_Click" PostBackUrl="~/Views/Modules/Appointment/Manage_Appointment.aspx">Read</asp:LinkButton>--%>
+                        <%-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
                     </div>
                 </div>
             </div>
         </div>
-
     </form>
-
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         function GetUnreadNotifications() {
             $.ajax({
@@ -304,6 +310,6 @@
                 }
             }
         }
-    </script>
+     </script>
 </body>
 </html>

@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <img src="../../../Resources/Images/students.png" alt="" />
+                                    <img src="../../../Resources/Images/tempIcons/students.png" />
                                 </div>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <img src="../../../Resources/Images/teachers.png" alt="" />
+                                    <img src="../../../Resources/Images/tempIcons/teachers.png" />
                                 </div>
                             </div>
                         </div>
@@ -158,25 +158,20 @@
         // Call the function to create the smaller donut chart
         createDonutChart(<%= StudentApprovedUserCountLabel.Value %>, <%= StudentPendingUserCountLabel.Value %>);
     </script>--%>
-    <asp:HiddenField ID="BarStudentsCcsCountLabel" runat="server" />
-    <asp:HiddenField ID="BarStudentsEngineerUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsUserCountLabel" runat="server" />
     <asp:HiddenField ID="BarStudentsNursingUserCountLabel" runat="server" />
-    <asp:HiddenField ID="BarStudentsCustomUserCountLabel" runat="server" />
-    <asp:HiddenField ID="BarStudentsNauticalUserCountLabel" runat="server" />
-    <asp:HiddenField ID="BarStudentsMarineEUserCountLabel" runat="server" />
-    <asp:HiddenField ID="BarStudentsCrimUserCountLabel" runat="server" />
     <script>
         // Function to create and update the bar chart
-        function createBarChart(bsAllStudent, bnITCS, bsEng, bsNurs, bsCustom, bsNauti, bsMarineE, bsCrim) {
+        function createBarChart(bsitCount, bsnCount, bsmCount, bsaCount, bseCount) {
             var ctx = document.getElementById('myBarChart').getContext('2d');
             var data = {
-                labels: ['All Students', 'College of Computer Studies', 'College of Engineering', 'College of Nursing', 'College of Customs', 'College of Nautical', 'College of Marine Engineering', 'College of Criminology'],
+                labels: ['All Students', 'College of Computer Studies', 'College of Nursing', 'College of Maritime', 'College of Customs Administrations', 'College of Allied Engineering'],
                 datasets: [
                     {
                         label: ['All Students'],
-                        backgroundColor: ['green', 'purple', 'red', 'black', 'blue', 'brown', 'yellow', 'orange'],
-                        data: [bsAllStudent, bnITCS, bsEng, bsNurs, bsCustom, bsNauti, bsMarineE, bsCrim],
-                        barThickness: 40,
+                        backgroundColor: ['green','purple', 'red', 'black', 'blue', 'brown'],
+                        data: [bsitCount, bsnCount, bsmCount, bsaCount, bseCount],
+                        barThickness: 40, 
                     }
                 ]
             };
@@ -197,13 +192,7 @@
         }
 
         // Call the function to create the bar chart
-        createBarChart(<%= StudentuserCountLabel.Text %>,
-            <%= BarStudentsCcsCountLabel.Value %>,
-            <%= BarStudentsEngineerUserCountLabel.Value %>,
-            <%= BarStudentsNursingUserCountLabel.Value %>,
-            <%= BarStudentsCustomUserCountLabel.Value %>,
-            <%= BarStudentsNauticalUserCountLabel.Value %>,
-            <%= BarStudentsMarineEUserCountLabel.Value %>,
-            <%= BarStudentsCrimUserCountLabel.Value %>);
+        createBarChart(<%= StudentuserCountLabel.Text %>,<%= BarStudentsUserCountLabel.Value %>,
+            <%= BarStudentsNursingUserCountLabel.Value %>);
     </script>
 </asp:Content>

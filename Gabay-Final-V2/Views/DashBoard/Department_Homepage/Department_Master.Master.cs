@@ -46,6 +46,23 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             }
         }
 
+        protected void prflBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("..\\..\\..\\Views\\Loginpages\\Department_login.aspx");
+        }
+
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("..\\..\\..\\Views\\Loginpages\\Department_login.aspx");
+        }
+
         private void FetchUnreadNotifications()
         {
             if (Session["user_ID"] != null)
@@ -127,6 +144,8 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 
                 // Hide the badge after marking notifications as read
                 ScriptManager.RegisterStartupScript(this, GetType(), "hideBadgeScript", "hideBadge();", true);
+
+                
             }
         }
 
@@ -247,25 +266,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     lblNotificationCount.Style.Add("display", "none");
                 }
             }
-        }
-
-
-
-        protected void prflBtn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect("..\\..\\..\\Views\\Loginpages\\Department_login.aspx");
-        }
-
-        protected void logoutBtn_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect("..\\..\\..\\Views\\Loginpages\\Department_login.aspx");
         }
     }
 }

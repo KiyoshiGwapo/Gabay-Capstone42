@@ -50,7 +50,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
                         <div class="form-floating">
-                            <asp:TextBox ID="login_Pass" runat="server" CssClass="form-control" PlaceHolder="Login Password"></asp:TextBox>
+                            <asp:TextBox ID="login_Pass" runat="server" CssClass="form-control" PlaceHolder="Login Password" TextMode="Password"></asp:TextBox>
                             <label for="login_Pass">Password</label>
                         </div>
                     </div>

@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Admin_Homepage/Admin_Master.Master" AutoEventWireup="true" CodeBehind="Manage_Users.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Admin_Modules.Manage_Users" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -22,9 +21,6 @@
         </div>
         <div class="mt-2"></div>
     </div>
-
-
-
 
     <div class="table-responsive">
         <asp:GridView ID="GridViewStudents" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered text-center" DataKeyNames="ID">
@@ -50,8 +46,8 @@
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-CssClass="" />
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkEdit" runat="server" Text='<i class="fas fa-edit"></i>' CssClass="btn btn-primary" OnClientClick='<%# "showEditPasswordModal(" + Container.DataItemIndex + "); return false;" %>' />
-                        <asp:LinkButton ID="lnkDelete" runat="server" Text='<i class="fas fa-trash-alt" style="color: white;"></i>' CssClass="btn btn-danger" OnClientClick='<%# "showConfirmationModal(" + Container.DataItemIndex + "); return false;" %>' />
+                       <asp:LinkButton ID="lnkEdit" runat="server" Text='<i class="fas fa-edit"></i>' CssClass="btn btn-primary" OnClientClick='<%# "showEditPasswordModal(" + Container.DataItemIndex + "); return false;" %>' />
+                        <asp:LinkButton ID="LinkButton1" runat="server" Text='<i class="fas fa-trash-alt" style="color: white;"></i>' CssClass="btn btn-danger" OnClientClick='<%# "showConfirmationModal(" + Container.DataItemIndex + "); return false;" %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -100,6 +96,30 @@
                 <div class="modal-footer">
                     <asp:Button ID="btnConfirmEditPassword" runat="server" Text="Yes" OnClick="btnConfirmEditPassword_Click" CssClass="btn btn-primary" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+     <%-- Success modal --%>
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body bg-success text-center text-light">
+                    <i class="bi bi-info-circle-fill"></i>
+                    <p id="successMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+     <%-- Error modal --%>
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body bg-danger text-center text-light">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <p id="errorMessage"></p>
                 </div>
             </div>
         </div>

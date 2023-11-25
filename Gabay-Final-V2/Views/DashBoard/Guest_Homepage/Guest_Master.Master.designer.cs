@@ -33,6 +33,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Guest_Homepage
         protected global::System.Web.UI.HtmlControls.HtmlForm guestMaster;
 
         /// <summary>
+        /// GuestScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager GuestScriptManager;
+
+        /// <summary>
         /// GabayLogo control.
         /// </summary>
         /// <remarks>

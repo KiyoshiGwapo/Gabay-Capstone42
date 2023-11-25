@@ -15,12 +15,14 @@ namespace Gabay_Final_V2.Views.DashBoard.Guest_Homepage
             // This is to disable caching for the dashboard to prevent backward login
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetNoStore();
-            // Database connection
-            DbUtility conn = new DbUtility();
 
             if (Session["GuestName"] != null)
             {
-                guestNameBx.Text = Session["GuestName"].ToString();
+                guestNameBx.Text = "Hello! " + Session["GuestName"].ToString();
+            }
+            else
+            {
+                Response.Redirect("~/Views/Loginpages/Guest_login.aspx");
             }
         }
 

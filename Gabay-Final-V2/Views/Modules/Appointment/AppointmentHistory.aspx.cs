@@ -25,6 +25,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 {
                     int userID = Convert.ToInt32(Request.QueryString["userID"]);
                     BindAppointmentHistory(userID);
+                    ApplyStatusFilter();
                 }
                 else
                 {
@@ -33,6 +34,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
+        //Go Back Button
         //Go Back Button
         protected void GoBackButton_Click(object sender, EventArgs e)
         {
@@ -130,6 +132,38 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             ScriptManager.RegisterStartupScript(this, this.GetType(), "hideExampleModal", "$('#exampleModal').modal('hide');", true);
             HiddenFieldAppointment.Value = "";
         }
+
+        protected void ddlStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyStatusFilter();
+        }
+
+        private void ApplyStatusFilter()
+        {
+            string selectedStatus = ddlStatusFilter.SelectedValue;
+            DataTable originalData = GetAppointmentHistoryFromDatabase(Convert.ToInt32(Session["user_ID"]));
+
+            if (!string.IsNullOrEmpty(selectedStatus))
+            {
+                DataRow[] filteredRows = originalData.Select($"appointment_status = '{selectedStatus}'");
+                DataTable filteredData = originalData.Clone();
+                foreach (DataRow row in filteredRows)
+                {
+                    filteredData.ImportRow(row);
+                }
+
+                GridView1.DataSource = filteredData;
+            }
+            else
+            {
+                GridView1.DataSource = originalData;
+            }
+
+            GridView1.DataBind();
+        }
+
+
+
 
     }
 }

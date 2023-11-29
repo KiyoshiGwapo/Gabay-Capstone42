@@ -5,12 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 {
     public partial class Manage_FAQ : System.Web.UI.Page
     {
-        private string connectionString = "Data Source=DESKTOP-6DAE04O\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
+        private static readonly string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,13 +36,14 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             }
         }
 
-        protected void btnAddFAQ_Click(object sender, EventArgs e)
+        protected void btnAddNewFAQ_Click(object sender, EventArgs e)
         {
             try
             {
-                string newQuestion = txtNewQuestion.Text;
-                string newAnswer = txtNewAnswer.Text;
+                string newQuestion = txtAddQuestion.Text;
+                string newAnswer = txtAddAnswer.Text;
 
+                // Insert the new FAQ into the database
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -50,23 +52,27 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                     cmd.Parameters.AddWithValue("@Answer", newAnswer);
                     cmd.ExecuteNonQuery();
                 }
+
                 // Reload FAQs after adding a new one
                 LoadFAQs();
 
-                string successMessage = "Question Added successfully.";
+                // Show success modal
+                string successMessage = "New FAQ added successfully.";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
                     $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+
+                // Hide the add modal after adding
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "addModalScript", "$('#addModal').modal('hide');", true);
             }
-            catch  (Exception ex)
+            catch (Exception ex)
             {
-                string errorMessage = "An error occurred while adding a question: " + ex.Message;
+                // Handle any errors
+                string errorMessage = "An error occurred while adding a new FAQ: " + ex.Message;
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                     $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
-            
-
-           
         }
+
 
         protected void FAQRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -173,5 +179,10 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                     $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
         }
+
+
+        
+
+
     }
 }

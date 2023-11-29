@@ -991,7 +991,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-
         private void ExportToExcel()
         {
             DataTable dt = fetchAppointBasedOnDepartment(Convert.ToInt32(Session["user_ID"]));
@@ -1009,25 +1008,31 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             // Create a Table
             Table table = new Table();
 
-            // Add the header row to the table
+            // Add column headers to the table (excluding unwanted columns)
             TableRow headerRow = new TableRow();
             foreach (DataColumn column in dt.Columns)
             {
-                TableCell cell = new TableCell();
-                cell.Text = column.ColumnName;
-                headerRow.Cells.Add(cell);
+                if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
+                {
+                    TableCell cell = new TableCell();
+                    cell.Text = GetColumnHeader(column.ColumnName);
+                    headerRow.Cells.Add(cell);
+                }
             }
             table.Rows.Add(headerRow);
 
-            // Add data rows to the table
+            // Add data rows to the table (excluding unwanted columns)
             foreach (DataRow row in dt.Rows)
             {
                 TableRow dataRow = new TableRow();
-                foreach (var cellValue in row.ItemArray)
+                foreach (DataColumn column in dt.Columns)
                 {
-                    TableCell cell = new TableCell();
-                    cell.Text = cellValue.ToString();
-                    dataRow.Cells.Add(cell);
+                    if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
+                    {
+                        TableCell cell = new TableCell();
+                        cell.Text = GetCellData(column, row[column]);
+                        dataRow.Cells.Add(cell);
+                    }
                 }
                 table.Rows.Add(dataRow);
             }
@@ -1036,16 +1041,23 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             TableRow countRow = new TableRow();
             TableCell countCell = new TableCell();
             countCell.Text = "Counts";
-            countCell.ColumnSpan = dt.Columns.Count;
+            countCell.ColumnSpan = table.Rows[0].Cells.Count;
             countRow.Cells.Add(countCell);
             table.Rows.Add(countRow);
 
+            int pendingCount = CountAppointments(dt, "pending");
             int approvedCount = CountAppointments(dt, "approved");
             int rescheduledCount = CountAppointments(dt, "rescheduled");
             int servedCount = CountAppointments(dt, "served");
             int deniedCount = CountAppointments(dt, "denied");
 
             // Add counts to the table
+            TableRow pendingCountRow = new TableRow();
+            TableCell pendingCountCell = new TableCell();
+            pendingCountCell.Text = $"Pending: {pendingCount}";
+            pendingCountRow.Cells.Add(pendingCountCell);
+            table.Rows.Add(pendingCountRow);
+
             TableRow approvedCountRow = new TableRow();
             TableCell approvedCountCell = new TableCell();
             approvedCountCell.Text = $"Approved: {approvedCount}";
@@ -1079,6 +1091,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             // End the response
             Response.End();
         }
+
+
 
 
     }

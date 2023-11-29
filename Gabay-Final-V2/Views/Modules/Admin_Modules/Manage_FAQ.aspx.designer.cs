@@ -15,31 +15,13 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
     {
 
         /// <summary>
-        /// txtNewQuestion control.
+        /// btnAddFAQ control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewQuestion;
-
-        /// <summary>
-        /// txtNewAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewAnswer;
-
-        /// <summary>
-        /// btnInsertFAQ control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsertFAQ;
+        protected global::System.Web.UI.WebControls.Button btnAddFAQ;
 
         /// <summary>
         /// FAQRepeater control.
@@ -94,5 +76,32 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button dltAnnouceBtn;
+
+        /// <summary>
+        /// txtAddQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddQuestion;
+
+        /// <summary>
+        /// txtAddAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddAnswer;
+
+        /// <summary>
+        /// btnAddNewFAQ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddNewFAQ;
     }
 }

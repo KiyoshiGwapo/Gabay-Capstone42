@@ -5,12 +5,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+
 
 namespace Gabay_Final_V2.Views.Modules.FAQ
 {
     public partial class Guest_FAQ : System.Web.UI.Page
     {
-        private string connectionString = "Data Source=DESKTOP-6DAE04O\\SQLEXPRESS;Initial Catalog=gabaydb_v.1.8;Integrated Security=True";
+        private string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

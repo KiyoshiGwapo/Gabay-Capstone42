@@ -429,12 +429,14 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     string fileName = !string.IsNullOrEmpty(txtFileName.Text) ? txtFileName.Text : Path.GetFileName(fileUpload.FileName);
                     byte[] fileData = fileUpload.FileBytes;
 
-                    // Get the user_ID from the session
+                    // Get the user's session ID
                     int deptSessionID = Convert.ToInt32(Session["user_ID"]);
-                    int deptID = 2024;
+
+                    // Retrieve the departmentID from the "department" table
+                    int departmentID = GetDepartmentID(deptSessionID);
 
                     // Insert the file data into the database along with user_ID
-                    InsertFileData(fileName, fileData, deptSessionID, deptID);
+                    InsertFileData(fileName, fileData, deptSessionID, departmentID);
 
                     // Display a success message or perform any other actions
                     Response.Redirect(Request.RawUrl);
@@ -449,26 +451,50 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             }
         }
 
+        private int GetDepartmentID(int userId)
+        {
+            int departmentID = 0; // Default value or error handling
+
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+                string selectQuery = "SELECT ID_dept FROM department WHERE user_ID = @userId";
+
+                using (SqlCommand command = new SqlCommand(selectQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@userId", userId);
+                    object result = command.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        departmentID = Convert.ToInt32(result);
+                    }
+                }
+            }
+
+            return departmentID;
+        }
 
 
-        // Modify the UpdateFileData method
-        private void InsertFileData(string fileName, byte[] fileData, int userId, int deptID)
+
+        private void InsertFileData(string fileName, byte[] fileData, int userId, int departmentID)
         {
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 conn.Open();
-                string insertQuery = "INSERT INTO DepartmentFiles (FileName, FileData, user_ID, department_ID) VALUES (@FileName, @FileData, @user_ID, @deptID)";
+                string insertQuery = "INSERT INTO DepartmentFiles (FileName, FileData, user_ID, department_ID) VALUES (@FileName, @FileData, @user_ID, @department_ID)";
 
                 using (SqlCommand command = new SqlCommand(insertQuery, conn))
                 {
                     command.Parameters.AddWithValue("@FileName", fileName);
                     command.Parameters.AddWithValue("@FileData", fileData);
                     command.Parameters.AddWithValue("@user_ID", userId);
-                    command.Parameters.AddWithValue("@deptID", deptID);
+                    command.Parameters.AddWithValue("@department_ID", departmentID);  
                     command.ExecuteNonQuery();
                 }
             }
         }
+
 
 
 

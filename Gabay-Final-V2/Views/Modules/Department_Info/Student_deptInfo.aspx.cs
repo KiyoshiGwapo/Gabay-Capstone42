@@ -18,7 +18,12 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
         {
             int studentSessionID = Convert.ToInt32(Session["user_ID"]);
             LoadData(studentSessionID);
-            BindFilesToDropDownList(studentSessionID);
+            if (!IsPostBack)
+            {
+                // Bind dropdown only on initial load
+                BindFilesToDropDownList(studentSessionID);
+            }
+
         }
         public void LoadData(int studentSessionID)
         {
@@ -242,8 +247,11 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
                 }
                 else
                 {
-                    DownloadErrorLabel.Text = "Selected file data not found.";
+                    // Handle the case where the selected value is not a valid integer
+                    DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
                 }
+                // Add debugging statements here
+                DownloadErrorLabel.Text = "Selected";
             }
             else
             {

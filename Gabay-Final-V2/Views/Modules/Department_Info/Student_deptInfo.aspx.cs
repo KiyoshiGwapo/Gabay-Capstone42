@@ -251,7 +251,8 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
                     DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
                 }
                 // Add debugging statements here
-                DownloadErrorLabel.Text = "Selected";
+              
+                Selected.Text = "<- To view this File click this Button";
             }
             else
             {

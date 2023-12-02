@@ -25,12 +25,13 @@
             <div class="row d-flex text-center">
                 <div class="col mt-4 ddl-Container">
                     <asp:DropDownList ID="ddlFiles" runat="server" CssClass="ddlFiles text-center" AutoPostBack="true" OnSelectedIndexChanged="ddlFiles_SelectedIndexChanged">
-                        <asp:ListItem Text="Select School Year" Value="" />
+                         <asp:ListItem Text="Select File" Value="" Disabled="true" Selected="true"></asp:ListItem>
                     </asp:DropDownList>
                     <asp:LinkButton ID="LinkButton1" CssClass="dwnldLnk btn" runat="server" Text="View/Download" OnClick="lnkDownload_Click" OnClientClick="openInNewTab();">
                         <i class="bi bi-file-earmark-arrow-down-fill"></i>
-                    </asp:LinkButton>
+                    </asp:LinkButton>                  
                 </div>
+                <asp:Label ID="Selected" runat="server" ForeColor="Green" />
                 <asp:Label ID="DownloadErrorLabel" runat="server" ForeColor="Red" />
             </div>
         </div>

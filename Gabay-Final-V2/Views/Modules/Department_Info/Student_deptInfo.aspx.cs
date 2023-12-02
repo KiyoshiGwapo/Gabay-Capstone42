@@ -252,7 +252,7 @@ namespace Gabay_Final_V2.Views.Modules.Department_Info
                 }
                 // Add debugging statements here
               
-                Selected.Text = "<- To view this File click this Button";
+                Selected.Text = "<-To view this File click this Button";
             }
             else
             {

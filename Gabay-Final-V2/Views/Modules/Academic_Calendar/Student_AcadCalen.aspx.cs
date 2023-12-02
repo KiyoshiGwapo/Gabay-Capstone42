@@ -103,6 +103,7 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
             List<AcadCalen_model.FileData> filesList = acadCalenModel.FetchFilesDataFromDatabase();
 
             ddlFiles.Items.Clear();
+            ddlFiles.Items.Add(new ListItem("Select Here", ""));
 
             foreach (AcadCalen_model.FileData file in filesList)
             {
@@ -119,22 +120,40 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
 
 
 
+        // Adjust the SelectedIndexChanged event for ddlFiles
         protected void ddlFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedFileId = int.Parse(ddlFiles.SelectedValue);
-            ViewState["SelectedFileId"] = selectedFileId;
+            // Initialize a variable to store the selectedFileId
+            int selectedFileId;
 
-            DownloadErrorLabel.Text = "Selected File ID: " + selectedFileId;
-
-            byte[] selectedFileData = FetchFileDataFromDatabase(selectedFileId);
-            if (selectedFileData != null)
+            // Check if the selected value is a valid integer
+            if (int.TryParse(ddlFiles.SelectedValue, out selectedFileId))
             {
-                DownloadErrorLabel.Text = "";
+                // Successfully parsed, update ViewState
+                ViewState["SelectedFileId"] = selectedFileId;
+                DownloadErrorLabel.Text = "Selected File ID: " + selectedFileId;
+
+                // Fetch and display the selected file data (if needed)
+                byte[] selectedFileData = FetchFileDataFromDatabase(selectedFileId);
+                if (selectedFileData != null)
+                {
+                    DownloadErrorLabel.Text = "";
+                }
+                else
+                {
+                    // Handle the case where the selected value is not a valid integer
+                    DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
+                }
+                // Add debugging statements here
+
+                Selected.Text = "To View the File Click the Button";
             }
             else
             {
-                DownloadErrorLabel.Text = "Selected file data not found.";
+                // Handle the case where the selected value is not a valid integer
+                DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
             }
         }
+
     }
 }

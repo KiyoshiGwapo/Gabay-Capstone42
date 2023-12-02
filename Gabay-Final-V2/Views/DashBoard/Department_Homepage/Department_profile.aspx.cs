@@ -425,21 +425,48 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
             {
                 try
                 {
-                    // Get the file name and data
-                    string fileName = !string.IsNullOrEmpty(txtFileName.Text) ? txtFileName.Text : Path.GetFileName(fileUpload.FileName);
-                    byte[] fileData = fileUpload.FileBytes;
+                    // Ensure the file is a PDF
+                    if (Path.GetExtension(fileUpload.FileName).Equals(".pdf", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // Ensure the file name is not empty
+                        if (!string.IsNullOrEmpty(txtFileName.Text))
+                        {
+                            // Get the file name and data
+                            string fileName = txtFileName.Text;
+                            byte[] fileData = fileUpload.FileBytes;
 
-                    // Get the user's session ID
-                    int deptSessionID = Convert.ToInt32(Session["user_ID"]);
+                            // Get the user's session ID
+                            int deptSessionID = Convert.ToInt32(Session["user_ID"]);
 
-                    // Retrieve the departmentID from the "department" table
-                    int departmentID = GetDepartmentID(deptSessionID);
+                            // Retrieve the departmentID from the "department" table
+                            int departmentID = GetDepartmentID(deptSessionID);
 
-                    // Insert the file data into the database along with user_ID
-                    InsertFileData(fileName, fileData, deptSessionID, departmentID);
+                            // Insert the file data into the database along with user_ID
+                            InsertFileData(fileName, fileData, deptSessionID, departmentID);
 
-                    // Display a success message or perform any other actions
-                    Response.Redirect(Request.RawUrl);
+                            // Display a success message or perform any other actions
+                            string successMessage = "Calendar Added successfully.";
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                                $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+
+                            // Refresh the file list
+                            BindUploadedFiles();
+                        }
+                        else
+                        {
+                            // Display an error message for empty file name
+                            string errorMessage = "File name cannot be empty.";
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                                $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                        }
+                    }
+                    else
+                    {
+                        // Display an error message for invalid file format
+                        string errorMessage = "Invalid file format. Please upload a PDF file.";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                            $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -449,7 +476,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     throw; // Rethrow the exception to see the full stack trace in the browser
                 }
             }
+            else
+            {
+                // Display an error message for not selecting a file
+                string errorMessage = "Please select a file to upload.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
         }
+
 
         private int GetDepartmentID(int userId)
         {
@@ -674,8 +709,12 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 }
                 else
                 {
-                    DownloadErrorLabel.Text = "Selected file data not found.";
+                    // Handle the case where the selected value is not a valid integer
+                    DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
                 }
+                // Add debugging statements here
+
+                Selected.Text = "<- To view this File click this Button";
             }
             else
             {

@@ -35,7 +35,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                     {
                         if (reader.Read())
                         {
-                            IDNumberLabel.Text = reader["ID_student"].ToString();
+                            IDNumberLabel.Text = reader["studentID"].ToString();
                             StudentNameLabel.Text = reader["name"].ToString();
                             CourseLabel.Text = reader["course"].ToString();
                             YearLevelLabel.Text = reader["course_year"].ToString();

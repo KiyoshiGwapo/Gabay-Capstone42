@@ -247,7 +247,7 @@
                                     <Columns>
                                         <%--    <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" SortExpression="ID_appointment" ItemStyle-CssClass="center-align" />--%>
                                         <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name" ItemStyle-CssClass="center-align" />
-                                        <asp:BoundField DataField="appointment_date" HeaderText="Date" SortExpression="appointment_date" ItemStyle-CssClass="center-align" />
+                                       <asp:BoundField DataField="appointment_date" HeaderText="Date" SortExpression="appointment_date" ItemStyle-CssClass="center-align" DataFormatString="{0:d}" />
                                         <asp:BoundField DataField="appointment_status" HeaderText="Status" SortExpression="appointment_status" ItemStyle-CssClass="center-align" />
                                     </Columns>
                                 </asp:GridView>

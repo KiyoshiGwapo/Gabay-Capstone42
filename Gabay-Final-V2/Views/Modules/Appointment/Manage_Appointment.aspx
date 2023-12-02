@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    .
+    
    
     <script src="../Resources/CustomJS/jquery-3.5.1.slim.min.js"></script>
     <script src="../Resources/CustomJS/bootstrap.min.js"></script>
@@ -347,4 +347,41 @@
             document.getElementById('<%= HiddenFieldAppointment.ClientID %>').value = id;
         }
     </script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Function to set color based on status
+        function setColorBasedOnStatus(status, element) {
+            switch (status.toLowerCase()) {
+                case "pending":
+                    element.css("color", "black");
+                    break;
+                case "served":
+                    element.css("color", "orange");
+                    break;
+                case "rescheduled":
+                    element.css("color", "blue");
+                    break;
+                case "reject":
+                    element.css("color", "red");
+                    break;
+                case "approved":
+                    element.css("color", "green");
+                    break;
+                default:
+                    // Default color or additional cases can be added here
+                    break;
+            }
+        }
+
+        // Iterate through each row in the GridView
+        $('#<%= GridView1.ClientID %> tbody tr').each(function () {
+            var statusCell = $(this).find('td:eq(5)'); // Assuming status is in the 6th column (index 5)
+            var statusText = statusCell.text().trim();
+            setColorBasedOnStatus(statusText, statusCell);
+        });
+    });
+</script>
+
+
 </asp:Content>

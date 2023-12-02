@@ -1092,6 +1092,38 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             Response.End();
         }
 
+        //Para Color2x
+        protected string GetStatusCssClass(object status)
+        {
+            string statusCssClass = string.Empty;
+
+            if (status != null)
+            {
+                switch (status.ToString())
+                {
+                    case "Pending":
+                        statusCssClass = "status-pending";
+                        break;
+                    case "Reschedule":
+                        statusCssClass = "status-reschedule";
+                        break;
+                    case "Rejected":
+                        statusCssClass = "status-rejected";
+                        break;
+                    case "Approved":
+                        statusCssClass = "status-approved";
+                        break;
+                    case "Served":
+                        statusCssClass = "status-served";
+                        break;
+         
+                }
+            }
+
+            return statusCssClass;
+        }
+
+
 
 
 

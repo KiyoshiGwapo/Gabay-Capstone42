@@ -75,6 +75,7 @@
                                                 <asp:LinkButton ID="LinkButton1" CssClass="dwnldLnk btn" runat="server" Text="View/Download" OnClick="lnkDownload_Click" OnClientClick="openInNewTab();">
                         <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                                 </asp:LinkButton>
+                                                 <asp:Label ID="Selected" runat="server" ForeColor="Green" />
                                             </div>
                                             <asp:Label ID="DownloadErrorLabel" runat="server" ForeColor="Red" />
 
@@ -382,7 +383,7 @@
                     </table>
                 </div>
                 <div class="modal-body">
-                    <asp:FileUpload ID="fileUpload" runat="server" />
+                    <asp:FileUpload ID="fileUpload" runat="server" accept=".pdf"  />
                 </div>
                 <div class="modal-body">
                     <asp:TextBox ID="txtFileName" runat="server" placeholder="Enter File Name" />

@@ -56,7 +56,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <asp:FileUpload ID="fileUpload" runat="server" />
+                    <asp:FileUpload ID="fileUpload" runat="server" accept=".pdf" />
                 </div>
                 <div class="modal-body">
                     <asp:TextBox ID="txtFileName" runat="server" placeholder="Enter File Name" />

@@ -28,6 +28,19 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             }
         }
 
+        //para close sa modal
+
+        protected void EditModalClose_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showDetailedModal", "$('#editPasswordModal').modal('hide');", true);
+        }
+
+        protected void DeleteModalClose_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showDeleteModal", "$('#confirmDeleteModal').modal('hide');", true);
+        }
+
+
         protected void ddlFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetGridViewVisibility();
@@ -142,13 +155,13 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 // Hide the modal after delete
                 ScriptManager.RegisterStartupScript(this, GetType(), "hideModal", "$('#confirmDeleteModal').modal('hide');", true);
 
-                string successMessage = "Announcement Added successfully.";
+                string successMessage = "Deleted Successfully.";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
                     $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
             }
             catch  (Exception ex)
             {
-                string errorMessage = "An error occurred while deleting the announcement: " + ex.Message;
+                string errorMessage = "An error occurred while deleting the student: " + ex.Message;
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                     $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
@@ -186,7 +199,17 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                     int idToEdit = Convert.ToInt32(gridView.DataKeys[rowIndex].Value);
 
                     // Get the new password from the input field in the modal
-                    string newPassword = txtNewPassword.Text;
+                    string newPassword = txtNewPassword.Text.Trim();  // Trim to remove leading and trailing spaces
+
+                    // Check if a new password is provided
+                    if (string.IsNullOrEmpty(newPassword))
+                    {
+                        // Show an error message if the new password is empty
+                        string errorMessage = "Please enter a new password.";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                            $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                        return;  // Exit the method without updating the password
+                    }
 
                     // Perform the password change operation based on your database schema
                     using (SqlConnection connection = new SqlConnection(connectionString))
@@ -219,27 +242,26 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                             cmd.ExecuteNonQuery();
                         }
                     }
+
                     // Rebind the GridView to reflect the changes
                     BindGridView(ddlFilter.SelectedValue);
 
-                    // Optionally, show a success message or perform other actions after password change
-                }
+                    // Hide the modal after password change
+                    ScriptManager.RegisterStartupScript(this, GetType(), "hideEditPasswordModal", "$('#editPasswordModal').modal('hide');", true);
 
-                // Hide the modal after password change
-                ScriptManager.RegisterStartupScript(this, GetType(), "hideEditPasswordModal", "$('#editPasswordModal').modal('hide');", true);
-                
-                string successMessage = "Password updated successfully.";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
-                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+                    string successMessage = "Password updated successfully.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+                }
             }
-            catch  (Exception ex)
+            catch (Exception ex)
             {
                 string errorMessage = "An error occurred while updating the password: " + ex.Message;
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                     $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
-            
         }
+
 
         //Generate Reports
 

@@ -18,24 +18,38 @@ namespace Gabay_Final_V2.Views.LoginPages
 
         protected void btnRetrievePassword_Click(object sender, EventArgs e)
         {
-            string userID = txtUserID.Text;
-            string email = txtEmail.Text;
-
-            // Check if the user with the given ID and email exists in the database.
-            string password = RetrievePasswordFromDatabase(userID, email);
-
-            if (!string.IsNullOrEmpty(password))
+            try
             {
-                // Send the retrieved password via email.
-                SendPasswordEmail(email, password);
+                string userID = txtUserID.Text;
+                string email = txtEmail.Text;
 
-                lblMessage.Text = "Your password has been sent to your email.";
+                // Check if the user with the given ID and email exists in the database.
+                string password = RetrievePasswordFromDatabase(userID, email);
+
+                if (!string.IsNullOrEmpty(password))
+                {
+                    // Send the retrieved password via email.
+                    SendPasswordEmail(email, password);
+
+                    GreenMessage.Text = "Your password has been sent to your email.";
+
+                    // Clear the fields after successful retrieval and email sending.
+                    txtUserID.Text = string.Empty;
+                    txtEmail.Text = string.Empty;
+                }
+                else
+                {
+                    // Display a message for user not found or incorrect information.
+                    lblMessage.Text = "User not found or the provided information is incorrect.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lblMessage.Text = "User not found or the provided information is incorrect.";
+                // Handle other exceptions, e.g., database connection errors.
+                lblMessage.Text = "An error occurred: " + ex.Message;
             }
         }
+
 
         // Implement your database retrieval logic here.
         private string RetrievePasswordFromDatabase(string userID, string email)
@@ -92,20 +106,60 @@ namespace Gabay_Final_V2.Views.LoginPages
                     MailMessage message = new MailMessage(fromEmail, email)
                     {
                         Subject = "Your Password Recovery",
-                        Body = $"Your password is: {password}",
                         IsBodyHtml = true
                     };
+
+                    // Email body with HTML and inline CSS styling.
+                    string emailBody = $@"
+                                        <html>
+                                            <head>
+                                                <style>
+                                                    body {{
+                                                        font-family: 'Arial', sans-serif;
+                                                        text-align: center;
+                                                        background-color: #f2f2f2;
+                                                    }}
+                                                    .container {{
+                                                        width: 80%;
+                                                        margin: 0 auto;
+                                                        background-color: #ffffff;
+                                                        padding: 20px;
+                                                        border-radius: 10px;
+                                                        text-align: center;
+                                                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                                                    }}
+                                                    h2 {{
+                                                        color: #3498db;
+                                                        text-align: center;
+                                                    }}
+                                                    p {{
+                                                        color: #333;
+                                                        text-align: center;
+                                                    }}
+                                                </style>
+                                            </head>
+                                            <body>
+                                                <div class='container'>
+                                                    <h2>Password Recovery</h2>
+                                                    <p>Your password is: <strong>{password}</strong></p>
+                                                </div>
+                                            </body>
+                                        </html>
+                                    ";
+
+                    message.Body = emailBody;
 
                     smtpClient.Send(message);
                 }
 
-                lblMessage.Text = "Password recovery email sent successfully.";
+                GreenMessage.Text = "Password recovery email sent successfully.";
             }
             catch (Exception ex)
             {
                 lblMessage.Text = "An error occurred while sending the email: " + ex.Message;
             }
         }
+
 
 
     }

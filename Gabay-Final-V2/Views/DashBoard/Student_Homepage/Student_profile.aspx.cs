@@ -55,25 +55,33 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             string newPassword = newPasswordTextBox.Text;
             string confirmPassword = confirmPasswordTextBox.Text;
 
-            // Add logic to check if the current password is correct and if the new and confirm passwords match
-            if (CheckCurrentPassword(currentPassword) && newPassword == confirmPassword)
+            try
             {
-                // Update the password in the database
-                int userId = Convert.ToInt32(Session["user_ID"]);
-                UpdatePasswordInDatabase(userId, newPassword);
+                // Add logic to check if the current password is correct and if the new and confirm passwords match
+                if (CheckCurrentPassword(currentPassword) && newPassword == confirmPassword)
+                {
+                    // Update the password in the database
+                    int userId = Convert.ToInt32(Session["user_ID"]);
+                    UpdatePasswordInDatabase(userId, newPassword);
 
-                // Clear the textboxes
-                currentPasswordTextBox.Text = string.Empty;
-                newPasswordTextBox.Text = string.Empty;
-                confirmPasswordTextBox.Text = string.Empty;
+                    // Clear the textboxes
+                    currentPasswordTextBox.Text = string.Empty;
+                    newPasswordTextBox.Text = string.Empty;
+                    confirmPasswordTextBox.Text = string.Empty;
 
-                // Optionally, you can show a success message or redirect the user
-                ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
+                    // Show a success message
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
+                }
+                else
+                {
+                    // Show an error message for mismatched passwords or incorrect current password
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('Password mismatch or incorrect current password.');", true);
+                }
             }
-            else 
+            catch (Exception ex)
             {
-                // Optionally, show an error message or handle the case where passwords don't match or the current password is incorrect
-                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show');", true);
+                // Handle other exceptions
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('An error occurred: " + ex.Message + "');", true);
             }
         }
 
@@ -128,24 +136,32 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             string currentEmail = currentEmailTextBox.Text;
             string newEmail = newEmailTextBox.Text;
 
-            // Add logic to check if the current email is correct and update the email in the database
-            if (CheckCurrentEmail(currentEmail))
+            try
             {
-                // Update the email in the database
-                int userId = Convert.ToInt32(Session["user_ID"]);
-                UpdateEmailInDatabase(userId, newEmail);
+                // Add logic to check if the current email is correct and update the email in the database
+                if (CheckCurrentEmail(currentEmail))
+                {
+                    // Update the email in the database
+                    int userId = Convert.ToInt32(Session["user_ID"]);
+                    UpdateEmailInDatabase(userId, newEmail);
 
-                // Clear the textboxes
-                currentEmailTextBox.Text = string.Empty;
-                newEmailTextBox.Text = string.Empty;
+                    // Clear the textboxes
+                    currentEmailTextBox.Text = string.Empty;
+                    newEmailTextBox.Text = string.Empty;
 
-                // Optionally, you can show a success message or redirect the user
-                ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
+                    // Show a success message
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
+                }
+                else
+                {
+                    // Show an error message for incorrect current email
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('Incorrect current email.');", true);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Optionally, show an error message or handle the case where the current email is incorrect
-                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show');", true);
+                // Handle other exceptions
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('An error occurred: " + ex.Message + "');", true);
             }
         }
 

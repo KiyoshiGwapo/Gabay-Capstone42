@@ -175,7 +175,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 d-flex justify-content-around align-items-center p-4">
-                                <asp:Label ID="m_studName" CssClass="fs-3" runat="server" Text="Student Name"></asp:Label>
+                                <asp:Label ID="m_studName" CssClass="fs-3" runat="server" Text=""></asp:Label>
                             </div>
                             <div class="col-12">
                                 <div class="border-modal border boder-black">

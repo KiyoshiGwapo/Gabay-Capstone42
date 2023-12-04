@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Manage Appointment</h1>
    
     <script src="../Resources/CustomJS/jquery-3.5.1.slim.min.js"></script>
     <script src="../Resources/CustomJS/bootstrap.min.js"></script>
@@ -347,7 +347,6 @@
             document.getElementById('<%= HiddenFieldAppointment.ClientID %>').value = id;
         }
     </script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function () {
         // Function to set color based on status

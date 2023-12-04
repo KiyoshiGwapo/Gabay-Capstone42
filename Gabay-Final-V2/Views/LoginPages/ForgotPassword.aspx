@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Guest Login</title>
+    <title>Forgot Password</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="../../Resources/CustomStyleSheet/DefaultStyle.css" rel="stylesheet" />
     <link href="../../Resources/CustomStyleSheet/LoginPageStyle.css" rel="stylesheet" />
@@ -36,6 +36,7 @@
                 <form id="form1" runat="server">
                     <div class="card-body">
                         <h2 class="card-title text-center">Retrieve Password</h2>
+                        <asp:Label ID="GreenMessage" runat="server" Text="" CssClass="text-success"></asp:Label>
                         <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger"></asp:Label>
                         <div class="mb-3">
                             <asp:TextBox ID="txtUserID" runat="server" placeholder="Enter your User ID" CssClass="form-control" />
@@ -51,23 +52,5 @@
             </div>
         </div>
     </div>
-
-    <%--        <div class="container mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title text-center">Retrieve Password</h2>
-                    <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger"></asp:Label>
-                    <div class="mb-3">
-                        <asp:TextBox ID="txtUserID" runat="server" placeholder="Enter your User ID" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter your Email" CssClass="form-control" />
-                    </div>
-                    <div class="d-grid">
-                        <asp:Button ID="btnRetrievePassword" runat="server" Text="Retrieve Password" OnClick="btnRetrievePassword_Click" CssClass="btn btn-primary" />
-                    </div>
-                </div>
-            </div>
-        </div>--%>
 </body>
 </html>

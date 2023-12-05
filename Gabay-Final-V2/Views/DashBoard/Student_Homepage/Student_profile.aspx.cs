@@ -57,6 +57,14 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 string newPassword = newPasswordTextBox.Text;
                 string confirmPassword = confirmPasswordTextBox.Text;
 
+                // Check if any of the fields are empty
+                if (string.IsNullOrWhiteSpace(currentPassword) || string.IsNullOrWhiteSpace(newPassword) || string.IsNullOrWhiteSpace(confirmPassword))
+                {
+                    // Show an error message for empty fields
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">Please fill in all password fields.</span>');", true);
+                    return;
+                }
+
                 // Add logic to check if the current password is correct and if the new and confirm passwords match
                 if (CheckCurrentPassword(currentPassword) && newPassword != currentPassword && newPassword == confirmPassword)
                 {
@@ -136,7 +144,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         }
 
         //EMAIL NGA PART
-
         protected void UpdateEmail_Click(object sender, EventArgs e)
         {
             try
@@ -144,6 +151,22 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 // Retrieve the current and new email from the input fields in the modal
                 string currentEmail = currentEmailTextBox.Text;
                 string newEmail = newEmailTextBox.Text;
+
+                // Check if any of the fields are empty
+                if (string.IsNullOrWhiteSpace(currentEmail) || string.IsNullOrWhiteSpace(newEmail))
+                {
+                    // Show an error message for empty fields
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">Please fill in all email fields.</span>');", true);
+                    return;
+                }
+
+                // Check if the new email is different from the current email
+                if (currentEmail == newEmail)
+                {
+                    // Show an error message for the same current and new email
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">New email should be different from the current email.</span>');", true);
+                    return;
+                }
 
                 // Add logic to check if the current email is correct and update the email in the database
                 if (CheckCurrentEmail(currentEmail))
@@ -171,6 +194,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">An error occurred: " + ex.Message + "</span>');", true);
             }
         }
+
 
         private bool CheckCurrentEmail(string currentEmail)
         {

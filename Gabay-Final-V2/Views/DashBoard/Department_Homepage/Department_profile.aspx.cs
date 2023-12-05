@@ -524,7 +524,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     command.Parameters.AddWithValue("@FileName", fileName);
                     command.Parameters.AddWithValue("@FileData", fileData);
                     command.Parameters.AddWithValue("@user_ID", userId);
-                    command.Parameters.AddWithValue("@department_ID", departmentID);  
+                    command.Parameters.AddWithValue("@department_ID", departmentID);
                     command.ExecuteNonQuery();
                 }
             }
@@ -714,7 +714,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 }
                 // Add debugging statements here
 
-                Selected.Text = "<- To view this File click this Button";
+                Selected.Text = "To view this File click this Button";
             }
             else
             {

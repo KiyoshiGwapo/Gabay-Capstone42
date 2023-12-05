@@ -69,6 +69,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
         protected global::System.Web.UI.WebControls.HiddenField BarStudentsUserCountLabel;
 
         /// <summary>
+        /// BarStudentsCCSUserCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsCCSUserCountLabel;
+
+        /// <summary>
         /// BarStudentsNursingUserCountLabel control.
         /// </summary>
         /// <remarks>
@@ -76,5 +85,104 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField BarStudentsNursingUserCountLabel;
+
+        /// <summary>
+        /// BarStudentsCriminologyUserCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsCriminologyUserCountLabel;
+
+        /// <summary>
+        /// BarStudentsTourismHospitalityCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsTourismHospitalityCountLabel;
+
+        /// <summary>
+        /// BarStudentsBusinessAdministrationandAccountancyUserCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsBusinessAdministrationandAccountancyUserCountLabel;
+
+        /// <summary>
+        /// BarStudentsCustomsAdministrationUserCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsCustomsAdministrationUserCountLabel;
+
+        /// <summary>
+        /// BarStudentsMarineTransportationCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsMarineTransportationCountLabel;
+
+        /// <summary>
+        /// BarStudentsMarineEngineeringCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsMarineEngineeringCountLabel;
+
+        /// <summary>
+        /// BarStudentsElectronicsandCommunicationEngineeringUserCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsElectronicsandCommunicationEngineeringUserCountLabel;
+
+        /// <summary>
+        /// BarStudentsElectricalEngineeringUserCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsElectricalEngineeringUserCountLabel;
+
+        /// <summary>
+        /// BarStudentsMechanicalEngineeringnUserCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsMechanicalEngineeringnUserCountLabel;
+
+        /// <summary>
+        /// BarStudentsIndustrialEngineeringCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsIndustrialEngineeringCountLabel;
+
+        /// <summary>
+        /// BarStudentsComputerEngineeringCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BarStudentsComputerEngineeringCountLabel;
     }
 }

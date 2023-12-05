@@ -50,15 +50,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
 
         protected void ChangePassword_Click(object sender, EventArgs e)
         {
-            // Retrieve the current, new, and confirm passwords from the input fields in the modal
-            string currentPassword = currentPasswordTextBox.Text;
-            string newPassword = newPasswordTextBox.Text;
-            string confirmPassword = confirmPasswordTextBox.Text;
-
             try
             {
+                // Retrieve the current, new, and confirm passwords from the input fields in the modal
+                string currentPassword = currentPasswordTextBox.Text;
+                string newPassword = newPasswordTextBox.Text;
+                string confirmPassword = confirmPasswordTextBox.Text;
+
                 // Add logic to check if the current password is correct and if the new and confirm passwords match
-                if (CheckCurrentPassword(currentPassword) && newPassword == confirmPassword)
+                if (CheckCurrentPassword(currentPassword) && newPassword != currentPassword && newPassword == confirmPassword)
                 {
                     // Update the password in the database
                     int userId = Convert.ToInt32(Session["user_ID"]);
@@ -74,14 +74,14 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 }
                 else
                 {
-                    // Show an error message for mismatched passwords or incorrect current password
-                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('Password mismatch or incorrect current password.');", true);
+                    // Show an error message for mismatched passwords, new password same as current password, or incorrect current password
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">Password mismatch, new password should be different from the current password, or incorrect current password.</span>');", true);
                 }
             }
             catch (Exception ex)
             {
                 // Handle other exceptions
-                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('An error occurred: " + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">An error occurred: " + ex.Message + "</span>');", true);
             }
         }
 
@@ -91,6 +91,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("UPDATE student SET stud_pass = @NewPassword WHERE user_ID = @UserID", con))
+                {
+                    cmd.Parameters.AddWithValue("@NewPassword", newPassword);
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (SqlCommand cmd = new SqlCommand("UPDATE users_table SET password = @NewPassword WHERE user_ID = @UserID", con))
                 {
                     cmd.Parameters.AddWithValue("@NewPassword", newPassword);
                     cmd.Parameters.AddWithValue("@UserID", userId);
@@ -132,12 +139,12 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
 
         protected void UpdateEmail_Click(object sender, EventArgs e)
         {
-            // Retrieve the current and new email from the input fields in the modal
-            string currentEmail = currentEmailTextBox.Text;
-            string newEmail = newEmailTextBox.Text;
-
             try
             {
+                // Retrieve the current and new email from the input fields in the modal
+                string currentEmail = currentEmailTextBox.Text;
+                string newEmail = newEmailTextBox.Text;
+
                 // Add logic to check if the current email is correct and update the email in the database
                 if (CheckCurrentEmail(currentEmail))
                 {
@@ -155,13 +162,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 else
                 {
                     // Show an error message for incorrect current email
-                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('Incorrect current email.');", true);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">Incorrect current email.</span>');", true);
                 }
             }
             catch (Exception ex)
             {
                 // Handle other exceptions
-                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('An error occurred: " + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">An error occurred: " + ex.Message + "</span>');", true);
             }
         }
 
@@ -189,7 +196,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 }
             }
 
-            // Return false if the user is not found or there is an issue with the database
+          
             return false;
         }
 

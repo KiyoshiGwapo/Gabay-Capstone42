@@ -13,7 +13,6 @@ namespace Gabay_Final_V2.Views.Modules.FAQ
     public partial class Guest_FAQ : System.Web.UI.Page
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

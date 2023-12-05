@@ -1,12 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Admin_Homepage/Admin_Master.Master" AutoEventWireup="true" CodeBehind="Manage_AcadCalen.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Admin_Modules.Manage_AcadCalen" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../../Resources/CustomJS/OpenModal.js"></script>
     <script src="../../../Resources/CustomJS/AcadCalendar/AcadCalendarJS.js"></script>
     <link href="../../../Resources/CustomStyleSheet/Acad_Calendar/AcadCalenStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Academic Calendar</h1>
+   <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Academic Calendar</h1>
 
     <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 10px;">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal">
@@ -69,9 +68,8 @@
         </div>
     </div>
 
-
-
-    <%-- Success modal --%>
+    
+     <%-- Success modal --%>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -82,7 +80,7 @@
             </div>
         </div>
     </div>
-    <%-- Error modal --%>
+     <%-- Error modal --%>
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

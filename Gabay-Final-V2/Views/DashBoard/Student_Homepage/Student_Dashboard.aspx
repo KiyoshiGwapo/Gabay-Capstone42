@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Announcements</h1>
      <style>
         .card-container{
             height:500px;
@@ -51,7 +52,6 @@
     </style>
      <script src="../Scripts/jquery-3.7.1.js"></script>
     <div class="container">
-        <h1 class="text-center mt-4">Announcements</h1>
         <!-- Manual controls for sliding (moved to the right) -->
         <div class="d-flex justify-content-end mt-3">
             <button type="button" class="btn btn-light mr-2" id="prevButton">&lt;</button>

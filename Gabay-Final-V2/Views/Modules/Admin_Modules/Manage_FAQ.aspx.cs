@@ -180,9 +180,5 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             }
         }
 
-
-        
-
-
     }
 }

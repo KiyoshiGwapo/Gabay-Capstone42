@@ -7,7 +7,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 
-
 namespace Gabay_Final_V2.Views.Modules.FAQ
 {
     public partial class Student_FAQ : System.Web.UI.Page

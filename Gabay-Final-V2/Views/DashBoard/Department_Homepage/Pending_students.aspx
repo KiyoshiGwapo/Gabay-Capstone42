@@ -5,7 +5,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Manage Student Account</h1>
     <style>
         .gridViewContainer{
             width: 100%;
@@ -13,6 +12,7 @@
             padding:5px;
         }
     </style>
+    <h1>Manage Student Account</h1>
     <div class="container-fluid mb-1">
         <div class="row">
             <div class="col-lg-10 col-md-12">
@@ -38,6 +38,7 @@
             </div>
             
             <div class="col-12">
+
                 <div class="gridViewContainer">
                     <asp:GridView ID="pending_table" runat="server" AutoGenerateColumns="False" CssClass="table" DataKeyNames="studentID">
                         <Columns>

@@ -75,7 +75,7 @@
                                                 <asp:LinkButton ID="LinkButton1" CssClass="dwnldLnk btn" runat="server" Text="View/Download" OnClick="lnkDownload_Click" OnClientClick="openInNewTab();">
                         <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                                 </asp:LinkButton>
-                                                 <asp:Label ID="Selected" runat="server" ForeColor="Green" />
+                                                <asp:Label ID="Selected" runat="server" ForeColor="Green" />
                                             </div>
                                             <asp:Label ID="DownloadErrorLabel" runat="server" ForeColor="Red" />
 

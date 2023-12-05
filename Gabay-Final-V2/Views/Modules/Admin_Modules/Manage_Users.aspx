@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Admin_Homepage/Admin_Master.Master" AutoEventWireup="true" CodeBehind="Manage_Users.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Admin_Modules.Manage_Users" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="../../../Resources/CustomJS/OpenModal.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%-- MANAGE USERS --%>
@@ -48,7 +46,7 @@
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-CssClass="" />
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkEdit" runat="server" Text='<i class="fas fa-edit"></i>' CssClass="btn btn-primary" OnClientClick='<%# "showEditPasswordModal(" + Container.DataItemIndex + "); return false;" %>' />
+                       <asp:LinkButton ID="lnkEdit" runat="server" Text='<i class="fas fa-edit"></i>' CssClass="btn btn-primary" OnClientClick='<%# "showEditPasswordModal(" + Container.DataItemIndex + "); return false;" %>' />
                         <asp:LinkButton ID="LinkButton1" runat="server" Text='<i class="fas fa-trash-alt" style="color: white;"></i>' CssClass="btn btn-danger" OnClientClick='<%# "showConfirmationModal(" + Container.DataItemIndex + "); return false;" %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -58,7 +56,7 @@
     </div>
     <asp:HiddenField ID="hfSelectedRowIndex" runat="server" />
     <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
@@ -66,24 +64,22 @@
                 </div>
                 <div class="modal-body">
                     Are you sure you want to delete this user?
-               
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="btnConfirmDelete" runat="server" Text="Yes" OnClick="btnConfirmDelete_Click" CssClass="btn btn-danger" />
-                    <asp:Button ID="Button1" runat="server" Text="Close" class="btn btn-secondary" OnClick="DeleteModalClose_Click" />
+                     <asp:Button ID="Button1" runat="server" Text="Close" class="btn btn-secondary" OnClick="DeleteModalClose_Click" />
                 </div>
             </div>
         </div>
     </div>
 
     <%--  EDIT PASSWORD MODAL--%>
-
     <div class="modal fade" id="editPasswordModal" tabindex="-1" role="dialog" aria-labelledby="editPasswordModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editPasswordModalLabel">Change Password</h5>
-                    <asp:Button ID="btnDeleteModalClose" runat="server" CssClass="close" Text="&times;" OnClick="EditModalClose_Click" />
+                     <asp:Button ID="btnDeleteModalClose" runat="server" CssClass="close" Text="&times;" OnClick="EditModalClose_Click" />
                 </div>
                 <div class="modal-body">
                     <!-- Password change form -->
@@ -100,8 +96,8 @@
         </div>
     </div>
 
-
-    <%-- Success modal --%>
+    
+     <%-- Success modal --%>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -112,7 +108,7 @@
             </div>
         </div>
     </div>
-    <%-- Error modal --%>
+     <%-- Error modal --%>
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

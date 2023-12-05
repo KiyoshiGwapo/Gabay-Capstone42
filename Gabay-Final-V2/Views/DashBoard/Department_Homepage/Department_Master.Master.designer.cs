@@ -219,6 +219,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMarkAsRead;
+        protected global::System.Web.UI.WebControls.LinkButton btnMarkAsRead;
     }
 }

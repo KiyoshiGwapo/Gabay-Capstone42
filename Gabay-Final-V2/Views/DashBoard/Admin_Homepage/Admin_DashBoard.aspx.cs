@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -72,7 +73,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
                 connection.Open();
 
                 // Create a SQL command to count users with role value 3
-                string query = "SELECT COUNT(*) FROM users_table WHERE role_ID = '3'";
+                string query = "SELECT COUNT(*) FROM users_table WHERE role_ID = '3' AND status NOT IN ('pending', 'deactivated')";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     int studentuserCount = Convert.ToInt32(command.ExecuteScalar());
@@ -157,11 +158,26 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
 
         private void BarUserCounts()
         {
-            BarStudentsUserCountLabel.Value = GetDepartmentUserCount("2024").ToString();
+            BarStudentsCCSUserCountLabel.Value = GetDepartmentUserCount("2024").ToString();
             BarStudentsNursingUserCountLabel.Value = GetDepartmentUserCount("2025").ToString();
-            // Add more department ari
-        }
+            BarStudentsCriminologyUserCountLabel.Value = GetDepartmentUserCount("2027").ToString();
+            BarStudentsTourismHospitalityCountLabel.Value = GetDepartmentUserCount("2028").ToString();
+            BarStudentsBusinessAdministrationandAccountancyUserCountLabel.Value = GetDepartmentUserCount("2031").ToString();
+            BarStudentsCustomsAdministrationUserCountLabel.Value = GetDepartmentUserCount("2032").ToString();
 
+            BarStudentsMarineTransportationCountLabel.Value = GetDepartmentUserCount("2033").ToString();
+            BarStudentsMarineEngineeringCountLabel.Value = GetDepartmentUserCount("2033").ToString();
+
+            BarStudentsElectronicsandCommunicationEngineeringUserCountLabel.Value = GetDepartmentUserCount("0").ToString();
+            BarStudentsElectricalEngineeringUserCountLabel.Value = GetDepartmentUserCount("0").ToString();
+            BarStudentsMechanicalEngineeringnUserCountLabel.Value = GetDepartmentUserCount("0").ToString();
+
+            BarStudentsIndustrialEngineeringCountLabel.Value = GetDepartmentUserCount("0").ToString();
+            BarStudentsComputerEngineeringCountLabel.Value = GetDepartmentUserCount("0").ToString();
+
+            // Add more department ari  
+        }
+            
 
 
     }

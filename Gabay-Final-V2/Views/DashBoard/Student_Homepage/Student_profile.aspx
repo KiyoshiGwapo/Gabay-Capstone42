@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Student Profile</h1>
    <style>
         .profile-icon {
             display: flex;
@@ -98,9 +99,7 @@
     </style>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <span class="fs-2">Profile Details</span>
-            </div>
+            
         </div>
         <div class="row">
             <div class="col-12">
@@ -275,7 +274,6 @@
                             <div class="col-12 d-grid">
                                 <asp:Button runat="server" ID="updateEmailButton" CssClass="btn bg-primary text-light" Text="Update" OnClick="UpdateEmail_Click" />
                             </div>
-
                         </div>
                     </div>
                 </div>

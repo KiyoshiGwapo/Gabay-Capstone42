@@ -25,7 +25,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 {
                     int userID = Convert.ToInt32(Request.QueryString["userID"]);
                     BindAppointmentHistory(userID);
-                    ApplyStatusFilter();
                 }
                 else
                 {
@@ -34,7 +33,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-        //Go Back Button
         //Go Back Button
         protected void GoBackButton_Click(object sender, EventArgs e)
         {
@@ -161,9 +159,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             GridView1.DataBind();
         }
-
-
-
 
     }
 }

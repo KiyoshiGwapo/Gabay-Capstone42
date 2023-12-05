@@ -13,6 +13,15 @@
    letter-spacing: 2px;
 }
 
+.chatbot-wrapper {
+    width: 850px;
+    margin-left: 18rem;
+}
+
+.chatbot-container {
+    width: 850px;
+}
+
 .chatContainer {
     height: 450px;
     border: 1px solid #808080;
@@ -80,7 +89,7 @@
 
 .slider-container {
     overflow: hidden;
-    width: 300px;
+    width: 500px;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -92,7 +101,7 @@
 }
 
 .card {
-    width: 300px;
+    width: 200px;
     margin-right: 10px;
     display: flex !important;
 }
@@ -104,8 +113,11 @@
 }
 
 .container-slider {
+    background-color: #f2f2f2;
+    border-radius: 15px 15px 15px 0;
     display: flex;
     align-items: center;
+    align-self: flex-start;
 }
 
 .buttons {

@@ -56,7 +56,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             {
                 conn.Open();
 
-                string query = "SELECT COUNT(*) FROM appointment WHERE [email] = @Email";
+                string query = @"SELECT COUNT(*) FROM appointment 
+                                 WHERE [email] = @Email
+                                 AND appointment_status NOT IN ('rejected', 'served', 'no show')";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Email", email);
@@ -114,6 +116,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     departmentChoices.SelectedIndex = 0; // Reset the dropdown selection
                     Message.Text = "";
                 }
+                DisabledTimeAndDate();
             }
         }
 
@@ -573,11 +576,30 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             date.Attributes["min"] = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd");
         }
 
+        public void DisabledTimeAndDate()
+        {
+            date.Enabled = false;
+            time.Enabled = false;
+        }
+
         protected void departmentChoices_SelectedIndexChanged(object sender, EventArgs e)
         {
             string departmentName = departmentChoices.SelectedValue;
             deptID.Value = departmentName;
             convertDeptIDtoName(deptID.Value);
+            if (departmentName == "")
+            {
+                DisabledTimeAndDate();
+
+            }
+            else
+            {
+                date.Enabled = true;
+                time.Enabled = true;
+            }
+
+
+
         }
 
         protected void date_TextChanged(object sender, EventArgs e)

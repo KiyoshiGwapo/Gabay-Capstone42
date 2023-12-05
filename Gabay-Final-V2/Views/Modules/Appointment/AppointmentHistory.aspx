@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Student_Homepage/Student_Master.Master" AutoEventWireup="true" CodeBehind="AppointmentHistory.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Appointment.AppointmentHistory" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
+    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Appointment History</h1>
+     <style>
         .container {
             text-align: center;
         }
@@ -171,16 +171,14 @@
     <asp:HiddenField ID="HiddenFieldAppointment" runat="server" />
 
     <div class="modal fade" id="concernModal" tabindex="-1" aria-labelledby="concernModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-center">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="concernModalLabel">Appointment Concern</h5>
+                    <asp:Button ID="CloseViewModal" runat="server" CssClass="btn-close" OnClick="CloseViewModal_Click" />
                 </div>
                 <div class="modal-body">
                     <div id="concernContent"></div>
-                </div>
-                <div class="modal-footer">
-                    <asp:Button ID="CloseViewModal" runat="server" CssClass="btn-close" OnClick="CloseViewModal_Click" />
                 </div>
             </div>
         </div>

@@ -33,6 +33,15 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
         protected global::System.Web.UI.WebControls.GridView AnnouncementList;
 
         /// <summary>
+        /// noResultsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label noResultsLabel;
+
+        /// <summary>
         /// HidAnnouncementID control.
         /// </summary>
         /// <remarks>

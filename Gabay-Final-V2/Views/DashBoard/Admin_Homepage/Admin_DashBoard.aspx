@@ -159,18 +159,36 @@
         createDonutChart(<%= StudentApprovedUserCountLabel.Value %>, <%= StudentPendingUserCountLabel.Value %>);
     </script>--%>
     <asp:HiddenField ID="BarStudentsUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsCCSUserCountLabel" runat="server" />
     <asp:HiddenField ID="BarStudentsNursingUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsCriminologyUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsTourismHospitalityCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsBusinessAdministrationandAccountancyUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsCustomsAdministrationUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsMarineTransportationCountLabel" runat="server" />
+
+    <asp:HiddenField ID="BarStudentsMarineEngineeringCountLabel" runat="server" />
+
+    <asp:HiddenField ID="BarStudentsElectronicsandCommunicationEngineeringUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsElectricalEngineeringUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsMechanicalEngineeringnUserCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsIndustrialEngineeringCountLabel" runat="server" />
+    <asp:HiddenField ID="BarStudentsComputerEngineeringCountLabel" runat="server" />
     <script>
         // Function to create and update the bar chart
-        function createBarChart(bsitCount, bsnCount, bsmCount, bsaCount, bseCount) {
+        function createBarChart(studentCount, bsitCount, bsnCount, bsCrimCount, bsTHCount, bsBACount, bsCACount, bsMTCount, bsMTECount, bsECount, bsElecECount,
+            bsMechCount, bsIndusCount, bsInECount, bsComECount) {
             var ctx = document.getElementById('myBarChart').getContext('2d');
             var data = {
-                labels: ['All Students', 'College of Computer Studies', 'College of Nursing', 'College of Maritime', 'College of Customs Administrations', 'College of Allied Engineering'],
+                labels: ['All Students', 'College of Computer Studies', 'College of Nursing', 'Collage of Criminology', 'Collage of Tourism and Hospitality', 'Collage of Business Administration and Accountancy',
+                    'Collage of Customs Administration', 'Collage of Marine Transportation', 'Collage of Marine Engineering', 'Collage of Electronics and Communication Engineering', 'Collage of Electrical Engineering',
+                    'Collage of Mechanical Engineering', 'Collage of Industrial Engineering', 'Collage of Computer Engineering'],
                 datasets: [
                     {
                         label: ['All Students'],
-                        backgroundColor: ['green','purple', 'red', 'black', 'blue', 'brown'],
-                        data: [bsitCount, bsnCount, bsmCount, bsaCount, bseCount],
+                        backgroundColor: ['green', 'purple', 'red', 'black', 'blue', 'brown', 'orange', 'teal', 'orchid', 'navy', 'silver', 'crimson', 'aqua', 'turquoise'],
+                        data: [studentCount, bsitCount, bsnCount, bsCrimCount, bsTHCount, bsBACount, bsCACount, bsMTCount, bsMTECount, bsECount, bsElecECount,
+                            bsMechCount, bsIndusCount, bsInECount, bsComECount],
                         barThickness: 40, 
                     }
                 ]
@@ -192,7 +210,9 @@
         }
 
         // Call the function to create the bar chart
-        createBarChart(<%= StudentuserCountLabel.Text %>,<%= BarStudentsUserCountLabel.Value %>,
-            <%= BarStudentsNursingUserCountLabel.Value %>);
+        createBarChart(<%= StudentuserCountLabel.Text %>,<%=  BarStudentsCCSUserCountLabel.Value %>, <%=  BarStudentsNursingUserCountLabel.Value %>, <%=  BarStudentsCriminologyUserCountLabel.Value  %>,
+        <%= BarStudentsTourismHospitalityCountLabel.Value  %>, <%= BarStudentsBusinessAdministrationandAccountancyUserCountLabel.Value  %>, <%=  BarStudentsCustomsAdministrationUserCountLabel.Value  %>, <%=  BarStudentsMarineTransportationCountLabel.Value  %>,  <%=  BarStudentsMarineEngineeringCountLabel.Value %>,
+         <%= BarStudentsElectronicsandCommunicationEngineeringUserCountLabel.Value  %>, <%= BarStudentsElectricalEngineeringUserCountLabel.Value  %>, <%=  BarStudentsMechanicalEngineeringnUserCountLabel.Value  %>,  <%=  BarStudentsIndustrialEngineeringCountLabel.Value  %>,
+            <%= BarStudentsComputerEngineeringCountLabel.Value %>);
     </script>
 </asp:Content>

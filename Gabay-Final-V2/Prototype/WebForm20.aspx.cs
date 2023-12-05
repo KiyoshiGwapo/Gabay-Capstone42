@@ -14,11 +14,11 @@ namespace Gabay_Final_V2.Prototype
 {
     public partial class WebForm20 : System.Web.UI.Page
     {
+        private static string connectionString = ConfigurationManager.ConnectionStrings["Gabaydb"].ConnectionString;
         Chatbot_model conn = new Chatbot_model();
         string greetingMessage1 = @"Hello! to assist you better, 
                    please choose an option in the menu or if you can't find what are you looking for,
-                   just type your concern in a few words. If I can't answer you queries you can book
-                   and appointment to a designated department for your concern";
+                   just type your concern in a few words.";
         string greetingMessage = @"<div class='container-slider'>
                                                    <button id='prevButton' type='button' class='btn buttons d-flex justify-content-center align-items-center'>
                                                        <i class='bi bi-chevron-compact-left'></i>
@@ -75,6 +75,7 @@ namespace Gabay_Final_V2.Prototype
                                                        <i class='bi bi-chevron-compact-right'></i>
                                                    </button>
                                                </div>";
+        string buttonsSelectionDialog = "Please Select your choices below:";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -82,6 +83,7 @@ namespace Gabay_Final_V2.Prototype
                 ViewState["countUnAnswered"] = 0;
                
                 AddBotMessage(greetingMessage1);
+                AddBotMessage(buttonsSelectionDialog);
                 AddBotMessageMenu(greetingMessage);
             }
 
@@ -108,7 +110,7 @@ namespace Gabay_Final_V2.Prototype
         protected void btnSend_Click(object sender, EventArgs e)
         {
             string userInput = txtUserInput.Text;
-            int countUnAnsered = (int)ViewState["countUnAnswered"];
+            int countUnAnswered = (int)ViewState["countUnAnswered"];
             AddUserMessage(userInput);
             string lowerInput = userInput.ToLower();
             string testMessage = @"Hello! what can I assist to you today?";
@@ -121,17 +123,115 @@ namespace Gabay_Final_V2.Prototype
                 }
                 else
                 {
-                    string scriptColumn = conn.FindMatchingScript(userInput, ref countUnAnsered);
+                    string scriptColumn = FindMatchingScript(userInput, ref countUnAnswered);
                     scriptColumn = scriptColumn.Replace("\n", "<br>");
                     AddBotMessage(scriptColumn);
 
-
                     // Update ViewState with the new count from the returned value
                     ViewState["countUnAnswered"] = conn.CountUnAnswered;
-
+                   
                 }
+              
                 txtUserInput.Text = string.Empty;
             }
         }
+        public string FindMatchingScript(string userInput, ref int countUnAnswered)
+        {
+            Dictionary<string, int> keywordCount = new Dictionary<string, int>();
+
+            // Tokenize the user input
+            string[] userTokens = userInput.ToLower().Split(' ');
+            string bestScript = "";
+            int maxCount = 0;
+            string unAnswered = @"I'm sorry, I didn't understand your question. Could you please rephrase it?";
+            string referToAppointment = @"I apologize, I am unable to answer your question, 
+                                  please use the appointment within gabay to book an
+                                  appointment so that a representative can answer your question.";
+
+            if (!conn.IsEnglish(userInput))
+            {
+                bestScript = "I apologize, I am unable to understand any language. Please ask your question in English.";
+            }
+            else
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string selectQuery = "SELECT response, keywords FROM Chat_Response";
+                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string script = reader.GetString(0);
+                                string keywords = reader.GetString(1);
+                                int count = 0;
+
+                                foreach (string keyword in keywords.Split(','))
+                                {
+                                    if (userTokens.Contains(keyword.Trim(), StringComparer.OrdinalIgnoreCase))
+                                    {
+                                        count++;
+                                    }
+                                }
+
+                                if (!keywordCount.ContainsKey(script))
+                                {
+                                    keywordCount.Add(script, count);
+                                }
+                                else
+                                {
+                                    keywordCount[script] += count;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Find the script with the highest keyword count
+
+
+                foreach (var pair in keywordCount)
+                {
+                    if (pair.Value > maxCount)
+                    {
+                        maxCount = pair.Value;
+                        bestScript = pair.Key;
+                    }
+                }
+
+                if (maxCount == 0)
+                {
+                    countUnAnswered++;
+                    
+                    // if the ViewState counts is more than 3 it sets bestScript to referToAppointment otherwise bestScript is set to unAnswered
+                    if (countUnAnswered >= 3)
+                    {
+                        bestScript = referToAppointment;
+                        countUnAnswered = 0;
+                        //AddBotMessage(buttonsSelectionDialog);
+                        //AddBotMessageMenu(greetingMessage);
+                    }
+                    else
+                    {
+                        bestScript = unAnswered;
+                    }
+                    // Update the ViewState count
+                    conn.CountUnAnswered = countUnAnswered;
+                }
+                else
+                {
+                    bestScript = bestScript.Replace("\n", "<br>");
+                    countUnAnswered = 0;
+                    conn.CountUnAnswered = countUnAnswered;
+                }
+            }
+
+
+            return bestScript;
+        }
+
     }
 }

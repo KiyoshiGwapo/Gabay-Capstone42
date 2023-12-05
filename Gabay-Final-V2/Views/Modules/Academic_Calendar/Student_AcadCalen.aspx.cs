@@ -99,11 +99,13 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
 
         private void BindFilesToDropDownList()
         {
+
             AcadCalen_model acadCalenModel = new AcadCalen_model(); // Create an instance of AcadCalen_model
             List<AcadCalen_model.FileData> filesList = acadCalenModel.FetchFilesDataFromDatabase();
 
+            // Add an empty item as the default in the DropDownList
             ddlFiles.Items.Clear();
-            ddlFiles.Items.Add(new ListItem("Select Here", ""));
+            ddlFiles.Items.Add(new ListItem("School Year Calendar", ""));
 
             foreach (AcadCalen_model.FileData file in filesList)
             {
@@ -111,12 +113,24 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
                 ddlFiles.Items.Add(item);
             }
 
+
             if (ViewState["SelectedFileId"] != null)
             {
                 int selectedFileId = (int)ViewState["SelectedFileId"];
-                ddlFiles.SelectedValue = selectedFileId.ToString();
+
+                // Check if the selected file is in the DropDownList items
+                if (ddlFiles.Items.FindByValue(selectedFileId.ToString()) != null)
+                {
+                    ddlFiles.SelectedValue = selectedFileId.ToString();
+                }
+                else
+                {
+                    
+                    ddlFiles.SelectedIndex = 0;
+                }
             }
         }
+
 
 
 
@@ -141,12 +155,8 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
                 }
                 else
                 {
-                    // Handle the case where the selected value is not a valid integer
-                    DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
+                    DownloadErrorLabel.Text = "Selected file data not found.";
                 }
-                // Add debugging statements here
-
-                Selected.Text = "To View the File Click the Button";
             }
             else
             {
@@ -154,6 +164,5 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
                 DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
             }
         }
-
     }
 }

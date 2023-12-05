@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Set Appointment</h1>
     <style>
         /* Custom CSS for the form */
         .form-wrapper {
@@ -113,13 +112,13 @@
                     <div class="row">		
                         <div class="col">
                             <label for="selectedDate" class="form-label">Date</label>
-                            <asp:TextBox ID="date" runat="server" TextMode="Date" CssClass="form-control text-input" OnTextChanged="date_TextChanged" AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="date" runat="server" TextMode="Date" CssClass="form-control text-input" OnTextChanged="date_TextChanged" AutoPostBack="True" Enabled="False"></asp:TextBox>
                             <asp:HiddenField ID="SelectedDate" runat="server" />
                         </div>
                         <asp:HiddenField ID="deptID" runat="server" />
-                        <div class="col">
+                        <div class="col">   
                             <label for="time" class="form-label">Time</label>
-                            <asp:DropDownList ID="time" runat="server" CssClass="form-control text-input">
+                            <asp:DropDownList ID="time" runat="server" CssClass="form-control text-input" Enabled="False">
                                 <asp:ListItem Value="" Selected="True">Select Available Time</asp:ListItem>
                                 <asp:ListItem Value="8:00 AM">8:00 AM</asp:ListItem>
                                 <asp:ListItem Value="9:00 AM">9:00 AM</asp:ListItem>

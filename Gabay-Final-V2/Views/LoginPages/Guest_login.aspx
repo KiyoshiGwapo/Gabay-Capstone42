@@ -52,7 +52,8 @@
                     </div>
                 </form>
                 <p class="d-flex justify-content-center">
-                    <a class="text-decoration-none custom-text" href="#">Don't have an Account?</a>
+                    <%--<a class="text-decoration-none custom-text" href="#">Don't have an Account?</a>--%>
+                    <asp:HyperLink ID="toRegisterGuest" runat="server" CssClass="text-decoration-none custom-text" NavigateUrl="~/Views/RegistrationPages/Student_Reg.aspx">Don't have an Account?</asp:HyperLink>
                 </p>
             </div>
         </div>

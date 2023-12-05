@@ -33,6 +33,9 @@ namespace Gabay_Final_V2.Views.LoginPages
 
                     GreenMessage.Text = "Your password has been sent to your email.";
 
+                    // Clear the error message label.
+                    lblMessage.Text = string.Empty;
+
                     // Clear the fields after successful retrieval and email sending.
                     txtUserID.Text = string.Empty;
                     txtEmail.Text = string.Empty;
@@ -41,14 +44,21 @@ namespace Gabay_Final_V2.Views.LoginPages
                 {
                     // Display a message for user not found or incorrect information.
                     lblMessage.Text = "User not found or the provided information is incorrect.";
+
+                    // Clear the success message label.
+                    GreenMessage.Text = string.Empty;
                 }
             }
             catch (Exception ex)
             {
                 // Handle other exceptions, e.g., database connection errors.
                 lblMessage.Text = "An error occurred: " + ex.Message;
+
+                // Clear the success message label.
+                GreenMessage.Text = string.Empty;
             }
         }
+
 
 
         // Implement your database retrieval logic here.
@@ -159,8 +169,6 @@ namespace Gabay_Final_V2.Views.LoginPages
                 lblMessage.Text = "An error occurred while sending the email: " + ex.Message;
             }
         }
-
-
 
     }
 }

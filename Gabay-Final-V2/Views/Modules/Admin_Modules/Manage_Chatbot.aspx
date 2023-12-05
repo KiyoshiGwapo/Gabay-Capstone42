@@ -3,7 +3,7 @@
     <link href="../../../Resources/CustomStyleSheet/Chatbot/ManageChatbotStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Manage Chatbot</h1>
+    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Manage Chatbot</h1>
     <div class="manageChatbot-container">
         <div class="container-fluid">
             <div class="row">

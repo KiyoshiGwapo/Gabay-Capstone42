@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Admin_Homepage/Admin_Master.Master" AutoEventWireup="true" CodeBehind="Manage_FAQ.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Admin_Modules.Manage_FAQ" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -80,7 +79,6 @@
                 </div>
                 <div class="modal-body">
                     Delete this Question?
-               
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -134,7 +132,6 @@
             </div>
         </div>
     </div>
-
 
 
     <script>

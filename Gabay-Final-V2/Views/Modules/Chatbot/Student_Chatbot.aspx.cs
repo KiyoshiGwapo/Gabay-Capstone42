@@ -14,16 +14,11 @@ namespace Gabay_Final_V2.Views.Modules.Chatbot
     public partial class Student_Chatbot : System.Web.UI.Page
     {
         Chatbot_model conn = new Chatbot_model();
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                ViewState["countUnAnswered"] = 0;
-                string greetingMessage1 = @"Hello! to assist you better, 
+        string greetingMessage1 = @"Hello! to assist you better, 
                    please choose an option in the menu or if you can't find what are you looking for,
                    just type your concern in a few words. If I can't answer you queries you can book
                    and appointment to a designated department for your concern";
-                string greetingMessage = @"<div class='container-slider'>
+        string greetingMessage = @"<div class='container-slider'>
                                                    <button id='prevButton' type='button' class='btn buttons d-flex justify-content-center align-items-center'>
                                                        <i class='bi bi-chevron-compact-left'></i>
                                                    </button>
@@ -79,10 +74,17 @@ namespace Gabay_Final_V2.Views.Modules.Chatbot
                                                        <i class='bi bi-chevron-compact-right'></i>
                                                    </button>
                                                </div>";
+        string menuDialog = @"Please Choose your answer in the menu below";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                ViewState["countUnAnswered"] = 0;
+
                 AddBotMessage(greetingMessage1);
+                AddBotMessage(menuDialog);
                 AddBotMessageMenu(greetingMessage);
             }
-
         }
 
         private void AddBotMessage(string message)
@@ -106,22 +108,23 @@ namespace Gabay_Final_V2.Views.Modules.Chatbot
         protected void btnSend_Click(object sender, EventArgs e)
         {
             string userInput = txtUserInput.Text;
-            int countUnAnsered = (int)ViewState["countUnAnswered"];
+            int countUnAnswered = (int)ViewState["countUnAnswered"];
             AddUserMessage(userInput);
             string lowerInput = userInput.ToLower();
 
             if (userInput != "" || userInput == null)
             {
-
                 if (lowerInput == "hi")
                 {
                     AddBotMessage("Hello! what can I assist to you today?");
                 }
                 else
                 {
-                    string scriptColumn = conn.FindMatchingScript(userInput,ref countUnAnsered);
+                    string scriptColumn = conn.FindMatchingScript(userInput,ref countUnAnswered);
                     scriptColumn = scriptColumn.Replace("\n", "<br>");
                     AddBotMessage(scriptColumn);
+
+                    ViewState["countUnAnswered"] = conn.CountUnAnswered;
                 }
                 txtUserInput.Text = string.Empty;
             }

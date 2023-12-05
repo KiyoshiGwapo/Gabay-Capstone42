@@ -1128,6 +1128,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var rtMT = document.getElementById('rtMT');
     var rtn418 = document.getElementById('rtn418');
 
+
     //new building 5thfloor routes
     var rt5to6M = document.getElementById('rt5to6M');
     var rtc5 = document.getElementById('rtc5');
@@ -1143,6 +1144,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var rtecdis = document.getElementById('rtecdis');
     var rtchemsrm = document.getElementById('rtchemsrm');
     var rtchemlab = document.getElementById('rtchemlab');
+
+    var new5thtonsa = document.getElementById('new5thtonsa');
 
     //newbuilding 6th floor routes
     var rtgdmss = document.getElementById('rtgdmss');
@@ -1214,17 +1217,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var rt4to5nsa = document.getElementById('rt4to5nsa');
 
     //nsa building fifthfloor route
-    var rtnavi = document.getElementById('rtnavi');
-    var rtc6lab = document.getElementById('rtc6lab');
-    var rtn503 = document.getElementById('rtn503');
-    var rtn504 = document.getElementById('rtn504');
-    var rtns505 = document.getElementById('rtns505');
+    var rtnavi = document.getElementById('navnsa5th');
+    var rtc6lab = document.getElementById('compc6lab');
+    var rtn503 = document.getElementById('503nsa');
+    var rtn504 = document.getElementById('504nsa');
+    var rtns505 = document.getElementById('505nsa');
     var rtdq501 = document.getElementById('rtdq501');
-    var rtphysx = document.getElementById('rtphysx');
-    var rttoolrm = document.getElementById('rttoolrm');
-    var rtchemslab = document.getElementById('rtchemslab');
-    var rtfemlecr5nsa = document.getElementById('rtfemlecr5nsa');
-    var rtmlecr5nsa = document.getElementById('rtmlecr5nsa');
+    var rtphysx = document.getElementById('physlab5th');
+    var rttoolrm = document.getElementById('toolrm5thnsa');
+    var rtchemslab = document.getElementById('chemlab5thnsa');
+    var rtfemlecr5nsa = document.getElementById('femalecr5thnsa');
+    var rtmlecr5nsa = document.getElementById('male5thnsa');
 
     //cbe building ground route
     var rtcbe101 = document.getElementById('rtcbe101');
@@ -3628,7 +3631,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showRoute(rtg1tog2, oldbtn1, rtg2toreg, anxbtn2);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "Then go straight from old building to Study Hall and Enrollment Area";
+                msg.text = "Then go straight from old building to Study Hall or Enrollment Area";
                 window.speechSynthesis.speak(msg);
                 map8.style.display = 'block';
                 showRoute(rtoldtostdy, anxbtn2, rtg2toold, oldbtn1);
@@ -6500,7 +6503,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isbtngate2Clicked && !isstdybtnClicked) {
             isstdybtnClicked = true;
             hideMaps(), hideRoute()
-            msg.text = "From gate 2 go straight.. then turn left to study hall and Enrollment Area";
+            msg.text = "From gate 2 go straight.. then turn left to study hall or Enrollment Area";
             window.speechSynthesis.speak(msg);
             map8.style.display = 'block';
             hideFloorButton()
@@ -21565,42 +21568,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2); 
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2); 
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right on room ns-505,... then go straight to the last room,... to navigation room";
+                msg.text = "from the NSA building 5th floor turn right,... to navigation room";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtnavi, nsabtn, rtg2toold, newbtn);
@@ -21636,42 +21639,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right on room ns-505,... then go straight pass room ns-503,... to computer laboratory 6";
+                msg.text = "from the NSA building 5th floor go straight pass navigation room,.. then turn right to Computer Laboratory 6";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtc6lab, nsabtn, rtg2toold, newbtn);
@@ -21707,42 +21710,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right on room ns-505,... then go straight pass room ns-504,... to room ns-503";
+                msg.text = "from the NSA building 5th floor go straight pass Computer Laboratory 6,.. then turn right to room NS 503";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtn503, nsabtn, rtg2toold, newbtn);
@@ -21778,42 +21781,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right on room ns-505,... then go to,.. room ns-504";
+                msg.text = "from the NSA building 5th floor go straight pass room NS 503,.. then turn right to room NS 504";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtn504, nsabtn, rtg2toold, newbtn);
@@ -21849,42 +21852,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then go straight to room ns-505";
+                msg.text = "from the NSA building 5th floor go straight pass room NS 504,.. then turn right to room NS 505";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtns505, nsabtn, rtg2toold, newbtn);
@@ -21920,42 +21923,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... to Physics laboratory";
+                msg.text = "from the NSA building 5th floor go straight pass room NS 505,.. then turn right to physics laboratory 5th floor NSA building";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtphysx, nsabtn, rtg2toold, newbtn);
@@ -21991,42 +21994,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... then go straight pass physics laboratory,.. to tool room- n-s-a building";
+                msg.text = "from the NSA building 5th floor go straight pass physics laboratory,.. then turn right to nsa building tool room 5th floor";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rttoolrm, nsabtn, rtg2toold, newbtn);
@@ -22062,42 +22065,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... then go straight pass tool room,.. to chemistry laboratory";
+                msg.text = "from the NSA building 5th floor go straight pass tool room,.. then turn right to chemistry laboratory NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtchemslab, nsabtn, rtg2toold, newbtn);
@@ -22133,42 +22136,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... then go straight pass chemistry laboratory,.. to female comfort room";
+                msg.text = "from the NSA building 5th floor go straight pass chemistry laboratory,.. then turn right to female comfort room NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtfemlecr5nsa, nsabtn, rtg2toold, newbtn);
@@ -22204,42 +22207,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 19500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 26500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 24500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 36500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 28500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 40000);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 32500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight, to NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 44500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 41500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... then go straight pass female comfort room,.. to male comfort room";
+                msg.text = "from the NSA building 5th floor go straight pass room NS 503,.. then turn right to room NS 504";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtmlecr5nsa, nsabtn, rtg2toold, newbtn);
@@ -22344,42 +22347,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right on room ns-505,... then go straight to the last room,... to navigation room";
+                msg.text = "from the NSA building 5th floor turn right,... to navigation room";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtnavi, nsabtn, rtg2toold, newbtn);
@@ -22408,42 +22411,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right on room ns-505,... then go straight pass room ns-503,... to computer laboratory 6";
+                msg.text = "from the NSA building 5th floor go straight pass navigation room,.. then turn right to Computer Laboratory 6";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtc6lab, nsabtn, rtg2toold, newbtn);
@@ -22472,42 +22475,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right on room ns-505,... then go straight pass room ns-504,... to room ns-503";
+                msg.text = "from the NSA building 5th floor go straight pass Computer Laboratory 6,.. then turn right to room NS 503";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtn503, nsabtn, rtg2toold, newbtn);
@@ -22532,46 +22535,46 @@ document.addEventListener('DOMContentLoaded', function () {
                 map16.style.display = 'block';
                 anxbtn2.style.display = 'none';
                 showRoute(rtg1tonew, null, rtg2toold, anxbtn2);
-            }, 2600);
+            }, 6200);
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
-            }, 5200);
-            setTimeout(function () {
-                hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
-                window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 8800);
-            setTimeout(function () {
-                hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
-                window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 13000);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 14500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn right on room ns-505,... then go to,.. room ns-504";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
+                window.speechSynthesis.speak(msg);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
+                window.speechSynthesis.speak(msg);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
+            setTimeout(function () {
+                hideMaps(), hideRoute()
+                msg.text = "from the NSA building 5th floor go straight pass room NS 503,.. then turn right to room NS 504";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtn504, nsabtn, rtg2toold, newbtn);
@@ -22600,42 +22603,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then go straight to room ns-505";
+                msg.text = "from the NSA building 5th floor go straight pass room NS 504,.. then turn right to room NS 505";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtns505, nsabtn, rtg2toold, newbtn);
@@ -22664,42 +22667,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... to Physics laboratory";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtphysx, nsabtn, rtg2toold, newbtn);
@@ -22728,42 +22731,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... then go straight pass physics laboratory,.. to tool room- n-s-a building";
+                msg.text = "from the NSA building 5th floor go straight pass physics laboratory,.. then turn right to nsa building tool room 5th floor";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rttoolrm, nsabtn, rtg2toold, newbtn);
@@ -22792,42 +22795,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... then go straight pass tool room,.. to chemistry laboratory";
+                msg.text = "from the NSA building 5th floor go straight pass tool room,.. then turn right to chemistry laboratory NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtchemslab, nsabtn, rtg2toold, newbtn);
@@ -22856,42 +22859,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... then go straight pass chemistry laboratory,.. to female comfort room";
+                msg.text = "from the NSA building 5th floor go straight pass chemistry laboratory,.. then turn right to female comfort room NSA building 5th floor";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtfemlecr5nsa, nsabtn, rtg2toold, newbtn);
@@ -22920,42 +22923,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the new building, go straight to N-S-A building";
+                msg.text = "from the new building, turn right, proceed to 2nd floor";
                 window.speechSynthesis.speak(msg);
                 map17.style.display = 'block';
-                showRoute(rtg1tonsa, newbtn, rtg2toold, anxbtn2);
+                showRoute(rtgrndto2ndmarine, newbtn, rtg2toold, anxbtn2);
             }, 11500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "from the N-S-A building, go straight to perfect discipline office, then turn left to the stairs,.. proceed to 2nd floor";
+                msg.text = "then proceed to 3rd floor";
                 window.speechSynthesis.speak(msg);
-                map23.style.display = 'block';
-                showRoute(rtnsa2ndflr, nsabtn, rtg2toold, newbtn);
-            }, 19500);
+                map18.style.display = 'block';
+                showRoute(rt2flrto3flrmarne, newbtn, rtg2toold, anxbtn2);
+            }, 16500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to third floor";
+                msg.text = "then proceed to 4th floor";
                 window.speechSynthesis.speak(msg);
-                map24.style.display = 'block';
-                showRoute(rt2to3nsa, nsabtn, rtg2toold, newbtn);
-            }, 29500);
+                map19.style.display = 'block';
+                showRoute(RT3TO4MARINE, newbtn, rtg2toold, anxbtn2);
+            }, 21500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fourth floor";
+                msg.text = "then turn right, and go straight pass room N-408, then turn left to the stairs, then proceed to 5th floor";
                 window.speechSynthesis.speak(msg);
-                map25.style.display = 'block';
-                showRoute(rt3to4nsa, nsabtn, rtg2toold, newbtn);
-            }, 33500);
+                map20.style.display = 'block';
+                showRoute(rt5thfloor, newbtn, rtg2toold, anxbtn2);
+            }, 26500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then proceed to fifth floor";
+                msg.text = "then turn left, go straight to NSA Building 5th floor";
                 window.speechSynthesis.speak(msg);
-                map26.style.display = 'block';
-                showRoute(rt4to5nsa, nsabtn, rtg2toold, newbtn);
-            }, 37500);
+                map21.style.display = 'block';
+                showRoute(new5thtonsa, newbtn, rtg2toold, anxbtn2);
+            }, 35500);
             setTimeout(function () {
                 hideMaps(), hideRoute()
-                msg.text = "then turn left on room ns-505,... then go straight pass female comfort room,.. to male comfort room";
+                msg.text = "from the NSA building 5th floor go straight pass room NS 503,.. then turn right to room NS 504";
                 window.speechSynthesis.speak(msg);
                 map27.style.display = 'block';
                 showRoute(rtmlecr5nsa, nsabtn, rtg2toold, newbtn);
@@ -53455,7 +53458,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cbe807, cbe808, cbe809, cbe810, cbe811, cbe812, cbe813, cbe814, cbe815, cbe816, malecr8cbe, femalecr8cbe, cbe901, cbe902, cbe903, cbe904, cbe905, cbe906, cpelab, fablab, eceroom,
             eeroom, rvwroom, ieroom, malecr9cbe, femalecr9cbe, cbe1001, cbe1002, cbe1003, cbe1004, cbe1005, cbe1006, cbe1007, cbe1008, cbe1009, cbe1010, cbe1011, cbe1012, cbe1013, cbe1014, cbe1015,
             cbe1016, malecr10cbe, femalecr10cbe, anxmcrmezflr, anxfcrmezflr, drwngrm, me110, mefemalecr, me111, memechlab, me114, me115, me116, me117, me118, me119, me120, me101, me102, me103, me104,
-            me105, me106, me107, memalecr, 
+            me105, me106, me107, memalecr,
 
 
             btnarhve, btncrmelab, btna23, btna24, btnavr, btnchoir, btncrimfclty, btncnsul2nd, ma9, collgefclty, a31, a32, a35, cssdean, ccsfclty, cnslrm,
@@ -53495,7 +53498,7 @@ document.addEventListener('DOMContentLoaded', function () {
             rtg1toa31, rtg1toa32, rtg1toa35, rtg1toconsul, rtg1toccsfaculty, rtg1toccsdean, rtg1toannexleft, rtte17, rtg1toarchve, rtg1tocrimelb, rtg1toa23, rtg1toa24, rtg1toavr, rtg1tochoirrom, rtg1tocrimfaculty,
             rtg1toconsulrom, rannex2nd, rtte15, rtmainannex, rtleftannex4th, rtg1hrmfaculty, rtg1toCO, rtg1togs, rtg1totsr, rtg1totetac, rtg1tohko, rtg1tohrmminihotel, rtg1toreceparea, rtg1tohrmkit2
             , rtmcrmez, rtfcrmez, gate2tomcr, gate2tofcr, gate2tomez, gate2tobm, gate2to2nd, gate2tomain2nd, g2toc2, gate2tocicsco, rtmachneshp, ranx2, rttomeroom, rtme101, rtme102, rtme103, rtme104, rtme105,
-            rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy];
+            rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy, new5thtonsa];
 
 
 
@@ -53536,7 +53539,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 rtg1toa31, rtg1toa32, rtg1toa35, rtg1toconsul, rtg1toccsfaculty, rtg1toccsdean, rtg1toannexleft, rtte17, rtg1toarchve, rtg1tocrimelb, rtg1toa23, rtg1toa24, rtg1toavr, rtg1tochoirrom, rtg1tocrimfaculty,
                 rtg1toconsulrom, rannex2nd, rtte15, rtmainannex, rtleftannex4th, rtg1hrmfaculty, rtg1toCO, rtg1togs, rtg1totsr, rtg1totetac, rtg1tohko, rtg1tohrmminihotel, rtg1toreceparea, rtg1tohrmkit2
                 , rtmcrmez, rtfcrmez, gate2tomcr, gate2tofcr, gate2tomez, gate2tobm, gate2to2nd, gate2tomain2nd, g2toc2, gate2tocicsco, rtmachneshp, ranx2, rttomeroom, rtme101, rtme102, rtme103, rtme104, rtme105,
-                rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy);
+                rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy, new5thtonsa);
         }
     });
 
@@ -53594,7 +53597,7 @@ document.addEventListener('DOMContentLoaded', function () {
             rtg1toa31, rtg1toa32, rtg1toa35, rtg1toconsul, rtg1toccsfaculty, rtg1toccsdean, rtg1toannexleft, rtte17, rtg1toarchve, rtg1tocrimelb, rtg1toa23, rtg1toa24, rtg1toavr, rtg1tochoirrom, rtg1tocrimfaculty,
             rtg1toconsulrom, rannex2nd, rtte15, rtmainannex, rtleftannex4th, rtg1hrmfaculty, rtg1toCO, rtg1togs, rtg1totsr, rtg1totetac, rtg1tohko, rtg1tohrmminihotel, rtg1toreceparea, rtg1tohrmkit2
             , rtmcrmez, rtfcrmez, gate2tomcr, gate2tofcr, gate2tomez, gate2tobm, gate2to2nd, gate2tomain2nd, g2toc2, gate2tocicsco, rtmachneshp, ranx2, rttomeroom, rtme101, rtme102, rtme103, rtme104, rtme105,
-            rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy];
+            rtme106, rtme107, rtmemalecr, rtme108, rtme110, rtmefemalecr, rtme111, rtmemechlab, rtme114, rtme115, rtme116, rtme117, rtme118, rtme119, rtme120, rtoldtostdy, new5thtonsa];
 
         elements.forEach(element => element.style.display = 'none');
 

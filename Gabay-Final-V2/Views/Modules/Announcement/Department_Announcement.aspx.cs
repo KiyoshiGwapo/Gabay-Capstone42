@@ -23,6 +23,7 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             {
                 // Load announcements when the page is first loaded
                 LoadAnnouncements();
+                noResultsLabel.Visible = false;
             }
         }
 
@@ -347,6 +348,57 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
         }
 
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            BindDataTable(txtSearch.Text);
+        }
 
+        public void BindDataTable (string SearchKeyword)
+        {
+            if (Session["user_ID"] != null)
+            {
+                int user_ID = Convert.ToInt32(Session["user_ID"]);
+
+                DataTable dt = SearchAnnouncement(SearchKeyword, user_ID);
+
+                AnnouncementList.DataSource = dt;
+                AnnouncementList.DataBind();
+
+                // Check if the DataTable is empty
+                if (dt.Rows.Count == 0)
+                {
+                    noResultsLabel.Visible = true;
+                }
+                else
+                {
+                    noResultsLabel.Visible = false;
+                }
+
+            }
+            
+        }
+
+        public DataTable SearchAnnouncement(string SearchKeyword, int user_ID)
+        {
+         
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                string query = @"SELECT * FROM Announcement WHERE Title LIKE '%' + @SearchKeyword + '%' AND user_ID = @user_ID";
+
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SearchKeyword", SearchKeyword);
+                    cmd.Parameters.AddWithValue("@user_ID", user_ID);
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            return dt;
+        }
     }
 }

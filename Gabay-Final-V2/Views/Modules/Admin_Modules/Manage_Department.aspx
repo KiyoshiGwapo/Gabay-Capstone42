@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Add Department</h1>
+    <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Manage Department</h1>
     <style>
         .addDept{
             padding: 5px 90px;
@@ -14,6 +14,7 @@
     </style>
     <div class="container addDept">
         <div class="row gx-2">
+            <span class="fs-2">Add Department</span>
             <%-- department login id inputs and errors --%>
             <div class="col-md-6 col-sm-12">
                 <div class="loginID-fields mt-2" id="loginID-field">

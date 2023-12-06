@@ -85,8 +85,8 @@
         <div class="row">
             <div class="col-md-6">
                 <h2 class="form-heading">Appointment Form</h2>
-                <asp:Label ID="SubmissionStatusSubmitted" runat="server" Text="" CssClass="submission-status-Submitted" />
-                <asp:Label ID="SubmitStatusNotSubmitted" runat="server" Text="" CssClass="submit-status-NotSubmitted" />
+              <%--  <asp:Label ID="SubmissionStatusSubmitted" runat="server" Text="" CssClass="submission-status-Submitted" />
+                <asp:Label ID="SubmitStatusNotSubmitted" runat="server" Text="" CssClass="submit-status-NotSubmitted" />--%>
                 <div class="form-group">
                     <label for="DepartmentDropDown" class="form-label">Department</label>
                     <asp:DropDownList ID="departmentChoices" CssClass="form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True" OnSelectedIndexChanged="departmentChoices_SelectedIndexChanged">
@@ -301,6 +301,7 @@
             </div>
         </div>
     </div>
+
     <%-- Error modal --%>
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -310,7 +311,7 @@
                     <p id="errorMessage"></p>
                 </div>
             </div>
-        </div>
+        </div>ss
     </div>
     <asp:HiddenField ID="FormSubmittedHiddenField" runat="server" Value="false" />
      <script>

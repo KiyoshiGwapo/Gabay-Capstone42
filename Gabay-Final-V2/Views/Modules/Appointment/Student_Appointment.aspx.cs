@@ -92,24 +92,60 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            string fullname = FullName.Text;
-            string email = Email.Text;
-            string ConNum = ContactN.Text;
-            string StudIdNum = IdNumber.Text;
-            string CourseYear = Year.Text;
-            string departmentName = DepartmentName.Text;
-
-            string SchedDate = date.Text;
-            string SchedTime = time.Text;
-            string Concern = Message.Text;
-
-            if (Session["user_ID"] != null)
+            try
             {
-                SaveAppointmentDetails(fullname, email, ConNum, StudIdNum, CourseYear, departmentName, SchedDate, SchedTime, Concern);
-                Response.Redirect("~/Views/Modules/Appointment/Appointment_Status.aspx");
+                // Validate that all fields are filled
+                if (ValidateForm())
+                {
+                    string fullname = FullName.Text;
+                    string email = Email.Text;
+                    string ConNum = ContactN.Text;
+                    string StudIdNum = IdNumber.Text;
+                    string CourseYear = Year.Text;
+                    string departmentName = DepartmentName.Text;
+
+                    string SchedDate = date.Text;
+                    string SchedTime = time.Text;
+                    string Concern = Message.Text;
+
+                    if (Session["user_ID"] != null)
+                    {
+                        SaveAppointmentDetails(fullname, email, ConNum, StudIdNum, CourseYear, departmentName, SchedDate, SchedTime, Concern);
+
+                        // Show success modal
+                        ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
+
+                        Response.Redirect("~/Views/Modules/Appointment/Appointment_Status.aspx");
+                    }
+                }
             }
-           
-            
+            catch (Exception ex)
+            {
+                // Show error modal
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", $"$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">{ex.Message}</span>');", true);
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            // Validate that all fields are filled
+            if (string.IsNullOrEmpty(FullName.Text) ||
+                string.IsNullOrEmpty(Email.Text) ||
+                string.IsNullOrEmpty(ContactN.Text) ||
+                string.IsNullOrEmpty(IdNumber.Text) ||
+                string.IsNullOrEmpty(Year.Text) ||
+                string.IsNullOrEmpty(DepartmentName.Text) ||
+                string.IsNullOrEmpty(date.Text) ||
+                string.IsNullOrEmpty(time.Text) ||
+                string.IsNullOrEmpty(Message.Text))
+            {
+                // Show an error message for empty fields
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", "$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">Please fill in all fields.</span>');", true);
+
+                return false;
+            }
+
+            return true;
         }
 
         public void SaveAppointmentDetails(string fullname, string email, string ConNum,

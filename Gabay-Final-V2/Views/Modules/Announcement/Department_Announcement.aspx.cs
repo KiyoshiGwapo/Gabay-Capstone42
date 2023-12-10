@@ -65,40 +65,70 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
         //to save announcement data
         protected void SaveAnnouncement_Click(object sender, EventArgs e)
         {
-            string title = addTitlebx.Text;
-            string date = addDatebx.Text;
-            string shortDescript = addShrtbx.Text;
-            string detailedDescript = addDtldbx.Text;
-
-            if (addFilebx.HasFile)
+            try
             {
-                try
-                {
-                    HttpPostedFile postedFile = addFilebx.PostedFile;
-                    Stream stream = postedFile.InputStream;
-                    BinaryReader binaryReader = new BinaryReader(stream);
-                    byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
-                    if (Session["user_ID"] != null)
-                    {
-                        int user_ID = Convert.ToInt32(Session["user_ID"]);
-                        AddData(user_ID, title, date, bytes, shortDescript, detailedDescript);
-                    }
-                    string successMessage = "Announcement Added successfully.";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
-                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+                string title = addTitlebx.Text.Trim();
+                string date = addDatebx.Text.Trim();
+                string shortDescript = addShrtbx.Text.Trim();
+                string detailedDescript = addDtldbx.Text.Trim();
 
-                    LoadAnnouncements();
-                    clearAddModalInputs();
-                }
-                catch (Exception ex)
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(date) ||
+                    string.IsNullOrEmpty(shortDescript) || string.IsNullOrEmpty(detailedDescript))
                 {
-                    string errorMessage = "An error occurred while deleting the announcement: " + ex.Message;
+                    // Display an error message for incomplete form
+                    string errorMessage = "Please fill out all fields.";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                         $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                    return; // Stop further processing if the form is incomplete
                 }
 
+                if (addFilebx.HasFile)
+                {
+                    HttpPostedFile postedFile = addFilebx.PostedFile;
+
+                    // Check if the file is an image
+                    if (IsImage(postedFile.ContentType))
+                    {
+                        Stream stream = postedFile.InputStream;
+                        BinaryReader binaryReader = new BinaryReader(stream);
+                        byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
+
+                        if (Session["user_ID"] != null)
+                        {
+                            int user_ID = Convert.ToInt32(Session["user_ID"]);
+                            AddData(user_ID, title, date, bytes, shortDescript, detailedDescript);
+                        }
+
+                        string successMessage = "Announcement Added successfully.";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                            $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+
+                        LoadAnnouncements();
+                        clearAddModalInputs();
+                    }
+                    else
+                    {
+                        // Display an error message for invalid file type
+                        string errorMessage = "Invalid file type. Please upload only image files with extensions .jpg, .png, .jpeg.";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                            $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred while saving the announcement: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
         }
+
+        // Helper function to check if the file is an image
+        private bool IsImage(string contentType)
+        {
+            return contentType.ToLower().StartsWith("image/");
+        }
+
         public void AddData(int user_ID,string Title, string Date, byte[] imgFile, string shortDescription, string DetailedDescription)
         {
             using (SqlConnection conn = new SqlConnection(connection))

@@ -107,7 +107,7 @@
                         <label for="Datebx">Date</label>
                     </div>
                     <div class="mb-3">
-                        <asp:FileUpload ID="addFilebx" CssClass="form-control" runat="server" />
+                        <asp:FileUpload ID="addFilebx" CssClass="form-control" runat="server" accept=".jpg, .png, .jpeg" />
                     </div>
                     <div class="form-floating mb-3">
                         <asp:TextBox ID="addShrtbx" CssClass="form-control" runat="server" placeholder="Short Description"></asp:TextBox>

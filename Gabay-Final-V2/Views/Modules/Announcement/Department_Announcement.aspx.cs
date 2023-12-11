@@ -258,8 +258,8 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             ScriptManager.RegisterStartupScript(this, this.GetType(), "showEditModal", "$('#toEditModal').modal('hide');", true);
         }
 
-        //Function to handle the Edit button click event (Edit/Update)
-        //to update the announcement data
+        // Function to handle the Edit button click event (Edit/Update)
+        // to update the announcement data
         public void updtAnnoucementList(int AnnouncementID)
         {
             // Retrieve the User_ID from the session
@@ -289,6 +289,16 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                                 reader.Close();
 
+                                if (string.IsNullOrEmpty(currentTitle) || string.IsNullOrEmpty(currentDate) ||
+                                     string.IsNullOrEmpty(currentShortDesc) || string.IsNullOrEmpty(currentDetailedDesc))
+                                {
+                                    // Display an error message for incomplete form
+                                    string errorMessage = "Please fill out all fields.";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                                        $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                                    return; // Stop further processing if the form is incomplete
+                                }
+
                                 // Check if a new image is uploaded
                                 if (Imgbx.HasFile)
                                 {
@@ -297,12 +307,12 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                                     // Update the record with the new image data
                                     string updateQuery = @"UPDATE Announcement
-                                               SET Title = @newTitle,
-                                                   Date = @newDate,
-                                                   ShortDescription = @newShortDesc,
-                                                   DetailedDescription = @newDetailedDesc,
-                                                   ImagePath = @newImage
-                                               WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
+                                       SET Title = @newTitle,
+                                           Date = @newDate,
+                                           ShortDescription = @newShortDesc,
+                                           DetailedDescription = @newDetailedDesc,
+                                           ImagePath = @newImage
+                                       WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
 
                                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                                     {
@@ -316,16 +326,19 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                                         updateCmd.ExecuteNonQuery();
                                     }
+                                    string successMessage = "Announcement updated successfully.";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
                                 }
                                 else
                                 {
                                     // No new image uploaded, so update other fields only
                                     string updateQuery = @"UPDATE Announcement
-                                               SET Title = @newTitle,
-                                                   Date = @newDate,
-                                                   ShortDescription = @newShortDesc,
-                                                   DetailedDescription = @newDetailedDesc
-                                               WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
+                                       SET Title = @newTitle,
+                                           Date = @newDate,
+                                           ShortDescription = @newShortDesc,
+                                           DetailedDescription = @newDetailedDesc
+                                       WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
 
                                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                                     {
@@ -338,7 +351,11 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                                         updateCmd.ExecuteNonQuery();
                                     }
+                                    string successMessage = "Announcement updated successfully.";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
                                 }
+
                             }
                         }
                     }
@@ -351,6 +368,7 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                 throw new Exception("User_ID not available in the session.");
             }
         }
+
         // Helper function to convert a byte array from an image file
         private byte[] GetByteArrayFromImage(byte[] imageBytes)
         {
@@ -363,10 +381,6 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             try
             {
                 updtAnnoucementList(hiddenID);
-                string successMessage = "Announcement updated successfully.";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
-                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
-
                 LoadAnnouncements();
             }
             catch (Exception ex)

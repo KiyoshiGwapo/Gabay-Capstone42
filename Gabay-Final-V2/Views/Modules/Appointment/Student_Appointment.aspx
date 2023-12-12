@@ -31,12 +31,36 @@
 	  margin: 0 auto; /* Center the submit button */
 	}
 	/* Style for the Concern input field */
-	#concern {
-	  max-height: 150px; /* Set a maximum height */
-	  overflow-y: auto; /* Add a scrollbar when necessary */
-	}
-  </style>
+	 	#concern {
+	 		max-height: 150px; /* Set a maximum height */
+	 		overflow-y: auto; /* Add a scrollbar when necessary */
+	 	}
+	.custom-button {
+			background-color: darkblue; 
+			color: #fff;
+			padding: 10px 20px; 
+			border: none; 
+			border-radius: 5px;
+			cursor: pointer; 
+			margin-top: 20px;
+			float: right;
+		}
 
+		.custom-button:hover {
+			 background-color: #007bff; 
+		}
+		.reschedBtn{
+			margin-left:5px;
+		}
+		.reschedBtn:hover{
+			opacity:75%;
+		}
+		.acceptBtn{
+			width: 150px;
+		}
+	</style>
+	<asp:Button ID="ViewHistoryButton" runat="server" Text="View My History" CssClass="custom-button" OnClick="ViewHistoryButton_Click" />
+	<%--<asp:HyperLink ID="HyperLink1" runat="server"  CssClass="custom-button" NavigateUrl="~/Views/Modules/Appointment/AppointmentHistory.aspx">View My History</asp:HyperLink>--%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-6 mx-auto form-wrapper">

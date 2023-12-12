@@ -448,7 +448,7 @@
         const emailInput = document.getElementById("<%= Email.ClientID %>");
         const contactNumberInput = document.getElementById("<%= ContactN.ClientID %>");
         const timeInput = document.getElementById("<%= time.ClientID %>");
-        const dateInput = document.getElementById("<%= date.ClientID %>")
+        const dateInput = document.getElementById("<%= SelectedDate.ClientID %>")
         const departmentInput = document.getElementById("<%= departmentChoices.ClientID %>");
         const messageInput = document.getElementById("<%= Message.ClientID %>");
 

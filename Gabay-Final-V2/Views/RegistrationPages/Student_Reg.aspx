@@ -203,5 +203,27 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nameInput = document.getElementById("<%= name.ClientID %>");
+            const contactNumberInput = document.getElementById("<%= contact.ClientID %>");
+            const idNumberInput = document.getElementById("<%= idNumber.ClientID %>");
+            nameInput.addEventListener("input", function () {
+                // Allow only letters, spaces, and a dot after a space
+                this.value = this.value.replace(/[^A-Za-z\s.]+/g, '');
+            });
+
+            contactNumberInput.addEventListener("input", function () {
+                // Allow only numbers
+                this.value = this.value.replace(/\D/g, '');
+            });
+
+            idNumberInput.addEventListener("input", function () {
+                // Allow only numbers
+                this.value = this.value.replace(/\D/g, '');
+            });
+        });
+
+</script>
 </body>
 </html>

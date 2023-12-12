@@ -89,7 +89,14 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-
+        protected void ViewHistoryButton_Click(object sender, EventArgs e)
+        {
+            if (Session["user_ID"] != null)
+            {
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                Response.Redirect($"AppointmentHistory.aspx?userID={userID}");
+            }
+        }
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             try
@@ -232,5 +239,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
             }
         }
+
+       
     }
 }

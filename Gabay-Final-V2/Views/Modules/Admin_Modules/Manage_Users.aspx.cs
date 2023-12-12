@@ -397,52 +397,76 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             // Provide the path where you want to save the PDF file
             string filePath = Server.MapPath("~/ExportedData.pdf");
 
-            // Create a PdfWriter instance to write to the document
-            PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
-
-            document.Open();
-
-            // Add title to the document
-            Paragraph title = new Paragraph("Generated Report", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));
-            title.Alignment = Element.ALIGN_CENTER;
-            document.Add(title);
-
-            // Add spacing between title and table
-            document.Add(new Paragraph("\n"));
-
-            // Add table to the document
-            PdfPTable table = new PdfPTable(dt.Columns.Count);
-            table.WidthPercentage = 100; // Table width is set to 100% of the page width
-
-            // Add columns to the table
-            foreach (DataColumn column in dt.Columns)
+            using (FileStream fs = new FileStream(filePath, FileMode.Create))
             {
-                if (column.ColumnName != "Actions" && column.ColumnName != "Department")
-                {
-                    PdfPCell cell = new PdfPCell(new Phrase(column.ColumnName, new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
-                    cell.BackgroundColor = new BaseColor(91, 192, 222); // Header row background color
-                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    table.AddCell(cell);
-                }
-            }
+                PdfWriter writer = PdfWriter.GetInstance(document, fs);
+                document.Open();
 
-            // Add data rows to the table
-            foreach (DataRow row in dt.Rows)
-            {
+                // Add the date and time at the top right corner
+                PdfPTable dateTimeTable = new PdfPTable(1);
+                dateTimeTable.WidthPercentage = 100;
+                dateTimeTable.HorizontalAlignment = Element.ALIGN_RIGHT;
+
+                PdfPCell dateTimeCell = new PdfPCell(new Phrase(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), new Font(Font.FontFamily.HELVETICA, 10)));
+                dateTimeCell.Border = PdfPCell.NO_BORDER;
+                dateTimeTable.AddCell(dateTimeCell);
+
+                document.Add(dateTimeTable);
+
+                document.Add(new Paragraph("\n"));
+
+                // Add the logo or picture to the top right corner
+                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/UC-LOGO.png"));
+                logo.ScaleToFit(150f, 150f); // Adjust 
+                logo.Alignment = Element.ALIGN_CENTER;
+                document.Add(logo);
+
+                // Add spacing
+                document.Add(new Paragraph("\n"));
+
+               
+
+                // Add title to the document
+                Paragraph title = new Paragraph("Account List", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));
+                title.Alignment = Element.ALIGN_CENTER;
+                document.Add(title);
+
+                // Add spacing between title and table
+                document.Add(new Paragraph("\n"));
+
+                // Add table to the document
+                PdfPTable table = new PdfPTable(dt.Columns.Count);
+                table.WidthPercentage = 100; // Table width is set to 100% of the page width
+
+                // Add columns to the table
                 foreach (DataColumn column in dt.Columns)
                 {
                     if (column.ColumnName != "Actions" && column.ColumnName != "Department")
                     {
-                        PdfPCell cell = new PdfPCell(new Phrase(row[column].ToString(), new Font(Font.FontFamily.HELVETICA, 10)));
+                        PdfPCell cell = new PdfPCell(new Phrase(column.ColumnName, new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+                        cell.BackgroundColor = new BaseColor(91, 192, 222); // Header row background color
                         cell.HorizontalAlignment = Element.ALIGN_CENTER;
                         table.AddCell(cell);
                     }
                 }
+
+                // Add data rows to the table
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (DataColumn column in dt.Columns)
+                    {
+                        if (column.ColumnName != "Actions" && column.ColumnName != "Department")
+                        {
+                            PdfPCell cell = new PdfPCell(new Phrase(row[column].ToString(), new Font(Font.FontFamily.HELVETICA, 10)));
+                            cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            table.AddCell(cell);
+                        }
+                    }
+                }
+
+                document.Add(table);
+                document.Close();
             }
-
-            document.Add(table);
-
-            document.Close();
 
             // Provide the file for download
             Response.ContentType = "application/pdf";
@@ -450,6 +474,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             Response.TransmitFile(filePath);
             Response.End();
         }
+
 
     }
 }

@@ -823,6 +823,20 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 // Open the Document 
                 document.Open();
 
+                // Add the date and time at the top right corner
+                PdfPTable dateTimeTable = new PdfPTable(1);
+                dateTimeTable.WidthPercentage = 100;
+                dateTimeTable.HorizontalAlignment = Element.ALIGN_RIGHT;
+
+                PdfPCell dateTimeCell = new PdfPCell(new Phrase(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), FontFactory.GetFont(FontFactory.HELVETICA, 10)));
+                dateTimeCell.Border = PdfPCell.NO_BORDER;
+                dateTimeTable.AddCell(dateTimeCell);
+
+                document.Add(dateTimeTable);
+
+                // Add spacing
+                document.Add(new Paragraph("\n"));
+
                 // Add the logo without any box or column
                 iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/UC-LOGO.png"));
                 logo.ScaleToFit(150f, 150f); // Adjust the dimensions as needed
@@ -949,6 +963,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
+
         // Additional method to get the department name based on the user ID
         private string GetDepartmentName(int userID)
         {
@@ -1030,6 +1045,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 case "course_year":
                     return cellValue.ToString();
                 case "appointment_date":
+                    // Format the date to display only the date part
+                    if (DateTime.TryParse(cellValue.ToString(), out DateTime date))
+                    {
+                        return date.ToString("yyyy-MM-dd");
+                    }
                     return cellValue.ToString();
                 case "appointment_time":
                     return cellValue.ToString();

@@ -144,17 +144,37 @@
                         <!-- Modal Header -->
                         <div class="modal-header">
                         </div>
-
                         <!-- Modal body -->
                         <div class="modal-body">
                             <!-- Placeholder for content -->
                         </div>
-
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <button type="button" class="btn bg-primary text-light" data-dismiss="modal">Close</button>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+             <%-- Success modal --%>
+            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body bg-success text-center text-light">
+                            <i class="bi bi-info-circle-fill"></i>
+                            <p id="successMessage"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <%-- Error modal --%>
+            <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body bg-danger text-center text-light">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                            <p id="errorMessage"></p>
+                        </div>
                     </div>
                 </div>
             </div>

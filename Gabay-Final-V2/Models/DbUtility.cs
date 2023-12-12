@@ -244,7 +244,7 @@ namespace Gabay_Final_V2.Models
 				conn.Close();
 			}
 		}
-		public void addDept(string deptName, string deptLogin, string deptPass, string dept_Head, string dept_Desc, string dept_CN, string dept_Email, string dept_Hour)
+		public void addDept(string deptName, string deptLogin, string deptPass, string dept_Head, string dept_Desc, string dept_CN, string dept_Email, string dept_Hour, bool existUsername)
 		{
 			using (SqlConnection conn = new SqlConnection(connection))
 			{
@@ -282,7 +282,7 @@ namespace Gabay_Final_V2.Models
 
 					if (existDept > 0)
 					{
-						return;
+						throw new Exception("Department with the same login ID already exists.");
 					}
 				}
 
@@ -293,7 +293,7 @@ namespace Gabay_Final_V2.Models
 
 					if (existUser > 0)
 					{
-						return;
+						throw new Exception("User with the same login ID already exists.");
 					}
 				}
 

@@ -9,10 +9,9 @@
     <link href="../Bootstrap/Content/bootstrap.css" rel="stylesheet" />
     <link href="../Resources/CustomStyleSheet/Chatbot/ChatbotStyle.css" rel="stylesheet" />
     <script src="../Bootstrap/Scripts/bootstrap.js"></script>
-    <script src="../Resources/CustomJS/Chatbot/ChatbotJS.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server" class="d-flex justify-content-center">
+    <form id="form1" runat="server" class="form1 d-flex justify-content-center">
         <div class="chatbot-wrapper">
             <div class="chatbot-container">
                 <div class="header custom-background custom-font">
@@ -27,10 +26,78 @@
         </div>
     </form>
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const studentForm = document.querySelector('.form1');
+
+            function scrollToBottom() {
+                var chatContainer = studentForm.querySelector('.chatContainer');
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            scrollToBottom();
+
+           <%-- function buttonClick(buttonText) {
+                // Send the clicked button's text as user input to the server
+                document.getElementById('<%= txtUserInput.ClientID %>').value = buttonText;
+                document.getElementById('<%= btnSend.ClientID %>').click();
+            }--%>
+           
+
+            const cardsContainer = document.querySelector(".cards");
+            const cardWidth = 240; // Adjust this based on card width and margin
+            const nextButton = document.getElementById("nextButton");
+            const prevButton = document.getElementById("prevButton");
+            const cardCount = 4; // Change this to the total number of cards
+
+            let currentPosition = 0;
+
+            updateButtonVisibility(); // Initialize button visibility
+
+            nextButton.addEventListener("click", () => {
+                currentPosition -= cardWidth;
+                if (currentPosition < -(cardWidth * (cardCount - 1))) {
+                    currentPosition = 0;
+                }
+                updateSliderPosition();
+                updateButtonVisibility();
+            });
+
+            prevButton.addEventListener("click", () => {
+                currentPosition += cardWidth;
+                if (currentPosition > 0) {
+                    currentPosition = -(cardWidth * (cardCount - 1));
+                }
+                updateSliderPosition();
+                updateButtonVisibility();
+            });
+
+            function updateSliderPosition() {
+                cardsContainer.style.transform = `translateX(${currentPosition}px)`;
+            }
+
+            function updateButtonVisibility() {
+                if (currentPosition === 0) {
+                    prevButton.style.opacity = "0%";
+                    nextButton.style.opacity = "100%";
+                    prevButton.disabled = true;
+                    nextButton.disabled = false;
+                } else if (currentPosition === -(cardWidth * (cardCount - 1))) {
+                    prevButton.style.opacity = "100%";
+                    nextButton.style.opacity = "0%";
+                    prevButton.disabled = false;
+                    nextButton.disabled = true;
+                } else {
+                    prevButton.style.opacity = "100%";
+                    nextButton.style.opacity = "100%";
+                    prevButton.disabled = false;
+                    nextButton.disabled = false;
+                }
+            }
+
+        });
         function menuButtonClick(choice) {
             document.getElementById('<%= txtUserInput.ClientID %>').value = choice;
-            document.getElementById('<%= btnSend.ClientID %>').click();
-        }
+             document.getElementById('<%= btnSend.ClientID %>').click();
+         }
     </script>
 </body>
 </html>

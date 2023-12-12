@@ -24,13 +24,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         protected global::System.Web.UI.WebControls.Repeater rptAnnouncements;
 
         /// <summary>
-        /// HiddenField1 control.
+        /// AnnouncementIDHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.HiddenField AnnouncementIDHolder;
 
         /// <summary>
         /// dtldTitle control.

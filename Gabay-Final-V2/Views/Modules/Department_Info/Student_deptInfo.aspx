@@ -28,6 +28,9 @@
                         </li>
                         <li>
                             <div class="departmentInfoContainer row">
+                                 <div class="col-4">
+                                    <h3>Department information</h3>
+                                </div>
                                 <div class="col-8">
                                     <ul>
                                         <li>

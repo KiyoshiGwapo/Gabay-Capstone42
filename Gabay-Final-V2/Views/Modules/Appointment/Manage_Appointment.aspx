@@ -44,7 +44,7 @@
    <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-md-12">
-                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control float-end mb-3" placeholder="Search student..." AutoPostBack="True" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control float-end mb-3" placeholder="Search Appointment ID..." AutoPostBack="True" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                 </div>
                 <div class="col-lg-2 col-md-12">
                     <div class="dropdown">
@@ -52,13 +52,13 @@
                             Appointment Status</button>
                         <ul class="dropdown-menu w-100">
                             <li>
-                                <asp:LinkButton ID="displayPending" CssClass="dropdown-item" runat="server">Pending</asp:LinkButton>
+                                <asp:LinkButton ID="displayPending" CssClass="dropdown-item" runat="server" OnClick="displayPending_Click">Pending</asp:LinkButton>
                             </li>
                             <li>
-                                <asp:LinkButton ID="displayActive" CssClass="dropdown-item" runat="server">Reschedule</asp:LinkButton>
+                                <asp:LinkButton ID="displayActive" CssClass="dropdown-item" runat="server" OnClick="displayActive_Click">Reschedule</asp:LinkButton>
                             </li>
                             <li>
-                                <asp:LinkButton ID="displayDeactivated" CssClass="dropdown-item" runat="server">Approved</asp:LinkButton>
+                                <asp:LinkButton ID="displayDeactivated" CssClass="dropdown-item" runat="server" OnClick="displayDeactivated_Click">Approved</asp:LinkButton>
                             </li>
                         </ul>
                     </div>
@@ -89,10 +89,10 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <EmptyDataTemplate>
+                            <asp:Label ID="labelforPending" runat="server" Text="No results found" CssClass="no-results-label d-flex justify-content-center"></asp:Label>
+                        </EmptyDataTemplate>
                     </asp:GridView>
-                    <div class="d-flex justify-content-center">
-                        <asp:Label ID="noResultsLabel" runat="server" Text="No results found" Visible="false" CssClass="no-results-label"></asp:Label>
-                    </div>
                 </div>
                 <asp:HiddenField ID="HiddenFieldAppointment" runat="server" />
             </div>

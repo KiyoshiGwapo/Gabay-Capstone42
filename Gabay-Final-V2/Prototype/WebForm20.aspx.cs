@@ -19,63 +19,68 @@ namespace Gabay_Final_V2.Prototype
         string greetingMessage1 = @"Hello! to assist you better, 
                    please choose an option in the menu or if you can't find what are you looking for,
                    just type your concern in a few words.";
-        string greetingMessage = @"<div class='container-slider'>
-                                                   <button id='prevButton' type='button' class='btn buttons d-flex justify-content-center align-items-center'>
-                                                       <i class='bi bi-chevron-compact-left'></i>
-                                                   </button>
-                                                   <div class='slider-container'>
-                                                       <div class='cards'>
-                                                           <div class='card bot-message' style='width: 15rem;'>
-                                                               <div class='card-body mt-auto'>
-                                                                   <span class='card-title'>Admission Process</span>
-                                                                   <p class='card-text card-body-p'>Students who wish to enroll in the campus</p>
-                                                                   <div class='choices'>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('New Student');"">New Student</button>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Old Student');"">Old Student</button>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('More from Admission');"">More</button>
+        string greetingMessage = @"<div class='menuWrapper' >
+                                                       <div class='selectDialog'>
+                                                            Please select your choices below:
+                                                       </div>
+                                                       <div class='container-slider'>
+                                                       <button id='prevButton' type='button' class='btn buttons d-flex justify-content-center align-items-center'>
+                                                           <i class='bi bi-chevron-compact-left'></i>
+                                                       </button>
+                                                       <div class='slider-container'>
+                                                           <div class='cards'>
+                                                               <div class='card bot-message' style='width: 15rem;'>
+                                                                   <div class='card-body mt-auto'>
+                                                                       <span class='card-title'>Admission Process</span>
+                                                                       <p class='card-text card-body-p'>Students who wish to enroll in the campus</p>
+                                                                       <div class='choices'>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('New Student');"">New Student</button>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Old Student');"">Old Student</button>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('More from Admission');"">More</button>
+                                                                       </div>
                                                                    </div>
                                                                </div>
-                                                           </div>
-                                                           <div class='card bot-message' style='width: 15rem;'>
-                                                               <div class='card-body mt-auto'>
-                                                                   <span class='card-title'>Scholarship Program</span>
-                                                                   <p class='card-text card-body-p'>Scholarship programs offered by the university.</p>
-                                                                   <div class='choices'>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Academic Scholarship');"">Academic Scholarship</button>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Working Scholarship');"">Working Scholarship</button>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('More Scholarship');"">More</button>
+                                                               <div class='card bot-message' style='width: 15rem;'>
+                                                                   <div class='card-body mt-auto'>
+                                                                       <span class='card-title'>Scholarship Program</span>
+                                                                       <p class='card-text card-body-p'>Scholarship programs offered by the university.</p>
+                                                                       <div class='choices'>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Academic Scholarship');"">Academic Scholarship</button>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Working Scholarship');"">Working Scholarship</button>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('More Scholarship');"">More</button>
+                                                                       </div>
                                                                    </div>
                                                                </div>
-                                                           </div>
-                                                           <div class='card bot-message' style='width: 15rem;'>
-                                                               <div class='card-body'>
-                                                                   <span class='card-title'>Academics Program</span>
-                                                                   <p class='card-text card-body-p'>Academics that are offered by the university</p>
-                                                                   <div class='choices'>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('College Programs');"">Colleges</button>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Senior High School Programs');"">Senior High</button>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Basic Education Programs');"">Basic Education</button>
+                                                               <div class='card bot-message' style='width: 15rem;'>
+                                                                   <div class='card-body'>
+                                                                       <span class='card-title'>Academics Program</span>
+                                                                       <p class='card-text card-body-p'>Academics that are offered by the university</p>
+                                                                       <div class='choices'>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('College Programs');"">Colleges</button>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Senior High School Programs');"">Senior High</button>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Basic Education Programs');"">Basic Education</button>
+                                                                       </div>
                                                                    </div>
                                                                </div>
-                                                           </div>
-                                                           <div class='card bot-message' style='width: 15rem;'>
-                                                               <div class='card-body'>
-                                                                   <span class='card-title'>About UC</span>
-                                                                   <p class='card-text card-body-p'>Academics that are offered by the university</p>
-                                                                   <div class='choices'>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('list of Campus');"">Campus</button>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Campus History');"">History</button>
-                                                                       <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('More About UC');"">More</button>
+                                                               <div class='card bot-message' style='width: 15rem;'>
+                                                                   <div class='card-body'>
+                                                                       <span class='card-title'>About UC</span>
+                                                                       <p class='card-text card-body-p'>Academics that are offered by the university</p>
+                                                                       <div class='choices'>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('list of Campus');"">Campus</button>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('Campus History');"">History</button>
+                                                                           <button type='button' class='btn btn-primary mb-1' OnClick=""menuButtonClick('More About UC');"">More</button>
+                                                                       </div>
                                                                    </div>
                                                                </div>
                                                            </div>
                                                        </div>
-                                                   </div>
-                                                   <button id='nextButton' type='button' class='btn buttons d-flex justify-content-center align-items-center'>
-                                                       <i class='bi bi-chevron-compact-right'></i>
-                                                   </button>
-                                               </div>";
-        string buttonsSelectionDialog = "Please Select your choices below:";
+                                                       <button id='nextButton' type='button' class='btn buttons d-flex justify-content-center align-items-center'>
+                                                           <i class='bi bi-chevron-compact-right'></i>
+                                                       </button>
+                                                    </div>
+                                                   </div>";
+        //string buttonsSelectionDialog = "Please Select your choices below:";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -83,10 +88,10 @@ namespace Gabay_Final_V2.Prototype
                 ViewState["countUnAnswered"] = 0;
                
                 AddBotMessage(greetingMessage1);
-                AddBotMessage(buttonsSelectionDialog);
+                //AddBotMessage(buttonsSelectionDialog);
                 AddBotMessageMenu(greetingMessage);
-            }
 
+            }
         }
 
         private void AddBotMessage(string message)
@@ -211,8 +216,9 @@ namespace Gabay_Final_V2.Prototype
                     {
                         bestScript = referToAppointment;
                         countUnAnswered = 0;
-                        //AddBotMessage(buttonsSelectionDialog);
-                        //AddBotMessageMenu(greetingMessage);
+                        
+
+                        RegisterScripts();
                     }
                     else
                     {
@@ -231,6 +237,73 @@ namespace Gabay_Final_V2.Prototype
 
 
             return bestScript;
+        }
+
+        private void RegisterScripts()
+        {
+            string script = @"document.addEventListener(""DOMContentLoaded"", () => {
+            const studentForm = document.querySelector('.form1');
+
+            function buttonClick(buttonText) {
+                // Send the clicked button's text as user input to the server
+                document.getElementById('<%= txtUserInput.ClientID %>').value = buttonText;
+                document.getElementById('<%= btnSend.ClientID %>').click();
+            }
+
+            const cardsContainer = document.querySelector("".cards"");
+            const cardWidth = 240;
+            const nextButton = document.getElementById(""nextButton"");
+            const prevButton = document.getElementById(""prevButton"");
+            const cardCount = 4;
+
+            let currentPosition = 0;
+
+            updateButtonVisibility(); // Initialize button visibility
+
+            nextButton.addEventListener(""click"", () => {
+                currentPosition -= cardWidth;
+                if (currentPosition < -(cardWidth * (cardCount - 1))) {
+                    currentPosition = 0;
+                }
+                updateSliderPosition();
+                updateButtonVisibility();
+            });
+
+            prevButton.addEventListener(""click"", () => {
+                currentPosition += cardWidth;
+                if (currentPosition > 0) {
+                    currentPosition = -(cardWidth * (cardCount - 1));
+                }
+                updateSliderPosition();
+                updateButtonVisibility();
+            });
+
+            function updateSliderPosition() {
+                cardsContainer.style.transform = `translateX(${currentPosition}px)`;
+            }
+
+            function updateButtonVisibility() {
+                if (currentPosition === 0) {
+                    prevButton.style.opacity = ""0%"";
+                    nextButton.style.opacity = ""100%"";
+                    prevButton.disabled = true;
+                    nextButton.disabled = false;
+                } else if (currentPosition === -(cardWidth * (cardCount - 1))) {
+                    prevButton.style.opacity = ""100%"";
+                    nextButton.style.opacity = ""0%"";
+                    prevButton.disabled = false;
+                    nextButton.disabled = true;
+                } else {
+                    prevButton.style.opacity = ""100%"";
+                    nextButton.style.opacity = ""100%"";
+                    prevButton.disabled = false;
+                    nextButton.disabled = false;
+                }
+            }
+
+        });";
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "scriptforNextPrevBtns", script, true);
         }
 
     }

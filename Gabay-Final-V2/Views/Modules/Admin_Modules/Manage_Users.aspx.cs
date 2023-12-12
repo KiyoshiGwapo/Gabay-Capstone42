@@ -244,12 +244,12 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 string successMessage = "Password updated successfully.";
                 ShowSuccessModal(successMessage);
             }
-            catch  (Exception ex)
+            catch (Exception ex)
             {
                 string errorMessage = "An error occurred while updating the password: " + ex.Message;
                 ShowErrorModal(errorMessage);
             }
-            
+
         }
 
         private void ShowSuccessModal(string successMessage)

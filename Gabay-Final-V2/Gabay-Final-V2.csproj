@@ -2258,6 +2258,7 @@
     <Content Include="Resources\Images\tempIcons\ccs logo.png" />
     <Content Include="Resources\Images\tempIcons\database.png" />
     <Content Include="Resources\Images\tempIcons\error.png" />
+    <Content Include="Resources\Images\tempIcons\global-marketing.png" />
     <Content Include="Resources\Images\tempIcons\model2.png" />
     <Content Include="Resources\Images\tempIcons\reschedule-icon-6.jpg" />
     <Content Include="Resources\Images\tempIcons\students.png" />

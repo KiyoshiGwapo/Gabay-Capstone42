@@ -144,6 +144,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         }
 
         //EMAIL NGA PART
+
         protected void UpdateEmail_Click(object sender, EventArgs e)
         {
             try
@@ -195,7 +196,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             }
         }
 
-
         private bool CheckCurrentEmail(string currentEmail)
         {
             int userId = Convert.ToInt32(Session["user_ID"]);
@@ -220,7 +220,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 }
             }
 
-          
+
             return false;
         }
 
@@ -237,7 +237,5 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 }
             }
         }
-
-
     }
 }

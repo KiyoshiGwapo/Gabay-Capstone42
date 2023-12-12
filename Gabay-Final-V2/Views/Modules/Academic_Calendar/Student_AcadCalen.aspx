@@ -31,7 +31,6 @@
                         <i class="bi bi-file-earmark-arrow-down-fill"></i>
                     </asp:LinkButton>
                 </div>
-                <asp:Label ID="Selected" runat="server" ForeColor="Green" />
                 <asp:Label ID="DownloadErrorLabel" runat="server" ForeColor="Red" />
             </div>
         </div>

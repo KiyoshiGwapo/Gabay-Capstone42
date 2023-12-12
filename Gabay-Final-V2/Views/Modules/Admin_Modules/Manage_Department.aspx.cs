@@ -42,29 +42,33 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             {
                 DbUtility conn = new DbUtility();
 
-                conn.addDept(deptName, deptLogin, deptPass, dept_Head, dept_Desc, dept_CN, dept_Email, dept_Hour);
+                bool existUsername = false;
+
+                conn.addDept(deptName, deptLogin, deptPass, dept_Head, dept_Desc, dept_CN, dept_Email, dept_Hour, existUsername);
 
                 string message = "Department added successfully.";
-                string script = $@"<script>document.querySelector('.modal-body').innerHTML = '{message}';</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", script);
-
-                string openModalScript = @"<script>$('#myModal').modal('show');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenModal", openModalScript);
-
+                ShowModalSuccess(message);
                 ClearInputs();
             }
             catch (Exception ex) {
 
                 string message = ex.Message;
-                string script = $@"<script>document.querySelector('.modal-body').innerHTML = '{message}';</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "AlertMessage", script);
-
-                string openModalScript = @"<script>$('#myModal').modal('show');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenModal", openModalScript);
-
+                ShowModalError(message);
                 ClearInputs();
             }
             
+        }
+
+        private void ShowModalSuccess(string message)
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                $"$('#successMessage').text('{message}'); $('#successModal').modal('show');", true);
+        }
+
+        private void ShowModalError(string message)
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                        $"$('#errorMessage').text('{message}'); $('#errorModal').modal('show');", true);
         }
     }
 }

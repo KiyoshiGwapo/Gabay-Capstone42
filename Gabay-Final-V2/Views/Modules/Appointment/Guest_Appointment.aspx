@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Guest_Homepage/Guest_Master.Master" AutoEventWireup="true" CodeBehind="Guest_Appointment.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Appointment.Guest_Appointment" ViewStateMode="Enabled" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <%--<script src="../../../Resources/CustomJS/Chatbot/AppointmentJS.js"></script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
@@ -59,66 +61,81 @@
             }
 
         /* Custom styles for status labels */
-    .status-not-submitted {
-        color: red;
-    }
+        .status-not-submitted {
+            color: red;
+        }
 
-    .status-submitted {
-        color: green;
-    }
-    .img-placeholder{
-        width: 100px;
-        height: auto;
-    }
-    .reschedBtn{
-        margin-left:5px;
-    }
-    .reschedBtn:hover{
-        opacity:80%;
-    }
-    .acceptBtn{
-        width: 160px;
-    }
+        .status-submitted {
+            color: green;
+        }
+
+        .img-placeholder {
+            width: 100px;
+            height: auto;
+        }
+
+        .reschedBtn {
+            margin-left: 5px;
+        }
+
+            .reschedBtn:hover {
+                opacity: 80%;
+            }
+
+        .acceptBtn {
+            width: 160px;
+        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fullNameInput = document.getElementById("<%= FullName.ClientID %>");
+            const contactNumberInput = document.getElementById("<%= ContactN.ClientID %>");
 
+            fullNameInput.addEventListener("input", function () {
+                // Allow only letters, spaces, and a dot after a space
+                this.value = this.value.replace(/[^A-Za-z\s.]+/g, '');
+            });
+
+            contactNumberInput.addEventListener("input", function () {
+                // Allow only numbers
+                this.value = this.value.replace(/\D/g, '');
+            });
+        });
+
+    </script>
     <div class="form-wrapper">
         <div class="row">
             <div class="col-md-6">
                 <h2 class="form-heading">Appointment Form</h2>
-              <%--  <asp:Label ID="SubmissionStatusSubmitted" runat="server" Text="" CssClass="submission-status-Submitted" />
+                <%--  <asp:Label ID="SubmissionStatusSubmitted" runat="server" Text="" CssClass="submission-status-Submitted" />
                 <asp:Label ID="SubmitStatusNotSubmitted" runat="server" Text="" CssClass="submit-status-NotSubmitted" />--%>
                 <div class="form-group">
                     <label for="DepartmentDropDown" class="form-label">Department</label>
-                    <asp:DropDownList ID="departmentChoices" CssClass="form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True" OnSelectedIndexChanged="departmentChoices_SelectedIndexChanged">
+                    <asp:DropDownList ID="departmentChoices" CssClass="departmentChoices form-control text-input" runat="server" aria-label="Departments" AutoPostBack="True" OnSelectedIndexChanged="departmentChoices_SelectedIndexChanged">
                         <asp:ListItem Selected="True" Value="">
                             Choose a Department...
                         </asp:ListItem>
                     </asp:DropDownList>
-
+                    <div class="departmentError text-danger d-none" id="departmentError">
+                        <span><i class="bi bi-info-circle"></i></span>
+                        <span>Please select a department</span>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="FullName" class="form-label">Full Name</label>
-                    <asp:TextBox ID="FullName" runat="server" CssClass="form-control text-input" placeholder="Full Name"></asp:TextBox>
-                </div>
-                <div class="form-group">
-                    <label for="Email" class="form-label">Email Address</label>
-                    <asp:TextBox ID="Email" runat="server" CssClass="form-control text-input" placeholder="Email Address" type="email"></asp:TextBox>
-                </div>
-                <div class="form-group">
-                    <label for="ContactN" class="form-label">Contact Number</label>
-                    <asp:TextBox ID="ContactN" runat="server" CssClass="form-control text-input" placeholder="Contact Number" type="tel"></asp:TextBox>
-                </div>
-                <div class="form-group">
-                    <div class="row">		
+                    <div class="row">
                         <div class="col">
                             <label for="selectedDate" class="form-label">Date</label>
-                            <asp:TextBox ID="date" runat="server" TextMode="Date" CssClass="form-control text-input" OnTextChanged="date_TextChanged" AutoPostBack="True" Enabled="False"></asp:TextBox>
+                            <asp:TextBox ID="date" runat="server" TextMode="Date" CssClass="date form-control text-input" OnTextChanged="date_TextChanged" AutoPostBack="True" Enabled="False"></asp:TextBox>
                             <asp:HiddenField ID="SelectedDate" runat="server" />
+                            <div class="dateError text-danger d-none" id="dateError">
+                                <span><i class="bi bi-info-circle"></i></span>
+                                <span>Please select a Date</span>
+                            </div>
                         </div>
                         <asp:HiddenField ID="deptID" runat="server" />
-                        <div class="col">   
+                        <div class="col">
                             <label for="time" class="form-label">Time</label>
-                            <asp:DropDownList ID="time" runat="server" CssClass="form-control text-input" Enabled="False">
+                            <asp:DropDownList ID="time" runat="server" CssClass="time form-control text-input" Enabled="False">
                                 <asp:ListItem Value="" Selected="True">Select Available Time</asp:ListItem>
                                 <asp:ListItem Value="8:00 AM">8:00 AM</asp:ListItem>
                                 <asp:ListItem Value="9:00 AM">9:00 AM</asp:ListItem>
@@ -129,13 +146,58 @@
                                 <asp:ListItem Value="3:00 PM">3:00 PM</asp:ListItem>
                                 <asp:ListItem Value="4:00 PM">4:00 PM</asp:ListItem>
                             </asp:DropDownList>
+                            <div class="timeError text-danger d-none" id="timeError">
+                                <span><i class="bi bi-info-circle"></i></span>
+                                <span>Please select a time</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="FullName" class="form-label">Full Name</label>
+                   <asp:TextBox ID="FullName" runat="server" CssClass="FullName form-control text-input" placeholder="Full Name"></asp:TextBox>
+<asp:RegularExpressionValidator ID="FullNameValidator" runat="server"
+    ControlToValidate="FullName"
+    ErrorMessage="Please provide a valid input (Ex. Juan Dela Cruz A.)"
+    ValidationExpression="^[A-Za-z\s]+$"
+    Display="Dynamic"
+    CssClass="nameError text-danger"
+/>
+                </div>
+
+                <div class="form-group">
+                    <label for="Email" class="form-label">Email Address</label>
+                 <asp:TextBox ID="Email" runat="server" CssClass="Email form-control text-input" placeholder="Email Address" type="email"></asp:TextBox>
+<asp:RegularExpressionValidator ID="EmailValidator" runat="server"
+    ControlToValidate="Email"
+    ErrorMessage="Please enter a valid email"
+    ValidationExpression="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+    Display="Dynamic"
+    CssClass="emailError text-danger"
+/>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="ContactN" class="form-label">Contact Number</label>
+                    <asp:TextBox ID="ContactN" runat="server" CssClass="ContactN form-control text-input" placeholder="Contact Number" type="tel"></asp:TextBox>
+<asp:RegularExpressionValidator ID="ContactNValidator" runat="server"
+    ControlToValidate="ContactN"
+    ErrorMessage="Please provide a valid contact number"
+    ValidationExpression="^\d*$"
+    Display="Dynamic"
+    CssClass="contactError text-danger"
+/>
+                </div>
+
 
                 <div class="form-group">
                     <label for="Message" class="form-label">Concern</label>
-                    <asp:TextBox ID="Message" runat="server" TextMode="MultiLine" Rows="6" Columns="30" CssClass="form-control text-input" placeholder="Your Concern"></asp:TextBox>
+                    <asp:TextBox ID="Message" runat="server" TextMode="MultiLine" Rows="6" Columns="30" CssClass="Message form-control text-input" placeholder="Your Concern"></asp:TextBox>
+                    <div class="concernError text-danger d-none" id="concernError">
+                        <span><i class="bi bi-info-circle"></i></span>
+                        <span>Please state your concern</span>
+                    </div>
                 </div>
                 <br>
                 <button type="button" class="btn btn-primary btn-submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -163,6 +225,7 @@
                     background-color: skyblue;
                     margin-left: 10px;
                 }
+
                 .auto-style1 {
                     border-style: none;
                     border-color: inherit;
@@ -190,7 +253,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="searchInput" runat="server" CssClass="form-control text-input" placeholder="Search by Appointment ID" />
                         <span class="input-group-btn">
-                            <asp:Button ID="searchButton" runat="server" Text="Search" CssClass="btn btn-search sky-blue-button" OnClick="SearchButton_Click" />
+                            <asp:Button ID="searchButton" runat="server" Text="Search" CssClass="btn btn-search sky-blue-button" OnClick="SearchButton_Click" UseSubmitBehavior="false" />
                         </span>
                     </div>
                 </div>
@@ -233,14 +296,18 @@
                                 </div>
                                 <div class="text-center mb-3">
                                     <p class="fs-5 fw-bold">Heads up!</p>
-                                    <span>Hello, <asp:Label ID="AppointeeName" runat="server" Text="Label"></asp:Label></span>
+                                    <span>Hello,
+                                        <asp:Label ID="AppointeeName" runat="server" Text="Label"></asp:Label></span>
                                     <p>Your appointment date has been changed, would you like to accept this new date?</p>
                                     <span class="mb-3">
                                         <asp:Label ID="ReschedDate" runat="server" Text="Date" CssClass="fw-bold"></asp:Label>
-                                        <span> at </span>
+                                        <span>at </span>
                                         <asp:Label ID="ReschedTime" runat="server" Text="Time" CssClass="fw-bold"></asp:Label>
                                     </span>
-                                    <p>Appointment ID: <asp:Label ID="AppointmentID" runat="server" Text="Label" CssClass="fw-bold"></asp:Label></p>
+                                    <p>
+                                        Appointment ID:
+                                        <asp:Label ID="AppointmentID" runat="server" Text="Label" CssClass="fw-bold"></asp:Label>
+                                    </p>
                                 </div>
                                 <div class="d-flex justify-content-center ">
                                     <asp:LinkButton ID="acceptBtn" runat="server" CssClass="btn bg-success text-light reschedBtn acceptBtn" OnClick="acceptBtn_Click">Accept</asp:LinkButton>
@@ -253,19 +320,19 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal fade" id="rejectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <asp:Button ID="rejectAppmntCls" runat="server" CssClass="btn-close" OnClick="rejectAppmntCls_Click"/>
+                    <asp:Button ID="rejectAppmntCls" runat="server" CssClass="btn-close" OnClick="rejectAppmntCls_Click" />
                 </div>
                 <div class="modal-body">
                     <p>Are you sure to reject this appoint?</p>
                     <span>Rejecting this appointment means your appointment ticket will be closed</span>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="cancel" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="cancel_Click"/>
+                    <asp:Button ID="cancel" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="cancel_Click" />
                     <asp:Button ID="rejectAppmntBtn" runat="server" Text="Proceed" CssClass="btn btn-primary text-light" OnClick="rejectAppmntBtn_Click" />
                 </div>
             </div>
@@ -284,12 +351,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <asp:Button ID="SubmitButton" runat="server" Text="Submit Appointment" OnClick="SubmitButton_Click" ValidationGroup="FormValidation" CssClass="btn btn-primary" />
+                    <asp:Button ID="SubmitButton" runat="server" Text="Submit Appointment" OnClick="SubmitButton_Click" ValidationGroup="FormValidation" CssClass="btn btn-primary" UseSubmitBehavior="false" />
                 </div>
             </div>
         </div>
     </div>
-
     <%-- Success modal --%>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -311,9 +377,9 @@
                     <p id="errorMessage"></p>
                 </div>
             </div>
-        </div>ss
+        </div>
     </div>
-    <asp:HiddenField ID="FormSubmittedHiddenField" runat="server" Value="false" />
+    <%--<asp:HiddenField ID="FormSubmittedHiddenField" runat="server" Value="false" />
      <script>
          function getAppointmentID(id) {
              document.getElementById('<%= HiddenField1.ClientID %>').value = id;
@@ -349,7 +415,7 @@
         for (var i = 0; i < inputFields.length; i++) {
             inputFields[i].addEventListener("input", checkFormFields);
         }
-    </script>
+    </script>--%>
     <script>
         function checkField(fieldName, pattern) {
             const input = document.getElementById(fieldName);
@@ -410,7 +476,7 @@
             messageInput.classList.add("valid");
         });
 
-        // Call setMaxDate on page load
-        window.onload = setMaxDate;
     </script>
+
+
 </asp:Content>

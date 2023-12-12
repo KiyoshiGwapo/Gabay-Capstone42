@@ -169,6 +169,5 @@ namespace Gabay_Final_V2.Views.LoginPages
                 lblMessage.Text = "An error occurred while sending the email: " + ex.Message;
             }
         }
-
     }
 }

@@ -126,27 +126,141 @@
 			</div>
 		</div>
 	</div>
-
-
+	
 	 <%-- success modal --%>
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body bg-success text-center text-light">
-                    <i class="bi bi-info-circle-fill"></i>
-                    <span>Successfully Updated</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <%-- error modal --%>
-    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body bg-danger-subtle text-center text-light">
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body bg-success text-center text-light">
+					<i class="bi bi-info-circle-fill"></i>
+					<span>Successfully Updated</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%-- error modal --%>
+	<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body bg-danger-subtle text-center text-light">
+				</div>
+			</div>
+		</div>
+	</div>
+	<%--<asp:HiddenField ID="FormSubmittedHiddenField" runat="server" Value="false" />--%>
+	<%--<script>
+		function preventNumbers(event) {
+			const input = event.target;
+			const value = input.value;
 
+			// Remove any numeric characters from the input value
+			const newValue = value.replace(/\d/g, '');
+
+			// Update the input value with the filtered value
+			input.value = newValue;
+
+			return true; // Allow the updated value
+		}
+
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const form = document.querySelector('.form1');
+
+			const nameInput = form.querySelector('.name');
+			const errorName = form.querySelector('.nameError');
+
+			const addressInput = form.querySelector('.address');
+			const errorlAddress = form.querySelector('.addressError');
+
+			const contactInput = form.querySelector('.contact');
+			const errorContact = form.querySelector('.contactError');
+
+			const DOBInput = form.querySelector('.DOB');
+			const errorDOB = form.querySelector('.DOBError');
+
+			const passInput = form.querySelector('.password');
+			const errorPass = form.querySelector('.passError');
+
+			const cpassInput = form.querySelector('.cpassword');
+			const errorcPass = form.querySelector('.cpassError');
+
+			const emailInput = form.querySelector('.email');
+			const errorEmail = form.querySelector('.emailError');
+
+			const idNumberInput = form.querySelector('.idNumber');
+			const errorIdNum = form.querySelector('.idNumError');
+
+			const deptInput = form.querySelector('.department');
+			const errorDept = form.querySelector('.departmentError');
+
+			const yearInput = form.querySelector('.courseYear');
+			const errorYear = form.querySelector('.courseYearError');
+
+			// Define your validation functions here (e.g., checkName, checkAddress, etc.)
+
+			function checkForm() {
+				let isValid = true;
+
+				if (!checkName()) {
+					isValid = false;
+				}
+
+				if (!checkAddress()) {
+					isValid = false;
+				}
+
+				if (!checkContact()) {
+					isValid = false;
+				}
+
+				if (!checkDOB()) {
+					isValid = false;
+				}
+
+				if (!checkPassword()) {
+					isValid = false;
+				}
+
+				if (!checkCpasword()) {
+					isValid = false;
+				}
+
+				if (!checkEmail()) {
+					isValid = false;
+				}
+
+				if (!checkIdnumber()) {
+					isValid = false;
+				}
+
+				if (!checkDepartment()) {
+					isValid = false;
+				}
+
+				if (!checkCourseYear()) {
+					isValid = false;
+				}
+
+				if (!isValid) {
+					// Prevent form submission if validation fails
+					event.preventDefault();
+				}
+			}
+
+			form.addEventListener("submit", checkForm);
+
+			// Add event listeners for input fields (e.g., keyup, change) to trigger validation functions
+			nameInput.addEventListener('keyup', checkName);
+			addressInput.addEventListener('keyup', checkAddress);
+			contactInput.addEventListener('keyup', checkContact);
+			DOBInput.addEventListener('change', checkDOB);
+			passInput.addEventListener('keyup', checkPassword);
+			cpassInput.addEventListener('keyup', checkCpasword);
+			emailInput.addEventListener('keyup', checkEmail);
+			idNumberInput.addEventListener('keyup', checkIdnumber);
+			deptInput.addEventListener('change', checkDepartment);
+			yearInput.addEventListener('change', checkCourseYear);
+		});
+	</script>--%>
 </asp:Content>

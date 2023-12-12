@@ -40,18 +40,8 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
         {
             try
             {
-                string newQuestion = txtAddQuestion.Text.Trim();
-                string newAnswer = txtAddAnswer.Text.Trim();
-
-                // Server-side validation to ensure all fields are filled out
-                if (string.IsNullOrEmpty(newQuestion) || string.IsNullOrEmpty(newAnswer))
-                {
-                    // Show error modal for incomplete form
-                    string errorMessage = "Please fill out all fields.";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
-                        $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
-                    return; // Stop further processing if the form is incomplete
-                }
+                string newQuestion = txtAddQuestion.Text;
+                string newAnswer = txtAddAnswer.Text;
 
                 // Insert the new FAQ into the database
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -82,7 +72,6 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                     $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
         }
-
 
 
         protected void FAQRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)

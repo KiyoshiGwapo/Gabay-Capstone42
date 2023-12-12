@@ -67,6 +67,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
             }
         }
+
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             try
@@ -115,7 +116,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
 
                             // Show a success message
-                            ShowSuccessModal();
+                            string submitEmailDialog = @"Appointment booked successfully!";
+                            ShowSuccessModal(submitEmailDialog);
                         }
                     }
                 }
@@ -128,16 +130,15 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         }
 
 
-        private void ShowSuccessModal()
+        private void ShowSuccessModal(string submitEmailDialog)
         {
-            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show').find('.modal-body').html('<span style=\"color: white;\">"+submitEmailDialog+"</span>');", true);
         }
 
         private void ShowErrorModal(string errorMessage)
         {
-            ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", $"$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">{errorMessage}</span>');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", $"$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: white;\">{errorMessage}</span>');", true);
         }
-
 
 
         private bool ValidateForm()
@@ -158,6 +159,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             return true;
         }
+
 
         private int InsertAppointmentRecord(string fullName, string email, string studentID, string courseYear, string contactNumber, string selectedDate, string selectedTime, string deptName, string concern, string status, string notificationStatus)
         {
@@ -182,7 +184,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     cmd.Parameters.AddWithValue("@Notif", notificationStatus);
 
                     return Convert.ToInt32(cmd.ExecuteScalar());
-
                 }
             }
         }
@@ -235,8 +236,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     client.Send(message);
                     client.Disconnect(true);
 
+                    string submitEmailDialog = @"Appointment booked successfully!";
                     // Show a success message after sending the email
-                    ShowSuccessModal();
+                    ShowSuccessModal(submitEmailDialog);
 
                     // Clear form fields directly
                     FullName.Text = "";
@@ -257,7 +259,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 ShowErrorModal(ex.Message);
             }
         }
-
 
         //Search sa iyang appointment
         protected void searchResultsGridView_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -474,7 +475,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                                 <p><b>Destination:</b> {destination}</p>
                                                 </div>";
 
-                            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\Source\\Repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
                             logoImage.ContentId = "logo-image";
                             logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
@@ -711,5 +712,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
             }
         }
+
+
     }
 }

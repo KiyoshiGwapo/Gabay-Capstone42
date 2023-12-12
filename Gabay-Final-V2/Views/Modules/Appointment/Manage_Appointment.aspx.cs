@@ -823,28 +823,41 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 // Open the Document 
                 document.Open();
 
+                // Add the logo without any box or column
+                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/UC-LOGO.png"));
+                logo.ScaleToFit(150f, 150f); // Adjust the dimensions as needed
+                logo.Alignment = Element.ALIGN_CENTER;
+                document.Add(logo);
+
+                // Add spacing
+                document.Add(new Paragraph("\n"));
+
+                // Get the department name based on the user ID
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                string departmentName = GetDepartmentName(userID);
+
+                // Add the department name with styling
+                Paragraph departmentNameParagraph = new Paragraph(departmentName, FontFactory.GetFont(FontFactory.HELVETICA, 18, Font.BOLD));
+                departmentNameParagraph.Alignment = Element.ALIGN_CENTER;
+                document.Add(departmentNameParagraph);
+
+                // Add spacing
+                document.Add(new Paragraph("\n"));
+
                 // Set column widths and alignment
                 float[] columnWidths = { 2f, 2f, 2f, 2f, 2f, 2f, 2f, 2f }; // widths 
                 PdfPTable table = new PdfPTable(columnWidths);
                 table.WidthPercentage = 100; // page width
-
-                // Add a row for generated reports
-                PdfPCell generatedReportsCell = new PdfPCell(new Phrase("Generated Reports", FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.BOLD)));
-                generatedReportsCell.Colspan = table.NumberOfColumns;
-                generatedReportsCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(generatedReportsCell);
-
-                // Add spacing row
-                table.AddCell(new PdfPCell(new Phrase("")) { Colspan = table.NumberOfColumns });
 
                 // Add column headers to the table (excluding unwanted columns)
                 foreach (DataColumn column in dt.Columns)
                 {
                     if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
                     {
-                        PdfPCell headerCell = new PdfPCell(new Phrase(GetColumnHeader(column.ColumnName), FontFactory.GetFont(FontFactory.HELVETICA, 10, Font.BOLD)));
+                        PdfPCell headerCell = new PdfPCell(new Phrase(GetColumnHeader(column.ColumnName), FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.BOLD)));
                         headerCell.BackgroundColor = BaseColor.LIGHT_GRAY;
                         headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        headerCell.PaddingBottom = 5; // Add some bottom padding
                         table.AddCell(headerCell);
                     }
                 }
@@ -856,17 +869,17 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     {
                         if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
                         {
-                            PdfPCell dataCell = new PdfPCell(new Phrase(GetCellData(column, row[column]), FontFactory.GetFont(FontFactory.HELVETICA, 8)));
+                            PdfPCell dataCell = new PdfPCell(new Phrase(GetCellData(column, row[column]), FontFactory.GetFont(FontFactory.HELVETICA, 10)));
                             dataCell.HorizontalAlignment = Element.ALIGN_CENTER;
                             table.AddCell(dataCell);
                         }
                     }
                 }
 
-                // Add the first table to the document
+                // Add the table to the document
                 document.Add(table);
 
-                // Add spacing row
+                // Add spacing
                 document.Add(new Paragraph("\n"));
 
                 // Create a new table for status counts
@@ -874,7 +887,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 statusTable.WidthPercentage = 50; // 50% of the page width
 
                 // Add a row for counts
-                PdfPCell countCell = new PdfPCell(new Phrase("Department-Specific Counts", FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.BOLD)));
+                PdfPCell countCell = new PdfPCell(new Phrase("Department-Specific Counts", FontFactory.GetFont(FontFactory.HELVETICA, 14, Font.BOLD)));
                 countCell.Colspan = 2;
                 countCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 statusTable.AddCell(countCell);
@@ -883,62 +896,47 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 int pendingCount = CountAppointments(dt, "pending");
                 int approvedCount = CountAppointments(dt, "approved");
                 int rescheduledCount = CountAppointments(dt, "rescheduled");
-                int servedCount = CountAppointments(dt, "served");
                 int deniedCount = CountAppointments(dt, "denied");
 
                 // Add counts to the table
-                statusTable.AddCell(new PdfPCell(new Phrase("All Pending:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                statusTable.AddCell(new PdfPCell(new Phrase("All Pending:", FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase(pendingCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                statusTable.AddCell(new PdfPCell(new Phrase(pendingCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase("All Approved:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                statusTable.AddCell(new PdfPCell(new Phrase("All Approved:", FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase(approvedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                statusTable.AddCell(new PdfPCell(new Phrase(approvedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase("All Rescheduled:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                statusTable.AddCell(new PdfPCell(new Phrase("All Rescheduled:", FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase(rescheduledCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                statusTable.AddCell(new PdfPCell(new Phrase(rescheduledCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase("All Served:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                statusTable.AddCell(new PdfPCell(new Phrase("All Denied:", FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase(servedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
+                statusTable.AddCell(new PdfPCell(new Phrase(deniedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase("All Denied:", FontFactory.GetFont(FontFactory.HELVETICA, 8)))
-                {
-                    HorizontalAlignment = Element.ALIGN_CENTER
-                });
-                statusTable.AddCell(new PdfPCell(new Phrase(deniedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 8)))
-                {
-                    HorizontalAlignment = Element.ALIGN_CENTER
-                });
-
 
                 // Add the status table to the document
                 document.Add(statusTable);
 
-                // Add spacing row
+                // Add spacing
                 document.Add(new Paragraph("\n"));
-
-                // Create a new table for department-specific counts
-                PdfPTable departmentTable = new PdfPTable(columnWidths);
-                departmentTable.WidthPercentage = 100; // page width
-
 
                 // Close the Document
                 document.Close();
@@ -950,6 +948,36 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 Response.End();
             }
         }
+
+        // Additional method to get the department name based on the user ID
+        private string GetDepartmentName(int userID)
+        {
+            string departmentName = "Department Name Placeholder";
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+
+                // Assuming you have a table named 'Departments' with columns 'UserID' and 'DepartmentName'
+                string query = "SELECT dept_name FROM department WHERE user_ID = @user_ID";
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@user_ID", userID);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            departmentName = reader["dept_name"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return departmentName;
+        }
+
+
 
 
 
@@ -964,10 +992,22 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             switch (columnName)
             {
+                case "ID_appointment":
+                    return "ID";
+                case "full_name":
+                    return "Full Name";
+                case "email":
+                    return "Email";
                 case "student_ID":
-                    return "Student";
+                    return "User";
                 case "course_year":
                     return "Year Level";
+                case "appointment_date":
+                    return "Date";
+                case "appointment_time":
+                    return "Time";
+                case "appointment_status":
+                    return "Status";
                 default:
                     return columnName;
             }
@@ -978,11 +1018,22 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             switch (column.ColumnName)
             {
+                case "ID_appointment":
+                    return cellValue.ToString();
+                case "full_name":
+                    return cellValue.ToString();
+                case "email":
+                    return cellValue.ToString();
                 case "student_ID":
                     // If the value is a number, display "Student"
-                    return int.TryParse(cellValue.ToString(), out _) ? "Student" : cellValue.ToString();
+                    return int.TryParse(cellValue.ToString(), out _) ? "Student" : cellValue.ToString();               
                 case "course_year":
-                    // Rename the "course_year" column to "Year Level"
+                    return cellValue.ToString();
+                case "appointment_date":
+                    return cellValue.ToString();
+                case "appointment_time":
+                    return cellValue.ToString();
+                case "appointment_status":
                     return cellValue.ToString();
                 default:
                     return cellValue.ToString();
@@ -1100,7 +1151,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             if (Session["user_ID"] != null)
             {
                 int user_ID = Convert.ToInt32(Session["user_ID"]);
-                DataTable dt = SearchAnnouncement(SearchKeyword, user_ID);
+                DataTable dt = SearchAppointment(SearchKeyword, user_ID);
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -1118,7 +1169,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-        public DataTable SearchAnnouncement(string SearchKeyword, int user_ID)
+        public DataTable SearchAppointment(string SearchKeyword, int user_ID)
         {
 
             DataTable dt = new DataTable();
@@ -1128,14 +1179,19 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                             FROM appointment a
                                             LEFT JOIN users_table u ON a.student_ID = u.login_ID
                                             LEFT JOIN user_role ur ON u.role_ID = ur.role_id
-                                            WHERE a.ID_appointment LIKE '%' + @SearchKeyword + '%' AND user_ID = @user_ID";
+                                            WHERE (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)
+                                            OR a.student_ID = 'guest')
+                                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))
+                                            AND (a.appointment_status = 'pending' OR a.appointment_status = 'reschedule' OR a.appointment_status = 'approved')
+                                            AND ID_appointment LIKE '%' + @SearchKeyword + '%'
+                                            OR appointment_status LIKE '%' + @SearchKeyword + '%'";
 
                 conn.Open();
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@SearchKeyword", SearchKeyword);
-                    cmd.Parameters.AddWithValue("@SearchKeyword", SearchKeyword);
+                    cmd.Parameters.AddWithValue("@departmentUserID", user_ID);
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
@@ -1145,5 +1201,25 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
             return dt;
         }
+
+        protected void displayPending_Click(object sender, EventArgs e)
+        {
+            string appointmentStatus = "pending";
+            BindDataTable(appointmentStatus);
+        }
+
+        protected void displayActive_Click(object sender, EventArgs e)
+        {
+            string appointmentStatus = "reschedule";
+            BindDataTable(appointmentStatus);
+        }
+
+        protected void displayDeactivated_Click(object sender, EventArgs e)
+        {
+            string appointmentStatus = "approved";
+            BindDataTable(appointmentStatus);
+        }
+
+        
     }
 }

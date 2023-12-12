@@ -61,7 +61,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
 
         protected void learnMoreBtn_Click(object sender, EventArgs e)
         {
-            int announcementID = Convert.ToInt32(HiddenField1.Value);
+            int announcementID = Convert.ToInt32(AnnouncementIDHolder.Value);
 
             fetchAnnouncementDetails(announcementID);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "showDetailedModal", "$('#dtldModal').modal('show');", true);

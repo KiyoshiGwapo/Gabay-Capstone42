@@ -98,12 +98,18 @@
 .cards {
     display: flex;
     transition: transform 0.5s;
+
 }
 
 .card {
     width: 200px;
     margin-right: 10px;
     display: flex !important;
+    border-radius: 15px !important;
+}
+
+.selectDialog{
+    margin-left:10px;
 }
 
 .hidden-card {
@@ -113,11 +119,14 @@
 }
 
 .container-slider {
-    background-color: #f2f2f2;
-    border-radius: 15px 15px 15px 0;
+
     display: flex;
     align-items: center;
     align-self: flex-start;
+}
+.menuWrapper {
+    background-color: #f2f2f2;
+    border-radius: 15px 15px 15px 0;
 }
 
 .buttons {

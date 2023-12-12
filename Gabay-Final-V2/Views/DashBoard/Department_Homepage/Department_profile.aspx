@@ -73,7 +73,7 @@
                                                     <asp:ListItem Text="Select School Year" Value="" />
                                                 </asp:DropDownList>
                                                 <asp:LinkButton ID="LinkButton1" CssClass="dwnldLnk btn" runat="server" Text="View/Download" OnClick="lnkDownload_Click" OnClientClick="openInNewTab();">
-                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                                                     <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                                 </asp:LinkButton>
                                                 <asp:Label ID="Selected" runat="server" ForeColor="Green" />
                                             </div>
@@ -119,7 +119,7 @@
         </div>
     </div>
     <%-- shows up when edit button is clicked --%>
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -151,7 +151,7 @@
                                             <span><i class="bi bi-chevron-right"></i></span>
                                         </div>
                                     </div>
-                                    <div class="cn p-3" data-bs-toggle="modal" data-bs-target="#ContactNumberModal">
+                                    <div class="dpt p-3" data-bs-toggle="modal" data-bs-target="#ContactNumberModal">
                                         <div class="d-flex justify-content-between modal-items">
                                             <span>Contact Information</span>
                                             <span><i class="bi bi-chevron-right"></i></span>
@@ -189,7 +189,7 @@
                                     <label for="floatingInput">Username</label>
                                     <div class="errorLgn text-danger d-none" id="errorLgn">
                                         <span><i class="bi bi-info-circle"></i></span>
-                                        <span>Please Provide a Valid Input (Ex. Juan Dela Cruz A.)</span>
+                                        <span>Please provide a username</span>
                                     </div>
                                 </div>
                                 <div class="form-floating mb-3">

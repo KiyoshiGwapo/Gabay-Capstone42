@@ -101,6 +101,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     {
                         pending_table.DataSource = dt;
                         pending_table.DataBind();
+
                     }
                     else if (studentStatusCriteria == "activated")
                     {

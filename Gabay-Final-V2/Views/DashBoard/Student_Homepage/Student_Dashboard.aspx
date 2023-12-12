@@ -49,6 +49,14 @@
             display: block;
             transform: translateX(0);
         }
+
+        .adminpost{
+            opacity: 75%;
+            top:5px;
+            margin-left:10px;
+            width: 30px !important;
+            height: auto;
+        }
     </style>
      <script src="../Scripts/jquery-3.7.1.js"></script>
     <div class="container">
@@ -65,6 +73,7 @@
                         <div class=" carousel-inner">
                             <div class="card">
                                 <div class="image-container">
+                                    <img src="../../../Resources/Images/tempIcons/global-marketing.png" runat="server" id="adminPost" visible='<%# Eval("User_ID").ToString() == "4052" %>' class="adminpost position-absolute" />
                                     <asp:Image ID="imgPlaceholder" runat="server" class="img-fluid imagePlaceholder" alt="..."
                                         ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("ImagePath")) %>' />
                                 </div>
@@ -85,11 +94,11 @@
             </asp:Repeater>
         </div>
     </div>
-    <asp:HiddenField ID="HiddenField1" runat="server" />
+    <asp:HiddenField ID="AnnouncementIDHolder" runat="server" />
      
     <%-- Detailed Modal --%>
     <div class="modal fade" id="dtldModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <asp:Label ID="dtldTitle" CssClass="modal-title fs-5" runat="server" Text="Title"></asp:Label>
@@ -169,7 +178,7 @@
             slidingInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
         }
         function setAnnouncementID(announcementID) {
-            document.getElementById('<%= HiddenField1.ClientID %>').value = announcementID;
+            document.getElementById('<%= AnnouncementIDHolder.ClientID %>').value = announcementID;
         }
     </script>
 </asp:Content>

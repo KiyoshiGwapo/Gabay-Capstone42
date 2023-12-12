@@ -813,17 +813,16 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             DataTable dt = fetchAppointBasedOnDepartment(Convert.ToInt32(Session["user_ID"]));
 
-            // Create a MemoryStream to store the PDF content
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 Document document = new Document();
 
                 PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
 
-                // Open the Document 
+                // OpenDocument 
                 document.Open();
 
-                // Add the date and time at the top right corner
+                // Add the date and time at
                 PdfPTable dateTimeTable = new PdfPTable(1);
                 dateTimeTable.WidthPercentage = 100;
                 dateTimeTable.HorizontalAlignment = Element.ALIGN_RIGHT;
@@ -839,7 +838,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
                 // Add the logo without any box or column
                 iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/UC-LOGO.png"));
-                logo.ScaleToFit(150f, 150f); // Adjust the dimensions as needed
+                logo.ScaleToFit(150f, 150f); // Adjust 
                 logo.Alignment = Element.ALIGN_CENTER;
                 document.Add(logo);
 
@@ -949,13 +948,10 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 // Add the status table to the document
                 document.Add(statusTable);
 
-                // Add spacing
                 document.Add(new Paragraph("\n"));
 
-                // Close the Document
                 document.Close();
-
-                // Transmit the PDF file to the response
+   
                 Response.ContentType = "application/pdf";
                 Response.AppendHeader("Content-Disposition", "attachment; filename=AppointmentReport.pdf");
                 Response.BinaryWrite(memoryStream.ToArray());
@@ -964,7 +960,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         }
 
 
-        // Additional method to get the department name based on the user ID
+        //  get the department name based on the user ID
         private string GetDepartmentName(int userID)
         {
             string departmentName = "Department Name Placeholder";
@@ -972,7 +968,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             {
                 conn.Open();
 
-                // Assuming you have a table named 'Departments' with columns 'UserID' and 'DepartmentName'
+ 
                 string query = "SELECT dept_name FROM department WHERE user_ID = @user_ID";
 
                 using (SqlCommand command = new SqlCommand(query, conn))

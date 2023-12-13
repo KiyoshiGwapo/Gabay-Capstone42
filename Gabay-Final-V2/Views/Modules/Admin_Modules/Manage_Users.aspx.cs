@@ -330,7 +330,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             else if (reportType == "PDF")
             {
                 // Call the method to export to PDF (implement this method)
-                ExportToPDF(dt);
+                ExportToPDF(dt, ddlFilter.SelectedItem.Text);
             }
         }
 
@@ -390,7 +390,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 }
             }
         }
-        private void ExportToPDF(DataTable dt)
+        private void ExportToPDF(DataTable dt, string accountType)
         {
             Document document = new Document();
 
@@ -424,10 +424,8 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 // Add spacing
                 document.Add(new Paragraph("\n"));
 
-               
-
-                // Add title to the document
-                Paragraph title = new Paragraph("Account List", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));
+                // Add title to the document with selected account type
+                Paragraph title = new Paragraph($"List of {accountType}", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));
                 title.Alignment = Element.ALIGN_CENTER;
                 document.Add(title);
 
@@ -463,8 +461,23 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                         }
                     }
                 }
-
                 document.Add(table);
+
+                // Add spacing between title and table
+                document.Add(new Paragraph("\n"));
+
+                // Add title to the document
+                Paragraph by = new Paragraph("Prepared by:", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.BLACK));
+                by.Alignment = Element.ALIGN_RIGHT;
+                document.Add(by);
+
+                // Add title to the document
+                Paragraph admin = new Paragraph("ADMIN", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.BLACK));
+                admin.Alignment = Element.ALIGN_RIGHT;
+                document.Add(admin);
+                // Add spacing between title and table
+                document.Add(new Paragraph("\n"));
+
                 document.Close();
             }
 
@@ -474,6 +487,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             Response.TransmitFile(filePath);
             Response.End();
         }
+
 
 
     }

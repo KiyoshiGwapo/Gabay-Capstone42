@@ -69,15 +69,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected global::System.Web.UI.WebControls.TextBox FullName;
 
         /// <summary>
-        /// FullNameValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator FullNameValidator;
-
-        /// <summary>
         /// Email control.
         /// </summary>
         /// <remarks>
@@ -87,15 +78,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected global::System.Web.UI.WebControls.TextBox Email;
 
         /// <summary>
-        /// EmailValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator EmailValidator;
-
-        /// <summary>
         /// ContactN control.
         /// </summary>
         /// <remarks>
@@ -103,15 +85,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ContactN;
-
-        /// <summary>
-        /// ContactNValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator ContactNValidator;
 
         /// <summary>
         /// Message control.

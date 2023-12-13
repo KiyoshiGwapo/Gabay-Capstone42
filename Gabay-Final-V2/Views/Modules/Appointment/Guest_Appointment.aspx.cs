@@ -129,7 +129,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-
         private void ShowSuccessModal(string submitEmailDialog)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show').find('.modal-body').html('<span style=\"color: white;\">"+submitEmailDialog+"</span>');", true);
@@ -222,7 +221,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     <p><b>Concern:</b> {concern}</p>
                     </div>";
 
-                var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\Source\\Repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
                 logoImage.ContentId = "logo-image";
                 logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 

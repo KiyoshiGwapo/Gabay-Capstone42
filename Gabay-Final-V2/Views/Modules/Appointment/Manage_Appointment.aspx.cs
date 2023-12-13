@@ -632,11 +632,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                                 <p>Thank you!</p>
                                                 </div>";
 
-                            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\Source\\Repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
                             logoImage.ContentId = "logo-image";
                             logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
-                            var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\error.png");
+                            var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\rodri\\Source\\Repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\error.png");
                             qrCodeImage.ContentId = "erro-image";
                             qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
@@ -849,6 +849,14 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 int userID = Convert.ToInt32(Session["user_ID"]);
                 string departmentName = GetDepartmentName(userID);
 
+                // Add title to the document
+                Paragraph title = new Paragraph("Appointment Report", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLACK));
+                title.Alignment = Element.ALIGN_CENTER;
+                document.Add(title);
+
+                // Add spacing
+                document.Add(new Paragraph("\n"));
+
                 // Add the department name with styling
                 Paragraph departmentNameParagraph = new Paragraph(departmentName, FontFactory.GetFont(FontFactory.HELVETICA, 18, Font.BOLD));
                 departmentNameParagraph.Alignment = Element.ALIGN_CENTER;
@@ -900,18 +908,27 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 statusTable.WidthPercentage = 50; // 50% of the page width
 
                 // Add a row for counts
-                PdfPCell countCell = new PdfPCell(new Phrase("Department-Specific Counts", FontFactory.GetFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+                PdfPCell countCell = new PdfPCell(new Phrase("Summary Report", FontFactory.GetFont(FontFactory.HELVETICA, 14, Font.BOLD)));
                 countCell.Colspan = 2;
                 countCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 statusTable.AddCell(countCell);
 
                 // Calculate counts for each status
+                int servedCount = CountAppointments(dt, "served");
                 int pendingCount = CountAppointments(dt, "pending");
                 int approvedCount = CountAppointments(dt, "approved");
                 int rescheduledCount = CountAppointments(dt, "rescheduled");
-                int deniedCount = CountAppointments(dt, "denied");
+                int rejectedCount = CountAppointments(dt, "rejected");
 
                 // Add counts to the table
+                statusTable.AddCell(new PdfPCell(new Phrase("All Served:", FontFactory.GetFont(FontFactory.HELVETICA, 10)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
+                statusTable.AddCell(new PdfPCell(new Phrase(servedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
+                {
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                });
                 statusTable.AddCell(new PdfPCell(new Phrase("All Pending:", FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
@@ -940,13 +957,25 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase(deniedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
+                statusTable.AddCell(new PdfPCell(new Phrase(rejectedCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
 
                 // Add the status table to the document
                 document.Add(statusTable);
+
+                document.Add(new Paragraph("\n"));
+
+
+                // Add title to the document
+                Paragraph by = new Paragraph("Prepared By:", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.BLACK));
+                by.Alignment = Element.ALIGN_RIGHT;
+                document.Add(by);
+                // Add the department name with styling
+                Paragraph bydepartmentNameParagraph = new Paragraph(departmentName, FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.BOLD));
+                bydepartmentNameParagraph.Alignment = Element.ALIGN_RIGHT;
+                document.Add(bydepartmentNameParagraph);
 
                 document.Add(new Paragraph("\n"));
 

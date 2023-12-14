@@ -281,18 +281,17 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                       <asp:Button ID="btnMarkAsRead" runat="server" Text="Mark as Read" CssClass="custom-button" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" />
+                     <asp:Button ID="btnMarkAsRead" runat="server" Text="Mark as Read" CssClass="custom-button" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" />
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         function GetUnreadNotifications() {
             $.ajax({
                 type: "POST",
-                url: "Admin_Master.Master/GetUnreadNotificationsDataTableFromDatabase",
+                url: "Admin_Master.Master/GetUnreadNotificationsDataTableFromDatabase", 
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (result) {
@@ -317,24 +316,15 @@
             });
         }
 
-
-
         function hideBadge() {
-            // Get the label element representing the badge
             var badgeLabel = document.getElementById('<%= lblNotificationCount.ClientID %>');
-
-            // Check if the badge label exists
             if (badgeLabel) {
-                // Check if the count is zero
-                if (parseInt(badgeLabel.innerHTML) === 0) {
-                    // If count is zero, make the badge invisible
-                    badgeLabel.style.display = 'none';
-                } else {
-                    // If count is not zero, set background color to red
-                    badgeLabel.style.backgroundColor = 'red';
-                }
+                badgeLabel.style.display = 'none';
             }
+            // Prevent default action
+            return false;
         }
+
     </script>
 </body>
 </html>

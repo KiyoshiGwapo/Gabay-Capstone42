@@ -78,7 +78,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
                     int userID = Convert.ToInt32(Session["user_ID"]);
 
                     // Mark notifications as read
-                    MarkNotificationsAsRead(userID);
+                    MarkNotificationsAsRead();
 
                     // Fetch and refresh unread notifications
                     FetchUnreadNotifications();
@@ -176,7 +176,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
             }
         }
 
-        private void MarkNotificationsAsRead(int userID)
+        private void MarkNotificationsAsRead()
         {
             try
             {
@@ -184,10 +184,10 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
                 {
                     conn.Open();
 
-                    string updateQuery = $@"
+                    string updateQuery = @"
                 UPDATE users_table
                 SET Notification = 'READ'
-                WHERE Notification = 'UNREAD' AND user_ID = {userID}
+                WHERE Notification = 'UNREAD'
             ";
 
                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
@@ -202,6 +202,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
                 ShowErrorModal(errorMessage);
             }
         }
+
 
         // pakita error
         private void ShowErrorModal(string errorMessage)

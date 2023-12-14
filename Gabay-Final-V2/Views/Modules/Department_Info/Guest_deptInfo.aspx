@@ -116,18 +116,18 @@
                                                             <li>
                                                                 <div class="row">
                                                                     <div class="col-4">
-                                                                        <span class="fs-5 fw-bold">Contact Information</span>
+                                                                        <span class="fs-5 fw-bold">Contact Information:</span>
                                                                     </div>
                                                                     <div class="col-8">
                                                                         <div class="deptConNum mb-1">
                                                                             <div>
-                                                                                <span class="fs-5">Dean/Department Head:</span>
+                                                                                <span class="fs-5">Contact Number:</span>
                                                                             </div>
                                                                             <%# Eval("DepartmentContactNumber") %>
                                                                         </div>
                                                                         <div class="deptEmail mb-1">
                                                                             <div>
-                                                                                <span class="fs-5">Dean/Department Head:</span>
+                                                                                <span class="fs-5">Email</span>
                                                                             </div>
                                                                             <%# Eval("DepartmentEmail") %>
                                                                         </div>

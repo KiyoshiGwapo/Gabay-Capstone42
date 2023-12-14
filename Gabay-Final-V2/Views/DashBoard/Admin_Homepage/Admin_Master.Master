@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="../../../Resources/CustomStyleSheet/DefaultStyle.css" rel="stylesheet" />
     <link href="../../../Resources/CustomStyleSheet/HomePageStyle.css" rel="stylesheet" />
     <script src="../../../Bootstrap/Scripts/bootstrap.bundle.js"></script>
@@ -14,13 +14,70 @@
     <link href="../../../FontAwesome/css/all.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../../../Resources/CustomJS/OpenModal.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <style>
+        .icon-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            color: #ffffff;
+            background: #003366;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            right: 10px;
+        }
+
+            .icon-button:hover {
+                cursor: pointer;
+            }
+
+            .icon-button:active {
+                background: #cccccc;
+            }
+
+        .icon-button__badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 25px;
+            height: 25px;
+            background: red;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .modal-dialog.modal-dialog-right {
+            right: 0 !important;
+            margin-right: 3% !important;
+            top: 6% !important;
+        }
+
+        .custom-button {
+            background-color: grey;
+            color: white;
+            width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
     <form id="adminMaster" class="adminMaster" runat="server">
-         <%--TOP NAV--%>
+        <%--TOP NAV--%>
         <header class="shadow sticky-top">
             <nav class="navbar navbar-expand-lg bg-body-tertiary z-1">
                 <div class="container-fluid bg-white">
@@ -57,7 +114,7 @@
                               <span class="mt-2">Manage Announcement</span>
                                 </asp:HyperLink>
                             </li>
-                          <%--  <li class="nav-item p-1">
+                            <%--  <li class="nav-item p-1">
                                 <asp:HyperLink ID="wayFinding" runat="server" CssClass="topnav-item text-cente custom-text-color">
                               <i class="bi bi-map-fill me-2"></i>
                               <span class="mt-2">Way Finding</span>
@@ -95,15 +152,19 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="icon-button" onclick="GetUnreadNotifications()" data-toggle="modal" data-target="#notificationModal">
+                        <span class="material-icons">notifications</span>
+                        <asp:Label ID="lblNotificationCount" runat="server" CssClass="icon-button__badge"></asp:Label>
+                    </div>
                     <div class="d-none d-lg-block" id="lgout-prfl_btn">
-                       
+
                         <asp:Button ID="logoutBtn" runat="server" CssClass="btn logout-profileBtn" Text="Logout" UseSubmitBehavior="false" OnClick="logoutBtn_Click" />
                     </div>
                 </div>
             </nav>
         </header>
         <div class="wrapper d-flex vh-100">
-             <%--SIDE NAV--%>
+            <%--SIDE NAV--%>
             <div class="sideBar bg-body-tertiary d-none d-lg-block">
                 <ul class="nav flex-column mt-3">
                     <li class="nav-item ">
@@ -133,13 +194,13 @@
                             <p class="mt-4">Manage Users</p>
                         </asp:HyperLink>
                     </li>
-                     <li class="nav-item ">
+                    <li class="nav-item ">
                         <asp:HyperLink ID="sideMangeAnnouncement" runat="server" CssClass="navLinks text-center" NavigateUrl="~/Views/Modules/Admin_Modules/Manage_Announcement.aspx">
                            <i class="bi bi-megaphone-fill me-3"></i>
                            <p class="mt-4">Manage Announcement</p>
                         </asp:HyperLink>
                     </li>
-                   <%-- <li class="nav-item ">
+                    <%-- <li class="nav-item ">
                         <asp:HyperLink ID="sideNavWF" runat="server" CssClass="navLinks text-center">
                             <i class="bi bi-map-fill fs-4 me-3"></i>
                             <p class="mt-4">Manage Way Finding</p>
@@ -171,6 +232,109 @@
                 </asp:ContentPlaceHolder>
             </div>
         </div>
+
+        <%-- Success modal --%>
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body bg-success text-center text-light">
+                        <i class="bi bi-info-circle-fill"></i>
+                        <p id="successMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- Error modal --%>
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body bg-danger text-center text-light">
+                        <i class="bi bi-exclamation-circle-fill"></i>
+                        <p id="errorMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-right" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="notificationModalLabel">Admin Notification Details</h5>
+                        <%-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>--%>
+                    </div>
+                    <div class="modal-body">
+                        <!-- wlay  notify -->
+                        <div id="noNotificationMessage"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <asp:GridView ID="notificationGridView" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
+                                    <Columns>
+                                        <asp:BoundField DataField="user_ID" HeaderText="User ID" SortExpression="user_ID" />
+                                        <asp:BoundField DataField="UserName" HeaderText="Name" SortExpression="UserName" />
+                                        <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                       <asp:Button ID="btnMarkAsRead" runat="server" Text="Mark as Read" CssClass="custom-button" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        function GetUnreadNotifications() {
+            $.ajax({
+                type: "POST",
+                url: "Admin_Master.Master/GetUnreadNotificationsDataTableFromDatabase",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    if (result.d.Count > 0) {
+                        // Update the badge content with the count of unread notifications
+                        updateBadge(result.d.Count);
+
+                        // Bind the data to the GridView
+                        notificationGridView.DataSource = result.d.Data;
+                        notificationGridView.DataBind();
+
+                        // Show the modal
+                        $('#notificationModal').modal('show');
+                    } else {
+                        // If count is 0, hide or style the badge accordingly
+                        hideBadge();
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.error(thrownError);
+                }
+            });
+        }
+
+
+
+        function hideBadge() {
+            // Get the label element representing the badge
+            var badgeLabel = document.getElementById('<%= lblNotificationCount.ClientID %>');
+
+            // Check if the badge label exists
+            if (badgeLabel) {
+                // Check if the count is zero
+                if (parseInt(badgeLabel.innerHTML) === 0) {
+                    // If count is zero, make the badge invisible
+                    badgeLabel.style.display = 'none';
+                } else {
+                    // If count is not zero, set background color to red
+                    badgeLabel.style.backgroundColor = 'red';
+                }
+            }
+        }
+    </script>
 </body>
 </html>

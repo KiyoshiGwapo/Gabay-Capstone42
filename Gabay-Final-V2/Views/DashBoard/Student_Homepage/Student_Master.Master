@@ -73,6 +73,7 @@
             width: 200px; 
             margin: 0 auto; 
             display: block; 
+            text-align:center;
         }
     </style>
 
@@ -245,7 +246,8 @@
                     </div>
                     <div class="modal-footer">
                         <!-- Add or modify buttons here as needed -->
-                        <asp:Button ID="btnMarkAsRead" runat="server" Text="Mark as Read" CssClass="custom-button" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" />
+                        <%--<asp:Button ID="btnMarkAsRead" runat="server" Text="Mark as Read" CssClass="custom-button" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" />--%>
+                        <asp:LinkButton ID="btnMarkAsRead" runat="server" CssClass="custom-button" OnClientClick="hideBadge(); return true;" OnClick="BtnMarkAsRead_Click" PostBackUrl="~/Views/Modules/Appointment/Student_Appointment.aspx">Mark as Read</asp:LinkButton>
                         <%-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
                     </div>
                 </div>

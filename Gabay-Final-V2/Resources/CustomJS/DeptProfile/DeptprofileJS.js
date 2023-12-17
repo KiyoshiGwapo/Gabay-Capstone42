@@ -28,6 +28,12 @@
     const deptCourse = form.querySelector('.CoursesAppended');
     const deptCourseErr = form.querySelector('.errCourse');
 
+    const fileName = form.querySelector('.txtFileName');
+    const filenameError = form.querySelector('.errFileName');
+
+    const pdfExtension = form.querySelector('.fileUpload');
+    const extensionError = form.querySelector('.errFileExtn');
+
     function checkLoginID() {
         //const regex = /\d/;
 
@@ -160,6 +166,36 @@
             return true;
         }
     }
+    function checkFileName() {
+        //const regex = /\d/;
+
+        if (fileName.value === "") {
+            fileName.classList.add('is-invalid');
+            fileName.classList.remove('is-valid');
+            filenameError.classList.remove('d-none');
+            return false;
+        } else {
+            fileName.classList.remove('is-invalid');
+            fileName.classList.add('is-valid');
+            filenameError.classList.add('d-none');
+            return true;
+        }
+    }
+    function checkFileExtension() {
+        const regex = /^.*\.pdf$/;
+
+        if (!regex.test(pdfExtension.value) || fileName.value === "") {
+            pdfExtension.classList.add('is-invalid');
+            pdfExtension.classList.remove('is-valid');
+            extensionError.classList.remove('d-none');
+            return false;
+        } else {
+            pdfExtension.classList.remove('is-invalid');
+            pdfExtension.classList.add('is-valid');
+            extensionError.classList.add('d-none');
+            return true;
+        }
+    }
 
     form.addEventListener("submit", (e) => {
         if (!checkLoginID()) {
@@ -189,6 +225,12 @@
         if (!checkCourses()) {
             e.preventDefault();
         }
+        if (!checkFileName()) {
+            e.preventDefault();
+        }
+        if (!checkFileExtension()) {
+            e.preventDefault();
+        }
     });
 
     lgnID.addEventListener('input', checkLoginID);
@@ -200,4 +242,6 @@
     deptConNum.addEventListener('input', checkConNum);
     deptEmail.addEventListener('input', checkdeptEmail);
     deptCourse.addEventListener('input', checkCourses);
+    fileName.addEventListener('input', checkFileName);
+    pdfExtension.addEventListener('input', checkFileExtension);
 });

@@ -162,6 +162,7 @@ namespace Gabay_Final_V2.Models
 				conn.Open();
 				string userStatus = "pending";
 				string roleType = "student";
+				string Notif = "UNREAD";
 				int roleID;
 
 				string query = @"INSERT INTO student (department_ID, name, address, contactNumber, DOB, course, course_year, studentID, stud_pass, email) " +
@@ -169,8 +170,8 @@ namespace Gabay_Final_V2.Models
 
 				string roleQuery = @"SELECT role_id FROM user_role WHERE role = @roleType";
 
-				string userQuery = @"INSERT INTO users_table (role_ID, login_ID, password, status)
-									 VALUES (@role_ID, @login_ID, @password, @userStatus)";
+				string userQuery = @"INSERT INTO users_table (role_ID, login_ID, password, status, Notification)
+									 VALUES (@role_ID, @login_ID, @password, @userStatus, @Notification)";
 
 				string updateDeptQuery = @"UPDATE student SET user_ID = (SELECT user_ID FROM users_table WHERE login_ID = @studID)
 										   WHERE studentID = @studID";
@@ -213,6 +214,7 @@ namespace Gabay_Final_V2.Models
 					insertCmd.Parameters.AddWithValue("@login_ID", studID);
 					insertCmd.Parameters.AddWithValue("@password", studPass);
 					insertCmd.Parameters.AddWithValue("@userStatus", userStatus);
+					insertCmd.Parameters.AddWithValue("@Notification", Notif);
 
 					insertCmd.ExecuteNonQuery();
 				}
@@ -421,7 +423,7 @@ namespace Gabay_Final_V2.Models
 			{
 				conn.Open();
 
-				string updateQuery = "UPDATE users_table SET status = 'activated' WHERE login_ID = @studentID";
+				string updateQuery = "UPDATE users_table SET status = 'activated', Notification = 'UNREAD' WHERE login_ID = @studentID";
 
 				using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
 				{

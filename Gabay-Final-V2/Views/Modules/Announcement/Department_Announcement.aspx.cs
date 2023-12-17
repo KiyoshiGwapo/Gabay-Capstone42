@@ -65,24 +65,38 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
         //to save announcement data
         protected void SaveAnnouncement_Click(object sender, EventArgs e)
         {
-            string title = addTitlebx.Text;
-            string date = addDatebx.Text;
-            string shortDescript = addShrtbx.Text;
-            string detailedDescript = addDtldbx.Text;
-
-            if (addFilebx.HasFile)
+            try
             {
-                try
+                string title = addTitlebx.Text.Trim();
+                string date = addDatebx.Text.Trim();
+                string shortDescript = addShrtbx.Text.Trim();
+                string detailedDescript = addDtldbx.Text.Trim();
+
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(date) ||
+                    string.IsNullOrEmpty(shortDescript) || string.IsNullOrEmpty(detailedDescript) || !addFilebx.HasFile)
                 {
-                    HttpPostedFile postedFile = addFilebx.PostedFile;
+                    // Display an error message for incomplete form
+                    string errorMessage = "Please fill out all fields.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                        $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                    return; // Stop further processing if the form is incomplete
+                }
+
+                HttpPostedFile postedFile = addFilebx.PostedFile;
+
+                // Check if the file is an image
+                if (IsImage(postedFile.ContentType))
+                {
                     Stream stream = postedFile.InputStream;
                     BinaryReader binaryReader = new BinaryReader(stream);
                     byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
+
                     if (Session["user_ID"] != null)
                     {
                         int user_ID = Convert.ToInt32(Session["user_ID"]);
                         AddData(user_ID, title, date, bytes, shortDescript, detailedDescript);
                     }
+
                     string successMessage = "Announcement Added successfully.";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
                         $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
@@ -90,15 +104,29 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                     LoadAnnouncements();
                     clearAddModalInputs();
                 }
-                catch (Exception ex)
+                else
                 {
-                    string errorMessage = "An error occurred while deleting the announcement: " + ex.Message;
+                    // Display an error message for invalid file type
+                    string errorMessage = "Invalid file type. Please upload only image files with extensions .jpg, .png, .jpeg.";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                         $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
                 }
-
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred while saving the announcement: " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
         }
+
+
+        // Helper function to check if the file is an image
+        private bool IsImage(string contentType)
+        {
+            return contentType.ToLower().StartsWith("image/");
+        }
+
         public void AddData(int user_ID,string Title, string Date, byte[] imgFile, string shortDescription, string DetailedDescription)
         {
             using (SqlConnection conn = new SqlConnection(connection))
@@ -227,9 +255,8 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "showEditModal", "$('#toEditModal').modal('hide');", true);
         }
-
-        //Function to handle the Edit button click event (Edit/Update)
-        //to update the announcement data
+        // Function to handle the Edit button click event (Edit/Update)
+        // to update the announcement data
         public void updtAnnoucementList(int AnnouncementID)
         {
             // Retrieve the User_ID from the session
@@ -259,6 +286,16 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                                 reader.Close();
 
+                                if (string.IsNullOrEmpty(currentTitle) || string.IsNullOrEmpty(currentDate) ||
+                                     string.IsNullOrEmpty(currentShortDesc) || string.IsNullOrEmpty(currentDetailedDesc))
+                                {
+                                    // Display an error message for incomplete form
+                                    string errorMessage = "Please fill out all fields.";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                                        $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                                    return; // Stop further processing if the form is incomplete
+                                }
+
                                 // Check if a new image is uploaded
                                 if (Imgbx.HasFile)
                                 {
@@ -267,12 +304,12 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                                     // Update the record with the new image data
                                     string updateQuery = @"UPDATE Announcement
-                                               SET Title = @newTitle,
-                                                   Date = @newDate,
-                                                   ShortDescription = @newShortDesc,
-                                                   DetailedDescription = @newDetailedDesc,
-                                                   ImagePath = @newImage
-                                               WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
+                                       SET Title = @newTitle,
+                                           Date = @newDate,
+                                           ShortDescription = @newShortDesc,
+                                           DetailedDescription = @newDetailedDesc,
+                                           ImagePath = @newImage
+                                       WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
 
                                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                                     {
@@ -286,16 +323,19 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                                         updateCmd.ExecuteNonQuery();
                                     }
+                                    string successMessage = "Announcement updated successfully.";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
                                 }
                                 else
                                 {
                                     // No new image uploaded, so update other fields only
                                     string updateQuery = @"UPDATE Announcement
-                                               SET Title = @newTitle,
-                                                   Date = @newDate,
-                                                   ShortDescription = @newShortDesc,
-                                                   DetailedDescription = @newDetailedDesc
-                                               WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
+                                       SET Title = @newTitle,
+                                           Date = @newDate,
+                                           ShortDescription = @newShortDesc,
+                                           DetailedDescription = @newDetailedDesc
+                                       WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
 
                                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                                     {
@@ -308,7 +348,11 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
 
                                         updateCmd.ExecuteNonQuery();
                                     }
+                                    string successMessage = "Announcement updated successfully.";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
                                 }
+
                             }
                         }
                     }
@@ -333,10 +377,6 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             try
             {
                 updtAnnoucementList(hiddenID);
-                string successMessage = "Announcement updated successfully.";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
-                    $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
-
                 LoadAnnouncements();
             }
             catch (Exception ex)

@@ -313,8 +313,8 @@
 
         .team .member .pic {
             overflow: hidden;
-            width: 180px; /* Set the default width for all pics */
-            height: 180px; /* Set the default height for all pics */
+            width: 200px; /* Set the default width for all pics */
+            height: auto; /* Set the default height for all pics */
         }
 
             .team .member .pic img {
@@ -327,6 +327,7 @@
                 display:flex;
                 justify-content:center;
                 align-items:center;
+                border-radius:200px;
             }
 
         .team .member:hover {

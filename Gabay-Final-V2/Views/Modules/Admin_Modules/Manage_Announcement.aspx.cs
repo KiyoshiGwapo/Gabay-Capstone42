@@ -68,6 +68,16 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             string shortDescript = addShrtbx.Text;
             string detailedDescript = addDtldbx.Text;
 
+            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(date) ||
+                string.IsNullOrWhiteSpace(shortDescript) || string.IsNullOrWhiteSpace(detailedDescript))
+            {
+                // Show validation modal
+                string errorMessage = "Please fill in all the fields.";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                return; // Stop further processing
+            }
+
             if (addFilebx.HasFile)
             {
                 try

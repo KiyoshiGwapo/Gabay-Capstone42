@@ -28,6 +28,62 @@
                     <span>Registration Form</span>
                 </div>
                 <form id="form1" runat="server" class="form1 row gx-2">
+                    <%--Department Selection Inputs--%>
+                    <div class="col-12">
+                        <div class="department-fields mt-2" id="department-field">
+                            <div class="department-input form-floating">
+                                <asp:DropDownList ID="departmentChoices" CssClass="department form-select" runat="server" aria-label="Departments" AutoPostBack="True" OnSelectedIndexChanged="departmentChoices_SelectedIndexChanged">
+                                   <asp:ListItem Selected="True" Value="">
+                                       Choose a Department...
+                                   </asp:ListItem>
+                                </asp:DropDownList>
+                                <label for="departmentChoices">Department...</label>
+                            </div>
+                        </div>
+                        <div class="departmentError text-danger d-none" id="departmentError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Please select a department</span>
+                        </div>
+                    </div>
+                    <%--Course Selection Inputs--%>
+                     <div class="col-md-6 col-sm-12">
+                        <div class="course-fields mt-2" id="course-field">
+                            <div class="course-input form-floating">
+                                <asp:DropDownList ID="courseList" CssClass="course form-select" runat="server" aria-label="Course">
+                                   <asp:ListItem Selected="True" Value="">
+                                       Choose a Course...
+                                   </asp:ListItem>
+                                </asp:DropDownList>
+                                <label for="courseList">Courses...</label>
+                            </div>
+                        </div>
+                        <div class="courseError text-danger d-none" id="courseError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Please select a course</span>
+                        </div>
+                    </div>
+                    <%--Course Year Selection Inputs--%>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="courseYear-fields mt-2" id="courseYear-field">
+                            <div class="courseYear-input form-floating">
+                                <asp:DropDownList ID="courseYearChoices" CssClass="courseYear form-select" runat="server" aria-label="Course Year">
+                                    <asp:ListItem Selected="True" Value="">
+                                        Choose a Course Year...
+                                    </asp:ListItem>
+                                    <asp:ListItem Value="1">1st Year</asp:ListItem>
+                                    <asp:ListItem Value="2">2nd Year</asp:ListItem>
+                                    <asp:ListItem Value="3">3rd Year</asp:ListItem>
+                                    <asp:ListItem Value="4">4th Year</asp:ListItem>
+                                    <asp:ListItem Value="5">5th Year</asp:ListItem>
+                                </asp:DropDownList>
+                                <label for="courseYearChoices">Course Year:</label>
+                            </div>
+                            <div class="courseYearError text-danger d-none" id="courseYearError">
+                                <span><i class="bi bi-info-circle"></i></span>
+                                <span>Please select your Course Year</span>
+                            </div>
+                        </div>
+                    </div> 
                     <%--Full Name Inputs--%>
                     <div class="col-12">
                         <div class="name-fields mt-2" id="name-field">
@@ -140,62 +196,7 @@
                             </div>
                         </div>
                     </div>
-                    <%--Department Selection Inputs--%>
-                    <div class="col-12">
-                        <div class="department-fields mt-2" id="department-field">
-                            <div class="department-input form-floating">
-                                <asp:DropDownList ID="departmentChoices" CssClass="department form-select" runat="server" aria-label="Departments" AutoPostBack="True" OnSelectedIndexChanged="departmentChoices_SelectedIndexChanged">
-                                   <asp:ListItem Selected="True" Value="">
-                                       Choose a Department...
-                                   </asp:ListItem>
-                                </asp:DropDownList>
-                                <label for="departmentChoices">Department...</label>
-                            </div>
-                        </div>
-                        <div class="departmentError text-danger d-none" id="departmentError">
-                            <span><i class="bi bi-info-circle"></i></span>
-                            <span>Please select a department</span>
-                        </div>
-                    </div>
-                    <%--Course Selection Inputs--%>
-                     <div class="col-md-6 col-sm-12">
-                        <div class="course-fields mt-2" id="course-field">
-                            <div class="course-input form-floating">
-                                <asp:DropDownList ID="courseList" CssClass="course form-select" runat="server" aria-label="Course">
-                                   <asp:ListItem Selected="True" Value="">
-                                       Choose a Course...
-                                   </asp:ListItem>
-                                </asp:DropDownList>
-                                <label for="courseList">Courses...</label>
-                            </div>
-                        </div>
-                        <div class="courseError text-danger d-none" id="courseError">
-                            <span><i class="bi bi-info-circle"></i></span>
-                            <span>Please select a course</span>
-                        </div>
-                    </div>
-                    <%--Course Year Selection Inputs--%>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="courseYear-fields mt-2" id="courseYear-field">
-                            <div class="courseYear-input form-floating">
-                                <asp:DropDownList ID="courseYearChoices" CssClass="courseYear form-select" runat="server" aria-label="Course Year">
-                                    <asp:ListItem Selected="True" Value="">
-                                        Choose a Course Year...
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="1">1st Year</asp:ListItem>
-                                    <asp:ListItem Value="2">2nd Year</asp:ListItem>
-                                    <asp:ListItem Value="3">3rd Year</asp:ListItem>
-                                    <asp:ListItem Value="4">4th Year</asp:ListItem>
-                                    <asp:ListItem Value="5">5th Year</asp:ListItem>
-                                </asp:DropDownList>
-                                <label for="courseYearChoices">Course Year:</label>
-                            </div>
-                            <div class="courseYearError text-danger d-none" id="courseYearError">
-                                <span><i class="bi bi-info-circle"></i></span>
-                                <span>Please select your Course Year</span>
-                            </div>
-                        </div>
-                    </div>                    
+                                       
                     <asp:Button ID="regBtn" runat="server" Text="Register" CssClass="btn regBtn mt-3" OnClick="regBtn_Click" />
                 </form>
             </div>
@@ -203,27 +204,5 @@
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const nameInput = document.getElementById("<%= name.ClientID %>");
-            const contactNumberInput = document.getElementById("<%= contact.ClientID %>");
-            const idNumberInput = document.getElementById("<%= idNumber.ClientID %>");
-            nameInput.addEventListener("input", function () {
-                // Allow only letters, spaces, and a dot after a space
-                this.value = this.value.replace(/[^A-Za-z\s.]+/g, '');
-            });
-
-            contactNumberInput.addEventListener("input", function () {
-                // Allow only numbers
-                this.value = this.value.replace(/\D/g, '');
-            });
-
-            idNumberInput.addEventListener("input", function () {
-                // Allow only numbers
-                this.value = this.value.replace(/\D/g, '');
-            });
-        });
-
-</script>
 </body>
 </html>

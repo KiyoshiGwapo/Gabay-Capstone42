@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Student_Homepage/Student_Master.Master" AutoEventWireup="true" CodeBehind="Student_profile.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Student_Homepage.Student_profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../../Resources/CustomJS/StudProfile/StudProfile.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Student Profile</h1>
@@ -213,22 +214,34 @@
                                 <span class="fs-3">Change Password</span>
                             </div>
                             <!-- Inside the "Change password modal" -->
-                            <div class="col-12 d-flex align-items-center">
-                                <i class="bi bi-lock-fill mb-2 p-2"></i>
-                                <div class="d-grid w-100">
-                                    <asp:TextBox runat="server" ID="currentPasswordTextBox" CssClass="form-control mb-2" TextMode="Password" placeholder="Enter Current Password" aria-label="default input example"></asp:TextBox>
+                            <div class="col-12 d-flex flex-column">
+                                <div class="d-flex w-100">
+                                    <i class="bi bi-lock-fill mb-2 p-2"></i>
+                                    <asp:TextBox runat="server" ID="currentPasswordTextBox" CssClass="currentPasswordTextBox form-control mb-2" TextMode="Password" placeholder="Enter Current Password" aria-label="default input example"></asp:TextBox>
+                                </div>
+                                 <div class="passwordCurrent text-danger d-none" id="passwordCurrent">
+                                    <span><i class="bi bi-info-circle"></i></span>
+                                    <span>Current password is required</span>
                                 </div>
                             </div>
-                            <div class="col-12 d-flex align-items-center">
-                                <i class="bi bi-lock-fill mb-2 p-2"></i>
-                                <div class="d-grid w-100">
-                                    <asp:TextBox runat="server" ID="newPasswordTextBox" CssClass="form-control mb-2" TextMode="Password" placeholder="New Password" aria-label="default input example"></asp:TextBox>
+                            <div class="col-12 d-flex flex-column">
+                                <div class="d-flex w-100">
+                                    <i class="bi bi-lock-fill mb-2 p-2"></i>
+                                    <asp:TextBox runat="server" ID="newPasswordTextBox" CssClass="newPasswordTextBox form-control mb-2" TextMode="Password" placeholder="New Password" aria-label="default input example"></asp:TextBox>
+                                </div>
+                                <div class="passwordError text-danger d-none" id="passwordError">
+                                    <span><i class="bi bi-info-circle"></i></span>
+                                    <span>Password should contain 8 character long and atleast 1 numeric and 1  capital letter </span>
                                 </div>
                             </div>
-                            <div class="col-12 d-flex align-items-center">
-                                <i class="bi bi-lock-fill mb-2 p-2"></i>
-                                <div class="d-grid w-100">
-                                    <asp:TextBox runat="server" ID="confirmPasswordTextBox" CssClass="form-control mb-2" TextMode="Password" placeholder="Confirm Password" aria-label="default input example"></asp:TextBox>
+                            <div class="col-12 d-flex flex-column">
+                                <div class="d-flex w-100">
+                                    <i class="bi bi-lock-fill mb-2 p-2"></i>
+                                    <asp:TextBox runat="server" ID="confirmPasswordTextBox" CssClass="confirmPasswordTextBox form-control mb-2" TextMode="Password" placeholder="Confirm Password" aria-label="default input example"></asp:TextBox>
+                                </div>
+                                <div class="cpasswordError text-danger d-none" id="cpasswordError">
+                                    <span><i class="bi bi-info-circle"></i></span>
+                                    <span>Password not matched</span>
                                 </div>
                             </div>
 
@@ -259,16 +272,24 @@
                                 <span class="fs-3">Change Email</span>
                             </div>
                             <!-- Inside the "Change email modal" -->
-                            <div class="col-12 d-flex align-items-center">
-                                <i class="bi bi-envelope-fill mb-2 p-2"></i>
-                                <div class="d-grid w-100">
-                                    <asp:TextBox runat="server" ID="currentEmailTextBox" CssClass="form-control mb-2" TextMode="Email" placeholder="Enter Current Email" aria-label="default input example"></asp:TextBox>
+                            <div class="col-12 d-flex flex-column">
+                                <div class="d-flex w-100">
+                                    <i class="bi bi-envelope-fill mb-2 p-2"></i>
+                                    <asp:TextBox runat="server" ID="currentEmailTextBox" CssClass="currentEmailTextBox form-control mb-2" TextMode="Email" placeholder="Enter Current Email" aria-label="default input example"></asp:TextBox>
+                                </div>
+                                <div class="emailError text-danger d-none" id="emailError">
+                                    <span><i class="bi bi-info-circle"></i></span>
+                                    <span>Current email is required</span>
                                 </div>
                             </div>
-                            <div class="col-12 d-flex align-items-center">
-                                <i class="bi bi-envelope-fill mb-2 p-2"></i>
-                                <div class="d-grid w-100">
-                                    <asp:TextBox runat="server" ID="newEmailTextBox" CssClass="form-control mb-2" TextMode="Email" placeholder="Enter New Email" aria-label="default input example"></asp:TextBox>
+                            <div class="col-12 d-flex flex-column">
+                                <div class="d-flex w-100">
+                                    <i class="bi bi-envelope-fill mb-2 p-2"></i>
+                                    <asp:TextBox runat="server" ID="newEmailTextBox" CssClass="newEmailTextBox form-control mb-2" TextMode="Email" placeholder="Enter New Email" aria-label="default input example"></asp:TextBox>
+                                </div>
+                                <div class="newEmailError text-danger d-none" id="newEmailError">
+                                    <span><i class="bi bi-info-circle"></i></span>
+                                    <span>Please provide a valid email</span>
                                 </div>
                             </div>
                             <div class="col-12 d-grid">

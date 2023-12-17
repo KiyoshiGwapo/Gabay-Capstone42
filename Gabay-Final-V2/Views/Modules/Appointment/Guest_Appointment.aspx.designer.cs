@@ -24,13 +24,13 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected global::System.Web.UI.WebControls.DropDownList departmentChoices;
 
         /// <summary>
-        /// date control.
+        /// appointmentDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date;
+        protected global::System.Web.UI.WebControls.TextBox appointmentDate;
 
         /// <summary>
         /// SelectedDate control.
@@ -132,13 +132,13 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected global::System.Web.UI.WebControls.Label noResultsLabel;
 
         /// <summary>
-        /// HiddenField1 control.
+        /// storeAppointmentID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.HiddenField storeAppointmentID;
 
         /// <summary>
         /// reschedCloseBtn control.

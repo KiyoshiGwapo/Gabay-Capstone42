@@ -60,7 +60,7 @@
                             </asp:TemplateField>
                         </Columns>
                         <EmptyDataTemplate>
-                            <asp:Label ID="labelforPending" runat="server" Text="No results found" CssClass="no-results-label d-flex justify-content-center"></asp:Label>
+                            <asp:Label ID="labelforPending" runat="server" Text="No results found in pending students" CssClass="no-results-label d-flex justify-content-center"></asp:Label>
                         </EmptyDataTemplate>
                     </asp:GridView>
                 </div>
@@ -81,7 +81,7 @@
                         </asp:TemplateField>
                     </Columns>
                     <EmptyDataTemplate>
-                        <asp:Label ID="labelforActive" runat="server" Text="No results found" CssClass="no-results-label d-flex justify-content-center"></asp:Label>
+                        <asp:Label ID="labelforActive" runat="server" Text="No results found in active students" CssClass="no-results-label d-flex justify-content-center"></asp:Label>
                     </EmptyDataTemplate>
                 </asp:GridView>
 
@@ -102,7 +102,7 @@
                         </asp:TemplateField>--%>
                     </Columns>
                     <EmptyDataTemplate>
-                        <asp:Label ID="labelforDeactivated" runat="server" Text="No results found" CssClass="no-results-label d-flex justify-content-center"></asp:Label>
+                        <asp:Label ID="labelforDeactivated" runat="server" Text="No results found in deactivated student" CssClass="no-results-label d-flex justify-content-center"></asp:Label>
                     </EmptyDataTemplate>
                 </asp:GridView>
 

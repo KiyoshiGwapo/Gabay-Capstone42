@@ -27,13 +27,12 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         {
             using (SqlConnection con = new SqlConnection(connection))
             {
-                //iyang e choose ang department name dept_name then
-                //join table sa s student and d department iya kuhaon ang base sa iyang deppart id sa id dept 
+                string query = @"SELECT s.studentID, s.name, s.course, s.course_year, d.dept_name AS department_name, s.contactNumber, s.email
+                                FROM student s
+                                INNER JOIN department d ON s.department_ID = d.ID_dept
+                                WHERE s.user_ID = @UserID";
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT s.*, d.dept_name " +
-                                                       "FROM student s " +
-                                                       "JOIN department d ON s.department_ID = d.ID_dept " +
-                                                       "WHERE s.user_ID = @UserID", con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@UserID", userId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -44,7 +43,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                             StudentNameLabel.Text = reader["name"].ToString();
                             CourseLabel.Text = reader["course"].ToString();
                             YearLevelLabel.Text = reader["course_year"].ToString();
-                            CollegeLabel.Text = reader["dept_name"].ToString(); 
+                            CollegeLabel.Text = reader["department_name"].ToString();
                             ContactNumberLabel.Text = reader["contactNumber"].ToString();
                             EmailAddressLabel.Text = reader["email"].ToString();
                         }
@@ -52,7 +51,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 }
             }
         }
-
 
         protected void ChangePassword_Click(object sender, EventArgs e)
         {

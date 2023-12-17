@@ -72,7 +72,8 @@
             color: white; 
             width: 200px; 
             margin: 0 auto; 
-            display: block; 
+            display: block;
+            text-align:center;
         }
     </style>
     <form id="departmentMaster" class="departmentMaster" runat="server">
@@ -235,9 +236,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="notificationModalLabel">Notification Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">

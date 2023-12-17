@@ -24,6 +24,15 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
+        /// displayAllStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton displayAllStatus;
+
+        /// <summary>
         /// displayPending control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,24 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected global::System.Web.UI.WebControls.LinkButton displayDeactivated;
 
         /// <summary>
+        /// displayServed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton displayServed;
+
+        /// <summary>
+        /// displayReject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton displayReject;
+
+        /// <summary>
         /// ddlReportType control.
         /// </summary>
         /// <remarks>
@@ -66,7 +93,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDownloadReports;
+        protected global::System.Web.UI.WebControls.LinkButton btnDownloadReports;
 
         /// <summary>
         /// AppointmentView control.
@@ -93,7 +120,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CloseViewModal;
+        protected global::System.Web.UI.WebControls.LinkButton CloseViewModal;
 
         /// <summary>
         /// appointmentName control.
@@ -301,6 +328,15 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox newdate;
+
+        /// <summary>
+        /// ReschedReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ReschedReason;
 
         /// <summary>
         /// updtSchedule control.

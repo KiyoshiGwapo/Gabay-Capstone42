@@ -89,14 +89,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
-        protected void ViewHistoryButton_Click(object sender, EventArgs e)
-        {
-            if (Session["user_ID"] != null)
-            {
-                int userID = Convert.ToInt32(Session["user_ID"]);
-                Response.Redirect($"AppointmentHistory.aspx?userID={userID}");
-            }
-        }
+
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             try
@@ -119,8 +112,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     {
                         SaveAppointmentDetails(fullname, email, ConNum, StudIdNum, CourseYear, departmentName, SchedDate, SchedTime, Concern);
 
-                        // Show success modal
-                        ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessModal", "$('#successModal').modal('show');", true);
+                        string successMessage = "You have successfully  booked an appointment";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                            $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
 
                         Response.Redirect("~/Views/Modules/Appointment/Appointment_Status.aspx");
                     }
@@ -129,7 +123,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             catch (Exception ex)
             {
                 // Show error modal
-                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", $"$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: black;\">{ex.Message}</span>');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorModal", $"$('#errorModal').modal('show').find('.modal-body').html('<span style=\"color: white;\">{ex.Message}</span>');", true);
             }
         }
 
@@ -154,6 +148,16 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             return true;
         }
+
+        protected void ViewHistoryButton_Click(object sender, EventArgs e)
+        {
+            if (Session["user_ID"] != null)
+            {
+                int userID = Convert.ToInt32(Session["user_ID"]);
+                Response.Redirect($"AppointmentHistory.aspx?userID={userID}");
+            }
+        }
+
 
         public void SaveAppointmentDetails(string fullname, string email, string ConNum,
             string StudIdNum, string CourseYear, string DepartmentName, string SchedDate,
@@ -239,7 +243,5 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
             }
         }
-
-       
     }
 }

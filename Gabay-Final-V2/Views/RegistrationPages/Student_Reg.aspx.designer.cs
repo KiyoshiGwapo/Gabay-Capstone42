@@ -33,6 +33,33 @@ namespace Gabay_Final_V2.Views.RegistrationPages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// departmentChoices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList departmentChoices;
+
+        /// <summary>
+        /// courseList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList courseList;
+
+        /// <summary>
+        /// courseYearChoices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList courseYearChoices;
+
+        /// <summary>
         /// name control.
         /// </summary>
         /// <remarks>
@@ -103,33 +130,6 @@ namespace Gabay_Final_V2.Views.RegistrationPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox cpassword;
-
-        /// <summary>
-        /// departmentChoices control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList departmentChoices;
-
-        /// <summary>
-        /// courseList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList courseList;
-
-        /// <summary>
-        /// courseYearChoices control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList courseYearChoices;
 
         /// <summary>
         /// regBtn control.

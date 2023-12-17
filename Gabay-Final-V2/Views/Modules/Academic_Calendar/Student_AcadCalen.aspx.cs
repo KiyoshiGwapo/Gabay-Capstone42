@@ -131,9 +131,6 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
             }
         }
 
-
-
-
         // Adjust the SelectedIndexChanged event for ddlFiles
         protected void ddlFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -155,14 +152,23 @@ namespace Gabay_Final_V2.Views.Modules.Academic_Calendar
                 }
                 else
                 {
-                    DownloadErrorLabel.Text = "Selected file data not found.";
+                    // Handle the case where the selected value is not a valid integer
+                    DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
                 }
+                // Add debugging statements here
+
+                Selected.Text = "To View the File Click the Button";
+                // Clear the success message label.
+                DownloadErrorLabel.Text = string.Empty;
             }
             else
             {
                 // Handle the case where the selected value is not a valid integer
                 DownloadErrorLabel.Text = "Invalid selection. Please select a valid file.";
+                // Clear the success message label.
+                Selected.Text = string.Empty;
             }
         }
+
     }
 }

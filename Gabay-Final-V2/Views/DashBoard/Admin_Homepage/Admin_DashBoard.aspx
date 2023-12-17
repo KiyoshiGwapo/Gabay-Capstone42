@@ -215,5 +215,4 @@
          <%= BarStudentsElectronicsandCommunicationEngineeringUserCountLabel.Value  %>, <%= BarStudentsElectricalEngineeringUserCountLabel.Value  %>, <%=  BarStudentsMechanicalEngineeringnUserCountLabel.Value  %>,  <%=  BarStudentsIndustrialEngineeringCountLabel.Value  %>,
             <%= BarStudentsComputerEngineeringCountLabel.Value %>);
     </script>
-    
 </asp:Content>

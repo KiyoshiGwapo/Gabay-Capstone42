@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" AutoEventWireup="true" CodeBehind="Department_Announcement.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Announcement.Department_Announcement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../../Resources/CustomJS/Announcement/Announcement.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
@@ -83,7 +84,7 @@
                             <asp:FileUpload ID="Imgbx" CssClass="form-control" runat="server" />
                         </div>
                         <div class=" d-grid ">
-                            <asp:Button ID="updtAnnouncement" CssClass="btn bg-primary" runat="server" Text="Update Announcement" OnClick="updtAnnouncement_Click" />
+                            <asp:Button ID="updtAnnouncement" CssClass="btn bg-primary" runat="server" Text="Update Announcement" OnClick="updtAnnouncement_Click" accept=".jpg, .png, .jpeg" />
                         </div>
                     </div>
                 </div>
@@ -99,23 +100,47 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <asp:TextBox ID="addTitlebx" CssClass="form-control" runat="server" placeholder="Title"></asp:TextBox>
+                        <asp:TextBox ID="addTitlebx" CssClass="addTitlebx form-control" runat="server" placeholder="Title"></asp:TextBox>
                         <label for="Titlebx">Title</label>
+                        <div class="annoucementitle text-danger d-none" id="annoucementitle">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Please provide a title</span>
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <asp:TextBox ID="addDatebx" CssClass="form-control" runat="server" placeholder="Title" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="addDatebx" CssClass="addDatebx form-control" runat="server" placeholder="Title" TextMode="Date"></asp:TextBox>
                         <label for="Datebx">Date</label>
+                        <div class="addDatebxError text-danger d-none" id="addDatebxError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Please provide a date</span>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <asp:FileUpload ID="addFilebx" CssClass="form-control" runat="server" />
+                       <asp:FileUpload ID="addFilebx" CssClass="addFilebx form-control" runat="server" accept=".jpg, .png, .jpeg" />
+                        <div class="imgError text-danger d-none" id="imgError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Image is required</span>
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <asp:TextBox ID="addShrtbx" CssClass="form-control" runat="server" placeholder="Short Description"></asp:TextBox>
+                        <asp:TextBox ID="addShrtbx" CssClass="addShrtbx form-control" runat="server" placeholder="Short Description"></asp:TextBox>
                         <label for="addShrtbx">Short Description</label>
+                        <div class="shrtDescError text-danger d-none" id="shrtDescError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>add short description (50 characters max)</span>
+                        </div>
+                        <div class="maxError text-danger d-none" id="maxError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Max character reached</span>
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <asp:TextBox ID="addDtldbx" CssClass="form-control DtlDescBx" Style="height: 100px" runat="server" placeholder="Detailed Description" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="addDtldbx" CssClass="addDtldbx form-control DtlDescBx" Style="height: 100px" runat="server" placeholder="Detailed Description" TextMode="MultiLine"></asp:TextBox>
                         <label for="DtlDescBx">Detailed Description</label>
+                        <div class="lngDescError text-danger d-none" id="lngDescError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Please provide a description</span>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

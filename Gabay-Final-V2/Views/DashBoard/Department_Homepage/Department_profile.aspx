@@ -383,10 +383,18 @@
                     </table>
                 </div>
                 <div class="modal-body">
-                    <asp:FileUpload ID="fileUpload" runat="server" accept=".pdf"  />
+                    <asp:FileUpload ID="fileUpload" CssClass="fileUpload form-control" runat="server"/>
+                    <div class="errFileExtn text-danger d-none" id="errFileExtn">
+                        <span><i class="bi bi-info-circle"></i></span>
+                        <span>Please provide a file</span>
+                    </div>
                 </div>
                 <div class="modal-body">
-                    <asp:TextBox ID="txtFileName" runat="server" placeholder="Enter File Name" />
+                    <asp:TextBox ID="txtFileName" runat="server" CssClass="txtFileName form-control" placeholder="Enter File Name" />
+                    <div class="errFileName text-danger d-none" id="errFileName">
+                        <span><i class="bi bi-info-circle"></i></span>
+                        <span>Please provide a file name</span>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="BtnUpload_Click" CssClass="btn btn-primary" />
@@ -394,11 +402,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
 
 
     <%-- success modal --%>
@@ -449,14 +452,14 @@
         }
     </script>
 
-    <script type="text/javascript">
-        function openInNewTab() {
-            // Get the URL of the clicked button's page
-            var url = '<%= ResolveUrl("Department_profile.aspx") %>';
-            window.open(url, '_blank');
-            return false; // To prevent the default postback action
-        }
-    </script>
+ <script type="text/javascript">
+     function openInNewTab() {
+         // Get the URL of the clicked button's page
+         var url = '<%= ResolveUrl("Department_profile.aspx") %>';
+         window.open(url, '_blank');
+         return false; // To prevent the default postback action
+     }
+</script>
 
 
      <!-- JavaScript to show/hide modal -->

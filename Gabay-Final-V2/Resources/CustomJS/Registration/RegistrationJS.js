@@ -35,7 +35,7 @@
     const errorYear = form.querySelector('.courseYearError');
 
     function checkName() {
-        const regex = /\d/;
+        const regex = /^[A-Za-z. ]+$/;
 
         if (regex.test(nameInput.value) || nameInput.value === "") {
             nameInput.classList.add('is-invalid');

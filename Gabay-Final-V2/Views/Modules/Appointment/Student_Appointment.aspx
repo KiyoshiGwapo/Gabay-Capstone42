@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Student_Homepage/Student_Master.Master" AutoEventWireup="true" CodeBehind="Student_Appointment.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Appointment.Student_Appointment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+	<script src="../../../Resources/CustomJS/Appointment/AppointValidationStudent.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	<h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Appointment</h1>
@@ -31,10 +32,10 @@
 	  margin: 0 auto; /* Center the submit button */
 	}
 	/* Style for the Concern input field */
-	 	#concern {
-	 		max-height: 150px; /* Set a maximum height */
-	 		overflow-y: auto; /* Add a scrollbar when necessary */
-	 	}
+	#concern {
+	  max-height: 150px; /* Set a maximum height */
+	  overflow-y: auto; /* Add a scrollbar when necessary */
+	}
 	.custom-button {
 			background-color: darkblue; 
 			color: #fff;
@@ -49,18 +50,8 @@
 		.custom-button:hover {
 			 background-color: #007bff; 
 		}
-		.reschedBtn{
-			margin-left:5px;
-		}
-		.reschedBtn:hover{
-			opacity:75%;
-		}
-		.acceptBtn{
-			width: 150px;
-		}
-	</style>
+  </style>
 	<asp:Button ID="ViewHistoryButton" runat="server" Text="View My History" CssClass="custom-button" OnClick="ViewHistoryButton_Click" />
-	<%--<asp:HyperLink ID="HyperLink1" runat="server"  CssClass="custom-button" NavigateUrl="~/Views/Modules/Appointment/AppointmentHistory.aspx">View My History</asp:HyperLink>--%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-6 mx-auto form-wrapper">
@@ -96,14 +87,18 @@
 							<div class="col">
 								<label for="date" class="form-label">Date</label>
 								<%--<input type="date" id="selectedDateHidden" runat="server" name="date" class="form-control" />--%>
-								<asp:TextBox ID="date" CssClass="form-control" runat="server" TextMode="Date" OnTextChanged="date_TextChanged" AutoPostBack="True"></asp:TextBox>
+								<asp:TextBox ID="date" CssClass="appointmentDate form-control" runat="server" TextMode="Date" OnTextChanged="date_TextChanged" AutoPostBack="True"></asp:TextBox>
 								<asp:HiddenField ID="SelectedDate" runat="server" />
+								<div class="dateError text-danger d-none" id="dateError">
+									<span><i class="bi bi-info-circle"></i></span>
+									<span>Please select a Date</span>
+								</div>
 							</div>
 							<div class="col">
 								<label for="time" class="form-label">Time</label>
 								<!-- Replace with your ASP.NET TextBox for Time -->
 								<%--<asp:TextBox ID="time" runat="server" TextMode="Time" CssClass="form-control" />--%>
-								<asp:DropDownList ID="time" runat="server" CssClass="form-select">
+								<asp:DropDownList ID="time" runat="server" CssClass="appointmentTime form-select ">
 									<asp:ListItem Value="" Selected="True">Selec Available Time</asp:ListItem>
 									<asp:ListItem Value="8:00 AM">8:00 AM</asp:ListItem>
 									<asp:ListItem Value="9:00 AM">9:00 AM</asp:ListItem>
@@ -114,6 +109,10 @@
 									<asp:ListItem Value="3:00 PM">3:00 PM</asp:ListItem>
 									<asp:ListItem Value="4:00 PM">4:00 PM</asp:ListItem>
 								</asp:DropDownList>
+								<div class="timeError text-danger d-none" id="timeError">
+									<span><i class="bi bi-info-circle"></i></span>
+									<span>Please select a time</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -123,9 +122,13 @@
 					</div>
 					<div class="mb-3">
 						<label for="Message" class="form-label">Concern</label>
-						<asp:TextBox ID="Message" runat="server" TextMode="MultiLine" Rows="6" Columns="30" CssClass="form-control"></asp:TextBox>
+						<asp:TextBox ID="Message" runat="server" TextMode="MultiLine" Rows="6" Columns="30" CssClass="Message form-control "></asp:TextBox>
+						<div class="concernError text-danger d-none" id="concernError">
+							<span><i class="bi bi-info-circle"></i></span>
+							<span>Please state your concern</span>
+						</div>
 					</div>
-					<button type="button" class="btn btn-primary btn-submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+					<button type="button" class="btn btn-primary btn-submit" data-bs-toggle="modal" data-bs-target="#confirmationModal">
 						Submit Appointment
 					</button>
 				</div>
@@ -133,7 +136,7 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal fade" id="confirmationModal"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -145,19 +148,19 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-					<asp:Button ID="SubmitButton" runat="server" Text="Proceed" OnClick="SubmitButton_Click" ValidationGroup="FormValidation" CssClass="btn btn-primary" />
+					<asp:Button ID="SubmitButton" runat="server" Text="Proceed" OnClick="SubmitButton_Click" CssClass="btn btn-primary" />
 				</div>
 			</div>
 		</div>
 	</div>
 	
-	 <%-- success modal --%>
+	 <%-- Success modal --%>
 	<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-body bg-success text-center text-light">
 					<i class="bi bi-info-circle-fill"></i>
-					<span>Successfully Updated</span>
+					<p id="successMessage"></p>
 				</div>
 			</div>
 		</div>
@@ -166,7 +169,7 @@
 	<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<div class="modal-body bg-danger-subtle text-center text-light">
+				<div class="modal-body bg-danger text-center text-light">
 				</div>
 			</div>
 		</div>

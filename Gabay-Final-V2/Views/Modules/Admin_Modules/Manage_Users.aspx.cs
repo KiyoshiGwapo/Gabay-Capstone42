@@ -12,7 +12,6 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
 using System.IO;
 
-
 namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 {
     public partial class Manage_Users : System.Web.UI.Page
@@ -55,7 +54,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 // Adjust the query based on your database schema and the selected filter
                 if (filter == "Students")
                 {
-                    query = "SELECT s.ID_student as ID, s.name as Name, s.email as Email, d.dept_name as StudentDepartment " +
+                    query = "SELECT s.ID_student as ID, s.user_ID, s.name as Name, s.email as Email, d.dept_name as StudentDepartment " +
                             "FROM student s " +
                             "INNER JOIN department d ON s.department_ID = d.ID_dept";
                     GridViewStudents.Visible = true;
@@ -424,6 +423,14 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 // Add spacing
                 document.Add(new Paragraph("\n"));
 
+                // Add title to the document
+                Paragraph des = new Paragraph("University of Cebu – Lapu-Lapu and Mandaue Campus (UCLM)", new Font(Font.FontFamily.HELVETICA, 9));
+                des.Font.Color = BaseColor.BLACK;
+                des.Alignment = Element.ALIGN_CENTER;
+                document.Add(des);
+
+                // Add spacing
+                document.Add(new Paragraph("\n"));
                 // Add title to the document with selected account type
                 Paragraph title = new Paragraph($"List of {accountType}", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));
                 title.Alignment = Element.ALIGN_CENTER;
@@ -466,17 +473,33 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 // Add spacing between title and table
                 document.Add(new Paragraph("\n"));
 
+                // Create a new table for total students
+                PdfPTable totalStudentsTable = new PdfPTable(1);
+                totalStudentsTable.WidthPercentage = 100;
+                totalStudentsTable.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                // Add a cell for the total students count
+                PdfPCell totalStudentsCell = new PdfPCell(new Phrase($"Total: {dt.Rows.Count}", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.BLACK)));
+                totalStudentsCell.Border = PdfPCell.NO_BORDER;
+                totalStudentsTable.AddCell(totalStudentsCell);
+
+                // Add the total students table to the document
+                document.Add(totalStudentsTable);
+
                 // Add title to the document
                 Paragraph by = new Paragraph("Prepared by:", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.BLACK));
                 by.Alignment = Element.ALIGN_RIGHT;
                 document.Add(by);
 
                 // Add title to the document
-                Paragraph admin = new Paragraph("ADMIN", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.BLACK));
+                Paragraph admin = new Paragraph("______________", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.BLACK));
                 admin.Alignment = Element.ALIGN_RIGHT;
                 document.Add(admin);
                 // Add spacing between title and table
                 document.Add(new Paragraph("\n"));
+
+                // Call the method to add the footer
+                AddCustomFooter(document);
 
                 document.Close();
             }
@@ -487,6 +510,54 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             Response.TransmitFile(filePath);
             Response.End();
         }
+
+        private void AddCustomFooter(Document document)
+        {
+            Paragraph footer = new Paragraph();
+
+            string footerHtml = @"
+            <div style='background-color: cyan; font-size: 10px; position: fixed; width: 100%; text-align:center; color: #333;' >
+                <div style='padding: 5px; '>
+                    <b>Contact Information:</b><br>
+                    A.C. Cortes Avenue 6000 Mandaue City Cebu<br>
+                    Email: info@uclm.edu.ph<br>
+                    (032) 345 6666<br>
+                </div>
+                <div style='padding: 5x; '>
+                    <b>Quick Links:</b><br>
+                    <a href='https://www.universityofcebu.net/p/university-of-cebu-lapu-lapu-and.html'>Website</a><br>
+                    <a href='https://www.facebook.com/search/top?q=uclm%20college%20of%20computer%20studies'>Facebook</a><br>
+                </div>
+                <div style='padding: 5x;'>
+                    <b>ABOUT US:</b><br>
+                    GABAY is more than just a word;<br> 
+                    it's a beacon of support and wisdom <br>
+                    that lights the path for all of us. <br>
+                    In times of uncertainty,<br> 
+                    when we seek direction or a helping hand, <br>
+                    GABAY reminds us that we are never alone. <br>
+                </div>
+                <div style='clear: both;'></div>
+            </div>
+        </div>
+    ";
+
+            // Use HTMLWorker to parse HTML and add it to the paragraph
+            using (var sr = new StringReader(footerHtml))
+            {
+                List<IElement> elements = HTMLWorker.ParseToList(sr, null, null);
+
+                foreach (var element in elements)
+                {
+                    footer.Add(element);
+                }
+            }
+
+            // Add the footer paragraph to the document
+            document.Add(footer);
+        }
+
+
 
 
 

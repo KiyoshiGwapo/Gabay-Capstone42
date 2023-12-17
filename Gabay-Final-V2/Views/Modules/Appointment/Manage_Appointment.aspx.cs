@@ -89,8 +89,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                             LEFT JOIN user_role ur ON u.role_ID = ur.role_id
                                             WHERE (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)
                                             OR a.student_ID = 'guest')
-                                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))
-                                            AND (a.appointment_status = 'pending' OR a.appointment_status = 'reschedule' OR a.appointment_status = 'approved')";
+                                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))";
                 using (SqlCommand cmd = new SqlCommand(queryFetchStudent, conn))
                 {
                     cmd.Parameters.AddWithValue("@departmentUserID", userID);
@@ -222,86 +221,89 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             int AppointmentID = Convert.ToInt32(HiddenFieldAppointment.Value);
             string newTime = newtime.SelectedValue.ToString();
             string newDate = newdate.Text;
-            updateSchedDateTime(AppointmentID, newTime, newDate);
+            string reschedReason = ReschedReason.Text;
+            updateSchedDateTime(AppointmentID, newTime, newDate, reschedReason);
             BindingAppointment();
             string successMessage = "Schedule updated successfully.";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
                 $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
         }
 
-        public void updateSchedDateTime(int AppointmentID, string newTime, string newDate)
+        public void updateSchedDateTime(int AppointmentID, string newTime, string newDate, string reschedReason)
         {
-            using (SqlConnection conn = new SqlConnection(connection))
+            try
             {
-                string query = @"SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
-                conn.Open();
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = new SqlConnection(connection))
                 {
-                    cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    string query = @"SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
+                    conn.Open();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            DateTime date = (DateTime)reader["appointment_date"];
-                            string currentDate = date.ToString("dd MMM, yyyy ddd");
-                            string currentTime = reader["appointment_time"].ToString();
-                            string appointeeEmail = reader["email"].ToString().Trim();
-                            string appointee = reader["full_name"].ToString();
-                            string destination = reader["deptName"].ToString();
-                            string updateStatus = "reschedule";
-
-                            if (newDate != currentDate || newTime != currentTime)
+                            if (reader.Read())
                             {
-                                reader.Close();
+                                DateTime date = (DateTime)reader["appointment_date"];
+                                string currentDate = date.ToString("dd MMM, yyyy ddd");
+                                string currentTime = reader["appointment_time"].ToString();
+                                string appointeeEmail = reader["email"].ToString().Trim();
+                                string appointee = reader["full_name"].ToString();
+                                string destination = reader["deptName"].ToString();
+                                string updateStatus = "reschedule";
 
-                                string updateQuery = "UPDATE appointment SET ";
-                                if (newDate != currentDate)
+                                if (newDate != currentDate || newTime != currentTime)
                                 {
-                                    updateQuery += "appointment_date = @newDate, ";
-                                }
-                                if (newTime != currentTime)
-                                {
-                                    updateQuery += "appointment_time = @newTime, ";
-                                }
-                                updateQuery += "appointment_status = @newStatus WHERE ID_appointment = @AppointmentID";
+                                    reader.Close();
 
-                                using (SqlCommand cmdDateTime = new SqlCommand(updateQuery, conn))
-                                {
+                                    string updateQuery = "UPDATE appointment SET ";
                                     if (newDate != currentDate)
                                     {
-                                        cmdDateTime.Parameters.AddWithValue("@newDate", newDate);
+                                        updateQuery += "appointment_date = @newDate, ";
                                     }
                                     if (newTime != currentTime)
                                     {
-                                        cmdDateTime.Parameters.AddWithValue("@newTime", newTime);
+                                        updateQuery += "appointment_time = @newTime, ";
                                     }
-                                    cmdDateTime.Parameters.AddWithValue("@newStatus", updateStatus);
-                                    cmdDateTime.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                                    updateQuery += "appointment_status = @newStatus WHERE ID_appointment = @AppointmentID";
 
-                                    cmdDateTime.ExecuteNonQuery();
+                                    using (SqlCommand cmdDateTime = new SqlCommand(updateQuery, conn))
+                                    {
+                                        if (newDate != currentDate)
+                                        {
+                                            cmdDateTime.Parameters.AddWithValue("@newDate", newDate);
+                                        }
+                                        if (newTime != currentTime)
+                                        {
+                                            cmdDateTime.Parameters.AddWithValue("@newTime", newTime);
+                                        }
+                                        cmdDateTime.Parameters.AddWithValue("@newStatus", updateStatus);
+                                        cmdDateTime.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+
+                                        cmdDateTime.ExecuteNonQuery();
+                                    }
+
+                                    // Log the status change in the AppointmentStatusHistory table
+                                    InsertStatusChangeToHistory(conn, AppointmentID, updateStatus, currentDate, currentTime);
+
+                                    // Notify that the status has changed.
+                                    DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
                                 }
 
-                                // Log the status change in the AppointmentStatusHistory table
-                                InsertStatusChangeToHistory(conn, AppointmentID, updateStatus, currentDate, currentTime);
+                                DateTime newdate = DateTime.Parse(newDate);
+                                string formattedNewDate = newdate.ToString("dd MMM, yyyy ddd");
 
-                                // Notify that the status has changed.
-                                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
-                            }
+                                var message = new MimeMessage();
+                                message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
+                                message.To.Add(new MailboxAddress("Recipient", appointeeEmail));
+                                message.Subject = "Appointment Details";
 
-                            DateTime newdate = DateTime.Parse(newDate);
-                            string formattedNewDate = newdate.ToString("dd MMM, yyyy ddd");
+                                var builder = new BodyBuilder();
 
-                            var message = new MimeMessage();
-                            message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
-                            message.To.Add(new MailboxAddress("Recipient", appointeeEmail));
-                            message.Subject = "Appointment Details";
-
-                            var builder = new BodyBuilder();
-
-                            // Add the logo and QR code centered in the email body
-                            builder.HtmlBody = $@"
+                                // Add the logo and QR code centered in the email body
+                                builder.HtmlBody = $@"
                                 <div style='text-align: center;margin-bottom: 10px;'>
                                     <div>
                                         <img src='cid:logo-image' style='width: 100px; height: auto; margin-right: 5px; display: block; margin: 0 auto;'>
@@ -314,11 +316,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                     <img src='cid:resched-image' width='200' height='200'>
                                 </div>";
 
-                            // Add additional appointment details
-                            builder.HtmlBody += $@"<div style='text-align: center;'><h1>Heads up!</h1></div>
+                                // Add additional appointment details
+                                builder.HtmlBody += $@"<div style='text-align: center;'><h1>Heads up!</h1></div>
                                                 <div style='text-align: center;'>
                                                 <p>Hello!<b> {appointee}</b>, your appointment with an appointment ID: <b>{AppointmentID}</b> scheduled on <b>{currentDate} {currentTime}</b> </p>
-                                                <p>has been rescheduled on <b>{formattedNewDate} {newTime}</b>, please go to the GABAY webpage to accept or reject your new appointment status</p>
+                                                <p>has been rescheduled on <b>{formattedNewDate} {newTime}</b>,due to <b>{reschedReason}</b>, please go to the GABAY webpage to accept or reject your new appointment status</p>
                                                 <p>If you have any concern question kindly visit the {destination}'s office or book another appointment</p>
                                                 <p>Thank you!</p>
                                                 </div>
@@ -326,47 +328,63 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                                 <a href='https://localhost:44341/Landing_Page/LandingPage.aspx' style='display: inline-block; padding: 10px; background-color: #007BFF; color: #fff; text-decoration: none; margin-top: 20px;'>Go to GABAY</a>
                                                 </div>";
 
-                            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
-                            logoImage.ContentId = "logo-image";
-                            logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+                                var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                                logoImage.ContentId = "logo-image";
+                                logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
-                            var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\reschedule-icon-6.jpg");
-                            qrCodeImage.ContentId = "resched-image";
-                            qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+                                var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\reschedule-icon-6.jpg");
+                                qrCodeImage.ContentId = "resched-image";
+                                qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
-                            message.Body = builder.ToMessageBody();
+                                message.Body = builder.ToMessageBody();
 
-                            // Send the email using MailKit
-                            using (var client = new SmtpClient())
-                            {
-                                client.Connect("smtp.gmail.com", 587, false);
-                                client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
-                                client.Send(message);
-                                client.Disconnect(true);
+                                // Send the email using MailKit
+                                using (var client = new SmtpClient())
+                                {
+                                    client.Connect("smtp.gmail.com", 587, false);
+                                    client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
+                                    client.Send(message);
+                                    client.Disconnect(true);
+                                }
                             }
                         }
                     }
-                }
 
-                conn.Close();
+                    conn.Close();
+                }
+            }
+            catch {
+                string errorMessage = "Please check your internet connection";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
             }
         }
 
         private void InsertStatusChangeToHistory(SqlConnection conn, int AppointmentID, string newStatus, string currentDate, string currentTime)
         {
-            string insertQuery = "INSERT INTO AppointmentStatusHistory (AppointmentID, StatusChangeDate, PreviousStatus, NewStatus, Notification) " +
-                                "VALUES (@AppointmentID, @StatusChangeDate, @PreviousStatus, @NewStatus, @Notification)";
-
-            using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+            try
             {
-                cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-                cmd.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
-                cmd.Parameters.AddWithValue("@PreviousStatus", "current_status");
-                cmd.Parameters.AddWithValue("@NewStatus", newStatus);
-                cmd.Parameters.AddWithValue("@Notification", "UNREAD");
+                string insertQuery = "INSERT INTO AppointmentStatusHistory (AppointmentID, StatusChangeDate, PreviousStatus, NewStatus, Notification) " +
+                               "VALUES (@AppointmentID, @StatusChangeDate, @PreviousStatus, @NewStatus, @Notification)";
 
-                cmd.ExecuteNonQuery();
+                using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                    cmd.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@PreviousStatus", "current_status");
+                    cmd.Parameters.AddWithValue("@NewStatus", newStatus);
+                    cmd.Parameters.AddWithValue("@Notification", "UNREAD");
+
+                    cmd.ExecuteNonQuery();
+                }
             }
+            catch
+            {
+                string errorMessage = "Please check your internet connection";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+           
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
@@ -432,50 +450,52 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         public void approveAppointment(int AppointmentID)
         {
-            using (SqlConnection conn = new SqlConnection(connection))
+            try
             {
-                string getAppointmentInfoQuery = @"SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
-                conn.Open();
-                using (SqlCommand setCmd = new SqlCommand(getAppointmentInfoQuery, conn))
+                using (SqlConnection conn = new SqlConnection(connection))
                 {
-                    setCmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-
-                    using (SqlDataReader reader = setCmd.ExecuteReader())
+                    string getAppointmentInfoQuery = @"SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
+                    conn.Open();
+                    using (SqlCommand setCmd = new SqlCommand(getAppointmentInfoQuery, conn))
                     {
-                        if (reader.Read())
+                        setCmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+
+                        using (SqlDataReader reader = setCmd.ExecuteReader())
                         {
-                            string appointmentID = reader["ID_appointment"].ToString();
-                            string appointee = reader["full_name"].ToString();
-                            string destination = reader["deptName"].ToString();
-                            DateTime date = (DateTime)reader["appointment_date"];
-                            string appointmentDate = date.ToString("dd MMM, yyyy ddd");
-                            string appointmentTime = reader["appointment_time"].ToString();
-                            string appointeeEmail = reader["email"].ToString();
-
-                            string TempUrl = $"https://localhost:44341/Prototype/tempPage.aspx?appointmentID={appointmentID}";
-
-                            BarcodeWriter barcodeWriter = new BarcodeWriter();
-                            barcodeWriter.Format = BarcodeFormat.QR_CODE;
-                            barcodeWriter.Options = new QrCodeEncodingOptions
+                            if (reader.Read())
                             {
-                                Width = 200,
-                                Height = 200,
-                            };
-                            System.Drawing.Bitmap qrCodeBitmap = barcodeWriter.Write(TempUrl);
+                                string appointmentID = reader["ID_appointment"].ToString();
+                                string appointee = reader["full_name"].ToString();
+                                string destination = reader["deptName"].ToString();
+                                DateTime date = (DateTime)reader["appointment_date"];
+                                string appointmentDate = date.ToString("dd MMM, yyyy ddd");
+                                string appointmentTime = reader["appointment_time"].ToString();
+                                string appointeeEmail = reader["email"].ToString();
 
-                            // Save the QR code as a temporary image file
-                            string tempQRCodeFilePath = Server.MapPath("~/TempQRCode.png");
-                            qrCodeBitmap.Save(tempQRCodeFilePath, System.Drawing.Imaging.ImageFormat.Png);
+                                string TempUrl = $"https://localhost:44341/Prototype/tempPage.aspx?appointmentID={appointmentID}";
 
-                            var message = new MimeMessage();
-                            message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
-                            message.To.Add(new MailboxAddress("Recipient", appointeeEmail));
-                            message.Subject = "Appointment Details";
+                                BarcodeWriter barcodeWriter = new BarcodeWriter();
+                                barcodeWriter.Format = BarcodeFormat.QR_CODE;
+                                barcodeWriter.Options = new QrCodeEncodingOptions
+                                {
+                                    Width = 200,
+                                    Height = 200,
+                                };
+                                System.Drawing.Bitmap qrCodeBitmap = barcodeWriter.Write(TempUrl);
 
-                            var builder = new BodyBuilder();
+                                // Save the QR code as a temporary image file
+                                string tempQRCodeFilePath = Server.MapPath("~/TempQRCode.png");
+                                qrCodeBitmap.Save(tempQRCodeFilePath, System.Drawing.Imaging.ImageFormat.Png);
 
-                            // Add the logo and QR code centered in the email body
-                            builder.HtmlBody = $@"
+                                var message = new MimeMessage();
+                                message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
+                                message.To.Add(new MailboxAddress("Recipient", appointeeEmail));
+                                message.Subject = "Appointment Details";
+
+                                var builder = new BodyBuilder();
+
+                                // Add the logo and QR code centered in the email body
+                                builder.HtmlBody = $@"
                                 <div style='text-align: center;margin-bottom: 10px;'>
                                     <div>
                                         <img src='cid:logo-image' style='width: 100px; height: auto; margin-right: 5px; display: block; margin: 0 auto;'>
@@ -488,8 +508,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                     <img src='cid:qr-code-image' width='200' height='200'>
                                 </div>";
 
-                            // Add additional appointment details
-                            builder.HtmlBody += $@"<div style='text-align: center;'><h1>Your Appointment is all set!</h1></div>
+                                // Add additional appointment details
+                                builder.HtmlBody += $@"<div style='text-align: center;'><h1>Your Appointment is all set!</h1></div>
                                                 <div style='text-align: center;'>
                                                 <p>Hello!<b> {appointee}</b>, your appointment is set please see the details below</p>
                                                 <p><b>Appointment ID:</b> {appointmentID}</p>
@@ -497,62 +517,70 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                                 <p><b>Destination:</b> {destination}</p>
                                                 </div>";
 
-                            var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
-                            logoImage.ContentId = "logo-image";
-                            logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+                                var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                                logoImage.ContentId = "logo-image";
+                                logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
-                            var qrCodeImage = builder.LinkedResources.Add(tempQRCodeFilePath);
-                            qrCodeImage.ContentId = "qr-code-image";
-                            qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+                                var qrCodeImage = builder.LinkedResources.Add(tempQRCodeFilePath);
+                                qrCodeImage.ContentId = "qr-code-image";
+                                qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
-                            message.Body = builder.ToMessageBody();
+                                message.Body = builder.ToMessageBody();
 
-                            // Send the email using MailKit
-                            using (var client = new SmtpClient())
-                            {
-                                client.Connect("smtp.gmail.com", 587, false);
-                                client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
-                                client.Send(message);
-                                client.Disconnect(true);
+                                // Send the email using MailKit
+                                using (var client = new SmtpClient())
+                                {
+                                    client.Connect("smtp.gmail.com", 587, false);
+                                    client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
+                                    client.Send(message);
+                                    client.Disconnect(true);
+                                }
+
+                                // Clean up (optional)
+                                System.IO.File.Delete(tempQRCodeFilePath);
                             }
 
-                            // Clean up (optional)
-                            System.IO.File.Delete(tempQRCodeFilePath);
+                            reader.Close();
                         }
-
-                        reader.Close();
                     }
-                }
 
 
-                string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
-                string updateStatus = "approved";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-                    cmd.Parameters.AddWithValue("@AppointmentStats", updateStatus);
-                    cmd.ExecuteNonQuery();
-                }
+                    string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
+                    string updateStatus = "approved";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                        cmd.Parameters.AddWithValue("@AppointmentStats", updateStatus);
+                        cmd.ExecuteNonQuery();
+                    }
 
-                // Insert a record into AppointmentStatusHistory
-                string queryInsertHistory = @"
+                    // Insert a record into AppointmentStatusHistory
+                    string queryInsertHistory = @"
                 INSERT INTO AppointmentStatusHistory (AppointmentID, StatusChangeDate, PreviousStatus, NewStatus, Notification)
                 VALUES (@AppointmentID, @StatusChangeDate, @PreviousStatus, @NewStatus ,@Notification)";
-                using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
-                {
-                    cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-                    cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
-                    cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status");
-                    cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "approved");
-                    cmdInsertHistory.Parameters.AddWithValue("@Notification", "UNREAD");
-                    cmdInsertHistory.ExecuteNonQuery();
+                    using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
+                    {
+                        cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                        cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now);
+                        cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status");
+                        cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "approved");
+                        cmdInsertHistory.Parameters.AddWithValue("@Notification", "UNREAD");
+                        cmdInsertHistory.ExecuteNonQuery();
+                    }
+
+                    // Notify that the status has changed.
+                    DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
+
+                    conn.Close();
                 }
-
-                // Notify that the status has changed.
-                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
-
-                conn.Close();
             }
+            catch
+            {
+                string ErrorMessage = "Please check your internet connection";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                   $"$('#errorMessage').text('{ErrorMessage}'); $('#errorModal').modal('show');", true);
+            }
+            
         }
 
         protected void RejectLink_Click(object sender, EventArgs e)
@@ -571,44 +599,68 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             int AppointmentID = Convert.ToInt32(HiddenFieldAppointment.Value);
             string Rejectreason = rejectReason.Text;
-            rejectAppointment(AppointmentID, Rejectreason);
-            BindingAppointment();
-            string successMessage = "Appointment updated to rejected";
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
-                $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+
+            try
+            {
+                if (string.IsNullOrEmpty(Rejectreason))
+                {
+                    // Display an error message for incomplete form
+                    string errorMessage = "Please fill out all fields.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                        $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                    return; // Stop further processing if the form is incomplete
+                }
+                else
+                {
+                    rejectAppointment(AppointmentID, Rejectreason);
+                    BindingAppointment();
+                    string successMessage = "Appointment updated to rejected";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+                }
+            }catch (Exception ex)
+            {
+                string errorMessage = ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+                return; // Stop further processing if the form is incomplete
+            }
+           
         }
 
         public void rejectAppointment(int AppointmentID, string rejectReason)
         {
-            using (SqlConnection conn = new SqlConnection(connection))
+            try
             {
-                string getAppointmentInfoQuery = @"SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
-                conn.Open();
-                using (SqlCommand setCmd = new SqlCommand(getAppointmentInfoQuery, conn))
+                using (SqlConnection conn = new SqlConnection(connection))
                 {
-                    setCmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-
-                    using (SqlDataReader reader = setCmd.ExecuteReader())
+                    string getAppointmentInfoQuery = @"SELECT * FROM appointment WHERE ID_appointment = @AppointmentID";
+                    conn.Open();
+                    using (SqlCommand setCmd = new SqlCommand(getAppointmentInfoQuery, conn))
                     {
-                        if (reader.Read())
+                        setCmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+
+                        using (SqlDataReader reader = setCmd.ExecuteReader())
                         {
-                            string appointmentID = reader["ID_appointment"].ToString();
-                            string appointee = reader["full_name"].ToString();
-                            string destination = reader["deptName"].ToString();
-                            DateTime date = (DateTime)reader["appointment_date"];
-                            string appointmentDate = date.ToString("dd MMM, yyyy ddd");
-                            string appointmentTime = reader["appointment_time"].ToString();
-                            string appointeeEmail = reader["email"].ToString();
+                            if (reader.Read())
+                            {
+                                string appointmentID = reader["ID_appointment"].ToString();
+                                string appointee = reader["full_name"].ToString();
+                                string destination = reader["deptName"].ToString();
+                                DateTime date = (DateTime)reader["appointment_date"];
+                                string appointmentDate = date.ToString("dd MMM, yyyy ddd");
+                                string appointmentTime = reader["appointment_time"].ToString();
+                                string appointeeEmail = reader["email"].ToString();
 
-                            var message = new MimeMessage();
-                            message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
-                            message.To.Add(new MailboxAddress("Recipient", appointeeEmail));
-                            message.Subject = "Appointment Details";
+                                var message = new MimeMessage();
+                                message.From.Add(new MailboxAddress("UC Gabay", "noReply@noReply.com"));
+                                message.To.Add(new MailboxAddress("Recipient", appointeeEmail));
+                                message.Subject = "Appointment Details";
 
-                            var builder = new BodyBuilder();
+                                var builder = new BodyBuilder();
 
-                            // Add the logo and QR code centered in the email body
-                            builder.HtmlBody = $@"
+                                // Add the logo and QR code centered in the email body
+                                builder.HtmlBody = $@"
                                 <div style='text-align: center;margin-bottom: 10px;'>
                                     <div>
                                         <img src='cid:logo-image' style='width: 100px; height: auto; margin-right: 5px; display: block; margin: 0 auto;'>
@@ -621,8 +673,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                     <img src='cid:erro-image' width='200' height='200'>
                                 </div>";
 
-                            // Add additional appointment details
-                            builder.HtmlBody += $@"<div style='text-align: center;'><h1>Something went wrong!</h1></div>
+                                // Add additional appointment details
+                                builder.HtmlBody += $@"<div style='text-align: center;'><h1>Something went wrong!</h1></div>
                                                 <div style='text-align: center;'>
                                                 <p>Hello!<b> {appointee}</b>, your appointment scheduled on <b>{appointmentDate} {appointmentTime}</b> </p>
                                                 <p>that addressed to {destination} is <b>Rejected</b></p>
@@ -632,60 +684,68 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                                 <p>Thank you!</p>
                                                 </div>";
 
-                            var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\Source\\Repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
-                            logoImage.ContentId = "logo-image";
-                            logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+                                var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                                logoImage.ContentId = "logo-image";
+                                logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
-                            var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\rodri\\Source\\Repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\error.png");
-                            qrCodeImage.ContentId = "erro-image";
-                            qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
+                                var qrCodeImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\tempIcons\\error.png");
+                                qrCodeImage.ContentId = "erro-image";
+                                qrCodeImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
-                            message.Body = builder.ToMessageBody();
+                                message.Body = builder.ToMessageBody();
 
-                            // Send the email using MailKit
-                            using (var client = new SmtpClient())
-                            {
-                                client.Connect("smtp.gmail.com", 587, false);
-                                client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
-                                client.Send(message);
-                                client.Disconnect(true);
+                                // Send the email using MailKit
+                                using (var client = new SmtpClient())
+                                {
+                                    client.Connect("smtp.gmail.com", 587, false);
+                                    client.Authenticate(ConfigurationManager.AppSettings["SystemEmail"], ConfigurationManager.AppSettings["SystemEmailPass"]);
+                                    client.Send(message);
+                                    client.Disconnect(true);
+                                }
                             }
+
+                            reader.Close();
                         }
-
-                        reader.Close();
                     }
-                }
-                string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
+                    string query = @"UPDATE appointment SET appointment_status = @AppointmentStats WHERE ID_appointment = @AppointmentID";
 
-                string updateStatus = "rejected";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-                    cmd.Parameters.AddWithValue("@AppointmentStats", updateStatus);
-                    cmd.ExecuteNonQuery();
-                }
+                    string updateStatus = "rejected";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                        cmd.Parameters.AddWithValue("@AppointmentStats", updateStatus);
+                        cmd.ExecuteNonQuery();
+                    }
 
-                // Insert a record into AppointmentStatusHistory
-                string queryInsertHistory = @"
+                    // Insert a record into AppointmentStatusHistory
+                    string queryInsertHistory = @"
                 INSERT INTO AppointmentStatusHistory (AppointmentID, StatusChangeDate, PreviousStatus, NewStatus, Notification)
                 VALUES (@AppointmentID, @StatusChangeDate, @PreviousStatus, @NewStatus, @Notification)";
-                using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
-                {
-                    cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-                    cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now); // Current date and time
-                    cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status"); // Replace with the actual previous status
-                    cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "rejected"); // New status
-                    cmdInsertHistory.Parameters.AddWithValue("@Notification", "UNREAD");
-                    cmdInsertHistory.ExecuteNonQuery();
+                    using (SqlCommand cmdInsertHistory = new SqlCommand(queryInsertHistory, conn))
+                    {
+                        cmdInsertHistory.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                        cmdInsertHistory.Parameters.AddWithValue("@StatusChangeDate", DateTime.Now); // Current date and time
+                        cmdInsertHistory.Parameters.AddWithValue("@PreviousStatus", "current_status"); // Replace with the actual previous status
+                        cmdInsertHistory.Parameters.AddWithValue("@NewStatus", "rejected"); // New status
+                        cmdInsertHistory.Parameters.AddWithValue("@Notification", "UNREAD");
+                        cmdInsertHistory.ExecuteNonQuery();
+                    }
+
+                    // Notify that the status has changed.
+                    DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
+
+
+
+                    conn.Close();
                 }
-
-                // Notify that the status has changed.
-                DepartmentUser.OnAppointmentStatusChanged(EventArgs.Empty);
-
-
-
-                conn.Close();
             }
+            catch
+            {
+                string errorMessage = "Please check your internet connection";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                    $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
+            }
+            
         }
 
         protected void served_Click(object sender, EventArgs e)
@@ -917,7 +977,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 int servedCount = CountAppointments(dt, "served");
                 int pendingCount = CountAppointments(dt, "pending");
                 int approvedCount = CountAppointments(dt, "approved");
-                int rescheduledCount = CountAppointments(dt, "rescheduled");
+                int rescheduleCount = CountAppointments(dt, "reschedule");
                 int rejectedCount = CountAppointments(dt, "rejected");
 
                 // Add counts to the table
@@ -949,7 +1009,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase(rescheduledCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
+                statusTable.AddCell(new PdfPCell(new Phrase(rescheduleCount.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
@@ -980,7 +1040,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 document.Add(new Paragraph("\n"));
 
                 document.Close();
-   
+
                 Response.ContentType = "application/pdf";
                 Response.AppendHeader("Content-Disposition", "attachment; filename=AppointmentReport.pdf");
                 Response.BinaryWrite(memoryStream.ToArray());
@@ -997,7 +1057,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             {
                 conn.Open();
 
- 
+
                 string query = "SELECT dept_name FROM department WHERE user_ID = @user_ID";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
@@ -1066,7 +1126,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     return cellValue.ToString();
                 case "student_ID":
                     // If the value is a number, display "Student"
-                    return int.TryParse(cellValue.ToString(), out _) ? "Student" : cellValue.ToString();               
+                    return int.TryParse(cellValue.ToString(), out _) ? "Student" : cellValue.ToString();
                 case "course_year":
                     return cellValue.ToString();
                 case "appointment_date":
@@ -1084,6 +1144,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     return cellValue.ToString();
             }
         }
+
 
         private void ExportToExcel()
         {
@@ -1216,20 +1277,24 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         public DataTable SearchAppointment(string SearchKeyword, int user_ID)
         {
-
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(connection))
             {
+                
                 string query = @"SELECT a.*, ur.role
-                                            FROM appointment a
-                                            LEFT JOIN users_table u ON a.student_ID = u.login_ID
-                                            LEFT JOIN user_role ur ON u.role_ID = ur.role_id
-                                            WHERE (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)
-                                            OR a.student_ID = 'guest')
-                                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))
-                                            AND (a.appointment_status = 'pending' OR a.appointment_status = 'reschedule' OR a.appointment_status = 'approved')
-                                            AND ID_appointment LIKE '%' + @SearchKeyword + '%'
-                                            OR appointment_status LIKE '%' + @SearchKeyword + '%'";
+                                FROM appointment a
+                                LEFT JOIN users_table u ON a.student_ID = u.login_ID
+                                LEFT JOIN user_role ur ON u.role_ID = ur.role_id
+                                WHERE 
+                                    (
+                                        (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID) OR a.student_ID = 'guest')
+                                        AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))
+                                    )
+                                    AND (
+                                        ID_appointment LIKE '%' + @SearchKeyword + '%'
+                                        OR appointment_status LIKE '%' + @SearchKeyword + '%'
+                                        OR full_name LIKE '%' + @SearchKeyword + '%'
+                                    )";
 
                 conn.Open();
 
@@ -1250,21 +1315,90 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         protected void displayPending_Click(object sender, EventArgs e)
         {
             string appointmentStatus = "pending";
-            BindDataTable(appointmentStatus);
+            BindDataTableSelectedStatus(appointmentStatus);
         }
 
         protected void displayActive_Click(object sender, EventArgs e)
         {
             string appointmentStatus = "reschedule";
-            BindDataTable(appointmentStatus);
+            BindDataTableSelectedStatus(appointmentStatus);
         }
 
         protected void displayDeactivated_Click(object sender, EventArgs e)
         {
             string appointmentStatus = "approved";
-            BindDataTable(appointmentStatus);
+            BindDataTableSelectedStatus(appointmentStatus);
         }
 
-        
+        protected void displayServed_Click(object sender, EventArgs e)
+        {
+            string appointmentStatus = "served";
+            BindDataTableSelectedStatus(appointmentStatus);
+        }
+
+        protected void displayReject_Click(object sender, EventArgs e)
+        {
+            string appointmentStatus = "rejected";
+            BindDataTableSelectedStatus(appointmentStatus);
+        }
+
+        protected void displayAllStatus_Click(object sender, EventArgs e)
+        {
+            BindingAppointment();
+        }
+
+        public void BindDataTableSelectedStatus(string SelectedStatus)
+        {
+            if (Session["user_ID"] != null)
+            {
+                int user_ID = Convert.ToInt32(Session["user_ID"]);
+                DataTable dt = SelectedAppointmentStatus(SelectedStatus, user_ID);
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string studentID = (string)row["student_ID"];
+
+                    if (studentID == "guest")
+                    {
+                        // Set "User Type" to "Guest" for guest appointments
+                        row["role"] = "guest";
+                    }
+                }
+
+                AppointmentView.DataSource = dt;
+                AppointmentView.DataBind();
+            }
+        }
+
+        public DataTable SelectedAppointmentStatus(string SelectedStatus, int user_ID)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                string query = @"SELECT a.*, ur.role
+                                            FROM appointment a
+                                            LEFT JOIN users_table u ON a.student_ID = u.login_ID
+                                            LEFT JOIN user_role ur ON u.role_ID = ur.role_id
+                                            WHERE (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)OR a.student_ID = 'guest')
+                                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))
+                                            AND appointment_status LIKE '%' + @SelectedStatus + '%'";
+
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SelectedStatus", SelectedStatus);
+                    cmd.Parameters.AddWithValue("@departmentUserID", user_ID);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            return dt;
+        }
+
+       
     }
 }

@@ -58,7 +58,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
             if (Session["user_ID"] != null)
             {
                 int userID = Convert.ToInt32(Session["user_ID"]);
-                int roleID = 3;  
+                int roleID = 3;
                 NotificationResult result = GetUnreadNotificationsDataTableFromDatabase(userID, roleID);
 
                 lblNotificationCount.Text = result.Count.ToString();
@@ -73,7 +73,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
         {
             try
             {
-                    if (Session["user_ID"] != null)
+                if (Session["user_ID"] != null)
                 {
                     int userID = Convert.ToInt32(Session["user_ID"]);
 
@@ -210,8 +210,5 @@ namespace Gabay_Final_V2.Views.DashBoard.Admin_Homepage
             Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
                 $"$('#errorMessage').text('{errorMessage}'); $('#errorModal').modal('show');", true);
         }
-
-
-
     }
 }

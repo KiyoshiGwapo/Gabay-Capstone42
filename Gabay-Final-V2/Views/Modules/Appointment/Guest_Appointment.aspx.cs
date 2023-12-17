@@ -72,9 +72,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             try
             {
-                // Validate that all fields are filled
-                if (ValidateForm())
-                {
+                //// Validate that all fields are filled
+                //if (ValidateForm())
+                //{
                     string email = Email.Text;
 
                     if (IsAppointmentExists(email))
@@ -87,7 +87,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         string fullName = FullName.Text;
                         string contactNumber = ContactN.Text;
                         string selectedTime = time.SelectedValue;
-                        string selectedDate = date.Text;
+                        string selectedDate = appointmentDate.Text;
                         string deptName = departmentChoices.SelectedItem.Text;
                         string concern = Message.Text;
                         string status = "pending";
@@ -107,7 +107,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                             Email.Text = "";
                             ContactN.Text = "";
                             time.SelectedIndex = 0;
-                            date.Text = "";
+                            appointmentDate.Text = "";
                             departmentChoices.SelectedIndex = 0;
                             Message.Text = "";
 
@@ -120,7 +120,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                             ShowSuccessModal(submitEmailDialog);
                         }
                     }
-                }
+                //}
             }
             catch (Exception ex)
             {
@@ -128,6 +128,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 ShowErrorModal(ex.Message);
             }
         }
+
 
         private void ShowSuccessModal(string submitEmailDialog)
         {
@@ -145,7 +146,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             if (string.IsNullOrEmpty(FullName.Text) ||
                 string.IsNullOrEmpty(Email.Text) ||
                 string.IsNullOrEmpty(ContactN.Text) ||
-                string.IsNullOrEmpty(date.Text) ||
+                string.IsNullOrEmpty(appointmentDate.Text) ||
                 string.IsNullOrEmpty(time.SelectedValue) ||
                 string.IsNullOrEmpty(departmentChoices.SelectedValue) ||
                 string.IsNullOrEmpty(Message.Text))
@@ -199,14 +200,14 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 var builder = new BodyBuilder();
 
                 builder.HtmlBody = $@"
-    <div style='text-align: center;margin-bottom: 10px;'>
-        <div>
-            <img src='cid:logo-image' style='width: 100px; height: auto; margin-right: 5px; display: block; margin: 0 auto;'>
-        </div>
-        <div style='letter-spacing: 3px; color: #003366; font-weight: 600;'>
-            GABAY
-        </div>
-    </div>";
+                <div style='text-align: center;margin-bottom: 10px;'>
+                    <div>
+                        <img src='cid:logo-image' style='width: 100px; height: auto; margin-right: 5px; display: block; margin: 0 auto;'>
+                    </div>
+                    <div style='letter-spacing: 3px; color: #003366; font-weight: 600;'>
+                        GABAY
+                    </div>
+                </div>";
 
                 // Add additional appointment details
                 builder.HtmlBody += $@"<div style='text-align: center;'><h1>You have successfully booked an appointment</h1></div>
@@ -221,7 +222,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     <p><b>Concern:</b> {concern}</p>
                     </div>";
 
-                var logoImage = builder.LinkedResources.Add("C:\\Users\\rodri\\Source\\Repos\\Gabay-Capstone42\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
+                var logoImage = builder.LinkedResources.Add("C:\\Users\\quiro\\source\\repos\\Gabay-Final-V2\\Gabay-Final-V2\\Resources\\Images\\UC-LOGO.png");
                 logoImage.ContentId = "logo-image";
                 logoImage.ContentDisposition = new ContentDisposition(ContentDisposition.Inline);
 
@@ -244,7 +245,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     Email.Text = "";
                     ContactN.Text = "";
                     time.SelectedIndex = 0;
-                    date.Text = "";
+                    appointmentDate.Text = "";
                     departmentChoices.SelectedIndex = 0;
                     Message.Text = "";
 
@@ -318,20 +319,21 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         protected void reschedBtn_Click(object sender, EventArgs e)
         {
+
             try
             {
-                int appointmentID = Convert.ToInt32(HiddenField1.Value);
-               
-                if(reschedSchedule(appointmentID,out string appointmentStats, out string appointmentDate, out string appointmentTime, out string appoiteeName))
+                int appointmentID = Convert.ToInt32(storeAppointmentID.Value);
+
+                if (reschedSchedule(appointmentID, out string appointmentStats, out string appointmentDate, out string appointmentTime, out string appoiteeName))
                 {
-                    if(appointmentStats == "reschedule")
+                    if (appointmentStats == "reschedule")
                     {
-                        AppointmentID.Text = HiddenField1.Value.ToString();
+                        AppointmentID.Text = storeAppointmentID.Value.ToString();
                         ReschedDate.Text = appointmentDate;
                         ReschedTime.Text = appointmentTime;
                         AppointeeName.Text = appoiteeName;
                     }
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showSuccessModal", $"$('#reschedModal').modal('show');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showReschedule", $"$('#reschedModal').modal('show');", true);
                 }
             }
             catch (Exception ex)
@@ -378,7 +380,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         protected void reschedCloseBtn_Click(object sender, EventArgs e)
         {
-            HiddenField1.Value = null;
+            storeAppointmentID.Value = null;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "showSuccessModal", $"$('#reschedModal').modal('hide');", true);
         }
 
@@ -386,7 +388,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             try
             {
-                int appointmentID = Convert.ToInt32(HiddenField1.Value);
+                int appointmentID = Convert.ToInt32(storeAppointmentID.Value);
                 approveAppointment(appointmentID);
 
                 int.TryParse(searchInput.Text, out int searchAppointmentID);
@@ -545,7 +547,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         {
             try
             {
-                int appointmentID = Convert.ToInt32(HiddenField1.Value);
+                int appointmentID = Convert.ToInt32(storeAppointmentID.Value);
                 rejectAppointment(appointmentID);
 
                 int.TryParse(searchInput.Text, out int searchAppointmentID);
@@ -637,12 +639,12 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         private void UpdateDateOptions()
         {
             // Set the minimum date to today + 3 days
-            date.Attributes["min"] = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd");
+            appointmentDate.Attributes["min"] = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd");
         }
 
         public void DisabledTimeAndDate()
         {
-            date.Enabled = false;
+            appointmentDate.Enabled = false;
             time.Enabled = false;
         }
 
@@ -658,17 +660,14 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
             else
             {
-                date.Enabled = true;
+                appointmentDate.Enabled = true;
                 time.Enabled = true;
             }
-
-
-
         }
 
         protected void date_TextChanged(object sender, EventArgs e)
         {
-            string selectedDate = date.Text;
+            string selectedDate = appointmentDate.Text;
             string selectedDept = deptID.Value;
             
             SelectedDate.Value = selectedDate;
@@ -711,7 +710,5 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
             }
         }
-
-
     }
 }

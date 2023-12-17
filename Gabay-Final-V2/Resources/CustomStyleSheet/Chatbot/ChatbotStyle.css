@@ -95,10 +95,22 @@
     padding: 10px;
 }
 
+.menuslider-container {
+    overflow-x:scroll;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
 .cards {
     display: flex;
     transition: transform 0.5s;
+}
 
+.menucards {
+    display: flex;
+    transition: transform 0.5s;
 }
 
 .card {

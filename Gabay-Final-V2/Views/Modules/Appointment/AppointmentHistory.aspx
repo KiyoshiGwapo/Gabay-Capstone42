@@ -97,8 +97,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-15 col-md-12">
-<%--                <asp:Button ID="GoBackButton" runat="server" Text="Go Back" CssClass="custom-button" OnClick="GoBackButton_Click" />--%>
-                <asp:HyperLink ID="HyperLink1" runat="server"  CssClass="custom-button" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx">View My History</asp:HyperLink>
+               <%-- <asp:Button ID="GoBackButton" runat="server" Text="Go Back" CssClass="custom-button" OnClick="GoBackButton_Click" />--%>
+                <asp:HyperLink ID="GoBackButton" runat="server" CssClass="custom-button" NavigateUrl="~/Views/Modules/Appointment/Student_Appointment.aspx">Go Back</asp:HyperLink>
             </div>
             <div class="col-12">
                 <h1>Latest Appointment</h1>

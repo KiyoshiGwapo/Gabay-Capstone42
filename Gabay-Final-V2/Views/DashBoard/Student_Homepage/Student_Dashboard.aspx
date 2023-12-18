@@ -63,39 +63,24 @@
             width: 30px !important;
             height: auto;
         }
-     .flex-container {
-        display: flex;
-    }
-
-    .flex-container > div {
-        margin-right: 10px; /* Adjust the margin as needed */
-    }
 
     .or-label {
         display: flex;
         align-items: center;
         color: black;
         font-weight: bold;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     </style>
     <script src="../Scripts/jquery-3.7.1.js"></script>
-<div class="d-flex justify-content-between mb-3">
-    <div class="flex-container">
-        <div>
-            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" Placeholder="Search by Title" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
-        </div>
-         <div class="or-label">OR</div>
-        <div>
-            <asp:TextBox ID="calFilterDate" runat="server" TextMode="Date" CssClass="form-control" placeholder="Filter by date" OnTextChanged="txtFilterDate_TextChanged" AutoPostBack="True"></asp:TextBox>
-        </div>
-    </div>
-
-</div>
-
-
-  
 
     <div class="container">
+       <div class="d-flex justify-content-end mt-3">
+            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" Placeholder="Search by Title" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged" style="width: 200px;"></asp:TextBox>
+        <div class="col-auto or-label">OR</div>
+            <asp:TextBox ID="calFilterDate" runat="server" TextMode="Date" CssClass="form-control" placeholder="Filter by date" OnTextChanged="txtFilterDate_TextChanged" AutoPostBack="True" style="width: 200px;"></asp:TextBox>     
+        </div>
         <!-- Manual controls for sliding (moved to the right) -->
         <div class="d-flex justify-content-end mt-3">
             <button type="button" class="btn btn-light mr-2" id="prevButton">&lt;</button>

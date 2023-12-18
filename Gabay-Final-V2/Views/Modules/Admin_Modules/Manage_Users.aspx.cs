@@ -424,7 +424,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 document.Add(new Paragraph("\n"));
 
                 // Add title to the document
-                Paragraph des = new Paragraph("University of Cebu – Lapu-Lapu and Mandaue Campus (UCLM)", new Font(Font.FontFamily.HELVETICA, 9));
+                Paragraph des = new Paragraph("University of Cebu – Lapu-Lapu and Mandaue Campus (UCLM)", new Font(Font.FontFamily.HELVETICA, 11));
                 des.Font.Color = BaseColor.BLACK;
                 des.Alignment = Element.ALIGN_CENTER;
                 document.Add(des);
@@ -513,50 +513,76 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
         private void AddCustomFooter(Document document)
         {
-            Paragraph footer = new Paragraph();
+            // Set up a font with FontFamily.HELVETICA and size 11
+            Font regularFont = new Font(Font.FontFamily.HELVETICA, 11);
 
-            string footerHtml = @"
-            <div style='background-color: cyan; font-size: 10px; position: fixed; width: 100%; text-align:center; color: #333;' >
-                <div style='padding: 5px; '>
-                    <b>Contact Information:</b><br>
-                    A.C. Cortes Avenue 6000 Mandaue City Cebu<br>
-                    Email: info@uclm.edu.ph<br>
-                    (032) 345 6666<br>
-                </div>
-                <div style='padding: 5x; '>
-                    <b>Quick Links:</b><br>
-                    <a href='https://www.universityofcebu.net/p/university-of-cebu-lapu-lapu-and.html'>Website</a><br>
-                    <a href='https://www.facebook.com/search/top?q=uclm%20college%20of%20computer%20studies'>Facebook</a><br>
-                </div>
-                <div style='padding: 5x;'>
-                    <b>ABOUT US:</b><br>
-                    GABAY is more than just a word;<br> 
-                    it's a beacon of support and wisdom <br>
-                    that lights the path for all of us. <br>
-                    In times of uncertainty,<br> 
-                    when we seek direction or a helping hand, <br>
-                    GABAY reminds us that we are never alone. <br>
-                </div>
-                <div style='clear: both;'></div>
-            </div>
-        </div>
-    ";
+            PdfPTable mainTable = new PdfPTable(1);
+            mainTable.WidthPercentage = 100;
 
-            // Use HTMLWorker to parse HTML and add it to the paragraph
-            using (var sr = new StringReader(footerHtml))
+            // Add the first table with Contact Information and About Us
+            PdfPTable contactAboutTable = new PdfPTable(2);
+            contactAboutTable.WidthPercentage = 100;
+
+            // Create a white font
+            Font whiteFont = new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.BLACK);
+
+            PdfPCell contactCell = new PdfPCell(new Phrase("Contact Information:\n\nA.C. Cortes Avenue 6000 Mandaue City Cebu\nEmail: info@uclm.edu.ph\n(032) 345 6666", whiteFont));
+            PdfPCell aboutUsCell = new PdfPCell(new Phrase("About Us:\n\nGABAY is more than just a word;\nit's a beacon of support and wisdom\nthat lights the path for all of us.\nIn times of uncertainty when we\nseek direction or a helping hand,\nGABAY reminds us that we are never alone.", whiteFont));
+
+            // Set background color
+            ////contactCell.BackgroundColor = new BaseColor(55, 81, 126);
+            ////aboutUsCell.BackgroundColor = new BaseColor(55, 81, 126);
+
+            // Set border color to white
+            contactCell.BorderColor = BaseColor.WHITE;
+            aboutUsCell.BorderColor = BaseColor.WHITE;
+
+            // Set text alignment to center
+            contactCell.HorizontalAlignment = Element.ALIGN_LEFT;
+            aboutUsCell.HorizontalAlignment = Element.ALIGN_LEFT;
+
+            contactCell.Padding = 5f;
+            aboutUsCell.Padding = 5f;
+
+            contactAboutTable.AddCell(contactCell);
+            contactAboutTable.AddCell(aboutUsCell);
+            contactAboutTable.CompleteRow();
+
+            // Add the first table to the main table
+            mainTable.AddCell(contactAboutTable);
+
+            // Add spacing between the two tables
+            mainTable.AddCell(new Paragraph("\n"));
+
+            // Add the second table with copyright text
+            PdfPTable copyrightTable = new PdfPTable(1);
+            copyrightTable.WidthPercentage = 100;
+            PdfPCell copyrightCell = new PdfPCell(new Phrase("© Copyright Gabay. All Rights Reserved", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
+
+            // Set background color to #37517e
+            copyrightCell.BackgroundColor = new BaseColor(55, 81, 126);
+
+            // Set text alignment to center
+            copyrightCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+            // Set border color to white
+            copyrightCell.BorderColor = BaseColor.WHITE;
+
+            copyrightTable.AddCell(copyrightCell);
+            copyrightTable.CompleteRow();
+
+            // Add the second table to the main table
+            mainTable.AddCell(copyrightTable);
+
+            // Set border color to white for all cells
+            foreach (PdfPCell cell in mainTable.Rows.SelectMany(row => row.GetCells()))
             {
-                List<IElement> elements = HTMLWorker.ParseToList(sr, null, null);
-
-                foreach (var element in elements)
-                {
-                    footer.Add(element);
-                }
+                cell.BorderColor = BaseColor.WHITE;
             }
 
-            // Add the footer paragraph to the document
-            document.Add(footer);
+            // Add the main table to the document
+            document.Add(mainTable);
         }
-
 
 
 

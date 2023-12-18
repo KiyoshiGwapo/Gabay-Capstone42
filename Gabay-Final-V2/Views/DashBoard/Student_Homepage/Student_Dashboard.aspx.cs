@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlTypes;
 
 namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
 {
@@ -26,16 +27,34 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             if (Session["user_ID"] != null)
             {
                 int user_ID = Convert.ToInt32(Session["user_ID"]);
+                string searchTerm = txtSearch.Text.Trim(); // Get the search term
+                string filterDateText = calFilterDate.Text; // Get the date as a string
+
+                // Parse the filter date from the input element
+                if (DateTime.TryParse(filterDateText, out DateTime filterDate))
+                {
+                    // The filterDate contains a valid date
+                }
+                else
+                {
+                    // Set filterDate to DateTime.MinValue if parsing fails
+                    filterDate = DateTime.MinValue;
+                }
+
                 string query = @"SELECT A.*
-                     FROM Announcement A
-                     LEFT JOIN department D ON A.User_ID = D.user_ID
-                     LEFT JOIN student S ON D.ID_dept = S.department_ID
-                     WHERE S.user_ID = @user_ID OR A.User_ID = 4052";
+             FROM Announcement A
+             LEFT JOIN department D ON A.User_ID = D.user_ID
+             LEFT JOIN student S ON D.ID_dept = S.department_ID
+             WHERE (S.user_ID = @user_ID OR A.User_ID = 4052)
+               AND (A.Title LIKE '%' + @searchTerm + '%' OR @searchTerm = '')
+               AND (A.Date = @filterDate OR @filterDate IS NULL)";
 
                 using (SqlConnection connection = new SqlConnection(connStr))
                 {
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@user_ID", user_ID);
+                    command.Parameters.AddWithValue("@searchTerm", searchTerm);
+                    command.Parameters.AddWithValue("@filterDate", filterDate == DateTime.MinValue ? (object)DBNull.Value : filterDate);
 
                     DataTable dt = new DataTable();
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -48,7 +67,6 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             {
                 return null;
             }
-               
         }
         protected void LoadAnnouncements()
         {
@@ -101,5 +119,20 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "showDetailedModal", "$('#dtldModal').modal('hide');", true);
         }
+
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadAnnouncements();
+        }
+
+      
+
+        protected void txtFilterDate_TextChanged(object sender, EventArgs e)
+        {
+            LoadAnnouncements();
+        }
+
+
     }
 }

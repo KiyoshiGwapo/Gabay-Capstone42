@@ -401,15 +401,9 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             {
                 PdfWriter writer = PdfWriter.GetInstance(document, fs);
                 document.Open();
-
+            
                 // Add the header
                 AddHeader(document);
-
-                // Add the current date to the right
-                Font dateFont = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK);
-                PdfPCell dateCell = new PdfPCell(new Phrase(DateTime.Now.ToString("MM-dd-yyyy"), dateFont));
-                dateCell.HorizontalAlignment = Element.ALIGN_LEFT;
-                dateCell.Border = PdfPCell.NO_BORDER;
 
                 // Add title to the document with selected account type
                 Paragraph title = new Paragraph($"List of {accountType}", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));
@@ -568,6 +562,12 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
         {
             PdfPTable headerTable = new PdfPTable(1);
             headerTable.WidthPercentage = 100;
+
+            // Add the date to the right side
+            PdfPCell dateCell = new PdfPCell(new Phrase(DateTime.Now.ToString("yyyy-MM-dd"), new Font(Font.FontFamily.HELVETICA, 10)));
+            dateCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+            dateCell.Border = PdfPCell.NO_BORDER;
+            headerTable.AddCell(dateCell);
 
             // Add the logo to the top
             iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/GeneratedReport.png"));

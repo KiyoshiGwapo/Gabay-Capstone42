@@ -889,29 +889,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
                 // OpenDocument 
                 document.Open();
-
-                // Add the date and time at
-                PdfPTable dateTimeTable = new PdfPTable(1);
-                dateTimeTable.WidthPercentage = 100;
-                dateTimeTable.HorizontalAlignment = Element.ALIGN_RIGHT;
-
-                PdfPCell dateTimeCell = new PdfPCell(new Phrase(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), FontFactory.GetFont(FontFactory.HELVETICA, 10)));
-                dateTimeCell.Border = PdfPCell.NO_BORDER;
-                dateTimeTable.AddCell(dateTimeCell);
-
-                document.Add(dateTimeTable);
-
-                // Add spacing
-                document.Add(new Paragraph("\n"));
-
-                // Add the logo without any box or column
-                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/UC-LOGO.png"));
-                logo.ScaleToFit(150f, 150f); // Adjust 
-                logo.Alignment = Element.ALIGN_CENTER;
-                document.Add(logo);
-
-                // Add spacing
-                document.Add(new Paragraph("\n"));
+           
+                // Add the header
+                AddHeader(document);
 
                 // Get the department name based on the user ID
                 int userID = Convert.ToInt32(Session["user_ID"]);
@@ -1132,7 +1112,27 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             document.Add(mainTable);
         }
 
-        //  get the department name based on the user ID
+        private void AddHeader(Document document)
+        {
+            PdfPTable headerTable = new PdfPTable(1);
+            headerTable.WidthPercentage = 100;
+
+            // Add the date to the right side
+            PdfPCell dateCell = new PdfPCell(new Phrase(DateTime.Now.ToString("yyyy-MM-dd"), new Font(Font.FontFamily.HELVETICA, 10)));
+            dateCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+            dateCell.Border = PdfPCell.NO_BORDER;
+            headerTable.AddCell(dateCell);
+
+            // Add the logo to the top
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/GeneratedReport.png"));
+            logo.ScaleToFit(document.PageSize.Width - document.LeftMargin - document.RightMargin, 170f); // Adjust size
+            PdfPCell logoCell = new PdfPCell(logo);
+            logoCell.Border = PdfPCell.NO_BORDER;
+            headerTable.AddCell(logoCell);
+
+            // Add the header table to the document
+            document.Add(headerTable);
+        }
         private string GetDepartmentName(int userID)
         {
             string departmentName = "";

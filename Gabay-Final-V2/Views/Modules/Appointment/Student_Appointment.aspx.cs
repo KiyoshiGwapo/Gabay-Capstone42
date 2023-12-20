@@ -160,23 +160,31 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
 
         public void SaveAppointmentDetails(string fullname, string email, string ConNum,
-            string StudIdNum, string CourseYear, string DepartmentName, string SchedDate,
+            string StudIdNum, string CourseYear, string departmentName, string SchedDate,
             string SchedTime, string Concern)
-        {
+        {   
             string statusSched = "pending";
             string notificationStatus = "UNREAD";
             Concern = Concern.Replace("<br>", "\n");
+
+            int dept_ID = GetDepartmentId(departmentName);
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = @"INSERT INTO appointment (deptName, full_name, email, student_ID, course_year,
+                //this is for db v.1.8
+                //string query = @"INSERT INTO appointment (deptName, full_name, email, student_ID, course_year,
+                //                                          contactNumber, appointment_date, appointment_time,
+                //                                          concern, appointment_status, Notification)
+                //                 VALUES (@DepartmentName, @fullname, @email, @StudIdNum, @CourseYear, @ConNum,
+                //                         @SchedDate, @SchedTime, @Concern, @statusSched, @Notification)";
+                string query = @"INSERT INTO appointment (dept_id, full_name, email, student_ID, course_year,
                                                           contactNumber, appointment_date, appointment_time,
                                                           concern, appointment_status, Notification)
-                                 VALUES (@DepartmentName, @fullname, @email, @StudIdNum, @CourseYear, @ConNum,
+                                 VALUES (@dept_ID, @fullname, @email, @StudIdNum, @CourseYear, @ConNum,
                                          @SchedDate, @SchedTime, @Concern, @statusSched, @Notification)";
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DepartmentName", DepartmentName);
+                    cmd.Parameters.AddWithValue("@dept_ID", dept_ID);
                     cmd.Parameters.AddWithValue("@fullname", fullname);
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@StudIdNum", StudIdNum);
@@ -189,6 +197,29 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     cmd.Parameters.AddWithValue("@statusSched", statusSched);
                     cmd.Parameters.AddWithValue("@Notification", notificationStatus);
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        // Helper method to retrieve department ID based on department name
+        private int GetDepartmentId(string departmentName)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ID_dept FROM department WHERE dept_name = @DepartmentName";
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DepartmentName", departmentName);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+
+                    // Handle the case where the department name is not found
+                    throw new Exception("Department not found");
                 }
             }
         }
@@ -213,9 +244,13 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-
+                //this is for db v.1.8
+                //string query = @"SELECT appointment_time from appointment
+                //                 WHERE deptName = @selectedDept
+                //                 AND appointment_date = @selectedDate
+                //                 AND (appointment_status != 'rejected' AND appointment_status != 'served' AND appointment_status != 'no show')";
                 string query = @"SELECT appointment_time from appointment
-                                 WHERE deptName = @selectedDept
+                                 WHERE (dept_id = (SELECT ID_dept FROM department WHERE dept_name = @selectedDept))
                                  AND appointment_date = @selectedDate
                                  AND (appointment_status != 'rejected' AND appointment_status != 'served' AND appointment_status != 'no show')";
 

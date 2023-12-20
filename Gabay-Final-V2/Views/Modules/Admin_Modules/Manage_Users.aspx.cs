@@ -12,6 +12,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
 using System.IO;
 
+
 namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 {
     public partial class Manage_Users : System.Web.UI.Page
@@ -54,7 +55,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 // Adjust the query based on your database schema and the selected filter
                 if (filter == "Students")
                 {
-                    query = "SELECT s.ID_student as ID, s.user_ID, s.name as Name, s.email as Email, d.dept_name as StudentDepartment " +
+                    query = "SELECT s.studentID as ID, s.name as Name, s.email as Email, d.dept_name as StudentDepartment " +
                             "FROM student s " +
                             "INNER JOIN department d ON s.department_ID = d.ID_dept";
                     GridViewStudents.Visible = true;
@@ -401,39 +402,12 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 PdfWriter writer = PdfWriter.GetInstance(document, fs);
                 document.Open();
 
-                // Add the date and time at the top right corner
-                PdfPTable dateTimeTable = new PdfPTable(1);
-                dateTimeTable.WidthPercentage = 100;
-                dateTimeTable.HorizontalAlignment = Element.ALIGN_RIGHT;
+                // Add the header
+                AddHeader(document);
 
-                PdfPCell dateTimeCell = new PdfPCell(new Phrase(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), new Font(Font.FontFamily.HELVETICA, 10)));
-                dateTimeCell.Border = PdfPCell.NO_BORDER;
-                dateTimeTable.AddCell(dateTimeCell);
-
-                document.Add(dateTimeTable);
-
-                document.Add(new Paragraph("\n"));
-
-                // Add the logo or picture to the top right corner
-                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/UC-LOGO.png"));
-                logo.ScaleToFit(150f, 150f); // Adjust 
-                logo.Alignment = Element.ALIGN_CENTER;
-                document.Add(logo);
-
-                // Add spacing
-                document.Add(new Paragraph("\n"));
-
-                // Add title to the document
-                Paragraph des = new Paragraph("University of Cebu – Lapu-Lapu and Mandaue Campus (UCLM)", new Font(Font.FontFamily.HELVETICA, 11));
-                des.Font.Color = BaseColor.BLACK;
-                des.Alignment = Element.ALIGN_CENTER;
-                document.Add(des);
-
-                // Add spacing
-                document.Add(new Paragraph("\n"));
                 // Add title to the document with selected account type
                 Paragraph title = new Paragraph($"List of {accountType}", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));
-                title.Alignment = Element.ALIGN_CENTER;
+                title.Alignment = Element.ALIGN_RIGHT;
                 document.Add(title);
 
                 // Add spacing between title and table
@@ -582,6 +556,46 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
             // Add the main table to the document
             document.Add(mainTable);
+        }
+
+        private void AddHeader(Document document)
+        {
+            PdfPTable headerTable = new PdfPTable(1);
+            headerTable.WidthPercentage = 100;
+
+            PdfPTable nestedTable = new PdfPTable(3);
+            nestedTable.WidthPercentage = 100;
+            float[] nestedTableWidths = { 20f, 60f, 20f }; 
+            nestedTable.SetWidths(nestedTableWidths);
+
+            // Add the logo to the left side
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Resources/Images/UC-LOGO.png"));
+            logo.ScaleToFit(80f, 80f); // Adjust size as needed
+            PdfPCell logoCell = new PdfPCell(logo);
+            logoCell.Border = PdfPCell.NO_BORDER;
+            nestedTable.AddCell(logoCell);
+
+            // Add the University name in the center
+            Font universityFont = new Font(Font.FontFamily.HELVETICA, 11, Font.NORMAL, BaseColor.BLACK);
+            PdfPCell universityCell = new PdfPCell(new Phrase("University of Cebu – Lapu-Lapu and Mandaue Campus (UCLM)", universityFont));
+            universityCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            universityCell.Border = PdfPCell.NO_BORDER;
+            nestedTable.AddCell(universityCell);
+
+            // Add the current date to the right
+            Font dateFont = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK);
+            PdfPCell dateCell = new PdfPCell(new Phrase(DateTime.Now.ToString("MM-dd-yyyy"), dateFont));
+            dateCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+            dateCell.Border = PdfPCell.NO_BORDER;
+            nestedTable.AddCell(dateCell);
+
+            // Add the nested table to the main header table
+            PdfPCell nestedTableCell = new PdfPCell(nestedTable);
+            nestedTableCell.Border = PdfPCell.NO_BORDER;
+            headerTable.AddCell(nestedTableCell);
+
+            // Add the header table to the document
+            document.Add(headerTable);
         }
 
 

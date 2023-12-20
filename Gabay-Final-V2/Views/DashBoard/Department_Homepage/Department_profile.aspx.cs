@@ -29,6 +29,11 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 
         }
 
+        public void closeModal()
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "hideExampleModal", "$('#exampleModal').modal('hide');", true);
+        }
+
         //// UPLOAD DEPARTMENT
         //protected void BtnUpload_Click(object sender, EventArgs e)
         //{
@@ -725,12 +730,25 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 
         protected void RptFiles_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "DeleteFile")
+            try
             {
-                int fileIdToDelete = Convert.ToInt32(e.CommandArgument);
-                DeleteFileData(fileIdToDelete);
-                BindUploadedFiles(); // Refresh the file list
+                if (e.CommandName == "DeleteFile")
+                {
+                    int fileIdToDelete = Convert.ToInt32(e.CommandArgument);
+                    DeleteFileData(fileIdToDelete);
+                    BindUploadedFiles(); // Refresh the file list
+
+                    string successMessage = "File Delete Successfully";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
+                        $"$('#successMessage').text('{successMessage}'); $('#successModal').modal('show');", true);
+                }
             }
+            catch (Exception ex) {
+                string ErrorMessage = ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "showErrorModal",
+                   $"$('#errorMessage').text('{ErrorMessage}'); $('#errorModal').modal('show');", true);
+            }
+           
         }
 
 

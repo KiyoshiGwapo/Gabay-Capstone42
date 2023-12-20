@@ -9,6 +9,8 @@
     <link href="../../Resources/CustomStyleSheet/DefaultStyle.css" rel="stylesheet" />
     <link href="../../Resources/CustomStyleSheet/RegistrationStyle.css" rel="stylesheet" />
     <link href="../../Bootstrap/Content/bootstrap.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../Bootstrap/Scripts/bootstrap.bundle.min.js"></script>
     <script src="../../Resources/CustomJS/Registration/RegistrationJS.js"></script>
 </head>
 <body>
@@ -27,6 +29,10 @@
                 <div class="header">
                     <span>Registration Form</span>
                 </div>
+                <div runat="server" class="idNumExist text-danger d-none" id="idNumExist">
+                                <span><i class="bi bi-info-circle"></i></span>
+                                <span>Student with this student ID already exist</span>
+                            </div>
                 <form id="form1" runat="server" class="form1 row gx-2">
                     <%--Department Selection Inputs--%>
                     <div class="col-12">
@@ -172,7 +178,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="password-fields mt-2" id="password-field">
                             <div class="password-input form-floating">
-                                <asp:TextBox ID="password" CssClass="password form-control" runat="server" placeholder="Password"></asp:TextBox>
+                                <asp:TextBox ID="password" CssClass="password form-control" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
                                 <%--<input type="text" class="password form-control" id="password" placeholder="Password"/>--%>
                                 <label for="password">Password</label>
                             </div>
@@ -186,7 +192,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="cpassword-fields mt-2" id="cpassword-field">
                             <div class="cpassword-input form-floating">
-                                <asp:TextBox ID="cpassword" CssClass="cpassword form-control" runat="server" placeholder="Confirm Password"></asp:TextBox>
+                                <asp:TextBox ID="cpassword" CssClass="cpassword form-control" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
                                 <%--<input type="text" class="cpassword form-control" id="cpassword" placeholder="Confirm Password" />--%>
                                 <label for="cpassword">Confirm Password</label>
                             </div>

@@ -31,14 +31,8 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             if (!IsPostBack)
             {
                 BindingAppointment();
+                UpdateDateOptions();
             }
-
-            //// para sa notification
-            //Manage_Appointment appointmentPage = Page as Manage_Appointment;
-            //if (appointmentPage != null)
-            //{
-            //    appointmentPage.AppointmentStatusChanged += HandleAppointmentStatusChanged;          
-            //}
         }
 
         public class DepartmentUser
@@ -82,14 +76,24 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 conn.Open();
+                // this is for the db v.1.8
+                //string queryFetchStudent = @"SELECT a.*, ur.role
+                //                            FROM appointment a
+                //                            LEFT JOIN users_table u ON a.student_ID = u.login_ID
+                //                            LEFT JOIN user_role ur ON u.role_ID = ur.role_id
+                //                            WHERE (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)
+                //                            OR a.student_ID = 'guest')
+                //                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))";
 
-                string queryFetchStudent = @"SELECT a.*, ur.role
+                string queryFetchStudent = @"
+                                            SELECT a.*, ur.role
                                             FROM appointment a
                                             LEFT JOIN users_table u ON a.student_ID = u.login_ID
                                             LEFT JOIN user_role ur ON u.role_ID = ur.role_id
-                                            WHERE (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)
+                                            LEFT JOIN department d ON a.dept_id = d.ID_dept
+                                            WHERE (a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @departmentUserID)
                                             OR a.student_ID = 'guest')
-                                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))";
+                                            AND (a.student_ID <> 'guest' OR a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @departmentUserID))";
                 using (SqlCommand cmd = new SqlCommand(queryFetchStudent, conn))
                 {
                     cmd.Parameters.AddWithValue("@departmentUserID", userID);
@@ -137,7 +141,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
             }
         }
-
+        private void UpdateDateOptions()
+        {
+            // Set the minimum date to today
+            newdate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+        }
         protected void ViewConcernModal_Click(object sender, EventArgs e)
         {
             int hiddenID = Convert.ToInt32(HiddenFieldAppointment.Value);
@@ -251,7 +259,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                 string currentTime = reader["appointment_time"].ToString();
                                 string appointeeEmail = reader["email"].ToString().Trim();
                                 string appointee = reader["full_name"].ToString();
-                                string destination = reader["deptName"].ToString();
+                                string destination = GetDepartmentName(Convert.ToInt32(reader["dept_id"]));
                                 string updateStatus = "reschedule";
 
                                 if (newDate != currentDate || newTime != currentTime)
@@ -466,7 +474,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                             {
                                 string appointmentID = reader["ID_appointment"].ToString();
                                 string appointee = reader["full_name"].ToString();
-                                string destination = reader["deptName"].ToString();
+                                string destination = GetDepartmentName(Convert.ToInt32(reader["dept_id"]));
                                 DateTime date = (DateTime)reader["appointment_date"];
                                 string appointmentDate = date.ToString("dd MMM, yyyy ddd");
                                 string appointmentTime = reader["appointment_time"].ToString();
@@ -646,7 +654,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                             {
                                 string appointmentID = reader["ID_appointment"].ToString();
                                 string appointee = reader["full_name"].ToString();
-                                string destination = reader["deptName"].ToString();
+                                string destination = GetDepartmentName(Convert.ToInt32(reader["dept_id"]));
                                 DateTime date = (DateTime)reader["appointment_date"];
                                 string appointmentDate = date.ToString("dd MMM, yyyy ddd");
                                 string appointmentTime = reader["appointment_time"].ToString();
@@ -933,7 +941,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 // Add column headers to the table (excluding unwanted columns)
                 foreach (DataColumn column in dt.Columns)
                 {
-                    if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
+                    if (column.ColumnName != "dept_id" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
                     {
                         PdfPCell headerCell = new PdfPCell(new Phrase(GetColumnHeader(column.ColumnName), FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.BOLD)));
                         headerCell.BackgroundColor = BaseColor.LIGHT_GRAY;
@@ -948,7 +956,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 {
                     foreach (DataColumn column in dt.Columns)
                     {
-                        if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
+                        if (column.ColumnName != "dept_id" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
                         {
                             PdfPCell dataCell = new PdfPCell(new Phrase(GetCellData(column, row[column]), FontFactory.GetFont(FontFactory.HELVETICA, 10)));
                             dataCell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -1013,7 +1021,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
-                statusTable.AddCell(new PdfPCell(new Phrase("All Denied:", FontFactory.GetFont(FontFactory.HELVETICA, 10)))
+                statusTable.AddCell(new PdfPCell(new Phrase("All Rejected", FontFactory.GetFont(FontFactory.HELVETICA, 10)))
                 {
                     HorizontalAlignment = Element.ALIGN_CENTER
                 });
@@ -1039,6 +1047,9 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
                 document.Add(new Paragraph("\n"));
 
+                // Call the method to add the footer
+                AddCustomFooter(document);
+
                 document.Close();
 
                 Response.ContentType = "application/pdf";
@@ -1048,11 +1059,83 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
+        private void AddCustomFooter(Document document)
+        {
+            // Set up a font with FontFamily.HELVETICA and size 11
+            Font regularFont = new Font(Font.FontFamily.HELVETICA, 11);
+
+            PdfPTable mainTable = new PdfPTable(1);
+            mainTable.WidthPercentage = 100;
+
+            // Add the first table with Contact Information and About Us
+            PdfPTable contactAboutTable = new PdfPTable(2);
+            contactAboutTable.WidthPercentage = 100;
+
+            // Create a white font
+            Font whiteFont = new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.BLACK);
+
+            PdfPCell contactCell = new PdfPCell(new Phrase("Contact Information:\n\nA.C. Cortes Avenue 6000 Mandaue City Cebu\nEmail: info@uclm.edu.ph\n(032) 345 6666", whiteFont));
+            PdfPCell aboutUsCell = new PdfPCell(new Phrase("About Us:\n\nGABAY is more than just a word;\nit's a beacon of support and wisdom\nthat lights the path for all of us.\nIn times of uncertainty when we\nseek direction or a helping hand,\nGABAY reminds us that we are never alone.", whiteFont));
+
+            // Set background color
+            ////contactCell.BackgroundColor = new BaseColor(55, 81, 126);
+            ////aboutUsCell.BackgroundColor = new BaseColor(55, 81, 126);
+
+            // Set border color to white
+            contactCell.BorderColor = BaseColor.WHITE;
+            aboutUsCell.BorderColor = BaseColor.WHITE;
+
+            // Set text alignment to center
+            contactCell.HorizontalAlignment = Element.ALIGN_LEFT;
+            aboutUsCell.HorizontalAlignment = Element.ALIGN_LEFT;
+
+            contactCell.Padding = 5f;
+            aboutUsCell.Padding = 5f;
+
+            contactAboutTable.AddCell(contactCell);
+            contactAboutTable.AddCell(aboutUsCell);
+            contactAboutTable.CompleteRow();
+
+            // Add the first table to the main table
+            mainTable.AddCell(contactAboutTable);
+
+            // Add spacing between the two tables
+            mainTable.AddCell(new Paragraph("\n"));
+
+            // Add the second table with copyright text
+            PdfPTable copyrightTable = new PdfPTable(1);
+            copyrightTable.WidthPercentage = 100;
+            PdfPCell copyrightCell = new PdfPCell(new Phrase("© Copyright Gabay. All Rights Reserved", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
+
+            // Set background color to #37517e
+            copyrightCell.BackgroundColor = new BaseColor(55, 81, 126);
+
+            // Set text alignment to center
+            copyrightCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+            // Set border color to white
+            copyrightCell.BorderColor = BaseColor.WHITE;
+
+            copyrightTable.AddCell(copyrightCell);
+            copyrightTable.CompleteRow();
+
+            // Add the second table to the main table
+            mainTable.AddCell(copyrightTable);
+
+            // Set border color to white for all cells
+            foreach (PdfPCell cell in mainTable.Rows.SelectMany(row => row.GetCells()))
+            {
+                cell.BorderColor = BaseColor.WHITE;
+            }
+
+            // Add the main table to the document
+            document.Add(mainTable);
+        }
 
         //  get the department name based on the user ID
         private string GetDepartmentName(int userID)
         {
-            string departmentName = "Department Name Placeholder";
+            string departmentName = "";
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 conn.Open();
@@ -1093,7 +1176,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             switch (columnName)
             {
                 case "ID_appointment":
-                    return "ID";
+                    return "Appointment Number";
                 case "full_name":
                     return "Full Name";
                 case "email":
@@ -1202,7 +1285,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
             int pendingCount = CountAppointments(dt, "pending");
             int approvedCount = CountAppointments(dt, "approved");
-            int rescheduledCount = CountAppointments(dt, "rescheduled");
+            int rescheduledCount = CountAppointments(dt, "reschedule");
             int servedCount = CountAppointments(dt, "served");
             int deniedCount = CountAppointments(dt, "denied");
 
@@ -1285,11 +1368,11 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                 FROM appointment a
                                 LEFT JOIN users_table u ON a.student_ID = u.login_ID
                                 LEFT JOIN user_role ur ON u.role_ID = ur.role_id
+                                LEFT JOIN department d ON a.dept_id = d.ID_dept
                                 WHERE 
-                                    (
-                                        (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID) OR a.student_ID = 'guest')
-                                        AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))
-                                    )
+                                   (a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @departmentUserID)
+                                            OR a.student_ID = 'guest')
+                                            AND (a.student_ID <> 'guest' OR a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @departmentUserID))
                                     AND (
                                         ID_appointment LIKE '%' + @SearchKeyword + '%'
                                         OR appointment_status LIKE '%' + @SearchKeyword + '%'
@@ -1379,8 +1462,10 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                                             FROM appointment a
                                             LEFT JOIN users_table u ON a.student_ID = u.login_ID
                                             LEFT JOIN user_role ur ON u.role_ID = ur.role_id
-                                            WHERE (a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID)OR a.student_ID = 'guest')
-                                            AND (a.student_ID <> 'guest' OR a.deptName = (SELECT dept_name FROM department WHERE user_ID = @departmentUserID))
+                                            LEFT JOIN department d ON a.dept_id = d.ID_dept
+                                            WHERE (a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @departmentUserID)
+                                            OR a.student_ID = 'guest')
+                                            AND (a.student_ID <> 'guest' OR a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @departmentUserID))
                                             AND appointment_status LIKE '%' + @SelectedStatus + '%'";
 
                 conn.Open();

@@ -78,8 +78,6 @@
                                                 <asp:Label ID="Selected" runat="server" ForeColor="Green" />
                                             </div>
                                             <asp:Label ID="DownloadErrorLabel" runat="server" ForeColor="Red" />
-
-
                                         </li>
                                     </ul>
                                 </div>
@@ -374,7 +372,8 @@
                                     <tr>
                                         <td><%# Eval("FileName") %></td>
                                         <td>
-                                            <asp:Button ID="btnDeleteFile" runat="server" Text="Delete" CommandName="DeleteFile" CommandArgument='<%# Eval("FileId") %>' CssClass="btn btn-danger btn-sm" />
+                                            <%--<asp:Button ID="btnDeleteFile" runat="server" Text="Delete" CommandName="DeleteFile" OnClientClick='<%# "return getfileID(" + Eval("FileId") + ");" %>' CssClass="btn btn-danger btn-sm" UseSubmitBehavior="false"/>--%>
+                                            <asp:LinkButton ID="btnDeleteFile" runat="server" CommandName="DeleteFile" CommandArgument='<%# Eval("FileId") %>' CssClass="btn btn-danger btn-sm" >Delete</asp:LinkButton>
                                         </td>
                                     </tr>
                                 </ItemTemplate>
@@ -383,7 +382,7 @@
                     </table>
                 </div>
                 <div class="modal-body">
-                    <asp:FileUpload ID="fileUpload" CssClass="fileUpload form-control" runat="server"/>
+                    <asp:FileUpload ID="fileUpload" CssClass="fileUpload form-control" runat="server" accept=".pdf"/>
                     <div class="errFileExtn text-danger d-none" id="errFileExtn">
                         <span><i class="bi bi-info-circle"></i></span>
                         <span>Please provide a file</span>
@@ -402,8 +401,24 @@
             </div>
         </div>
     </div>
-
-
+    <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Delete this file?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <asp:HiddenField ID="storeFileID" runat="server" />
     <%-- success modal --%>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -427,6 +442,9 @@
 
     <script src="../../../Resources/CustomJS/DeptProfile/DeptprofileJS.js"></script>
     <script>
+        function getfileID(id) {
+            document.getElementById('<%= storeFileID.ClientID %>').value = id;
+        }
         function openSuccessModal() {
             $('#successModal').modal('show');
         }
@@ -452,14 +470,14 @@
         }
     </script>
 
- <script type="text/javascript">
-     function openInNewTab() {
-         // Get the URL of the clicked button's page
-         var url = '<%= ResolveUrl("Department_profile.aspx") %>';
-         window.open(url, '_blank');
-         return false; // To prevent the default postback action
-     }
-</script>
+    <script type="text/javascript">
+        function openInNewTab() {
+            // Get the URL of the clicked button's page
+            var url = '<%= ResolveUrl("Department_profile.aspx") %>';
+            window.open(url, '_blank');
+            return false; // To prevent the default postback action
+        }
+    </script>
 
 
      <!-- JavaScript to show/hide modal -->

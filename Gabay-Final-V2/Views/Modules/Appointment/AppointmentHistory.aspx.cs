@@ -28,7 +28,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
                 else
                 {
-                    Response.Redirect("..\\DashBoard\\Student_Homepage\\Student_Dashboard.aspx");
+                    Response.Redirect("..\\..\\LoginPages\\Student_login.aspx");
                 }
             }
         }
@@ -65,6 +65,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                     // Remove the latest appointment from the original DataTable
                     appointmentData.Rows.Remove(latestAppointment);
 
+
                     // Bind the rest of the history
                     GridView1.DataSource = appointmentData;
                     GridView1.DataBind();
@@ -93,18 +94,26 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-
+                    //this is for db v.1.8;
+                    //string query = @"
+                    //SELECT a.ID_appointment, a.deptName, a.full_name, a.email, a.student_ID,
+                    //a.course_year, a.contactNumber, a.appointment_date, a.appointment_time,
+                    //a.concern, a.appointment_status,
+                    //h.StatusChangeDate, h.PreviousStatus, h.NewStatus
+                    //FROM appointment AS a
+                    //LEFT JOIN AppointmentStatusHistory AS h ON a.ID_appointment = h.AppointmentID
+                    //INNER JOIN users_table AS u ON a.student_ID = u.login_ID
+                    //WHERE u.user_ID = @userID
+                    //ORDER BY a.appointment_date DESC, h.StatusChangeDate DESC";
                     string query = @"
-                    SELECT a.ID_appointment, a.deptName, a.full_name, a.email, a.student_ID,
-                    a.course_year, a.contactNumber, a.appointment_date, a.appointment_time,
-                    a.concern, a.appointment_status,
+                    SELECT a.*, d.dept_name,
                     h.StatusChangeDate, h.PreviousStatus, h.NewStatus
                     FROM appointment AS a
                     LEFT JOIN AppointmentStatusHistory AS h ON a.ID_appointment = h.AppointmentID
                     INNER JOIN users_table AS u ON a.student_ID = u.login_ID
+                    INNER JOIN department AS d ON a.dept_id = d.ID_dept
                     WHERE u.user_ID = @userID
                     ORDER BY a.appointment_date DESC, h.StatusChangeDate DESC";
-
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@userID", userID);
@@ -123,6 +132,31 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
 
             return appointmentData;
+        }
+
+        // Helper method to retrieve department name based on department ID
+        private string GetDepartmentName(int departmentId)
+
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT dept_name FROM department WHERE ID_dept = @DepartmentId";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DepartmentId", departmentId);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return result.ToString();
+                    }
+
+                    // Handle the case where the department name is not found
+                    return "Unknown Department";
+                }
+            }
         }
 
         protected void CloseViewModal_Click(object sender, EventArgs e)

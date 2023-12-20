@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LandingPage.aspx.cs" Inherits="Gabay_Final_V2.Landing_Page.LandingPage" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -15,6 +14,9 @@
     <script src="../FontAwesome/js/all.js"></script>
     <link href="../Resources/CustomStyleSheet/Landing_Page/LandingPageStyle.css" rel="stylesheet" />
 </head>
+
+
+
 <body>
     <%-- Top Header --%>
     <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary" id="nav">

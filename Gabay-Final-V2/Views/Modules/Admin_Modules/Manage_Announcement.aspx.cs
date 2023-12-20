@@ -22,6 +22,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             {
                 // Load announcements when the page is first loaded
                 LoadAnnouncements();
+                UpdateDateOptions();
             }
         }
 
@@ -57,6 +58,13 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             {
                 return new DataTable();
             }
+        }
+
+        private void UpdateDateOptions()
+        {
+            // Set the minimum date to today
+            addDatebx.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+            Datebx.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         // Function to handle the Save button click event (Create/Update)

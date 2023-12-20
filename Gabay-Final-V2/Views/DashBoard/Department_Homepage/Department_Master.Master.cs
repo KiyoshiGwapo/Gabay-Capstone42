@@ -93,8 +93,9 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     // Your query to get the count of unread notifications
                     string countQuery = @"
                 SELECT COUNT(*) AS UnreadCount
-                FROM appointment
-                WHERE Notification = 'UNREAD' AND deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                FROM appointment a
+                INNER JOIN department d ON a.dept_id = d.ID_dept
+                WHERE Notification = 'UNREAD' AND a.dept_id = (SELECT d.ID_dept FROM department WHERE user_ID = @userID)
             ";
 
                     using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
@@ -105,9 +106,10 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
 
                     // Your query to get the actual notification data
                     string dataQuery = @"
-                SELECT ID_appointment, appointment_date, full_name, appointment_status
-                FROM appointment
-                WHERE Notification = 'UNREAD' AND deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                SELECT a.ID_appointment, a.appointment_date, a.full_name, a.appointment_status
+                FROM appointment a
+                INNER JOIN department d ON a.dept_id = d.ID_dept
+                WHERE Notification = 'UNREAD' AND a.dept_id = (SELECT d.ID_dept FROM department WHERE user_ID = @userID)
             ";
 
                     using (SqlCommand dataCmd = new SqlCommand(dataQuery, conn))
@@ -157,10 +159,18 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 {
                     conn.Open();
 
+            //        string query = @"
+            //    UPDATE appointment a
+            //    INNER JOIN department d ON a.dept_id = d.ID_dept
+            //    SET Notification = 'READ'
+            //    WHERE Notification = 'UNREAD' AND a.dept_id = (SELECT d.ID_dept FROM department WHERE user_ID = @userID)
+            //";
                     string query = @"
-                UPDATE appointment
+                UPDATE a
                 SET Notification = 'READ'
-                WHERE Notification = 'UNREAD' AND deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                FROM appointment a
+                INNER JOIN department d ON a.dept_id = d.ID_dept
+                WHERE Notification = 'UNREAD' AND a.dept_id = (SELECT d.ID_dept FROM department WHERE user_ID = @userID)
             ";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))

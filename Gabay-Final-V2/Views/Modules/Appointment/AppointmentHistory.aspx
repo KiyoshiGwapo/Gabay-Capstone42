@@ -105,13 +105,7 @@
                 <asp:GridView ID="GridViewLatest" runat="server" AutoGenerateColumns="false" CssClass="myGridView">
                     <Columns>
                         <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" />
-                        <asp:BoundField DataField="deptName" HeaderText="Department" />
-                        <%--<asp:BoundField DataField="full_name" HeaderText="Full Name" />--%>
-                        <%--<asp:BoundField DataField="email" HeaderText="Email" />--%>
-                        <%--<asp:BoundField DataField="student_ID" HeaderText="Student ID" />--%>
-                        <%--<asp:BoundField DataField="course_year" HeaderText="Course Year" />--%>
-                        <%--<asp:BoundField DataField="contactNumber" HeaderText="Contact Number" />--%>
-                        <%--<asp:BoundField DataField="appointment_date" HeaderText="Date" />--%>
+                        <asp:BoundField DataField="dept_name" HeaderText="Department" />
                         <asp:TemplateField HeaderText="View Concern">
                             <ItemTemplate>
                                 <div class="d-flex justify-content-center">
@@ -119,7 +113,6 @@
                                 </div>
                             </ItemTemplate>
                         </asp:TemplateField>
-
                         <asp:BoundField DataField="appointment_status" HeaderText="Status" />
                     </Columns>
                 </asp:GridView>
@@ -133,11 +126,11 @@
             <div class="col-lg-15 col-md-12">
                 <asp:DropDownList ID="ddlStatusFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatusFilter_SelectedIndexChanged" CssClass="form-select my-custom-width" Style="border-width: 3px; border-color: #007bff;">
                     <asp:ListItem Text="All Status" Value="" />
-                    <asp:ListItem Text="Pending" Value="Pending" />
-                    <asp:ListItem Text="Served" Value="Served" style="color: orange;" />
-                    <asp:ListItem Text="Approved" Value="Approved" style="color: green;" />
-                    <asp:ListItem Text="Reschedule" Value="Reschedule" style="color: blue;" />
-                    <asp:ListItem Text="Rejected" Value="Rejected" style="color: red;" />
+                    <asp:ListItem Text="Pending" Value="pending" />
+                    <asp:ListItem Text="Served" Value="served" style="color: orange;" />
+                    <asp:ListItem Text="Approved" Value="approved" style="color: green;" />
+                    <asp:ListItem Text="Reschedule" Value="reschedule" style="color: blue;" />
+                    <asp:ListItem Text="Rejected" Value="rejected" style="color: red;" />
                 </asp:DropDownList>
             </div>
 
@@ -146,7 +139,7 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CssClass="myGridView">
                     <Columns>
                         <asp:BoundField DataField="ID_appointment" HeaderText="Appointment ID" />
-                        <asp:BoundField DataField="deptName" HeaderText="Department" />
+                        <asp:BoundField DataField="dept_name" HeaderText="Department" />
                         <%--<asp:BoundField DataField="full_name" HeaderText="Full Name" />--%>
                         <%--<asp:BoundField DataField="email" HeaderText="Email" />--%>
                         <%--<asp:BoundField DataField="student_ID" HeaderText="Student ID" />--%>
@@ -165,6 +158,9 @@
                         <asp:BoundField DataField="StatusChangeDate" HeaderText="Date of History" />
                         <asp:BoundField DataField="NewStatus" HeaderText="Previous Status" />
                     </Columns>
+                     <EmptyDataTemplate>
+                            <asp:Label ID="labelforPending" runat="server" Text="No results found" CssClass="no-results-label d-flex justify-content-center"></asp:Label>
+                        </EmptyDataTemplate>
                 </asp:GridView>
             </div>
         </div>
@@ -172,7 +168,7 @@
     <asp:HiddenField ID="HiddenFieldAppointment" runat="server" />
 
     <div class="modal fade" id="concernModal" tabindex="-1" aria-labelledby="concernModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-center">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="concernModalLabel">Appointment Concern</h5>

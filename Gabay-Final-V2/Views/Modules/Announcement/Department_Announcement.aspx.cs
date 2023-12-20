@@ -24,6 +24,7 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                 // Load announcements when the page is first loaded
                 LoadAnnouncements();
                 noResultsLabel.Visible = false;
+                UpdateDateOptions();
             }
         }
 
@@ -60,7 +61,12 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                 return new DataTable();
             }
         }
-
+        private void UpdateDateOptions()
+        {
+            // Set the minimum date to today
+            addDatebx.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+            Datebx.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+        }
         // Function to handle the Save button click event (Create/Update)
         //to save announcement data
         protected void SaveAnnouncement_Click(object sender, EventArgs e)

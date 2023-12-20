@@ -139,8 +139,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     connection.Open();
 
                     // Create a SQL command to count approved appointments in the department
-                    string query = @"SELECT COUNT(*) FROM appointment
-                             WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                    // this is for the version 1.8 db
+                    //string query = @"SELECT COUNT(*) FROM appointment
+                    //         WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                    //         AND appointment_status = 'approved'";
+                    string query = @"SELECT COUNT(*) FROM appointment a
+                             INNER JOIN department d ON a.dept_id = d.ID_dept
+                             WHERE a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @userID) 
                              AND appointment_status = 'approved'";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -165,8 +170,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     connection.Open();
 
                     // Create a SQL command to count approved appointments in the department
-                    string query = @"SELECT COUNT(*) FROM appointment
-                             WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                    // this is for the version 1.8 db
+                    //string query = @"SELECT COUNT(*) FROM appointment
+                    //         WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                    //         AND appointment_status = 'pending'";
+                    string query = @"SELECT COUNT(*) FROM appointment a
+                             INNER JOIN department d ON a.dept_id = d.ID_dept
+                             WHERE a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @userID) 
                              AND appointment_status = 'pending'";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -191,9 +201,14 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                     connection.Open();
 
                     // Create a SQL command to count approved appointments in the department
-                    string query = @"SELECT COUNT(*) FROM appointment
-                             WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
-                             AND appointment_status = 'denied'";
+                    // this is for the version 1.8 db
+                    //string query = @"SELECT COUNT(*) FROM appointment
+                    //         WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                    //         AND appointment_status = 'denied'";
+                    string query = @"SELECT COUNT(*) FROM appointment a
+                            INNER JOIN department d ON a.dept_id = d.ID_dept
+                             WHERE a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @userID) 
+                             AND appointment_status = 'rejected'";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -215,10 +230,15 @@ namespace Gabay_Final_V2.Views.DashBoard.Department_Homepage
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-
+                    
                     // Create a SQL command to count approved appointments in the department
-                    string query = @"SELECT COUNT(*) FROM appointment
-                             WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                    // this is for the version 1.8 db
+                    //string query = @"SELECT COUNT(*) FROM appointment
+                    //         WHERE deptName = (SELECT dept_name FROM department WHERE user_ID = @userID)
+                    //         AND appointment_status = 'reschedule'";
+                    string query = @"SELECT COUNT(*) FROM appointment a
+                             INNER JOIN department d ON a.dept_id = d.ID_dept
+                             WHERE a.dept_id = (SELECT ID_dept FROM department WHERE user_ID = @userID) 
                              AND appointment_status = 'reschedule'";
 
                     using (SqlCommand command = new SqlCommand(query, connection))

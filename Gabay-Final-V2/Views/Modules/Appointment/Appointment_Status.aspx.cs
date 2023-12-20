@@ -26,7 +26,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
                 else
                 {
-                    Response.Redirect("..\\DashBoard\\Student_Homepage\\Student_Dashboard.aspx");
+                    Response.Redirect("..\\..\\LoginPages\\Student_login.aspx");
                 }
             }
 
@@ -142,7 +142,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         {
                             string appointmentID = reader["ID_appointment"].ToString();
                             string appointee = reader["full_name"].ToString();
-                            string destination = reader["deptName"].ToString();
+                            string destination = GetDepartmentName(Convert.ToInt32(reader["dept_id"]));
                             DateTime date = (DateTime)reader["appointment_date"];
                             string appointmentDate = date.ToString("dd MMM, yyyy ddd");
                             string appointmentTime = reader["appointment_time"].ToString();
@@ -244,6 +244,33 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 }
                 conn.Close();
             }
+        }
+
+        private string GetDepartmentName(int userID)
+        {
+            string departmentName = "";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+
+                string query = "SELECT dept_name FROM department WHERE user_ID = @user_ID";
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@user_ID", userID);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            departmentName = reader["dept_name"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return departmentName;
         }
 
         protected void RejectReschedBtn_Click(object sender, EventArgs e)

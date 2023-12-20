@@ -358,7 +358,7 @@ namespace Gabay_Final_V2.Views.Modules.Chatbot
                 countUnAnswered++;
 
                 // if the ViewState counts are more than or equal to 1, it sets bestScript to referToAppointment, otherwise bestScript is set to unAnswered
-                if (countUnAnswered >= 3)
+                if (countUnAnswered >= 2)
                 {
                     AddBotMessageMenu(menuDialog);
                     countUnAnswered = 0;

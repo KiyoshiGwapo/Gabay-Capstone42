@@ -95,11 +95,14 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         string notificationStatus = "UNREAD";
                         string courseYear = "4";
 
-                        int appointmentID = InsertAppointmentRecord(fullName, email, studentID, courseYear, contactNumber, selectedDate, selectedTime, deptName, concern, status, notificationStatus);
+                        int dept_id = getDeptIDbyDeptName(deptName);
+
+                        int appointmentID = InsertAppointmentRecord(fullName, email, studentID, courseYear, contactNumber, selectedDate, selectedTime, dept_id, concern, status, notificationStatus);
 
                         if (appointmentID > 0)
                         {
-                            SendAppointmentConfirmationEmail(fullName, email, selectedDate, selectedTime, deptName, concern, appointmentID);
+                            string departmentName = GetDepartmenName(dept_id);
+                            SendAppointmentConfirmationEmail(fullName, email, selectedDate, selectedTime, departmentName, concern, appointmentID);
 
 
                             // Clear form fields directly
@@ -128,7 +131,29 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 ShowErrorModal(ex.Message);
             }
         }
+        //retrive dept_id by dept_name helper
+        public int getDeptIDbyDeptName(string deptName)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ID_dept FROM department WHERE dept_name = @DepartmentName";
+                conn.Open();
 
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DepartmentName", deptName);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+
+                    // Handle the case where the department name is not found
+                    throw new Exception("Department not found");
+                }
+            }
+        }
 
         private void ShowSuccessModal(string submitEmailDialog)
         {
@@ -161,17 +186,17 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
         }
 
 
-        private int InsertAppointmentRecord(string fullName, string email, string studentID, string courseYear, string contactNumber, string selectedDate, string selectedTime, string deptName, string concern, string status, string notificationStatus)
+        private int InsertAppointmentRecord(string fullName, string email, string studentID, string courseYear, string contactNumber, string selectedDate, string selectedTime, int dept_id, string concern, string status, string notificationStatus)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO appointment ([deptName], [full_name], [email], [student_ID], [course_year], [contactNumber], [appointment_date], [appointment_time], [concern], [appointment_status], [Notification]) " +
-                    "VALUES (@DeptName, @FullName, @Email, @StudentID, @CourseYear, @ContactNumber, @SelectedDate, @SelectedTime, @Concern, @Status, @Notif); SELECT SCOPE_IDENTITY()";
+                string query = "INSERT INTO appointment ([dept_id], [full_name], [email], [student_ID], [course_year], [contactNumber], [appointment_date], [appointment_time], [concern], [appointment_status], [Notification]) " +
+                    "VALUES (@dept_id, @FullName, @Email, @StudentID, @CourseYear, @ContactNumber, @SelectedDate, @SelectedTime, @Concern, @Status, @Notif); SELECT SCOPE_IDENTITY()";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DeptName", deptName);
+                    cmd.Parameters.AddWithValue("@dept_id", dept_id);
                     cmd.Parameters.AddWithValue("@FullName", fullName);
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@StudentID", studentID);
@@ -260,6 +285,33 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             }
         }
 
+        //get dept_name by dept_id helper
+        private string GetDepartmenName(int deptID)
+        {
+            string departmentName = "";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+
+                string query = "SELECT dept_name FROM department WHERE ID_dept = @dept_ID";
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@dept_ID", deptID);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            departmentName = reader["dept_name"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return departmentName;
+        }
         //Search sa iyang appointment
         protected void searchResultsGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -319,7 +371,6 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
 
         protected void reschedBtn_Click(object sender, EventArgs e)
         {
-
             try
             {
                 int appointmentID = Convert.ToInt32(storeAppointmentID.Value);
@@ -425,7 +476,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                         {
                             string appointmentID = reader["ID_appointment"].ToString();
                             string appointee = reader["full_name"].ToString();
-                            string destination = reader["deptName"].ToString();
+                            string destination = GetDepartmenName(Convert.ToInt32(reader["dept_id"]));
                             DateTime date = (DateTime)reader["appointment_date"];
                             string appointmentDate = date.ToString("dd MMM, yyyy ddd");
                             string appointmentTime = reader["appointment_time"].ToString();
@@ -680,9 +731,14 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-
-                string query = @"SELECT appointment_time from appointment
-                                 WHERE deptName = @selectedDept
+                // this is for db v.1.8
+                //string query = @"SELECT appointment_time from appointment
+                //                 WHERE deptName = @selectedDept
+                //                 AND appointment_date = @selectedDate
+                //                 AND (appointment_status != 'rejected' AND appointment_status != 'served' AND appointment_status != 'no show')";
+                string query = @"SELECT appointment_time FROM appointment a
+                                 INNER JOIN department d ON a.dept_id = d.ID_dept
+                                 WHERE a.dept_id = (SELECT d.ID_dept FROM department WHERE dept_name = @selectedDept) 
                                  AND appointment_date = @selectedDate
                                  AND (appointment_status != 'rejected' AND appointment_status != 'served' AND appointment_status != 'no show')";
 

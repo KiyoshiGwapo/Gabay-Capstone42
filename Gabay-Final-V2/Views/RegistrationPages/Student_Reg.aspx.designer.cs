@@ -24,6 +24,15 @@ namespace Gabay_Final_V2.Views.RegistrationPages
         protected global::System.Web.UI.WebControls.HyperLink goBack1;
 
         /// <summary>
+        /// idNumExist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl idNumExist;
+
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>

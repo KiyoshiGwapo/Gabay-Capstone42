@@ -136,7 +136,7 @@
             <div class="modal-content">
                 <div class="modal-body bg-success text-center text-light">
                     <i class="bi bi-info-circle-fill"></i>
-                    <span>Student Updated</span>
+                    <span>Student Activated</span>
                 </div>
             </div>
         </div>
@@ -166,7 +166,7 @@
             <div class="modal-content">
                 <div class="modal-body bg-success text-center text-light">
                     <i class="bi bi-info-circle-fill"></i>
-                    <span>Student Updated</span>
+                    <span>Student Deactivated</span>
                 </div>
             </div>
         </div>

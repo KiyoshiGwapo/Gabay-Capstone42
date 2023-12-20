@@ -157,7 +157,7 @@
                                         <div class="icon-circle bg-light mr-4">
                                         </div>
                                         <div>
-                                            <div class="text-xs font-weight-bold text-uppercase mb-1">Denied</div>
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1">Rejected</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">
                                                 <asp:Label ID="DeniedAppointmentCountLabel" runat="server" Text=""></asp:Label>
                                             </div>

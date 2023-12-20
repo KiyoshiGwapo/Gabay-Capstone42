@@ -1,82 +1,74 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Student_Homepage/Student_Master.Master" AutoEventWireup="true" CodeBehind="Student_Dashboard.aspx.cs" Inherits="Gabay_Final_V2.Views.DashBoard.Student_Homepage.WebForm1" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 style="text-align: center; padding: 9px; border: 2px solid #333; background-color: #f4f4f4; color: #333; border-radius: 10px;">Announcements</h1>
-    <style>
-        .card-container {
-            height: 500px;
+     <style>
+        .card-container{
+            height:500px;
             display: flex;
             justify-content: space-evenly;
         }
-
-        .card {
-            margin: 13px;
-            width: 25rem;
-            height: 100%;
+        .card{
+            margin:13px;
+            width:25rem;
+            height:100%;
             border: 2px solid #425ab7;
             border-radius: 20px;
             box-shadow: 10px 10px 8px #888888;
         }
-
-        .image-container {
+        .image-container{
             max-width: 100%;
             height: 250px;
             overflow: hidden;
             border-radius: 18px 18px 0 0;
         }
-
-        .image-Detailed-Container {
+        .image-Detailed-Container{
             max-width: 100%;
             height: 250px;
             overflow: hidden;
+            
         }
-
-        .imagePlaceholder {
+        .imagePlaceholder{
             width: 100%;
             height: 100%;
         }
-
-        .learnMoreBtn {
+        .learnMoreBtn{
             height: 45px;
             width: 130px;
-            color: white;
-            font-size: 18px;
+            color:white;
+            font-size:18px;
         }
-
         .carousel .card {
             display: none;
             transition: transform 0.5s ease-in-out;
             transform: translateX(100%);
         }
 
-            .carousel .card.active {
-                display: block;
-                transform: translateX(0);
-            }
+        .carousel .card.active {
+            display: block;
+            transform: translateX(0);
+        }
 
-        .adminpost {
+        .adminpost{
             opacity: 75%;
-            top: 5px;
-            margin-left: 10px;
+            top:5px;
+            margin-left:10px;
             width: 30px !important;
             height: auto;
         }
-
-    .or-label {
+          .or-label {
         display: flex;
         align-items: center;
         color: black;
         font-weight: bold;
         margin-left: 10px;
         margin-right: 10px;
-    }
+         }
     </style>
-    <script src="../Scripts/jquery-3.7.1.js"></script>
-
+     <script src="../Scripts/jquery-3.7.1.js"></script>
     <div class="container">
-       <div class="d-flex justify-content-end mt-3">
+        <div class="d-flex justify-content-end mt-3">
             <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" Placeholder="Search by Title" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged" style="width: 200px;"></asp:TextBox>
         <div class="col-auto or-label">OR</div>
             <asp:TextBox ID="calFilterDate" runat="server" TextMode="Date" CssClass="form-control" placeholder="Filter by date" OnTextChanged="txtFilterDate_TextChanged" AutoPostBack="True" style="width: 200px;"></asp:TextBox>     
@@ -116,7 +108,7 @@
         </div>
     </div>
     <asp:HiddenField ID="AnnouncementIDHolder" runat="server" />
-
+     
     <%-- Detailed Modal --%>
     <div class="modal fade" id="dtldModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -127,8 +119,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="image-Detailed-Container card-img-top">
-                        <asp:Image ID="dtldimgPlaceholder" runat="server" class="img-fluid imagePlaceholder" alt="..."
-                            ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("ImagePath")) %>' />
+                        <asp:Image ID="dtldimgPlaceholder" runat="server" class="img-fluid imagePlaceholder" alt="..." 
+                            ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("ImagePath")) %>'/>
                     </div>
                     <div class="d-flex justify-content-center flex-column">
                         <asp:Label ID="dtldDate" runat="server" Text="Date" CssClass="text-center text-secondary"></asp:Label>

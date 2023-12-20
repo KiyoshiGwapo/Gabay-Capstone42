@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Controls;
 using System.Data.SqlTypes;
 
 namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
@@ -45,7 +46,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
              FROM Announcement A
              LEFT JOIN department D ON A.User_ID = D.user_ID
              LEFT JOIN student S ON D.ID_dept = S.department_ID
-             WHERE (S.user_ID = @user_ID OR A.User_ID = 4052)
+             WHERE (S.user_ID = @user_ID OR A.User_ID = 1)
                AND (A.Title LIKE '%' + @searchTerm + '%' OR @searchTerm = '')
                AND (A.Date = @filterDate OR @filterDate IS NULL)";
 
@@ -68,6 +69,7 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 return null;
             }
         }
+
         protected void LoadAnnouncements()
         {
 
@@ -126,13 +128,11 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
             LoadAnnouncements();
         }
 
-      
+
 
         protected void txtFilterDate_TextChanged(object sender, EventArgs e)
         {
             LoadAnnouncements();
         }
-
-
     }
 }

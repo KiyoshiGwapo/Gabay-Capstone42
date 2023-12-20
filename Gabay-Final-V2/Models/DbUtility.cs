@@ -155,6 +155,20 @@ namespace Gabay_Final_V2.Models
 			}
 		}
 		//-------------------------------Insert Student in Database-------------------------------//
+		public bool existingStudent(string studID)
+		{
+			using(SqlConnection conn = new SqlConnection(connection))
+			{
+				conn.Open();
+				string checkDeptQuery = @"SELECT COUNT(*) FROM student WHERE studentID = @studID";
+				using (SqlCommand checkStudCmd = new SqlCommand(checkDeptQuery, conn))
+				{
+					checkStudCmd.Parameters.AddWithValue("@studID", studID);
+					int existStud = Convert.ToInt32(checkStudCmd.ExecuteScalar());
+					return existStud > 0;
+				}
+			}
+		}
 		public void addStudent(int deptID, string studName, string studAddress, string studCN, string studBOD,string course, string studCY, string studID, string studPass, string studEmail)
 		{
 			using (SqlConnection conn = new SqlConnection(connection))
@@ -176,7 +190,7 @@ namespace Gabay_Final_V2.Models
 				string updateDeptQuery = @"UPDATE student SET user_ID = (SELECT user_ID FROM users_table WHERE login_ID = @studID)
 										   WHERE studentID = @studID";
 
-				string checkDeptQuery = @"SELECT COUNT(*) FROM student WHERE studentID = @studID";
+				
 				string checkUserQuery = @"SELECT COUNT(*) FROM users_table WHERE login_ID = @studID";
 
 
@@ -186,16 +200,7 @@ namespace Gabay_Final_V2.Models
 					roleID = Convert.ToInt32(roleCmd.ExecuteScalar());
 				}
 
-				using (SqlCommand checkStudCmd = new SqlCommand(checkDeptQuery, conn))
-				{
-					checkStudCmd.Parameters.AddWithValue("@studID", studID);
-					int existStud = Convert.ToInt32(checkStudCmd.ExecuteScalar());
-
-					if (existStud > 0)
-					{
-						return;
-					}
-				}
+				
 
 				using (SqlCommand checkUserCmd = new SqlCommand(checkUserQuery, conn))
 				{
@@ -244,6 +249,7 @@ namespace Gabay_Final_V2.Models
 				}
 
 				conn.Close();
+				
 			}
 		}
 		public void addDept(string deptName, string deptLogin, string deptPass, string dept_Head, string dept_Desc, string dept_CN, string dept_Email, string dept_Hour, bool existUsername)

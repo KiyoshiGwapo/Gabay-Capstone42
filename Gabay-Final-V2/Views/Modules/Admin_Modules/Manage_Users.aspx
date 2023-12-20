@@ -25,8 +25,7 @@
     <div class="table-responsive">
         <asp:GridView ID="GridViewStudents" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered text-center" DataKeyNames="ID">
             <Columns>
-            <%--<asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" ItemStyle-CssClass="" />--%>
-                <asp:BoundField DataField="user_ID" HeaderText="Student ID" SortExpression="Student ID" ItemStyle-CssClass="" />
+                <asp:BoundField DataField="ID" HeaderText="Student ID" SortExpression="ID" ItemStyle-CssClass="" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-CssClass="" />
                 <asp:BoundField DataField="StudentDepartment" HeaderText="Student Department" SortExpression="StudentDepartment" ItemStyle-CssClass="" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-CssClass="" />

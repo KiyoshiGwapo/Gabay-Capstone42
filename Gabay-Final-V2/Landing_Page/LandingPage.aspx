@@ -15,8 +15,6 @@
     <link href="../Resources/CustomStyleSheet/Landing_Page/LandingPageStyle.css" rel="stylesheet" />
 </head>
 
-
-
 <body>
     <%-- Top Header --%>
     <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary" id="nav">

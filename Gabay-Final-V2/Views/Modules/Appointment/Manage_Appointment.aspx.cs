@@ -1250,7 +1250,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
             TableRow headerRow = new TableRow();
             foreach (DataColumn column in dt.Columns)
             {
-                if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
+                if (column.ColumnName != "dept_id" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
                 {
                     TableCell cell = new TableCell();
                     cell.Text = GetColumnHeader(column.ColumnName);
@@ -1265,7 +1265,7 @@ namespace Gabay_Final_V2.Views.Modules.Appointment
                 TableRow dataRow = new TableRow();
                 foreach (DataColumn column in dt.Columns)
                 {
-                    if (column.ColumnName != "deptName" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
+                    if (column.ColumnName != "dept_id" && column.ColumnName != "concern" && column.ColumnName != "Notification" && column.ColumnName != "contactNumber" && column.ColumnName != "role")
                     {
                         TableCell cell = new TableCell();
                         cell.Text = GetCellData(column, row[column]);

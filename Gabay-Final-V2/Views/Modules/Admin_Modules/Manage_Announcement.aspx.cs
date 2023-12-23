@@ -75,8 +75,9 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             string date = addDatebx.Text;
             string shortDescript = addShrtbx.Text;
             string detailedDescript = addDtldbx.Text;
-
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(date) ||
+            string startTim = addStartTime.Text;
+            string endTim = addEndTime.Text;
+            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(date) || string.IsNullOrWhiteSpace(startTim) || string.IsNullOrWhiteSpace(endTim) ||
                 string.IsNullOrWhiteSpace(shortDescript) || string.IsNullOrWhiteSpace(detailedDescript))
             {
                 // Show validation modal
@@ -97,7 +98,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                     if (Session["user_ID"] != null)
                     {
                         int user_ID = Convert.ToInt32(Session["user_ID"]);
-                        AddData(user_ID, title, date, bytes, shortDescript, detailedDescript);
+                        AddData(user_ID, title, date, bytes, shortDescript, detailedDescript, startTim, endTim);
                     }
                     string successMessage = "Announcement Added successfully.";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "showSuccessModal",
@@ -115,13 +116,13 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
             }
         }
-        public void AddData(int user_ID, string Title, string Date, byte[] imgFile, string shortDescription, string DetailedDescription)
+        public void AddData(int user_ID, string Title, string Date, byte[] imgFile, string shortDescription, string DetailedDescription, string StartTime, string EndTime)
         {
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 conn.Open();
-                string query = @"INSERT INTO Announcement (User_ID, Title, Date, ImagePath, ShortDescription, DetailedDescription)
-                                 VALUES (@user_ID, @Title, @Date, @imgFile, @shortDescript, @DetailedDescript)";
+                string query = @"INSERT INTO Announcement (User_ID, Title, Date, ImagePath, ShortDescription, DetailedDescription, StartTime ,EndTime)
+                                 VALUES (@user_ID, @Title, @Date, @imgFile, @shortDescript, @DetailedDescript, @StartTim, @EndTim)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -133,6 +134,9 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                     cmd.Parameters.Add(imgParam);
                     cmd.Parameters.AddWithValue("@shortDescript", shortDescription);
                     cmd.Parameters.AddWithValue("@DetailedDescript", DetailedDescription);
+                    cmd.Parameters.AddWithValue("@StartTim", StartTime);
+                    cmd.Parameters.AddWithValue("@EndTim", EndTime);
+
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -144,6 +148,8 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
             addDatebx.Text = "";
             addShrtbx.Text = "";
             addDtldbx.Text = "";
+            addStartTime.Text = "";
+            addEndTime.Text = "";
         }
 
         //Function to handle the Delete button click event (Delete)
@@ -217,10 +223,22 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                             if (reader.Read())
                             {
                                 Titlebx.Text = reader["Title"].ToString();
-                                DateTime date = (DateTime)reader["Date"];
-                                Datebx.Text = date.ToString("yyyy-MM-dd");
+                                DateTime date;
+                                if (DateTime.TryParse(reader["Date"].ToString(), out date))
+                                {
+                                    Datebx.Text = date.ToString("yyyy-MM-dd");
+                                }
+                                else
+                                {
+                                    // Handle parsing error or set a default value
+                                    Datebx.Text = string.Empty;
+                                }
                                 ShortDescbx.Text = reader["ShortDescription"].ToString();
                                 DtlDescBx.Text = reader["DetailedDescription"].ToString();
+
+                                // Format StartTime and EndTime using a custom format string
+                                StartTimebx.Text = FormatTime(reader["StartTime"]);
+                                EndTimebx.Text = FormatTime(reader["EndTime"]);
                             }
                         }
                     }
@@ -233,6 +251,22 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 throw new Exception("User_ID not available in the session.");
             }
         }
+
+        private string FormatTime(object timeObject)
+        {
+            if (timeObject != null && timeObject != DBNull.Value)
+            {
+                // Assuming timeObject is a TimeSpan or DateTime
+                DateTime time = Convert.ToDateTime(timeObject);
+                return time.ToString("hh:mm:ss tt"); // Include AM/PM designator
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+
         protected void gridviewEdit_Click(object sender, EventArgs e)
         {
             int hiddenID = Convert.ToInt32(HidAnnouncementID.Value);
@@ -269,6 +303,8 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                                 string currentDate = Datebx.Text;
                                 string currentShortDesc = ShortDescbx.Text;
                                 string currentDetailedDesc = DtlDescBx.Text;
+                                string currentStartTime = StartTimebx.Text;
+                                string currentEndTime = EndTimebx.Text;
 
                                 // Fetch the existing ImagePath from the database record
                                 byte[] existingImage = (byte[])reader["ImagePath"];
@@ -283,12 +319,14 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
 
                                     // Update the record with the new image data
                                     string updateQuery = @"UPDATE Announcement
-                                               SET Title = @newTitle,
-                                                   Date = @newDate,
-                                                   ShortDescription = @newShortDesc,
-                                                   DetailedDescription = @newDetailedDesc,
-                                                   ImagePath = @newImage
-                                               WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
+                                       SET Title = @newTitle,
+                                           Date = @newDate,
+                                           ShortDescription = @newShortDesc,
+                                           DetailedDescription = @newDetailedDesc,
+                                           ImagePath = @newImage,
+                                           StartTime = @newStartTime,
+                                           EndTime = @newEndTime
+                                       WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
 
                                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                                     {
@@ -296,7 +334,9 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                                         updateCmd.Parameters.AddWithValue("@newDate", currentDate);
                                         updateCmd.Parameters.AddWithValue("@newShortDesc", currentShortDesc);
                                         updateCmd.Parameters.AddWithValue("@newDetailedDesc", currentDetailedDesc);
-                                        updateCmd.Parameters.AddWithValue("@newImage", newImage); // Set the ImagePath to the new image data
+                                        updateCmd.Parameters.AddWithValue("@newImage", newImage);
+                                        updateCmd.Parameters.AddWithValue("@newStartTime", currentStartTime); // Corrected parameter name
+                                        updateCmd.Parameters.AddWithValue("@newEndTime", currentEndTime); // Corrected parameter name
                                         updateCmd.Parameters.AddWithValue("@AnnouncementID", AnnouncementID);
                                         updateCmd.Parameters.AddWithValue("@user_ID", user_ID);
 
@@ -307,11 +347,13 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                                 {
                                     // No new image uploaded, so update other fields only
                                     string updateQuery = @"UPDATE Announcement
-                                               SET Title = @newTitle,
-                                                   Date = @newDate,
-                                                   ShortDescription = @newShortDesc,
-                                                   DetailedDescription = @newDetailedDesc
-                                               WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
+                                       SET Title = @newTitle,
+                                           Date = @newDate,
+                                           ShortDescription = @newShortDesc,
+                                           DetailedDescription = @newDetailedDesc,
+                                           StartTime = @newStartTime,
+                                           EndTime = @newEndTime
+                                       WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
 
                                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                                     {
@@ -319,6 +361,8 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                                         updateCmd.Parameters.AddWithValue("@newDate", currentDate);
                                         updateCmd.Parameters.AddWithValue("@newShortDesc", currentShortDesc);
                                         updateCmd.Parameters.AddWithValue("@newDetailedDesc", currentDetailedDesc);
+                                        updateCmd.Parameters.AddWithValue("@newStartTime", currentStartTime); // Corrected parameter name
+                                        updateCmd.Parameters.AddWithValue("@newEndTime", currentEndTime); // Added new parameter for EndTime
                                         updateCmd.Parameters.AddWithValue("@AnnouncementID", AnnouncementID);
                                         updateCmd.Parameters.AddWithValue("@user_ID", user_ID);
 
@@ -337,6 +381,7 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
                 throw new Exception("User_ID not available in the session.");
             }
         }
+
         // Helper function to convert a byte array from an image file
         private byte[] GetByteArrayFromImage(byte[] imageBytes)
         {

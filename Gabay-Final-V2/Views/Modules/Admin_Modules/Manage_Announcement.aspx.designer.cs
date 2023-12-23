@@ -69,6 +69,24 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
         protected global::System.Web.UI.WebControls.TextBox Datebx;
 
         /// <summary>
+        /// StartTimebx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox StartTimebx;
+
+        /// <summary>
+        /// EndTimebx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EndTimebx;
+
+        /// <summary>
         /// ShortDescbx control.
         /// </summary>
         /// <remarks>
@@ -121,6 +139,24 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox addDatebx;
+
+        /// <summary>
+        /// addStartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox addStartTime;
+
+        /// <summary>
+        /// addEndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox addEndTime;
 
         /// <summary>
         /// addFilebx control.

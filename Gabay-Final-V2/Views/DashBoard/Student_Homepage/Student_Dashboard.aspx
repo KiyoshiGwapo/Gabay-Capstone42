@@ -92,6 +92,9 @@
                                 </div>
                                 <div class="p-2 d-flex justify-content-center align-items-center flex-column">
                                     <p><%# Eval("Date", "{0:MMMM-dd-yyyy}") %></p>
+                                        <p>
+                                            <%# Eval("StartTime", "{0:hh:mm tt}") %> - <%# Eval("EndTime", "{0:hh:mm tt}") %>
+                                        </p>
                                     <span class="card-title fs-2 fw-medium"><%# Eval("Title") %></span>
                                     <p class="card-text text-center"><%# Eval("ShortDescription") %></p>
                                     <asp:LinkButton ID="learnMoreBtn" CssClass="btn bg-primary learnMoreBtn text-center"
@@ -123,7 +126,12 @@
                             ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("ImagePath")) %>'/>
                     </div>
                     <div class="d-flex justify-content-center flex-column">
-                        <asp:Label ID="dtldDate" runat="server" Text="Date" CssClass="text-center text-secondary"></asp:Label>
+                       <asp:Label ID="dtldDate" runat="server" Text="Date" CssClass="text-center text-secondary"></asp:Label>
+                       <div class="d-flex justify-content-center">
+                        <asp:Label ID="dtldStartTime" runat="server" Text="Start Time" CssClass="text-center text-secondary me-2"></asp:Label>
+<%--                        <p class="text-secondary">-</p><p> </p>--%>
+                        <asp:Label ID="dtldEndTime" runat="server" Text="End Time" CssClass="text-center text-secondary"></asp:Label>
+                        </div>
                         <asp:Label ID="dtldDescrp" runat="server" Text="Detailed Description"></asp:Label>
                     </div>
                 </div>

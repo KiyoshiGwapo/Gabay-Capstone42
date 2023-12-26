@@ -87,6 +87,24 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
         protected global::System.Web.UI.WebControls.Label dtldDate;
 
         /// <summary>
+        /// dtldStartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dtldStartTime;
+
+        /// <summary>
+        /// dtldEndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dtldEndTime;
+
+        /// <summary>
         /// dtldDescrp control.
         /// </summary>
         /// <remarks>

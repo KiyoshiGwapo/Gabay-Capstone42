@@ -30,8 +30,8 @@
                 <asp:BoundField DataField="AnnouncementID" HeaderText="ID" ItemStyle-CssClass="text-center" />
                 <asp:BoundField DataField="Title" HeaderText="Title" />
                 <asp:BoundField DataField="Date" HeaderText="Date" DataFormatString="{0:yyyy-MM-dd}" />
-                <asp:BoundField DataField="StartTime" HeaderText="Start Time" DataFormatString="{0:HH:mm}" />
-                <asp:BoundField DataField="EndTime" HeaderText="End Time" DataFormatString="{0:HH:mm}" />
+                <asp:BoundField DataField="StartTime" HeaderText="Start Time" DataFormatString="{0:hh:mm tt}" />
+                <asp:BoundField DataField="EndTime" HeaderText="End Time" DataFormatString="{0:hh:mm tt}" />
                 <asp:TemplateField HeaderText="Image">
                     <ItemTemplate>
                         <asp:Image ID="Image1" runat="server" Height="100px" Width="100px"
@@ -118,17 +118,18 @@
                         <label for="Datebx">Date</label>
                     </div>
                     <div class="form-group">
-                        <div class="row">
-                            <div class="col">
-                                <label for="StartTime">Start Time</label>
-                                <asp:TextBox ID="addStartTime" CssClass="form-control" runat="server" placeholder="Start Time" TextMode="Time"></asp:TextBox>                         
-                            </div>
-                            <div class="col">
-                                <label for="EndTime">End Time</label>
-                                <asp:TextBox ID="addEndTime" CssClass="form-control" runat="server" placeholder="Start Time" TextMode="Time"></asp:TextBox>                         
-                            </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="StartTime">Start Time</label>
+                            <asp:TextBox ID="addStartTime" CssClass="form-control clockpicker" runat="server" placeholder="Start Time" TextMode="Time"></asp:TextBox>
+                        </div>
+                        <div class="col">
+                            <label for="EndTime">End Time</label>
+                            <asp:TextBox ID="addEndTime" CssClass="form-control clockpicker" runat="server" placeholder="End Time" TextMode="Time"></asp:TextBox>
                         </div>
                     </div>
+                </div>
+
                     <div class="form-floating mb-3">
                         </div>
                     <div class="mb-3">
@@ -192,12 +193,12 @@
     </div>
 
 
-    <!-- Bootstrap JS and jQuery -->
-    <script src="../../../Scripts/jquery-3.7.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" integrity="sha256-oaR6kWgM/X73YzHy1l2hAwt2xpfrIQ34qR/vsUmbtOY=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js" integrity="sha256-DeIe6jTh3bFrP6Hh9gZzZ6lc7zU6o6ax/MSMdVivmcM=" crossorigin="anonymous"></script>
+<!-- Bootstrap JS and jQuery -->
+<script src="../../../Scripts/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" integrity="sha256-oaR6kWgM/X73YzHy1l2hAwt2xpfrIQ34qR/vsUmbtOY=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js" integrity="sha256-DeIe6jTh3bFrP6Hh9gZzZ6lc7zU6o6ax/MSMdVivmcM=" crossorigin="anonymous"></script>
 
     <script>
         function showConfirmationModal(id) {
@@ -212,15 +213,15 @@
             document.getElementById('<%= HidAnnouncementID.ClientID %>').value = id;
         }
     </script>
-    <script>
-        $(document).ready(function () {
-            // Initialize timepicker
-            $('.clockpicker').timepicker({
-                showInputs: false,
-                showMeridian: false,
-                defaultTime: false
-            });
-        });
-    </script>
+   <script>
+       $(document).ready(function () {
+           // Initialize timepicker
+           $('.clockpicker').timepicker({
+               showInputs: false,
+               showMeridian: false,
+               defaultTime: false
+           });s
+       });
+   </script>
 
 </asp:Content>

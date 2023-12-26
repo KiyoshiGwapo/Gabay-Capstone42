@@ -256,15 +256,16 @@ namespace Gabay_Final_V2.Views.Modules.Admin_Modules
         {
             if (timeObject != null && timeObject != DBNull.Value)
             {
-                // Assuming timeObject is a TimeSpan or DateTime
+                // Assuming timeObject is a DateTime
                 DateTime time = Convert.ToDateTime(timeObject);
-                return time.ToString("hh:mm:ss tt"); // Include AM/PM designator
+                return time.ToString("hh:mm:ss");
             }
             else
             {
                 return string.Empty;
             }
         }
+
 
 
         protected void gridviewEdit_Click(object sender, EventArgs e)

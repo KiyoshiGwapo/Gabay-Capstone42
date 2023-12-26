@@ -105,6 +105,13 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                             dtldDate.Text = date.ToString("yyyy-MM-dd");
                             dtldDescrp.Text = reader["DetailedDescription"].ToString();
 
+                            // ari ipa gwas katung time2x
+                            DateTime startTime = (DateTime)reader["StartTime"];
+                            DateTime endTime = (DateTime)reader["EndTime"];
+
+                            dtldStartTime.Text = startTime.ToString("hh:mm tt");
+                            dtldEndTime.Text = endTime.ToString("hh:mm tt");
+
                             byte[] imageBytes = reader["ImagePath"] as byte[];
                             if (imageBytes != null)
                             {
@@ -116,6 +123,8 @@ namespace Gabay_Final_V2.Views.DashBoard.Student_Homepage
                 }
             }
         }
+
+
 
         protected void dtldModalClose_Click(object sender, EventArgs e)
         {

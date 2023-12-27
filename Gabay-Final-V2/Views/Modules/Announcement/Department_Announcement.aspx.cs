@@ -77,8 +77,10 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                 string date = addDatebx.Text.Trim();
                 string shortDescript = addShrtbx.Text.Trim();
                 string detailedDescript = addDtldbx.Text.Trim();
+                string startTim = addStartTime.Text;
+                string endTim = addEndTime.Text;
 
-                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(date) ||
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(date) || string.IsNullOrWhiteSpace(startTim) || string.IsNullOrWhiteSpace(endTim) ||
                     string.IsNullOrEmpty(shortDescript) || string.IsNullOrEmpty(detailedDescript) || !addFilebx.HasFile)
                 {
                     // Display an error message for incomplete form
@@ -100,7 +102,7 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                     if (Session["user_ID"] != null)
                     {
                         int user_ID = Convert.ToInt32(Session["user_ID"]);
-                        AddData(user_ID, title, date, bytes, shortDescript, detailedDescript);
+                        AddData(user_ID, title, date, bytes, shortDescript, detailedDescript, startTim, endTim);
                     }
 
                     string successMessage = "Announcement Added successfully.";
@@ -133,13 +135,13 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             return contentType.ToLower().StartsWith("image/");
         }
 
-        public void AddData(int user_ID,string Title, string Date, byte[] imgFile, string shortDescription, string DetailedDescription)
+        public void AddData(int user_ID,string Title, string Date, byte[] imgFile, string shortDescription, string DetailedDescription, string StartTime, string EndTime)
         {
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 conn.Open();
-                string query = @"INSERT INTO Announcement (User_ID, Title, Date, ImagePath, ShortDescription, DetailedDescription)
-                                 VALUES (@user_ID, @Title, @Date, @imgFile, @shortDescript, @DetailedDescript)";
+                string query = @"INSERT INTO Announcement (User_ID, Title, Date, ImagePath, ShortDescription, DetailedDescription, StartTime ,EndTime)
+                                 VALUES (@user_ID, @Title, @Date, @imgFile, @shortDescript, @DetailedDescript, @StartTim, @EndTim)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -151,6 +153,8 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                     cmd.Parameters.Add(imgParam);
                     cmd.Parameters.AddWithValue("@shortDescript", shortDescription);
                     cmd.Parameters.AddWithValue("@DetailedDescript", DetailedDescription);
+                    cmd.Parameters.AddWithValue("@StartTim", StartTime);
+                    cmd.Parameters.AddWithValue("@EndTim", EndTime);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -162,6 +166,8 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
             addDatebx.Text = "";
             addShrtbx.Text = "";
             addDtldbx.Text = "";
+            addStartTime.Text = "";
+            addEndTime.Text = "";
         }
 
         //Function to handle the Delete button click event (Delete)
@@ -239,6 +245,9 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                                 Datebx.Text = date.ToString("yyyy-MM-dd");
                                 ShortDescbx.Text = reader["ShortDescription"].ToString();
                                 DtlDescBx.Text = reader["DetailedDescription"].ToString();
+                                // Format StartTime and EndTime using a custom format string
+                                StartTimebx.Text = FormatTime(reader["StartTime"]);
+                                EndTimebx.Text = FormatTime(reader["EndTime"]);
                             }
                         }
                     }
@@ -249,6 +258,20 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                 // Handle the case when user_ID is not available in the session
                 // You can throw an exception, show an error message, or take appropriate action.
                 throw new Exception("User_ID not available in the session.");
+            }
+        }
+
+        private string FormatTime(object timeObject)
+        {
+            if (timeObject != null && timeObject != DBNull.Value)
+            {
+                // Assuming timeObject is a DateTime
+                DateTime time = Convert.ToDateTime(timeObject);
+                return time.ToString("hh:mm:ss");
+            }
+            else
+            {
+                return string.Empty;
             }
         }
         protected void gridviewEdit_Click(object sender, EventArgs e)
@@ -286,13 +309,15 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                                 string currentDate = Datebx.Text;
                                 string currentShortDesc = ShortDescbx.Text;
                                 string currentDetailedDesc = DtlDescBx.Text;
+                                string currentStartTime = StartTimebx.Text;
+                                string currentEndTime = EndTimebx.Text;
 
                                 // Fetch the existing ImagePath from the database record
                                 byte[] existingImage = (byte[])reader["ImagePath"];
 
                                 reader.Close();
 
-                                if (string.IsNullOrEmpty(currentTitle) || string.IsNullOrEmpty(currentDate) ||
+                                if (string.IsNullOrEmpty(currentTitle) || string.IsNullOrEmpty(currentDate) || string.IsNullOrEmpty(currentStartTime) || string.IsNullOrEmpty(currentEndTime) ||
                                      string.IsNullOrEmpty(currentShortDesc) || string.IsNullOrEmpty(currentDetailedDesc))
                                 {
                                     // Display an error message for incomplete form
@@ -314,7 +339,9 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                                            Date = @newDate,
                                            ShortDescription = @newShortDesc,
                                            DetailedDescription = @newDetailedDesc,
-                                           ImagePath = @newImage
+                                           ImagePath = @newImage,
+                                           StartTime = @newStartTime,
+                                           EndTime = @newEndTime
                                        WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
 
                                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
@@ -323,7 +350,9 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                                         updateCmd.Parameters.AddWithValue("@newDate", currentDate);
                                         updateCmd.Parameters.AddWithValue("@newShortDesc", currentShortDesc);
                                         updateCmd.Parameters.AddWithValue("@newDetailedDesc", currentDetailedDesc);
-                                        updateCmd.Parameters.AddWithValue("@newImage", newImage); // Set the ImagePath to the new image data
+                                        updateCmd.Parameters.AddWithValue("@newImage", newImage);
+                                        updateCmd.Parameters.AddWithValue("@newStartTime", currentStartTime);
+                                        updateCmd.Parameters.AddWithValue("@newEndTime", currentEndTime);
                                         updateCmd.Parameters.AddWithValue("@AnnouncementID", AnnouncementID);
                                         updateCmd.Parameters.AddWithValue("@user_ID", user_ID);
 
@@ -340,7 +369,9 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                                        SET Title = @newTitle,
                                            Date = @newDate,
                                            ShortDescription = @newShortDesc,
-                                           DetailedDescription = @newDetailedDesc
+                                           DetailedDescription = @newDetailedDesc,
+                                           StartTime = @newStartTime,
+                                           EndTime = @newEndTime
                                        WHERE AnnouncementID = @AnnouncementID AND User_ID = @user_ID";
 
                                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
@@ -349,6 +380,8 @@ namespace Gabay_Final_V2.Views.Modules.Announcement
                                         updateCmd.Parameters.AddWithValue("@newDate", currentDate);
                                         updateCmd.Parameters.AddWithValue("@newShortDesc", currentShortDesc);
                                         updateCmd.Parameters.AddWithValue("@newDetailedDesc", currentDetailedDesc);
+                                        updateCmd.Parameters.AddWithValue("@newStartTime", currentStartTime); 
+                                        updateCmd.Parameters.AddWithValue("@newEndTime", currentEndTime);
                                         updateCmd.Parameters.AddWithValue("@AnnouncementID", AnnouncementID);
                                         updateCmd.Parameters.AddWithValue("@user_ID", user_ID);
 

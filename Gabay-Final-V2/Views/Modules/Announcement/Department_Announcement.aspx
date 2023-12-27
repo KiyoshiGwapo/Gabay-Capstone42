@@ -1,11 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" AutoEventWireup="true" CodeBehind="Department_Announcement.aspx.cs" Inherits="Gabay_Final_V2.Views.Modules.Announcement.Department_Announcement" %>
+﻿<%@ page title="" language="C#" masterpagefile="~/Views/DashBoard/Department_Homepage/Department_Master.Master" autoeventwireup="true" codebehind="Department_Announcement.aspx.cs" inherits="Gabay_Final_V2.Views.Modules.Announcement.Department_Announcement" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../../Resources/CustomJS/Announcement/Announcement.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        .AnnouncementList td{
-           vertical-align: middle;
+        .AnnouncementList td {
+            vertical-align: middle;
         }
     </style>
     <div class="container mt-5">
@@ -15,6 +16,7 @@
                 <div class="d-grid">
                     <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#toAddModal">
                         Add Announcement
+                   
                     </button>
                 </div>
             </div>
@@ -22,13 +24,15 @@
                 <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control float-end mb-3" placeholder="Search Announcement by Title..." AutoPostBack="True" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
             </div>
         </div>
-       
+
         <!-- Bootstrap Table -->
         <asp:GridView ID="AnnouncementList" HeaderStyle-CssClass="text-center" runat="server" AutoGenerateColumns="false" CssClass="table AnnouncementList" DataKeyNames="AnnouncementID">
             <Columns>
                 <asp:BoundField DataField="AnnouncementID" HeaderText="ID" ItemStyle-CssClass="text-center" />
                 <asp:BoundField DataField="Title" HeaderText="Title" />
                 <asp:BoundField DataField="Date" HeaderText="Date" DataFormatString="{0:yyyy-MM-dd}" />
+                <asp:BoundField DataField="StartTime" HeaderText="Start Time" DataFormatString="{0:hh:mm tt}" />
+                <asp:BoundField DataField="EndTime" HeaderText="End Time" DataFormatString="{0:hh:mm tt}" />
                 <asp:TemplateField HeaderText="Image">
                     <ItemTemplate>
                         <asp:Image ID="Image1" runat="server" Height="100px" Width="100px"
@@ -50,7 +54,7 @@
             </Columns>
         </asp:GridView>
         <div class="d-flex justify-content-center">
-             <asp:Label ID="noResultsLabel" runat="server" Text="No results found" Visible="false" CssClass="no-results-label"></asp:Label>
+            <asp:Label ID="noResultsLabel" runat="server" Text="No results found" Visible="false" CssClass="no-results-label"></asp:Label>
         </div>
         <asp:HiddenField ID="HidAnnouncementID" runat="server" />
     </div>
@@ -71,6 +75,14 @@
                         <div class="form-floating mb-3">
                             <asp:TextBox ID="Datebx" CssClass="form-control" runat="server" placeholder="Title" TextMode="Date"></asp:TextBox>
                             <label for="Datebx">Date</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <asp:TextBox ID="StartTimebx" CssClass="form-control" runat="server" placeholder="Start Time"  TextMode="Time"></asp:TextBox>
+                            <label for="StartTime">Start Time</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <asp:TextBox ID="EndTimebx" CssClass="form-control" runat="server" placeholder="Start Time"  TextMode="Time"></asp:TextBox>
+                            <label for="EndTime">End Time</label>
                         </div>
                         <div class="form-floating mb-3">
                             <asp:TextBox ID="ShortDescbx" CssClass="form-control" runat="server" placeholder="Short Description"></asp:TextBox>
@@ -115,8 +127,22 @@
                             <span>Please provide a date</span>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="StartTime">Start Time</label>
+                                <asp:TextBox ID="addStartTime" CssClass="form-control clockpicker" runat="server" placeholder="Start Time" TextMode="Time"></asp:TextBox>
+                            </div>
+                            <div class="col">
+                                <label for="EndTime">End Time</label>
+                                <asp:TextBox ID="addEndTime" CssClass="form-control clockpicker" runat="server" placeholder="End Time" TextMode="Time"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                    </div>
                     <div class="mb-3">
-                       <asp:FileUpload ID="addFilebx" CssClass="addFilebx form-control" runat="server" accept=".jpg, .png, .jpeg" />
+                        <asp:FileUpload ID="addFilebx" CssClass="addFilebx form-control" runat="server" accept=".jpg, .png, .jpeg" />
                         <div class="imgError text-danger d-none" id="imgError">
                             <span><i class="bi bi-info-circle"></i></span>
                             <span>Image is required</span>
@@ -159,6 +185,7 @@
                 </div>
                 <div class="modal-body">
                     Delete this annoucement?
+               
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -168,7 +195,7 @@
         </div>
     </div>
 
-     <%-- Success modal --%>
+    <%-- Success modal --%>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -179,7 +206,7 @@
             </div>
         </div>
     </div>
-     <%-- Error modal --%>
+    <%-- Error modal --%>
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -196,6 +223,8 @@
     <script src="../../../Scripts/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" integrity="sha256-oaR6kWgM/X73YzHy1l2hAwt2xpfrIQ34qR/vsUmbtOY=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js" integrity="sha256-DeIe6jTh3bFrP6Hh9gZzZ6lc7zU6o6ax/MSMdVivmcM=" crossorigin="anonymous"></script>
     <script>
         function showConfirmationModal(id) {
             // Store the ID in a hidden field or JavaScript variable to access it later in btnConfirmDelete_Click

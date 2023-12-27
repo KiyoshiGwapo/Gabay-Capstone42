@@ -8,6 +8,10 @@
         const datebxInput = form.querySelector('.addDatebx');
         const errorDatebx = form.querySelector('.addDatebxError');
 
+        const startTimeInput = form.querySelector('.addStartTime');
+        const endTimeInput = form.querySelector('.addEndTime');
+        const errorTime = form.querySelector('.timeError');
+
         const addFileInput = form.querySelector('.addFilebx');
         const errorImg = form.querySelector('.imgError');
 
@@ -45,6 +49,23 @@
                 return true;
             }
         }
+
+        function checkTime() {
+            const regex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+
+            if (!regex.test(startTimeInput.value) || !regex.test(endTimeInput.value)) {
+                startTimeInput.classList.add('is-invalid');
+                endTimeInput.classList.add('is-invalid');
+                errorTime.classList.remove('d-none');
+                return false;
+            } else {
+                startTimeInput.classList.remove('is-invalid');
+                endTimeInput.classList.remove('is-invalid');
+                errorTime.classList.add('d-none');
+                return true;
+            }
+        }
+
         function checkFileExtension() {
             const regex = /\.(jpe?g|png)$/i;
 
@@ -106,6 +127,10 @@
                 isValid = false;
             }
 
+            if (!checkTime()) {
+                isValid = false;
+            }
+
             if (!checkFileExtension()) {
                 isValid = false;
             }
@@ -126,6 +151,8 @@
 
         titleBxInput.addEventListener('keyup', checkTitle);
         datebxInput.addEventListener('change', checkDate);
+        startTimeInput.addEventListener('change', checkTime);
+        endTimeInput.addEventListener('change', checkTime);
         addFileInput.addEventListener('change', checkFileExtension);
         shrtdescInput.addEventListener('keyup', checkShrtdescInput);
         lngdescInput.addEventListener('keyup', checkLngdesc);

@@ -132,10 +132,18 @@
                             <div class="col">
                                 <label for="StartTime">Start Time</label>
                                 <asp:TextBox ID="addStartTime" CssClass="form-control clockpicker" runat="server" placeholder="Start Time" TextMode="Time"></asp:TextBox>
+                        <div class="addStartTimeError text-danger d-none" id="timeError">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Please provide a Time</span>
+                        </div>
                             </div>
                             <div class="col">
                                 <label for="EndTime">End Time</label>
                                 <asp:TextBox ID="addEndTime" CssClass="form-control clockpicker" runat="server" placeholder="End Time" TextMode="Time"></asp:TextBox>
+                        <div class="addStartTimeError text-danger d-none" id="timeEr">
+                            <span><i class="bi bi-info-circle"></i></span>
+                            <span>Please provide a Time</span>
+                        </div>
                             </div>
                         </div>
                     </div>
